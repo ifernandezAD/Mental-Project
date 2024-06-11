@@ -6,7 +6,7 @@ public class Happiness : MonoBehaviour
     public static Action<int,int> onHappinessChange;
 
     [SerializeField] private int happinessRange =10;
-    [SerializeField] private int currentHappinessRange =0;
+    [SerializeField] private int currentHappiness =0;
 
     
     [Header("Testing")]
@@ -31,26 +31,26 @@ public class Happiness : MonoBehaviour
 
     void AddHappiness(int happiness)
     {
-        currentHappinessRange += happiness;
+        currentHappiness += happiness;
     
-        if (currentHappinessRange >= happinessRange)
+        if (currentHappiness >= happinessRange)
         {
-            currentHappinessRange = happinessRange;
+            currentHappiness = happinessRange;
             
         }
 
-        //onMentalHealthChange?.Invoke(currentMentalHealth,maxMentalHealth);
+        onHappinessChange?.Invoke(currentHappiness,happinessRange);
     }
 
     void DecreaseHappiness(int happiness)
     {
-        currentHappinessRange += happiness;
+        currentHappiness += happiness;
 
-        if (currentHappinessRange <= -happinessRange)
+        if (currentHappiness <= -happinessRange)
         {
-            currentHappinessRange=-happinessRange;
+            currentHappiness=-happinessRange;
         }
 
-        //onMentalHealthChange?.Invoke(currentMentalHealth,maxMentalHealth);
+        onHappinessChange?.Invoke(currentHappiness,happinessRange);
     }
 }

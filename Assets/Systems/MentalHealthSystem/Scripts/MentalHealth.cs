@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MentalHealth : MonoBehaviour
 {
-    public static Action<float> onMentalHealthChange;
+    public static Action<float,int> onMentalHealthChange;
 
     [Header("Mental Health")]
     [SerializeField] private int maxMentalHealth = 100;
@@ -58,7 +58,7 @@ public class MentalHealth : MonoBehaviour
     {
         float fillValue = (float)currentMentalHealth / maxMentalHealth;
 
-        onMentalHealthChange(fillValue);
+        onMentalHealthChange(fillValue,currentMentalHealth);
     }
 
     private void GameOver()

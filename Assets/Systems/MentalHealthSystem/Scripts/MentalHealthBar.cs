@@ -3,23 +3,36 @@ using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MentalHealthBar : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Image mentalHealthBar;
+    [SerializeField] private TextMeshProUGUI mentalHealthText;
 
     void OnEnable()
     {
-        MentalHealth.onMentalHealthChange += UpdateHealthBar;
+        MentalHealth.onMentalHealthChange += UpdateMentalHealthBar;
     }
 
-    private void UpdateHealthBar(float fillValue)
+    private void UpdateMentalHealthBar(float fillValue, int currentMentalHealth)
+    {
+        UpdateMentalHealthBarImage(fillValue);
+        UpdateMentalHealthText(currentMentalHealth);
+    }
+
+    private void UpdateMentalHealthBarImage(float fillValue)
     {
         mentalHealthBar.fillAmount = fillValue;
     }
 
-     void OnDisable()
+    private void UpdateMentalHealthText(int currentMentalHealth)
     {
-        MentalHealth.onMentalHealthChange += UpdateHealthBar;
+        mentalHealthText.text =  currentMentalHealth + "/100";
+    }
+
+    void OnDisable()
+    {
+        MentalHealth.onMentalHealthChange -= UpdateMentalHealthBar;
     }
 }

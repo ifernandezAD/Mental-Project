@@ -15,10 +15,16 @@ public class MentalHealthBar : MonoBehaviour
         MentalHealth.onMentalHealthChange += UpdateMentalHealthBar;
     }
 
-    private void UpdateMentalHealthBar(float fillValue, int currentMentalHealth)
+    private void UpdateMentalHealthBar(int currentMentalHealth, int maxMentalHealth)
     {
+        CalculateMentalHealthBarFillAmount(currentMentalHealth,maxMentalHealth);
+        UpdateMentalHealthText(currentMentalHealth,maxMentalHealth);
+    }
+
+    void CalculateMentalHealthBarFillAmount(float currentMentalHealth, int maxMentalHealth)
+    {
+        float fillValue = (float)currentMentalHealth / maxMentalHealth;
         UpdateMentalHealthBarImage(fillValue);
-        UpdateMentalHealthText(currentMentalHealth);
     }
 
     private void UpdateMentalHealthBarImage(float fillValue)
@@ -26,9 +32,9 @@ public class MentalHealthBar : MonoBehaviour
         mentalHealthBar.fillAmount = fillValue;
     }
 
-    private void UpdateMentalHealthText(int currentMentalHealth)
+    private void UpdateMentalHealthText(int currentMentalHealth, int maxMentalHealth)
     {
-        mentalHealthText.text =  currentMentalHealth + "/100";
+        mentalHealthText.text = currentMentalHealth + " / " + maxMentalHealth;
     }
 
     void OnDisable()

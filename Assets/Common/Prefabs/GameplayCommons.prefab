@@ -44,6 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4421069515364049607}
+  - component: {fileID: 7718941286265154526}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -66,6 +67,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3117750773265143654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7718941286265154526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115d951af15d474478566ba8a11ed751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMentalHealth: 100
+  currentMentalHealth: 100
+  testAddHealth: 0
+  testDecreaseHealth: 0
 --- !u!1 &8361003642442411564
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,9 +312,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3117750773265143654}
     m_Modifications:
+    - target: {fileID: 214561597367216748, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 214561597367216748, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 214561597367216748, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
       value: TestingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936484296149757846, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936484296149757846, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x

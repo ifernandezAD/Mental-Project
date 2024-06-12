@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MentalHealth : MonoBehaviour
 {
+    [SerializeField] CharacterController characterController;
     public static Action<int,int> onMentalHealthChange;
 
     [Header("Mental Health")]
@@ -28,6 +29,18 @@ public class MentalHealth : MonoBehaviour
             DecreaseMentalHealth(-5);
             testDecreaseHealth=false;
         }  
+    }
+
+    void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
+    void Start()
+    {
+        maxMentalHealth = characterController.selectedCharacter.maxMentalHealth;
+        currentMentalHealth=maxMentalHealth;
+        onMentalHealthChange?.Invoke(currentMentalHealth,maxMentalHealth);
     }
 
     void AddMentalHealth(int mentalHealth)

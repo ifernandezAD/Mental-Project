@@ -7,7 +7,10 @@ public class Loto : MonoBehaviour
     [Header("Testing")]
     [SerializeField] bool testPrintLotoPool;
     [SerializeField] bool testSubstractFromPool;
+
     [SerializeField] bool testRefillPool;
+    [SerializeField] bool testIncreasePoolSize;
+    [SerializeField] bool testDecreasePoolSize;
 
     [SerializeField] CharacterController characterController;
     [SerializeField] private int maxValue;
@@ -31,6 +34,18 @@ public class Loto : MonoBehaviour
         {
             RefillPool();
             testRefillPool = false;
+        }
+
+        if (testIncreasePoolSize)
+        {
+            ChangePoolSize(1);
+            testIncreasePoolSize = false;
+        }
+
+        if (testDecreasePoolSize)
+        {
+            ChangePoolSize(-1);
+            testDecreasePoolSize = false;
         }
 
     }
@@ -73,6 +88,11 @@ public class Loto : MonoBehaviour
         {
             lottoPool.Add(i);
         }
+    }
+
+    void ChangePoolSize(int value)
+    {
+        maxValue += value;
     }
 
     void TestingPrintLottoPool()

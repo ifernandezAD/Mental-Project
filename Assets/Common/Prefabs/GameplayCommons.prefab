@@ -44,8 +44,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4421069515364049607}
+  - component: {fileID: 1978722524396814121}
   - component: {fileID: 7718941286265154526}
   - component: {fileID: 723501285974023788}
+  - component: {fileID: 6293654132111364866}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -68,6 +70,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3117750773265143654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978722524396814121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2288426442ddd942b230c190acd1d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersArray:
+  - {fileID: 11400000, guid: 30a64d26a60169d4f9e417de8c7c3d01, type: 2}
+  - {fileID: 11400000, guid: aeeb73958ef55414caa8330770a29881, type: 2}
+  - {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
+  selectedCharacter: {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
 --- !u!114 &7718941286265154526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115d951af15d474478566ba8a11ed751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 0}
   maxMentalHealth: 100
   currentMentalHealth: 100
   testAddHealth: 0
@@ -96,10 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d2fdbaecd60cf4e998cf0b12b4c570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 0}
   happinessRange: 10
   currentHappiness: 0
   testAddHappiness: 0
   testDecreaseHappiness: 0
+--- !u!114 &6293654132111364866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c64d0d5f4e6304d9599909122d3220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8361003642442411564
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +467,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4242605040878060159, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

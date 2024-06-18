@@ -969,6 +969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5932619625678242378, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6241897402211045160, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1047,6 +1051,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6241897402211045160, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012838906971176227, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1172,6 +1180,10 @@ PrefabInstance:
     - target: {fileID: 1969204083341841370, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_Name
       value: Slot 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969204083341841370, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6241897402211045160, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_Pivot.x
@@ -1376,6 +1388,10 @@ PrefabInstance:
     - target: {fileID: 1969204083341841370, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_Name
       value: Slot 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969204083341841370, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6241897402211045160, guid: 56d7bed4a20e4fd4d8e6e3871d35d3d5, type: 3}
       propertyPath: m_Pivot.x

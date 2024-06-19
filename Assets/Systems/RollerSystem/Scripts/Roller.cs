@@ -5,44 +5,36 @@ public class Roller : MonoBehaviour
     [Header("Testing")]
     [SerializeField] bool testAddSlot;
     [SerializeField] bool testRemoveSlot;
+    [SerializeField] bool testRoll;
 
     [Header("Variables")]
-    [SerializeField] GameObject slots; 
-    [SerializeField] int activeSlotCount = 3; 
+    [SerializeField] GameObject slots;
+    [SerializeField] int activeSlotCount = 3;
+    [SerializeField] bool[] lockedSlots;
 
-void OnValidate()
-{
-    if(testAddSlot)
+    void OnValidate()
     {
-        AddSlot();
-        testAddSlot = false;
-    }
-
-    if(testRemoveSlot)
-    {
-        RemoveSlot();
-        testRemoveSlot = false;
-    }
-}
-
- void Start()
-    {
-        int slotIndex = 0;
-        foreach (Transform slot in slots.transform)
+        if (testAddSlot)
         {
-            if (slotIndex < activeSlotCount)
-            {
-                slot.gameObject.SetActive(true);
-            }
-            else
-            {
-                slot.gameObject.SetActive(false);
-            }
-            slotIndex++;
+            AddSlot();
+            testAddSlot = false;
+        }
+
+        if (testRemoveSlot)
+        {
+            RemoveSlot();
+            testRemoveSlot = false;
+        }
+
+        if (testRoll)
+        {
+            ActivateRandomImageInSlots();
+            testRoll = false;
         }
     }
 
-    public void AddSlot()
+
+    void AddSlot()
     {
         if (activeSlotCount < slots.transform.childCount)
         {
@@ -51,12 +43,48 @@ void OnValidate()
         }
     }
 
-    public void RemoveSlot()
+    void RemoveSlot()
     {
-        if (activeSlotCount > 0)
+        if (activeSlotCount > 3)
         {
             activeSlotCount--;
             slots.transform.GetChild(activeSlotCount).gameObject.SetActive(false);
+        }
+    }
+
+    void LockSlot(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
+        {
+            lockedSlots[slotIndex] = true;
+        }
+    }
+
+    void UnlockSlot(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
+        {
+            lockedSlots[slotIndex] = false;
+        }
+    }
+
+    void ActivateRandomImageInSlots()
+    {
+        foreach (Transform slot in slots.transform)
+        {
+            if (slot.gameObject.activeSelf)
+            {
+                int childCount = slot.childCount;
+
+                for (int i = 0; i < childCount; i++)
+                {
+                    slot.GetChild(i).gameObject.SetActive(false);
+                }
+
+
+                int randomIndex = Random.Range(0, childCount);
+                slot.GetChild(randomIndex).gameObject.SetActive(true);
+            }
         }
     }
 }

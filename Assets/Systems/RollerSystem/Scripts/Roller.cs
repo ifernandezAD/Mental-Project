@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Roller : MonoBehaviour
 {
-    [Header("Testing")]
+    public static Roller instance { get; private set; }
+
+    [Header("Testing Add/Remove Slots")]
     [SerializeField] bool testAddSlot;
     [SerializeField] bool testRemoveSlot;
-    [SerializeField] bool testRoll;
+
+    [Header("Testing Locking Slots")]
     [SerializeField] int testLockSlotInt;
     [SerializeField] bool testLockSlot; 
     [SerializeField] bool testUnlockSlot; 
 
+    [Header("Testing Slots")]
+    [SerializeField] bool testRoll;
 
     [Header("Variables")]
     [SerializeField] GameObject slots;
@@ -49,6 +54,11 @@ public class Roller : MonoBehaviour
         }
     }
 
+   private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         if (lockedSlots == null || lockedSlots.Length != slots.transform.childCount)
@@ -76,7 +86,7 @@ public class Roller : MonoBehaviour
         }
     }
 
-    void LockSlot(int slotIndex)
+    public void LockSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
         {
@@ -84,12 +94,37 @@ public class Roller : MonoBehaviour
         }
     }
 
-    void UnlockSlot(int slotIndex)
+    public void UnlockSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
         {
             lockedSlots[slotIndex] = false;
         }
+    }
+
+      public bool IsSlotLocked(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
+        {
+            return lockedSlots[slotIndex];
+        }
+        return false;
+    }
+
+        public bool IsImageActiveInSlot(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
+        {
+            Transform slot = slots.transform.GetChild(slotIndex);
+            foreach (Transform child in slot)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     void ActivateRandomImageInSlots()
@@ -100,12 +135,12 @@ public class Roller : MonoBehaviour
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
                 int childCount = slot.childCount;
-                // Deactivate all images first
+                
                 for (int i = 0; i < childCount; i++)
                 {
                     slot.GetChild(i).gameObject.SetActive(false);
                 }
-                // Activate a random image
+               
                 int randomIndex = Random.Range(0, childCount);
                 slot.GetChild(randomIndex).gameObject.SetActive(true);
             }

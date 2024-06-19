@@ -110,13 +110,14 @@ public class Roller : MonoBehaviour
         }
         return false;
     }
-
-        public bool IsImageActiveInSlot(int slotIndex)
+    public bool IsImageActiveInSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
         {
             Transform slot = slots.transform.GetChild(slotIndex);
-            foreach (Transform child in slot)
+            Transform icons = slot.GetChild(0);
+
+            foreach (Transform child in icons)
             {
                 if (child.gameObject.activeSelf)
                 {
@@ -134,15 +135,16 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
-                int childCount = slot.childCount;
-                
+                Transform icons = slot.GetChild(0); 
+                int childCount = icons.childCount;
+
                 for (int i = 0; i < childCount; i++)
                 {
-                    slot.GetChild(i).gameObject.SetActive(false);
+                    icons.GetChild(i).gameObject.SetActive(false);
                 }
-               
+
                 int randomIndex = Random.Range(0, childCount);
-                slot.GetChild(randomIndex).gameObject.SetActive(true);
+                icons.GetChild(randomIndex).gameObject.SetActive(true);
             }
             slotIndex++;
         }

@@ -59,10 +59,10 @@ public class Roller : MonoBehaviour
             testUnlockSlot = false;
         }
 
-        if(testOutcome)
+        if (testOutcome)
         {
             TestingRollOutcome();
-            testOutcome=false;
+            testOutcome = false;
         }
     }
 
@@ -181,13 +181,12 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf)
             {
-                int childCount = slot.childCount;
-                for (int i = 0; i < childCount; i++)
+                Transform icons = slot.GetChild(1); 
+                foreach (Transform icon in icons)
                 {
-                    GameObject imageObject = slot.GetChild(i).gameObject;
-                    if (imageObject.activeSelf)
+                    if (icon.gameObject.activeSelf)
                     {
-                        ImageType imageType = GetImageType(imageObject);
+                        ImageType imageType = GetImageType(icon.gameObject);
                         if (imageType != ImageType.None)
                         {
                             imageCount[imageType]++;
@@ -233,6 +232,5 @@ public class Roller : MonoBehaviour
         Debug.Log($"Swords count is {swordCount}");
         Debug.Log($"Hearts count is {heartCount}");
         Debug.Log($"Books count is {bookCount}");
-
     }
 }

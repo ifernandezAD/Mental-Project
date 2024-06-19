@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Roller : MonoBehaviour
@@ -10,16 +11,21 @@ public class Roller : MonoBehaviour
 
     [Header("Testing Locking Slots")]
     [SerializeField] int testLockSlotInt;
-    [SerializeField] bool testLockSlot; 
-    [SerializeField] bool testUnlockSlot; 
+    [SerializeField] bool testLockSlot;
+    [SerializeField] bool testUnlockSlot;
 
     [Header("Testing Slots")]
     [SerializeField] bool testRoll;
+
+    [Header("Testing Roll Outcome")]
+    [SerializeField] bool testOutcome;
 
     [Header("Variables")]
     [SerializeField] GameObject slots;
     [SerializeField] int activeSlotCount = 3;
     [SerializeField] bool[] lockedSlots;
+
+    private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
     void OnValidate()
     {
@@ -41,20 +47,26 @@ public class Roller : MonoBehaviour
             testRoll = false;
         }
 
-        if(testLockSlot)
+        if (testLockSlot)
         {
             LockSlot(testLockSlotInt);
             testLockSlot = false;
         }
 
-        if(testUnlockSlot)
+        if (testUnlockSlot)
         {
             UnlockSlot(testLockSlotInt);
             testUnlockSlot = false;
         }
+
+        if(testOutcome)
+        {
+            TestingRollOutcome();
+            testOutcome=false;
+        }
     }
 
-   private void Awake()
+    private void Awake()
     {
         instance = this;
     }
@@ -64,7 +76,9 @@ public class Roller : MonoBehaviour
         if (lockedSlots == null || lockedSlots.Length != slots.transform.childCount)
         {
             lockedSlots = new bool[slots.transform.childCount];
-        }    
+        }
+
+        InitializeImageCount();
     }
 
 
@@ -102,7 +116,7 @@ public class Roller : MonoBehaviour
         }
     }
 
-      public bool IsSlotLocked(int slotIndex)
+    public bool IsSlotLocked(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
         {
@@ -135,7 +149,7 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
-                Transform icons = slot.GetChild(1); 
+                Transform icons = slot.GetChild(1);
                 int childCount = icons.childCount;
 
                 for (int i = 0; i < childCount; i++)
@@ -148,5 +162,77 @@ public class Roller : MonoBehaviour
             }
             slotIndex++;
         }
+        UpdateImageCount();
+    }
+
+    void InitializeImageCount()
+    {
+        imageCount.Clear();
+        imageCount.Add(ImageType.Sword, 0);
+        imageCount.Add(ImageType.Heart, 0);
+        imageCount.Add(ImageType.Book, 0);
+    }
+
+    void UpdateImageCount()
+    {
+        InitializeImageCount(); // Reset counts
+
+        foreach (Transform slot in slots.transform)
+        {
+            if (slot.gameObject.activeSelf)
+            {
+                int childCount = slot.childCount;
+                for (int i = 0; i < childCount; i++)
+                {
+                    GameObject imageObject = slot.GetChild(i).gameObject;
+                    if (imageObject.activeSelf)
+                    {
+                        ImageType imageType = GetImageType(imageObject);
+                        if (imageType != ImageType.None)
+                        {
+                            imageCount[imageType]++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ImageType GetImageType(GameObject imageObject)
+    {
+        if (imageObject.CompareTag("Sword"))
+        {
+            return ImageType.Sword;
+        }
+        else if (imageObject.CompareTag("Heart"))
+        {
+            return ImageType.Heart;
+        }
+        else if (imageObject.CompareTag("Book"))
+        {
+            return ImageType.Book;
+        }
+        return ImageType.None;
+    }
+
+    public int GetImageCount(ImageType type)
+    {
+        if (imageCount.ContainsKey(type))
+        {
+            return imageCount[type];
+        }
+        return 0;
+    }
+
+    void TestingRollOutcome()
+    {
+        int swordCount = GetImageCount(ImageType.Sword);
+        int heartCount = GetImageCount(ImageType.Heart);
+        int bookCount = GetImageCount(ImageType.Book);
+
+        Debug.Log($"Swords count is {swordCount}");
+        Debug.Log($"Hearts count is {heartCount}");
+        Debug.Log($"Books count is {bookCount}");
+
     }
 }

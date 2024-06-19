@@ -87,6 +87,7 @@ public class Roller : MonoBehaviour
         if (activeSlotCount < slots.transform.childCount)
         {
             slots.transform.GetChild(activeSlotCount).gameObject.SetActive(true);
+            ResetSlot(activeSlotCount);
             activeSlotCount++;
         }
     }
@@ -97,6 +98,7 @@ public class Roller : MonoBehaviour
         {
             activeSlotCount--;
             slots.transform.GetChild(activeSlotCount).gameObject.SetActive(false);
+            ResetSlot(activeSlotCount);
         }
     }
 
@@ -113,6 +115,26 @@ public class Roller : MonoBehaviour
         if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
         {
             lockedSlots[slotIndex] = false;
+        }
+    }
+
+        void ResetSlot(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
+        {
+            Transform slot = slots.transform.GetChild(slotIndex);
+            Transform icons = slot.GetChild(1);
+            int childCount = icons.childCount;
+
+            for (int i = 0; i < childCount; i++)
+            {
+                icons.GetChild(i).gameObject.SetActive(false);
+            }
+
+            if (lockedSlots != null && slotIndex < lockedSlots.Length)
+            {
+                lockedSlots[slotIndex] = false;
+            }
         }
     }
 

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class SlotButtonHandler : MonoBehaviour
 {
     [SerializeField] int slotIndex;
+    [SerializeField] GameObject lockedImage;
     private Button button;
+
 
     void Start()
     {
@@ -17,16 +19,18 @@ public class SlotButtonHandler : MonoBehaviour
     {
         if (!Roller.instance.IsImageActiveInSlot(slotIndex))
         {
-            return; // Prevent locking if no image is active
+            return; 
         }
 
         if (Roller.instance.IsSlotLocked(slotIndex))
         {
             Roller.instance.UnlockSlot(slotIndex);
+            lockedImage.SetActive(false);
         }
         else
         {
             Roller.instance.LockSlot(slotIndex);
+            lockedImage.SetActive(true);
         }
     }
 }

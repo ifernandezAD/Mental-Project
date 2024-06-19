@@ -115,7 +115,7 @@ public class Roller : MonoBehaviour
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
         {
             Transform slot = slots.transform.GetChild(slotIndex);
-            Transform icons = slot.GetChild(0);
+            Transform icons = slot.GetChild(1);
 
             foreach (Transform child in icons)
             {
@@ -135,7 +135,7 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
-                Transform icons = slot.GetChild(0); 
+                Transform icons = slot.GetChild(1); 
                 int childCount = icons.childCount;
 
                 for (int i = 0; i < childCount; i++)

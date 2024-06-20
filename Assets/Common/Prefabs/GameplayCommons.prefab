@@ -46,9 +46,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4421069515364049607}
   - component: {fileID: 1978722524396814121}
+  - component: {fileID: 6293654132111364866}
+  - component: {fileID: 2364021847631072680}
   - component: {fileID: 7718941286265154526}
   - component: {fileID: 723501285974023788}
-  - component: {fileID: 6293654132111364866}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -88,6 +89,41 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aeeb73958ef55414caa8330770a29881, type: 2}
   - {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
   selectedCharacter: {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
+--- !u!114 &6293654132111364866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c64d0d5f4e6304d9599909122d3220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testAddSlot: 0
+  testRemoveSlot: 0
+  testLockSlotInt: 0
+  testLockSlot: 0
+  testUnlockSlot: 0
+  testRoll: 0
+  testOutcome: 0
+  slots: {fileID: 1628843172688494404}
+  activeSlotCount: 3
+  lockedSlots: 
+--- !u!114 &2364021847631072680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d18b6073109dc84f965f7ec0395175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapeGame: {fileID: -5716450392400340515, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &7718941286265154526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,27 +158,6 @@ MonoBehaviour:
   currentHappiness: 0
   testAddHappiness: 0
   testDecreaseHappiness: 0
---- !u!114 &6293654132111364866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093725935796269349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c64d0d5f4e6304d9599909122d3220, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testAddSlot: 0
-  testRemoveSlot: 0
-  testLockSlotInt: 0
-  testLockSlot: 0
-  testUnlockSlot: 0
-  testRoll: 0
-  slots: {fileID: 1628843172688494404}
-  activeSlotCount: 3
-  lockedSlots: 
 --- !u!1 &6463109656143938258
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,9 +465,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3117750773265143654}
     m_Modifications:
+    - target: {fileID: 1104579918034478263, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: slotIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
       value: TestingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941279518383546423, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: slotIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965590121932979671, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: slotIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066415213351960453, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: slotIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x

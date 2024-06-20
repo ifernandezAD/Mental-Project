@@ -1,8 +1,4 @@
-using System;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class MentalHealthBar : MonoBehaviour
@@ -17,8 +13,8 @@ public class MentalHealthBar : MonoBehaviour
 
     private void UpdateMentalHealthBar(int currentMentalHealth, int maxMentalHealth)
     {
-        CalculateMentalHealthBarFillAmount(currentMentalHealth,maxMentalHealth);
-        UpdateMentalHealthText(currentMentalHealth,maxMentalHealth);
+        CalculateMentalHealthBarFillAmount(currentMentalHealth, maxMentalHealth);
+        UpdateMentalHealthText(currentMentalHealth, maxMentalHealth);
     }
 
     void CalculateMentalHealthBarFillAmount(float currentMentalHealth, int maxMentalHealth)

@@ -1,16 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemyCardDisplay : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+ [SerializeField] EnemyCard enemyCard;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ [SerializeField] Image cardArt;
+
+ void Start()
+ {
+    cardArt.sprite = enemyCard.art;
+ }
+
 }

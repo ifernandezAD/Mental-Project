@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8653fa5d7b9467b4ebcef13eabfa998d, type: 3}
   m_Name: TestEnemy3
   m_EditorClassIdentifier: 
-  cardName: 
-  art: {fileID: 0}
-  health: 0
-  attack: 0
+  cardName: Bunsen
+  art: {fileID: -659886330781462948, guid: ba9146e208bec684587cff6b0d4dbfd5, type: 3}
+  skill: 
+  health: 5
+  attack: 1

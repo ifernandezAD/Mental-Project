@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8653fa5d7b9467b4ebcef13eabfa998d, type: 3}
   m_Name: TestEnemy2
   m_EditorClassIdentifier: 
-  cardName: 
-  art: {fileID: 0}
-  health: 0
-  attack: 0
+  cardName: Bobo
+  art: {fileID: 4518458050502786326, guid: 5063e3cfbf91842418049b71dc9c2b42, type: 3}
+  skill: 
+  health: 6
+  attack: 2

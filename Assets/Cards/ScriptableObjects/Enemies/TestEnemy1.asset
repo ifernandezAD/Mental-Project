@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8653fa5d7b9467b4ebcef13eabfa998d, type: 3}
   m_Name: TestEnemy1
   m_EditorClassIdentifier: 
-  cardName: 
-  art: {fileID: 0}
-  health: 0
-  attack: 0
+  cardName: Beaker
+  art: {fileID: -8214379713626754130, guid: 5a7774dd9e1720445b3183a8957547be, type: 3}
+  skill: Just Beaker
+  health: 3
+  attack: 1

@@ -14,16 +14,27 @@ public class Roller : MonoBehaviour
     [SerializeField] bool testLockSlot;
     [SerializeField] bool testUnlockSlot;
 
+    [Header("Testing Energy")]
+    [SerializeField] bool testAddEnergy;
+    [SerializeField] bool testRemoveEnergy;
+    [SerializeField] bool testResetEnergy;
+
+    
     [Header("Testing Slots")]
     [SerializeField] bool testRoll;
 
     [Header("Testing Roll Outcome")]
     [SerializeField] bool testOutcome;
 
-    [Header("Variables")]
+    [Header("Slots Variables")] 
     [SerializeField] GameObject slots;
     [SerializeField] int activeSlotCount = 3;
     [SerializeField] bool[] lockedSlots;
+
+    [Header("Energy Variables")]
+    [SerializeField] int maxEnergy = 3;
+    [SerializeField] int currentEnergy = 3;
+    
 
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
@@ -63,6 +74,24 @@ public class Roller : MonoBehaviour
         {
             TestingRollOutcome();
             testOutcome = false;
+        }
+
+        if(testAddEnergy)
+        {
+            ChangeMaxEnergy(1);
+            testAddEnergy=false;
+        }
+
+        if(testRemoveEnergy)
+        {
+            ChangeMaxEnergy(-1);
+            testRemoveEnergy = false;
+        }
+
+        if(testResetEnergy)
+        {
+            ResetEnergy();
+            testResetEnergy = false;
         }
     }
 
@@ -166,6 +195,12 @@ public class Roller : MonoBehaviour
 
     void ActivateRandomImageInSlots()
     {
+      if (currentEnergy <= 0)
+        {
+            Debug.Log("No energy left to roll.");
+            return;
+        }
+
         int slotIndex = 0;
         foreach (Transform slot in slots.transform)
         {
@@ -184,7 +219,9 @@ public class Roller : MonoBehaviour
             }
             slotIndex++;
         }
+
         UpdateImageCount();
+        currentEnergy--;
     }
 
     void InitializeImageCount()
@@ -254,5 +291,16 @@ public class Roller : MonoBehaviour
         Debug.Log($"Swords count is {swordCount}");
         Debug.Log($"Hearts count is {heartCount}");
         Debug.Log($"Books count is {bookCount}");
+    }
+
+        public void ResetEnergy()
+    {
+        currentEnergy = maxEnergy;
+        Debug.Log($"Energy reset. Current energy: {currentEnergy}");
+    } 
+
+    public void ChangeMaxEnergy(int energy)
+    {
+        maxEnergy+=energy;
     }
 }

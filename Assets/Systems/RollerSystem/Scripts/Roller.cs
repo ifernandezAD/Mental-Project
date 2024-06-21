@@ -19,14 +19,14 @@ public class Roller : MonoBehaviour
     [SerializeField] bool testRemoveEnergy;
     [SerializeField] bool testResetEnergy;
 
-    
+
     [Header("Testing Slots")]
     [SerializeField] bool testRoll;
 
     [Header("Testing Roll Outcome")]
     [SerializeField] bool testOutcome;
 
-    [Header("Slots Variables")] 
+    [Header("Slots Variables")]
     [SerializeField] GameObject slots;
     [SerializeField] int activeSlotCount = 3;
     [SerializeField] bool[] lockedSlots;
@@ -34,7 +34,7 @@ public class Roller : MonoBehaviour
     [Header("Energy Variables")]
     [SerializeField] int maxEnergy = 3;
     [SerializeField] int currentEnergy = 3;
-    
+
 
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
@@ -72,23 +72,23 @@ public class Roller : MonoBehaviour
 
         if (testOutcome)
         {
-            TestingRollOutcome();
+            CalculateRollOutcome();
             testOutcome = false;
         }
 
-        if(testAddEnergy)
+        if (testAddEnergy)
         {
             ChangeMaxEnergy(1);
-            testAddEnergy=false;
+            testAddEnergy = false;
         }
 
-        if(testRemoveEnergy)
+        if (testRemoveEnergy)
         {
             ChangeMaxEnergy(-1);
             testRemoveEnergy = false;
         }
 
-        if(testResetEnergy)
+        if (testResetEnergy)
         {
             ResetEnergy();
             testResetEnergy = false;
@@ -110,6 +110,8 @@ public class Roller : MonoBehaviour
         InitializeImageCount();
     }
 
+
+    #region Slots
 
     void AddSlot()
     {
@@ -147,7 +149,7 @@ public class Roller : MonoBehaviour
         }
     }
 
-        void ResetSlot(int slotIndex)
+    void ResetSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
         {
@@ -175,6 +177,11 @@ public class Roller : MonoBehaviour
         }
         return false;
     }
+
+    #endregion
+
+    #region RollImages
+
     public bool IsImageActiveInSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
@@ -195,7 +202,7 @@ public class Roller : MonoBehaviour
 
     void ActivateRandomImageInSlots()
     {
-      if (currentEnergy <= 0)
+        if (currentEnergy <= 0)
         {
             Debug.Log("No energy left to roll.");
             return;
@@ -221,6 +228,7 @@ public class Roller : MonoBehaviour
         }
 
         UpdateImageCount();
+        CalculateRollOutcome();
         currentEnergy--;
     }
 
@@ -240,7 +248,7 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf)
             {
-                Transform icons = slot.GetChild(1); 
+                Transform icons = slot.GetChild(1);
                 foreach (Transform icon in icons)
                 {
                     if (icon.gameObject.activeSelf)
@@ -282,7 +290,7 @@ public class Roller : MonoBehaviour
         return 0;
     }
 
-    void TestingRollOutcome()
+    void CalculateRollOutcome()
     {
         int swordCount = GetImageCount(ImageType.Sword);
         int heartCount = GetImageCount(ImageType.Heart);
@@ -293,14 +301,20 @@ public class Roller : MonoBehaviour
         Debug.Log($"Books count is {bookCount}");
     }
 
-        public void ResetEnergy()
+    #endregion
+
+
+    #region Energy
+    public void ChangeMaxEnergy(int energy)
+    {
+        maxEnergy += energy;
+    }
+    public void ResetEnergy()
     {
         currentEnergy = maxEnergy;
         Debug.Log($"Energy reset. Current energy: {currentEnergy}");
-    } 
-
-    public void ChangeMaxEnergy(int energy)
-    {
-        maxEnergy+=energy;
     }
+
+    #endregion
+
 }

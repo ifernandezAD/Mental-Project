@@ -228,7 +228,6 @@ public class Roller : MonoBehaviour
         }
 
         UpdateImageCount();
-        CalculateRollOutcome();
         currentEnergy--;
     }
 

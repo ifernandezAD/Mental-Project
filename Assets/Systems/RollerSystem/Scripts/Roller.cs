@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Roller : MonoBehaviour
@@ -32,6 +33,7 @@ public class Roller : MonoBehaviour
     [SerializeField] bool[] lockedSlots;
 
     [Header("Energy Variables")]
+     [SerializeField] TextMeshProUGUI energyText;
     [SerializeField] int maxEnergy = 3;
     [SerializeField] int currentEnergy = 3;
 
@@ -108,6 +110,8 @@ public class Roller : MonoBehaviour
         }
 
         InitializeImageCount();
+
+        energyText.text ="Energy: " + maxEnergy;
     }
 
 
@@ -200,7 +204,7 @@ public class Roller : MonoBehaviour
         return false;
     }
 
-    void ActivateRandomImageInSlots()
+    public void ActivateRandomImageInSlots()
     {
         if (currentEnergy <= 0)
         {
@@ -228,7 +232,9 @@ public class Roller : MonoBehaviour
         }
 
         UpdateImageCount();
+
         currentEnergy--;
+        energyText.text ="Energy: " + currentEnergy;
     }
 
     void InitializeImageCount()
@@ -311,6 +317,8 @@ public class Roller : MonoBehaviour
     public void ResetEnergy()
     {
         currentEnergy = maxEnergy;
+        energyText.text ="Energy: " + maxEnergy;
+
         Debug.Log($"Energy reset. Current energy: {currentEnergy}");
     }
 

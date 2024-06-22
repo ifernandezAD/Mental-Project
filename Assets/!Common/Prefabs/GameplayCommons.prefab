@@ -102,6 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ae03fc2095fc04b813a25af847fb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalRounds: 50
+  roundCounter: 1
+  isRoundActive: 0
 --- !u!114 &6293654132111364866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,11 +122,17 @@ MonoBehaviour:
   testLockSlotInt: 0
   testLockSlot: 0
   testUnlockSlot: 0
+  testAddEnergy: 0
+  testRemoveEnergy: 0
+  testResetEnergy: 0
   testRoll: 0
   testOutcome: 0
   slots: {fileID: 1628843172688494404}
   activeSlotCount: 3
   lockedSlots: 
+  energyText: {fileID: 4553205046654512875}
+  maxEnergy: 3
+  currentEnergy: 3
 --- !u!114 &2364021847631072680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,25 +487,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3117750773265143654}
     m_Modifications:
-    - target: {fileID: 1104579918034478263, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: slotIndex
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
       value: TestingUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5941279518383546423, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: slotIndex
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965590121932979671, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: slotIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7066415213351960453, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: slotIndex
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x
@@ -588,6 +581,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3799590762947477941, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
   m_PrefabInstance: {fileID: 2458978138567081713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4553205046654512875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2094226925557272602, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6709592328099959644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -33,9 +34,11 @@ public class Roller : MonoBehaviour
     [SerializeField] bool[] lockedSlots;
 
     [Header("Energy Variables")]
-     [SerializeField] TextMeshProUGUI energyText;
+    [SerializeField] TextMeshProUGUI energyText;
     [SerializeField] int maxEnergy = 3;
     [SerializeField] int currentEnergy = 3;
+    public static Action onOutOfEnergy;
+    public static Action onResetEnergy;
 
 
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
@@ -208,8 +211,12 @@ public class Roller : MonoBehaviour
     {
         if (currentEnergy <= 0)
         {
-            Debug.Log("No energy left to roll.");
             return;
+        }
+
+        if(currentEnergy == 1)
+        {
+            onOutOfEnergy?.Invoke();
         }
 
         int slotIndex = 0;
@@ -225,16 +232,14 @@ public class Roller : MonoBehaviour
                     icons.GetChild(i).gameObject.SetActive(false);
                 }
 
-                int randomIndex = Random.Range(0, childCount);
+                int randomIndex = UnityEngine.Random.Range(0, childCount);
                 icons.GetChild(randomIndex).gameObject.SetActive(true);
             }
             slotIndex++;
         }
 
         UpdateImageCount();
-
-        currentEnergy--;
-        energyText.text ="Energy: " + currentEnergy;
+        RemoveEnergy();
     }
 
     void InitializeImageCount()
@@ -314,12 +319,18 @@ public class Roller : MonoBehaviour
     {
         maxEnergy += energy;
     }
+
+    void RemoveEnergy()
+    {
+        currentEnergy--;
+        energyText.text ="Energy: " + currentEnergy;
+    }
     public void ResetEnergy()
     {
         currentEnergy = maxEnergy;
         energyText.text ="Energy: " + maxEnergy;
 
-        Debug.Log($"Energy reset. Current energy: {currentEnergy}");
+        onResetEnergy?.Invoke();
     }
 
     #endregion

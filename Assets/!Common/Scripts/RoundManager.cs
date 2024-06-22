@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
+    [SerializeField] GameObject testingCardPrefab;
+    [SerializeField] Transform cardContainer;
+
+    [Header("Round Variables")]
     [SerializeField] int totalRounds = 50;
     [SerializeField] int roundCounter = 1;
     [SerializeField] bool isRoundActive;
 
     void Start()
     {
-
+        StartRound();
     }
 
     void StartRound()
@@ -17,7 +21,6 @@ public class RoundManager : MonoBehaviour
         {
             isRoundActive = true;
             DrawEnemyCard();
-
         }
         else
         {
@@ -27,6 +30,8 @@ public class RoundManager : MonoBehaviour
 
     void DrawEnemyCard()
     {
+        GameObject card = Instantiate(testingCardPrefab, cardContainer);
+        card.transform.localPosition = Vector3.zero;
         Debug.Log("Enemy card drawn.");
     }
 

@@ -6,7 +6,7 @@ using System;
 
 public class EnemyCardDisplay : MonoBehaviour
 {
- [SerializeField] EnemyCard enemyCard;
+ [SerializeField] public EnemyCard enemyCard;
 
  [SerializeField] Image cardArt;
  [SerializeField] TextMeshProUGUI lifeText;

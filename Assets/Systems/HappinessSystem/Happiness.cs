@@ -36,7 +36,7 @@ public class Happiness : MonoBehaviour
 
     void Start()
     {
-        happinessRange = characterController.selectedCharacter.happinessRange;
+        //happinessRange = characterController.selectedCharacter.happinessRange;
         onHappinessChange?.Invoke(currentHappiness,happinessRange);
     }
 

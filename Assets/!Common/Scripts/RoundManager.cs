@@ -14,7 +14,7 @@ public class RoundManager : MonoBehaviour
 
     [Header("Round Variables")]
     [SerializeField] int maxRounds = 50;
-    [SerializeField] int currentRound = 1;
+    [SerializeField] int currentRound = 0;
 
     enum RoundPhase
     {
@@ -34,9 +34,18 @@ public class RoundManager : MonoBehaviour
     [Header("Player Phase")]
     [SerializeField] Button rollButton;
 
+    [Header("Damage Resolution")]
+
+    public static Action onDamageResolution;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    void OnEnable()
+    {
+        OKButton.onOKButtonPressed += StartDamageResolutionPhase;
     }
 
     void Start()
@@ -52,6 +61,9 @@ public class RoundManager : MonoBehaviour
     {
         if (currentRound <= maxRounds)
         {
+            currentRound++;
+            roundText.text = currentRound + " / " + maxRounds;
+
             SetPhase(RoundPhase.Draw);
         }
         else
@@ -79,42 +91,31 @@ public class RoundManager : MonoBehaviour
         rollButton.interactable=true;
     }
 
+    private void StartDamageResolutionPhase()
+    {
+        SetPhase(RoundPhase.DamageResolution);
+    }
+
     void ResolveDamage()
     {
-        // Implement damage resolution logic
-        Debug.Log("Resolving damage.");
+        ShowPhaseText("Damage Resolution");
+        onDamageResolution?.Invoke();
+    }
 
-        // Check if enemy is defeated or player is defeated
-        bool enemyDefeated = false; // Replace with actual check
-        bool playerDefeated = false; // Replace with actual check
-
-        if (enemyDefeated)
-        {
-            SetPhase(RoundPhase.NewRound);
-        }
-        else if (playerDefeated)
-        {
-            Debug.Log("Game Over. Player defeated.");
-            isRoundActive = false;
-        }
-        else
-        {
-            SetPhase(RoundPhase.Enemy);
-        }
+    public void StartEnemyActionPhase()
+    {
+        SetPhase(RoundPhase.Enemy);
     }
 
     void EnemyAction()
     {
-        // Implement enemy action logic
-        Debug.Log("Enemy's turn.");
-        SetPhase(RoundPhase.Player);
+        //El enemigo pega al Player y pasa lo que tenga que pasar.
+        ShowPhaseText("Enemy Phase");
     }
 
-    void StartNextRound()
-    {
-        isRoundActive = false;
+    public void StartNextRound()
+    {      
         currentRound++;
-        Debug.Log("Round " + currentRound + " ended.");
         StartRound();
     }
 
@@ -175,5 +176,10 @@ public class RoundManager : MonoBehaviour
                 StartNextRound();
                 break;
         }
+    }
+
+    void OnDisable()
+    {
+        OKButton.onOKButtonPressed -= StartDamageResolutionPhase;
     }
 }

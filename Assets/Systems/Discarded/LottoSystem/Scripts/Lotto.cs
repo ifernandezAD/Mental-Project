@@ -57,7 +57,7 @@ public class Loto : MonoBehaviour
 
     void Start()
     {
-        maxValue = characterController.selectedCharacter.happinessRange;
+        //maxValue = characterController.selectedCharacter.happinessRange;
         lottoPool = new List<int>();
 
         for (int i = 1; i <= maxValue; i++)

@@ -48,8 +48,6 @@ public class OKButton : MonoBehaviour
         {
             isOutOfEnergy = false;
         }
-
-
     }
 
     void OnDisable()

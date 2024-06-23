@@ -3,6 +3,7 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -35,8 +36,10 @@ public class RoundManager : MonoBehaviour
     [SerializeField] Button rollButton;
 
     [Header("Damage Resolution")]
-
     public static Action onDamageResolution;
+
+    [Header("Enemy Phase")]
+    public static Action onEnemyPhase;
 
     private void Awake()
     {
@@ -85,6 +88,11 @@ public class RoundManager : MonoBehaviour
         GameObject card = Instantiate(testingCardPrefab, cardContainer);     
     }
 
+    public void StartPlayerPhase()
+    {
+        SetPhase(RoundPhase.Player);
+    }
+
     private void PlayerPhase()
     {
         ShowPhaseText("Player Phase");
@@ -109,8 +117,8 @@ public class RoundManager : MonoBehaviour
 
     void EnemyAction()
     {
-        //El enemigo pega al Player y pasa lo que tenga que pasar.
         ShowPhaseText("Enemy Phase");
+        onEnemyPhase?.Invoke();
     }
 
     public void StartNextRound()
@@ -176,6 +184,11 @@ public class RoundManager : MonoBehaviour
                 StartNextRound();
                 break;
         }
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     void OnDisable()

@@ -126,6 +126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 453708147488990150, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: mentalHealthText
+      value: 
+      objectReference: {fileID: 5137238834213799205}
+    - target: {fileID: 453708147488990150, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: enemyCardContainer
+      value: 
+      objectReference: {fileID: 5137238834213799206}
     - target: {fileID: 884494929350171613, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_Name
       value: GameplayCommons
@@ -170,6 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6013345750657977763, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_Name
+      value: MentalHealthText
+      objectReference: {fileID: 0}
     - target: {fileID: 9059319935913258715, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -179,6 +191,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+--- !u!114 &5137238834213799205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8629888805986275361, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5137238834213799206 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 87431227090727465, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

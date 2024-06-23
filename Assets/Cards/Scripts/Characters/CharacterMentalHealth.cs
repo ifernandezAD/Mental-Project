@@ -1,16 +1,82 @@
 using UnityEngine;
+using TMPro;
 
 public class CharacterMentalHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private CharacterCardDisplay characterCardDisplay;
+
+    [Header("References")]
+
+    [SerializeField] Transform enemyCardContainer;
+
+    [Header("MentalHealth")]
+    [SerializeField] TextMeshProUGUI mentalHealthText;
+    private int maxMentalHealth = 5;
+    private int currentMentalHealth = 5;
+
+    [Header("Testing")]
+    [SerializeField] private bool testAddLives;
+    [SerializeField] private bool testDecreaseLives;
+
+
+    void OnValidate()
     {
-        
+        if (testAddLives)
+        {
+            ChangeMentalHealth(1);
+            testAddLives = false;
+        }
+
+        if (testDecreaseLives)
+        {
+            ChangeMentalHealth(-1);
+            testDecreaseLives = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        characterCardDisplay = GetComponent<CharacterCardDisplay>();
+    }
+
+    void OnEnable()
+    {
+        RoundManager.onEnemyPhase += ManageMentalHealthDamageTaken;
+    }
+
+
+    void Start()
+    {
+        maxMentalHealth = characterCardDisplay.characterCard.maxMentalHealth;
+        currentMentalHealth = maxMentalHealth;
+
+        mentalHealthText.text = currentMentalHealth.ToString();
+    }
+
+    void ChangeMentalHealth(int lives)
+    {
+        currentMentalHealth -= lives;
+
+        mentalHealthText.text = currentMentalHealth.ToString();
+
+        if (currentMentalHealth <= 0)
+        {
+            currentMentalHealth = 0;
+            RoundManager.instance.EndGame();
+            Debug.Log("GameOver");      
+        }
+        else
+        {
+            RoundManager.instance.StartPlayerPhase();
+        }
+    }
+    private void ManageMentalHealthDamageTaken()
+    {
+        int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<EnemyCardDisplay>().enemyCard.attack;
+        ChangeMentalHealth(enemyDamage);
+    }
+    void OnDisable()
+    {
+        RoundManager.onEnemyPhase -= ManageMentalHealthDamageTaken;
     }
 }

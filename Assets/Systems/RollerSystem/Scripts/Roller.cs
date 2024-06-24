@@ -242,6 +242,18 @@ public class Roller : MonoBehaviour
         RemoveEnergy();
     }
 
+    public void DisableAllSlotImages()
+{
+    foreach (Transform slot in slots.transform)
+    {
+        Transform icons = slot.GetChild(1);
+        foreach (Transform icon in icons)
+        {
+            icon.gameObject.SetActive(false);
+        }
+    }
+}
+
     void InitializeImageCount()
     {
         imageCount.Clear();

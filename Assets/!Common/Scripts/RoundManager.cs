@@ -97,10 +97,13 @@ public class RoundManager : MonoBehaviour
     {
         ShowPhaseText("Player Phase");
         rollButton.interactable=true;
+        Roller.instance.ResetEnergy();
+        Roller.instance.DisableAllSlotImages();
     }
 
     private void StartDamageResolutionPhase()
     {
+        
         SetPhase(RoundPhase.DamageResolution);
     }
 

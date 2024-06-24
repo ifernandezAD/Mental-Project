@@ -90,7 +90,7 @@ public class RoundManager : MonoBehaviour
 
     public void StartPlayerPhase()
     {
-        SetPhase(RoundPhase.Player);
+        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
     }
 
     private void PlayerPhase()
@@ -104,7 +104,7 @@ public class RoundManager : MonoBehaviour
     private void StartDamageResolutionPhase()
     {
         
-        SetPhase(RoundPhase.DamageResolution);
+        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.DamageResolution, 2f));
     }
 
     void ResolveDamage()
@@ -115,7 +115,7 @@ public class RoundManager : MonoBehaviour
 
     public void StartEnemyActionPhase()
     {
-        SetPhase(RoundPhase.Enemy);
+       StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Enemy, 2f));
     }
 
     void EnemyAction()

@@ -132,7 +132,6 @@ public class RoundManager : MonoBehaviour
 
     public void StartNextRound()
     {      
-        currentRound++;
         StartRound();
     }
 

@@ -114,7 +114,7 @@ public class Roller : MonoBehaviour
 
         InitializeImageCount();
 
-        energyText.text ="Energy: " + maxEnergy;
+        energyText.text = "Energy: " + maxEnergy;
     }
 
 
@@ -185,6 +185,26 @@ public class Roller : MonoBehaviour
         return false;
     }
 
+    public void UnlockAllSlots()
+    {
+        for (int i = 0; i < lockedSlots.Length; i++)
+        {
+            lockedSlots[i] = false;
+
+
+            Transform slot = slots.transform.GetChild(i);
+            Transform visuals = slot.GetChild(0);
+
+            if (visuals != null)
+            {
+                foreach (Transform image in visuals)
+                {
+                    image.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
     #endregion
 
     #region RollImages
@@ -214,7 +234,7 @@ public class Roller : MonoBehaviour
             return;
         }
 
-        if(currentEnergy == 1)
+        if (currentEnergy == 1)
         {
             onOutOfEnergy?.Invoke();
         }
@@ -243,16 +263,16 @@ public class Roller : MonoBehaviour
     }
 
     public void DisableAllSlotImages()
-{
-    foreach (Transform slot in slots.transform)
     {
-        Transform icons = slot.GetChild(1);
-        foreach (Transform icon in icons)
+        foreach (Transform slot in slots.transform)
         {
-            icon.gameObject.SetActive(false);
+            Transform icons = slot.GetChild(1);
+            foreach (Transform icon in icons)
+            {
+                icon.gameObject.SetActive(false);
+            }
         }
     }
-}
 
     void InitializeImageCount()
     {
@@ -335,12 +355,12 @@ public class Roller : MonoBehaviour
     void RemoveEnergy()
     {
         currentEnergy--;
-        energyText.text ="Energy: " + currentEnergy;
+        energyText.text = "Energy: " + currentEnergy;
     }
     public void ResetEnergy()
     {
         currentEnergy = maxEnergy;
-        energyText.text ="Energy: " + maxEnergy;
+        energyText.text = "Energy: " + maxEnergy;
 
         onResetEnergy?.Invoke();
     }

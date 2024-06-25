@@ -96,9 +96,15 @@ public class RoundManager : MonoBehaviour
     private void PlayerPhase()
     {
         ShowPhaseText("Player Phase");
+        ResetRoller();
+    }
+
+    private void ResetRoller()
+    {
         rollButton.interactable=true;
         Roller.instance.ResetEnergy();
         Roller.instance.DisableAllSlotImages();
+        Roller.instance.UnlockAllSlots();
     }
 
     private void StartDamageResolutionPhase()

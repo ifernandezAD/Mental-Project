@@ -10,4 +10,6 @@ public class EnemyCard : ScriptableObject
     public int health;
     public int attack;
 
+    public bool isBoss;
+
 }

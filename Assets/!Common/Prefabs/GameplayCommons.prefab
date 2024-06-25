@@ -133,10 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ae03fc2095fc04b813a25af847fb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actText: {fileID: 908320373568627252}
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}
   maxRounds: 50
-  currentRound: 1
+  currentRound: 0
   testingCardPrefab: {fileID: 8602104583509037533, guid: 783096ba4fbaa6c43bb982302d68b214, type: 3}
   cardContainer: {fileID: 87431227090727465}
   rollButton: {fileID: 4545159255959611980}
@@ -673,6 +674,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+--- !u!114 &908320373568627252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3367297273287613637, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628843172688494404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3799590762947477941, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

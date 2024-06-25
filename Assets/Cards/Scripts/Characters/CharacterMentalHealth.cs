@@ -73,8 +73,13 @@ public class CharacterMentalHealth : MonoBehaviour
     private void ManageMentalHealthDamageTaken()
     {
         int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<EnemyCardDisplay>().enemyCard.attack;
+        int characterResilience = Roller.instance.GetImageCount(ImageType.Heart);
+
+        int netDamage = Mathf.Max(enemyDamage - characterResilience, 0);
+
         ChangeMentalHealth(enemyDamage);
     }
+
     void OnDisable()
     {
         RoundManager.onEnemyPhase -= ManageMentalHealthDamageTaken;

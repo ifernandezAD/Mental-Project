@@ -19,7 +19,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] int maxRoundsPerAct = 15;
     [SerializeField] int currentRound = 0;
     [SerializeField] int currentAct = 1;
-    [SerializeField] int totalActs = 3;
+    [SerializeField] int maxActs = 3;
 
     enum RoundPhase
     {
@@ -33,6 +33,7 @@ public class RoundManager : MonoBehaviour
 
     [Header("Draw Phase")]
     [SerializeField] GameObject testingCardPrefab;
+    [SerializeField] GameObject testingBossPrefab;
     [SerializeField] Transform cardContainer;
 
     [Header("Player Phase")]
@@ -72,7 +73,7 @@ public class RoundManager : MonoBehaviour
     void UpdateUI()
     {
         roundText.text = $"Round: {currentRound} / {maxRoundsPerAct}";
-        actText.text = $"Act: {currentAct} / {totalActs}";
+        actText.text = $"Act: {currentAct} / {maxActs}";
     }
 
     private void DrawPhase()
@@ -86,22 +87,23 @@ public class RoundManager : MonoBehaviour
 
             StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
         }
-        else if (currentRound == maxRoundsPerAct && currentAct <= totalActs)
+        else
         {
-            //DrawBossCard();
-            Debug.Log("Boss Card Drawn");
+            DrawBossCard();
 
             StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
         }
-        else
-        {
-            //Game Over, YOU WON , transition to win scene
-        }
     }
+
 
     void DrawEnemyCard()
     {
         GameObject card = Instantiate(testingCardPrefab, cardContainer);
+    }
+
+    private void DrawBossCard()
+    {
+        GameObject card = Instantiate(testingBossPrefab, cardContainer);
     }
 
     public void StartPlayerPhase()
@@ -149,6 +151,23 @@ public class RoundManager : MonoBehaviour
     public void StartNextRound()
     {
         StartRound();
+    }
+
+    public void StartNextAct()
+    {
+        if (currentAct < maxActs)
+        {
+            currentAct++;
+            currentRound = 0;
+
+            StartRound();
+            
+        //Here we launch the event to worse mental disease and increase difficulty
+        }
+        else
+        {
+            Debug.Log("CONGRATULATIONS!!!! YOU WON THE GAME");
+        }
     }
 
     private void ShowPhaseText(string phaseName)

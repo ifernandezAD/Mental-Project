@@ -74,7 +74,15 @@ public class EnemyHealth : MonoBehaviour
 
     void ManageEnemyCardDead()
     {
-        RoundManager.instance.StartNextRound();
+        if(!enemyCardDisplay.enemyCard.isBoss)
+        {
+            RoundManager.instance.StartNextRound();
+        }
+        else
+        {
+            RoundManager.instance.StartNextAct();
+        }
+
         Destroy(gameObject);
     }
 

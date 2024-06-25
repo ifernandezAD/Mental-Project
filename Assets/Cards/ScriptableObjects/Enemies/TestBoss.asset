@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: Don Paolo
   art: {fileID: 427168001084026293, guid: 98ff8387e1fc436489d4c71ea551ee83, type: 3}
   skill: Oh my shit! Is DON PAOLO!!!  ROFLMAO
-  health: 10
-  attack: 3
+  health: 3
+  attack: 1
   isBoss: 1

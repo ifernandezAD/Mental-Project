@@ -136,9 +136,12 @@ MonoBehaviour:
   actText: {fileID: 908320373568627252}
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}
-  maxRounds: 50
+  maxRoundsPerAct: 2
   currentRound: 0
+  currentAct: 1
+  totalActs: 3
   testingCardPrefab: {fileID: 8602104583509037533, guid: 783096ba4fbaa6c43bb982302d68b214, type: 3}
+  testingBossPrefab: {fileID: 8602104583509037533, guid: d4bb80bab8bff964caf82077beccc8dc, type: 3}
   cardContainer: {fileID: 87431227090727465}
   rollButton: {fileID: 4545159255959611980}
 --- !u!114 &6293654132111364866

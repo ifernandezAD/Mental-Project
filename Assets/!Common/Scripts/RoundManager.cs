@@ -62,7 +62,9 @@ public class RoundManager : MonoBehaviour
         StartRound();
     }
 
-    void StartRound()
+    #region Phase and Round Management
+
+        void StartRound()
     {
         currentRound++;
         UpdateUI();
@@ -75,120 +77,6 @@ public class RoundManager : MonoBehaviour
         roundText.text = $"Round: {currentRound} / {maxRoundsPerAct}";
         actText.text = $"Act: {currentAct} / {maxActs}";
     }
-
-    private void DrawPhase()
-    {
-        ShowPhaseText("Draw Phase");
-
-        if (currentRound < maxRoundsPerAct)
-        {
-            DrawEnemyCard();
-            //Or draw an event
-
-            StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
-        }
-        else
-        {
-            DrawBossCard();
-
-            StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
-        }
-    }
-
-
-    void DrawEnemyCard()
-    {
-        GameObject card = Instantiate(testingCardPrefab, cardContainer);
-    }
-
-    private void DrawBossCard()
-    {
-        GameObject card = Instantiate(testingBossPrefab, cardContainer);
-    }
-
-    public void StartPlayerPhase()
-    {
-        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
-    }
-
-    private void PlayerPhase()
-    {
-        ShowPhaseText("Player Phase");
-        ResetRoller();
-    }
-
-    private void ResetRoller()
-    {
-        rollButton.interactable = true;
-        Roller.instance.ResetEnergy();
-        Roller.instance.DisableAllSlotImages();
-        Roller.instance.UnlockAllSlots();
-    }
-
-    private void StartDamageResolutionPhase()
-    {
-
-        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.DamageResolution, 2f));
-    }
-
-    void ResolveDamage()
-    {
-        ShowPhaseText("Damage Resolution");
-        onDamageResolution?.Invoke();
-    }
-
-    public void StartEnemyActionPhase()
-    {
-        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Enemy, 2f));
-    }
-
-    void EnemyAction()
-    {
-        ShowPhaseText("Enemy Phase");
-        onEnemyPhase?.Invoke();
-    }
-
-    public void StartNextRound()
-    {
-        StartRound();
-    }
-
-    public void StartNextAct()
-    {
-        if (currentAct < maxActs)
-        {
-            currentAct++;
-            currentRound = 0;
-
-            StartRound();
-            
-        //Here we launch the event to worse mental disease and increase difficulty
-        }
-        else
-        {
-            Debug.Log("CONGRATULATIONS!!!! YOU WON THE GAME");
-        }
-    }
-
-    private void ShowPhaseText(string phaseName)
-    {
-        StartCoroutine(DisplayText(phaseName));
-    }
-
-    private IEnumerator DisplayText(string phaseName)
-    {
-        phaseText.text = phaseName;
-        phaseText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        phaseText.gameObject.SetActive(false);
-    }
-
-    private IEnumerator InvokeSetPhaseWithDelay(RoundPhase phase, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SetPhase(phase);
-    }
-
     void SetPhase(RoundPhase newPhase)
     {
         currentPhase = newPhase;
@@ -211,6 +99,133 @@ public class RoundManager : MonoBehaviour
                 break;
         }
     }
+
+    private IEnumerator InvokeSetPhaseWithDelay(RoundPhase phase, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetPhase(phase);
+    }
+
+     public void StartNextRound()
+    {
+        StartRound();
+    }
+
+    public void StartNextAct()
+    {
+        if (currentAct < maxActs)
+        {
+            currentAct++;
+            currentRound = 0;
+
+            StartRound();
+
+            //Here we launch the event to worse mental disease and increase difficulty
+        }
+        else
+        {
+            Debug.Log("CONGRATULATIONS!!!! YOU WON THE GAME");
+        }
+    }
+
+    private void ShowPhaseText(string phaseName)
+    {
+        StartCoroutine(DisplayText(phaseName));
+    }
+
+    private IEnumerator DisplayText(string phaseName)
+    {
+        phaseText.text = phaseName;
+        phaseText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        phaseText.gameObject.SetActive(false);
+    }
+
+
+    #endregion
+
+    #region DrawPhase
+
+    private void DrawPhase()
+    {
+        ShowPhaseText("Draw Phase");
+
+        if (currentRound < maxRoundsPerAct)
+        {
+            DrawEnemyCard();
+            //Or draw an event
+
+            StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
+        }
+        else
+        {
+            DrawBossCard();
+
+            StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
+        }
+    }
+
+    void DrawEnemyCard()
+    {
+        GameObject card = Instantiate(testingCardPrefab, cardContainer);
+    }
+
+    private void DrawBossCard()
+    {
+        GameObject card = Instantiate(testingBossPrefab, cardContainer);
+    }
+
+    #endregion
+
+    #region PlayerPhase
+    public void StartPlayerPhase()
+    {
+        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Player, 2f));
+    }
+
+    private void PlayerPhase()
+    {
+        ShowPhaseText("Player Phase");
+        ResetRoller();
+    }
+
+    private void ResetRoller()
+    {
+        rollButton.interactable = true;
+        Roller.instance.ResetEnergy();
+        Roller.instance.DisableAllSlotImages();
+        Roller.instance.UnlockAllSlots();
+    }
+    #endregion
+
+    #region Damage Resolution Phase
+    private void StartDamageResolutionPhase()
+    {
+
+        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.DamageResolution, 2f));
+    }
+
+    void ResolveDamage()
+    {
+        ShowPhaseText("Damage Resolution");
+        onDamageResolution?.Invoke();
+    }
+
+    #endregion
+
+    #region Enemy Phase
+    public void StartEnemyActionPhase()
+    {
+        StartCoroutine(InvokeSetPhaseWithDelay(RoundPhase.Enemy, 2f));
+    }
+
+    void EnemyAction()
+    {
+        ShowPhaseText("Enemy Phase");
+        onEnemyPhase?.Invoke();
+    }
+
+    #endregion
 
     public void EndGame()
     {

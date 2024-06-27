@@ -1,16 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RollerPhase : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+public class RollerPhase : Phase
+{   
+    [SerializeField] Button rollButton;
+    protected override void BeginPhase()
     {
-        
-    }
+        rollButton.interactable=true;
+        Roller.instance.ResetRoller();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.enabled=false;
     }
 }

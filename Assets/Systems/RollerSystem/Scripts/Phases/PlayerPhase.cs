@@ -1,16 +1,14 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerPhase : MonoBehaviour
+public class PlayerPhase : Phase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static Action onDamageResolution;
+    protected override void BeginPhase()
     {
-        
-    }
+        onDamageResolution?.Invoke();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.enabled = false;
     }
 }

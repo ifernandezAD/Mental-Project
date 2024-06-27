@@ -117,6 +117,13 @@ public class Roller : MonoBehaviour
         energyText.text = "Energy: " + maxEnergy;
     }
 
+    public void ResetRoller()
+    {
+        Roller.instance.ResetEnergy();
+        Roller.instance.DisableAllSlotImages();
+        Roller.instance.UnlockAllSlots();
+    }
+
 
     #region Slots
 

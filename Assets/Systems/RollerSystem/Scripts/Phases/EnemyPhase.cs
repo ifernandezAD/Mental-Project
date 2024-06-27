@@ -1,16 +1,13 @@
+using System;
 using UnityEngine;
 
-public class EnemyPhase : MonoBehaviour
+public class EnemyPhase : Phase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static Action onEnemyPhase;
+    protected override void BeginPhase()
     {
-        
-    }
+        onEnemyPhase?.Invoke();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.enabled = false;
     }
 }

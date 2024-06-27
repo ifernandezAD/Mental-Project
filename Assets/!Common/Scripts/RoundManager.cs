@@ -12,6 +12,9 @@ public class RoundManager : MonoBehaviour
 
     public static RoundManager instance { get; private set; }
 
+    [Header("References")]
+    [SerializeField] public Transform enemyCardContainer;
+
     [Header("Feedback")]
     [SerializeField] TextMeshProUGUI actText;
     [SerializeField] TextMeshProUGUI roundText;

@@ -36,12 +36,6 @@ public class EnemyHealth : MonoBehaviour
         enemyCardDisplay=GetComponent<EnemyCardDisplay>();
     }
 
-    void OnEnable()
-    {
-        PlayerPhase.onDamageResolution += ManageEnemyCardDamageTaken;
-    }
-
-
     void Start()
     {
         maxLives = enemyCardDisplay.enemyCard.health;
@@ -50,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
         livesText.text = currentLives.ToString();
     }
 
-    void ChangeLives(int lives)
+    public void ChangeLives(int lives)
     {
         currentLives -= lives;
 
@@ -66,12 +60,6 @@ public class EnemyHealth : MonoBehaviour
             //RoundManager.instance.StartEnemyActionPhase();
         }
     }
-    private void ManageEnemyCardDamageTaken()
-    {
-        int damageTaken = Roller.instance.GetImageCount(ImageType.Sword);
-        ChangeLives(damageTaken);
-    }
-
     void ManageEnemyCardDead()
     {
         if(!enemyCardDisplay.enemyCard.isBoss)
@@ -84,10 +72,5 @@ public class EnemyHealth : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
-
-       void OnDisable()
-    {
-        PlayerPhase.onDamageResolution -= ManageEnemyCardDamageTaken;
     }
 }

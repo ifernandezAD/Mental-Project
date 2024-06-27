@@ -4,8 +4,6 @@ public class DrawPhase : Phase
 {
     [SerializeField] GameObject testingCardPrefab;
     [SerializeField] GameObject testingBossPrefab;
-    [SerializeField] Transform enemyCardContainer;
-
     protected override void BeginPhase()
     {
         if (RoundManager.instance.IsBossRound())

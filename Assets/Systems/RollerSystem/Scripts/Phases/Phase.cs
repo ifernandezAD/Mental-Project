@@ -6,6 +6,9 @@ public abstract class Phase : MonoBehaviour
 {
     public static Action onPhaseEnded;
 
+    [Header("References")]
+    protected Transform enemyCardContainer;
+
     [SerializeField] float phaseDelay = 2;
     [SerializeField] float nextPhaseDelay = 2;
 
@@ -16,6 +19,13 @@ public abstract class Phase : MonoBehaviour
     {
         StartCoroutine(StartPhaseWithDelay());
         ShowPhaseText(phaseName);
+    }
+
+    private void Awake(){InternalAwake();}
+
+    protected virtual void InternalAwake()
+    {
+        enemyCardContainer = RoundManager.instance.enemyCardContainer;
     }
 
     private IEnumerator StartPhaseWithDelay()

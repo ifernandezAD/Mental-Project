@@ -8,6 +8,8 @@ using Unity.VisualScripting;
 
 public class RoundManager : MonoBehaviour
 {
+    //Esta clase tendrá que tener un sistema con el orden de las rondas, cuando una de la señal de finalizar pasar a la siguiente, el mensaje podría ser un round finished
+
     public static RoundManager instance { get; private set; }
 
     [Header("Feedback")]
@@ -21,6 +23,10 @@ public class RoundManager : MonoBehaviour
     [SerializeField] int currentAct = 1;
     [SerializeField] int maxActs = 3;
 
+
+    [Header("Phases")]
+
+    [SerializeField] DrawPhase drawPhase;
     enum RoundPhase
     {
         Draw,
@@ -30,11 +36,6 @@ public class RoundManager : MonoBehaviour
         NewRound
     }
     RoundPhase currentPhase;
-
-    [Header("Draw Phase")]
-    [SerializeField] GameObject testingCardPrefab;
-    [SerializeField] GameObject testingBossPrefab;
-    [SerializeField] Transform cardContainer;
 
     [Header("Player Phase")]
     [SerializeField] Button rollButton;
@@ -52,8 +53,10 @@ public class RoundManager : MonoBehaviour
 
     void OnEnable()
     {
+        Phase.onPhaseEnded += EnableNextPhase;
         OKButton.onOKButtonPressed += StartDamageResolutionPhase;
     }
+
 
     void Start()
     {
@@ -227,13 +230,25 @@ public class RoundManager : MonoBehaviour
 
     #endregion
 
+    public bool IsBossround()
+    {
+        return currentRound == maxRoundsPerAct;
+    }
+
     public void EndGame()
     {
         SceneManager.LoadScene("GameOver");
     }
 
+    
+    private void EnableNextPhase()
+    {
+        throw new NotImplementedException();
+    }
+
     void OnDisable()
     {
+        Phase.onPhaseEnded -= EnableNextPhase;
         OKButton.onOKButtonPressed -= StartDamageResolutionPhase;
     }
 }

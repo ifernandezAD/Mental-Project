@@ -7,7 +7,5 @@ public class EnemyPhase : Phase
     protected override void BeginPhase()
     {
         onEnemyPhase?.Invoke();
-
-        this.enabled = false;
     }
 }

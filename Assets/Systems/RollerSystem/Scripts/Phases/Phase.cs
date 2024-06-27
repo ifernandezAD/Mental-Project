@@ -7,8 +7,10 @@ public abstract class Phase : MonoBehaviour
     public static Action onPhaseEnded;
 
     [SerializeField] float phaseDelay = 2;
+    [SerializeField] float nextPhaseDelay = 2;
+
     [SerializeField] string phaseName = "Phase";
-    
+
     private void OnEnable() { InternalOnEnable(); }
     protected virtual void InternalOnEnable()
     {
@@ -18,9 +20,21 @@ public abstract class Phase : MonoBehaviour
 
     private IEnumerator StartPhaseWithDelay()
     {
-        
+
         yield return new WaitForSeconds(phaseDelay);
         BeginPhase();
+    }
+
+    protected void StartNextPhaseWithDelayCorroutine()
+    {
+        StartCoroutine(StartNextPhaseWithDelay());
+    }
+
+    protected IEnumerator StartNextPhaseWithDelay()
+    {
+
+        yield return new WaitForSeconds(nextPhaseDelay);
+        RoundManager.instance.EnableNextPhase();
     }
 
     private void ShowPhaseText(string phaseName)
@@ -33,6 +47,6 @@ public abstract class Phase : MonoBehaviour
     private void OnDisable() { InternalOnDisable(); }
     protected virtual void InternalOnDisable()
     {
-        onPhaseEnded?.Invoke();
+
     }
 }

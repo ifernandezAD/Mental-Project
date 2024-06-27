@@ -24,16 +24,20 @@ public class RoundManager : MonoBehaviour
     [SerializeField] int currentAct = 1;
     [SerializeField] int maxActs = 3;
 
+    [Header("Phases")]
+    [SerializeField] Phase[] phases;
+    private int currentPhaseIndex = 0;
+
     private void Awake()
     {
         instance = this;
-    }
 
-    void OnEnable()
-    {
-        Phase.onPhaseEnded += EnableNextPhase;
+        phases = GetComponentsInChildren<Phase>();
+        foreach (var phase in phases)
+        {
+           phase.enabled = false;
+        }
     }
-
 
     void Start()
     {
@@ -47,7 +51,7 @@ public class RoundManager : MonoBehaviour
         currentRound++;
         UpdateUI();
 
-        //SetPhase(RoundPhase.Draw);
+        StartCurrentPhase();
     }
 
     void UpdateUI()
@@ -86,7 +90,7 @@ public class RoundManager : MonoBehaviour
         phaseText.gameObject.SetActive(false);
     }
 
-    public bool IsBossround()
+    public bool IsBossRound()
     {
         return currentRound == maxRoundsPerAct;
     }
@@ -97,13 +101,29 @@ public class RoundManager : MonoBehaviour
     }
 
     
-    private void EnableNextPhase()
+    public void EnableNextPhase()
     {
-        throw new NotImplementedException();
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled=false;
+        }
+
+        currentPhaseIndex++;
+        if (currentPhaseIndex < phases.Length)
+        {
+            StartCurrentPhase();
+        }
+        else
+        {
+            StartNextRound();
+        }
     }
 
-    void OnDisable()
+    private void StartCurrentPhase()
     {
-        Phase.onPhaseEnded -= EnableNextPhase;
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled=true;
+        }
     }
 }

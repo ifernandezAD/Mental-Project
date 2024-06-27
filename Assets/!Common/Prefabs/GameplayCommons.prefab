@@ -79,8 +79,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4421069515364049607}
   - component: {fileID: 1978722524396814121}
-  - component: {fileID: 8702867741352744536}
   - component: {fileID: 6293654132111364866}
+  - component: {fileID: 8702867741352744536}
+  - component: {fileID: 8240592582235315514}
+  - component: {fileID: 9066439388552797577}
+  - component: {fileID: 5827085210453425730}
+  - component: {fileID: 610478503897062249}
   - component: {fileID: 2364021847631072680}
   m_Layer: 0
   m_Name: GameLogic
@@ -121,29 +125,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aeeb73958ef55414caa8330770a29881, type: 2}
   - {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
   selectedCharacter: {fileID: 11400000, guid: 9cc05c48ba2d4f0499db6317433d535c, type: 2}
---- !u!114 &8702867741352744536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093725935796269349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ae03fc2095fc04b813a25af847fb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actText: {fileID: 908320373568627252}
-  roundText: {fileID: 3013506041595679305}
-  phaseText: {fileID: 5353796257288519717}
-  maxRoundsPerAct: 2
-  currentRound: 0
-  currentAct: 1
-  totalActs: 3
-  testingCardPrefab: {fileID: 8602104583509037533, guid: 783096ba4fbaa6c43bb982302d68b214, type: 3}
-  testingBossPrefab: {fileID: 8602104583509037533, guid: d4bb80bab8bff964caf82077beccc8dc, type: 3}
-  cardContainer: {fileID: 87431227090727465}
-  rollButton: {fileID: 4545159255959611980}
 --- !u!114 &6293654132111364866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +153,86 @@ MonoBehaviour:
   energyText: {fileID: 4553205046654512875}
   maxEnergy: 3
   currentEnergy: 3
+--- !u!114 &8702867741352744536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ae03fc2095fc04b813a25af847fb88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actText: {fileID: 908320373568627252}
+  roundText: {fileID: 3013506041595679305}
+  phaseText: {fileID: 5353796257288519717}
+  phaseTextDuration: 0
+  maxRoundsPerAct: 2
+  currentRound: 0
+  currentAct: 1
+  maxActs: 3
+--- !u!114 &8240592582235315514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec2d20d56d18434e9bf3cae560db1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseDelay: 2
+  phaseName: Draw Phase
+  testingCardPrefab: {fileID: 8602104583509037533, guid: 783096ba4fbaa6c43bb982302d68b214, type: 3}
+  testingBossPrefab: {fileID: 8602104583509037533, guid: d4bb80bab8bff964caf82077beccc8dc, type: 3}
+  enemyCardContainer: {fileID: 87431227090727465}
+--- !u!114 &9066439388552797577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2601d7d414ac4874d8ade7bc1d130e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseDelay: 2
+  phaseName: Roller Phase
+  rollButton: {fileID: 4545159255959611980}
+--- !u!114 &5827085210453425730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f88b64e84489e4bb2ff01c6b711c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseDelay: 2
+  phaseName: Player Phase
+--- !u!114 &610478503897062249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093725935796269349}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af6009d0120380489e60d4aecba50ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseDelay: 2
+  phaseName: Enemy Phase
 --- !u!114 &2364021847631072680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +734,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2548420618591765752, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    - {fileID: 5683028196727608218, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    - {fileID: 2227742466909028576, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

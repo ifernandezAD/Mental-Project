@@ -4,11 +4,11 @@ public class DrawPhase : Phase
 {
     [SerializeField] GameObject testingCardPrefab;
     [SerializeField] GameObject testingBossPrefab;
-    [SerializeField] Transform cardContainer;
+    [SerializeField] Transform enemyCardContainer;
 
     protected override void BeginPhase()
     {
-        if (RoundManager.instance.IsBossround())
+        if (RoundManager.instance.IsBossRound())
         {
             DrawBossCard();
         }
@@ -20,14 +20,14 @@ public class DrawPhase : Phase
 
     private void DrawEnemyCard()
     {
-        GameObject card = Instantiate(testingCardPrefab, cardContainer);
-        this.enabled=false;
+        GameObject card = Instantiate(testingCardPrefab, enemyCardContainer);
+        StartCoroutine(StartNextPhaseWithDelay());
     }
 
     private void DrawBossCard()
     {
-        GameObject card = Instantiate(testingBossPrefab, cardContainer);
-        this.enabled=false;
+        GameObject card = Instantiate(testingBossPrefab, enemyCardContainer);    
+        StartCoroutine(StartNextPhaseWithDelay());
     }
 
     private void DrawEvent()

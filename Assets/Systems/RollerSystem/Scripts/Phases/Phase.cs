@@ -13,6 +13,7 @@ public abstract class Phase : MonoBehaviour
     protected virtual void InternalOnEnable()
     {
         StartCoroutine(StartPhaseWithDelay());
+        ShowPhaseText(phaseName);
     }
 
     private IEnumerator StartPhaseWithDelay()

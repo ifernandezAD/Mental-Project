@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnEnable()
     {
-        RoundManager.onDamageResolution += ManageEnemyCardDamageTaken;
+        PlayerPhase.onDamageResolution += ManageEnemyCardDamageTaken;
     }
 
 
@@ -63,7 +63,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            RoundManager.instance.StartEnemyActionPhase();
+            //RoundManager.instance.StartEnemyActionPhase();
         }
     }
     private void ManageEnemyCardDamageTaken()
@@ -88,6 +88,6 @@ public class EnemyHealth : MonoBehaviour
 
        void OnDisable()
     {
-        RoundManager.onDamageResolution -= ManageEnemyCardDamageTaken;
+        PlayerPhase.onDamageResolution -= ManageEnemyCardDamageTaken;
     }
 }

@@ -41,7 +41,7 @@ public class CharacterMentalHealth : MonoBehaviour
 
     void OnEnable()
     {
-        RoundManager.onEnemyPhase += ManageMentalHealthDamageTaken;
+        EnemyPhase.onEnemyPhase += ManageMentalHealthDamageTaken;
     }
 
 
@@ -67,7 +67,7 @@ public class CharacterMentalHealth : MonoBehaviour
         }
         else
         {
-            RoundManager.instance.StartPlayerPhase();
+            //RoundManager.instance.StartPlayerPhase();
         }
     }
     private void ManageMentalHealthDamageTaken()
@@ -82,6 +82,6 @@ public class CharacterMentalHealth : MonoBehaviour
 
     void OnDisable()
     {
-        RoundManager.onEnemyPhase -= ManageMentalHealthDamageTaken;
+        EnemyPhase.onEnemyPhase -= ManageMentalHealthDamageTaken;
     }
 }

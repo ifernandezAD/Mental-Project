@@ -5,10 +5,6 @@ public class CharacterMentalHealth : MonoBehaviour
 {
     private CharacterCardDisplay characterCardDisplay;
 
-    [Header("References")]
-
-    [SerializeField] Transform enemyCardContainer;
-
     [Header("MentalHealth")]
     [SerializeField] TextMeshProUGUI mentalHealthText;
     private int maxMentalHealth = 5;

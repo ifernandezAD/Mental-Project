@@ -8,7 +8,7 @@ public class RollerPhase : Phase
     protected override void InternalOnEnable()
     {
         base.InternalOnEnable();
-        OKButton.onOKButtonPressed += StartNextPhaseWithDelayCorroutine;
+        OKButton.onOKButtonPressed += StartNextPhaseWithDelay;
     }
     protected override void BeginPhase()
     {
@@ -19,7 +19,7 @@ public class RollerPhase : Phase
     protected override void InternalOnDisable()
     {
         base.InternalOnDisable();
-        OKButton.onOKButtonPressed -= StartNextPhaseWithDelayCorroutine;
+        OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
     }
 
 

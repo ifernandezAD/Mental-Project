@@ -18,7 +18,6 @@ public class CharacterMentalHealth : MonoBehaviour
     [SerializeField] private bool testAddLives;
     [SerializeField] private bool testDecreaseLives;
 
-
     void OnValidate()
     {
         if (testAddLives)
@@ -39,12 +38,6 @@ public class CharacterMentalHealth : MonoBehaviour
         characterCardDisplay = GetComponent<CharacterCardDisplay>();
     }
 
-    void OnEnable()
-    {
-        EnemyPhase.onEnemyPhase += ManageMentalHealthDamageTaken;
-    }
-
-
     void Start()
     {
         maxMentalHealth = characterCardDisplay.characterCard.maxMentalHealth;
@@ -53,7 +46,7 @@ public class CharacterMentalHealth : MonoBehaviour
         mentalHealthText.text = currentMentalHealth.ToString();
     }
 
-    void ChangeMentalHealth(int lives)
+    public void ChangeMentalHealth(int lives)
     {
         currentMentalHealth -= lives;
 
@@ -65,23 +58,5 @@ public class CharacterMentalHealth : MonoBehaviour
             RoundManager.instance.EndGame();
             Debug.Log("GameOver");      
         }
-        else
-        {
-            //RoundManager.instance.StartPlayerPhase();
-        }
-    }
-    private void ManageMentalHealthDamageTaken()
-    {
-        int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<EnemyCardDisplay>().enemyCard.attack;
-        int characterResilience = Roller.instance.GetImageCount(ImageType.Heart);
-
-        int netDamage = Mathf.Max(enemyDamage - characterResilience, 0);
-
-        ChangeMentalHealth(enemyDamage);
-    }
-
-    void OnDisable()
-    {
-        EnemyPhase.onEnemyPhase -= ManageMentalHealthDamageTaken;
     }
 }

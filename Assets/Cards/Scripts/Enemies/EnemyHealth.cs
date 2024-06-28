@@ -55,22 +55,10 @@ public class EnemyHealth : MonoBehaviour
             currentLives=0;
             ManageEnemyCardDead();       
         }
-        else
-        {
-            //RoundManager.instance.StartEnemyActionPhase();
-        }
+        
     }
     void ManageEnemyCardDead()
     {
-        if(!enemyCardDisplay.enemyCard.isBoss)
-        {
-            RoundManager.instance.StartNextRound();
-        }
-        else
-        {
-            RoundManager.instance.StartNextAct();
-        }
-
         Destroy(gameObject);
     }
 }

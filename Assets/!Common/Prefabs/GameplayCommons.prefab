@@ -165,14 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ae03fc2095fc04b813a25af847fb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCardContainer: {fileID: 87431227090727465}
+  characterCardContainer: {fileID: 6079310447076150538}
   actText: {fileID: 908320373568627252}
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}
-  phaseTextDuration: 0
-  maxRoundsPerAct: 2
+  phaseTextDuration: 1
+  maxRoundsPerAct: 5
   currentRound: 0
   currentAct: 1
   maxActs: 3
+  phases: []
+  currentPhaseIndex: 0
 --- !u!114 &8240592582235315514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,16 +184,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093725935796269349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aec2d20d56d18434e9bf3cae560db1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   phaseDelay: 2
+  nextPhaseDelay: 2
   phaseName: Draw Phase
   testingCardPrefab: {fileID: 8602104583509037533, guid: 783096ba4fbaa6c43bb982302d68b214, type: 3}
   testingBossPrefab: {fileID: 8602104583509037533, guid: d4bb80bab8bff964caf82077beccc8dc, type: 3}
-  enemyCardContainer: {fileID: 87431227090727465}
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseDelay: 2
+  nextPhaseDelay: 2
   phaseName: Roller Phase
   rollButton: {fileID: 4545159255959611980}
 --- !u!114 &5827085210453425730
@@ -218,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseDelay: 2
+  nextPhaseDelay: 2
   phaseName: Player Phase
 --- !u!114 &610478503897062249
 MonoBehaviour:
@@ -232,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseDelay: 2
+  nextPhaseDelay: 2
   phaseName: Enemy Phase
 --- !u!114 &2364021847631072680
 MonoBehaviour:
@@ -734,10 +741,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2548420618591765752, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-    - {fileID: 5683028196727608218, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-    - {fileID: 2227742466909028576, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

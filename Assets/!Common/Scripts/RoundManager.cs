@@ -1,19 +1,17 @@
 using UnityEngine;
 using TMPro;
-using System;
 using System.Collections;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
+[DefaultExecutionOrder(-100)] 
 public class RoundManager : MonoBehaviour
 {
-    //Esta clase tendrá que tener un sistema con el orden de las rondas, cuando una de la señal de finalizar pasar a la siguiente, el mensaje podría ser un round finished
-
     public static RoundManager instance { get; private set; }
 
     [Header("References")]
     [SerializeField] public Transform enemyCardContainer;
+    [SerializeField] public Transform characterCardContainer;
+
 
     [Header("Feedback")]
     [SerializeField] TextMeshProUGUI actText;
@@ -28,8 +26,8 @@ public class RoundManager : MonoBehaviour
     [SerializeField] int maxActs = 3;
 
     [Header("Phases")]
-    [SerializeField] Phase[] phases;
-    private int currentPhaseIndex = 0;
+    [SerializeField] public Phase[] phases;
+    public int currentPhaseIndex = 0;
 
     private void Awake()
     {
@@ -51,9 +49,10 @@ public class RoundManager : MonoBehaviour
 
         void StartRound()
     {
+        currentPhaseIndex = 0;
         currentRound++;
-        UpdateUI();
 
+        UpdateUI();
         StartCurrentPhase();
     }
 
@@ -61,6 +60,32 @@ public class RoundManager : MonoBehaviour
     {
         roundText.text = $"Round: {currentRound} / {maxRoundsPerAct}";
         actText.text = $"Act: {currentAct} / {maxActs}";
+    }
+
+    private void StartCurrentPhase()
+    {
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled=true;
+        }
+    }
+
+        public void EnableNextPhase()
+    {
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled=false;
+        }
+
+        currentPhaseIndex++;
+        if (currentPhaseIndex < phases.Length)
+        {
+            StartCurrentPhase();
+        }
+        else
+        {
+            StartNextRound();
+        }
     }
 
      public void StartNextRound()
@@ -101,32 +126,5 @@ public class RoundManager : MonoBehaviour
     public void EndGame()
     {
         SceneManager.LoadScene("GameOver");
-    }
-
-    
-    public void EnableNextPhase()
-    {
-        if (currentPhaseIndex < phases.Length)
-        {
-            phases[currentPhaseIndex].enabled=false;
-        }
-
-        currentPhaseIndex++;
-        if (currentPhaseIndex < phases.Length)
-        {
-            StartCurrentPhase();
-        }
-        else
-        {
-            StartNextRound();
-        }
-    }
-
-    private void StartCurrentPhase()
-    {
-        if (currentPhaseIndex < phases.Length)
-        {
-            phases[currentPhaseIndex].enabled=true;
-        }
     }
 }

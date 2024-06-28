@@ -9,6 +9,8 @@ public class PlayerPhase : Phase
     {
         //TODO Aquí irá la lógica de quitar vida uno a uno y de uso de habilidades, quizás activar botones o cartas
         ManageEnemyCardDamageTaken();
+
+        StartNextPhaseWithDelay();
     }
 
     private void ManageEnemyCardDamageTaken()
@@ -17,4 +19,5 @@ public class PlayerPhase : Phase
 
         enemyCardContainer.GetChild(0).GetComponent<EnemyHealth>().ChangeLives(damageTaken); //Cachear
     }
+
 }

@@ -19,13 +19,13 @@ public class DrawPhase : Phase
     private void DrawEnemyCard()
     {
         GameObject card = Instantiate(testingCardPrefab, enemyCardContainer);
-        StartCoroutine(StartNextPhaseWithDelay());
+        StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
     private void DrawBossCard()
     {
         GameObject card = Instantiate(testingBossPrefab, enemyCardContainer);    
-        StartCoroutine(StartNextPhaseWithDelay());
+        StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
     private void DrawEvent()

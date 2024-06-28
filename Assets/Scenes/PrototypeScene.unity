@@ -126,17 +126,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 610478503897062249, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 884494929350171613, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_Name
       value: GameplayCommons
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364021847631072680, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,40 +170,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: maxRoundsPerAct
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: phaseTextDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: enemyCardContainer
-      value: 
-      objectReference: {fileID: 5137238834213799205}
-    - target: {fileID: 9066439388552797577, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
---- !u!4 &5137238834213799205 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 87431227090727465, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-  m_PrefabInstance: {fileID: 5137238834213799204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

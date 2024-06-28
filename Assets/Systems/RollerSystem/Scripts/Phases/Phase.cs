@@ -8,6 +8,7 @@ public abstract class Phase : MonoBehaviour
 
     [Header("References")]
     protected Transform enemyCardContainer;
+    protected Transform characterCardContainer;
 
     [SerializeField] float phaseDelay = 2;
     [SerializeField] float nextPhaseDelay = 2;
@@ -26,6 +27,7 @@ public abstract class Phase : MonoBehaviour
     protected virtual void InternalAwake()
     {
         enemyCardContainer = RoundManager.instance.enemyCardContainer;
+        characterCardContainer = RoundManager.instance.characterCardContainer;
     }
 
     private IEnumerator StartPhaseWithDelay()
@@ -35,12 +37,12 @@ public abstract class Phase : MonoBehaviour
         BeginPhase();
     }
 
-    protected void StartNextPhaseWithDelayCorroutine()
+    protected void StartNextPhaseWithDelay()
     {
-        StartCoroutine(StartNextPhaseWithDelay());
+        StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
-    protected IEnumerator StartNextPhaseWithDelay()
+    protected IEnumerator StartNextPhaseWithDelayCorroutine()
     {
 
         yield return new WaitForSeconds(nextPhaseDelay);

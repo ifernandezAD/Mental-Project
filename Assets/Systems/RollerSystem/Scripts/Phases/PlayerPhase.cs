@@ -1,23 +1,81 @@
 using System;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
-
 
 public class PlayerPhase : Phase
 {
-    protected override void BeginPhase()
-    {
-        //TODO Aquí irá la lógica de quitar vida uno a uno y de uso de habilidades, quizás activar botones o cartas
-        ManageEnemyCardDamageTaken();
+    [Header("UI Feedback")]
+    [SerializeField] TextMeshProUGUI attacksLeftText;
+    [SerializeField] TextMeshProUGUI resilienceLeftText;
+    [SerializeField] TextMeshProUGUI skillsLeftText;
+    private int attackClicks = 0;
+    private int skillClicks = 0;
 
-        StartNextPhaseWithDelay();
+    protected override void InternalOnEnable()
+    {
+        base.InternalOnEnable();
+        EnemyHealth.onButtonClicked += DecreaseAttackCLicks;
     }
 
-    private void ManageEnemyCardDamageTaken()
+    protected override void BeginPhase()
     {
-        int damageTaken = Roller.instance.GetImageCount(ImageType.Sword);
+        CalculateButtonClicks();
+        EnableEnemyCardsInteractivity();
+        //EnableCharacterCardsInteractivity();
 
-        enemyCardContainer.GetChild(0).GetComponent<EnemyHealth>().ChangeLives(damageTaken); //Cachear
+        //StartNextPhaseWithDelay();
+    }
+
+
+
+    void CalculateButtonClicks()
+    {
+        attackClicks = Roller.instance.GetImageCount(ImageType.Sword);
+
+        skillClicks = Roller.instance.GetImageCount(ImageType.Book);
+    }
+
+    void ResetButtonClicks()
+    {
+        attackClicks = 0;
+
+        skillClicks = 0;
+    }
+    private void DecreaseAttackCLicks()
+    {
+        attackClicks--;
+    }
+
+    private void EnableEnemyCardsInteractivity()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void EnableCharacterCardsInteractivity()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void DisableEnemyCardsInteractivity()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void DisableCharacterCardsInteractivity()
+    {
+        throw new NotImplementedException();
+    }
+
+    void EndPhase()
+    {
+        ResetButtonClicks();
+    }
+
+    protected override void InternalOnDisable()
+    {
+        base.InternalOnDisable();
+        EnemyHealth.onButtonClicked -= DecreaseAttackCLicks;
     }
 
 }

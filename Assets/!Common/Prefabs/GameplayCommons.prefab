@@ -854,10 +854,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestingUI
       objectReference: {fileID: 0}
-    - target: {fileID: 6795931422439515367, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0

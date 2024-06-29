@@ -44,4 +44,18 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         isDragging = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        CardDetector cardDetector = other.GetComponent<CardDetector>();
+        if (cardDetector != null)
+        {
+            cardDetector.HandleButtonRelease(this);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // Optionally handle trigger exit events if needed
+    }
 }

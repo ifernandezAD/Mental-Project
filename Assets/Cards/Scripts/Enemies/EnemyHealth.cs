@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     private EnemyCardDisplay enemyCardDisplay;
-    private Button button;
     public static Action onButtonClicked;
 
     [Header("Health")]
@@ -37,10 +36,6 @@ public class EnemyHealth : MonoBehaviour
     void Awake()
     {
         enemyCardDisplay=GetComponent<EnemyCardDisplay>();
-        button = GetComponent<Button>();
-
-        button.onClick.AddListener(() => ChangeLives(-1));
-        button.onClick.AddListener(() => onButtonClicked?.Invoke());
     }
 
     void Start()

@@ -12,12 +12,6 @@ public class PlayerPhase : Phase
     private int attackClicks = 0;
     private int skillClicks = 0;
 
-    protected override void InternalOnEnable()
-    {
-        base.InternalOnEnable();
-        EnemyHealth.onButtonClicked += DecreaseAttackCLicks;
-    }
-
     protected override void BeginPhase()
     {
         CalculateButtonClicks();
@@ -70,12 +64,6 @@ public class PlayerPhase : Phase
     void EndPhase()
     {
         ResetButtonClicks();
-    }
-
-    protected override void InternalOnDisable()
-    {
-        base.InternalOnDisable();
-        EnemyHealth.onButtonClicked -= DecreaseAttackCLicks;
     }
 
 }

@@ -52,7 +52,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
    {
         if(isReleased)
         {
-            cardDetector.HandleButtonRelease(this);
+            cardDetector.CheckButtonType(this);
         }
    }
 }

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResilienceBubble Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1043761175784874293, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart
+      objectReference: {fileID: 0}
     - target: {fileID: 1493134840252607260, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Sprite
       value: 

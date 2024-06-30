@@ -5,65 +5,43 @@ using UnityEngine.UI;
 
 public class PlayerPhase : Phase
 {
-    [Header("UI Feedback")]
-    [SerializeField] TextMeshProUGUI attacksLeftText;
-    [SerializeField] TextMeshProUGUI resilienceLeftText;
-    [SerializeField] TextMeshProUGUI skillsLeftText;
-    private int attackClicks = 0;
-    private int skillClicks = 0;
+    [Header("Bubbles")]
+    [SerializeField] GameObject attackBubble;
+    [SerializeField] GameObject resilienceBubble;
+    [SerializeField] GameObject staminaBubble;
 
+    
+    [Header("Bubbles Containers")] //It will only be one when bubbles appears in random positions
+    [SerializeField] Transform attackBubbleContainer;
+    [SerializeField] Transform resilienceBubbleContainer;
+    [SerializeField] Transform staminaBubbleContainer;
+    
     protected override void BeginPhase()
     {
-        CalculateButtonClicks();
-        EnableEnemyCardsInteractivity();
-        //EnableCharacterCardsInteractivity();
+        InstantiateBubbles();
 
         //StartNextPhaseWithDelay();
     }
 
-
-
-    void CalculateButtonClicks()
+    private void InstantiateBubbles()
     {
-        attackClicks = Roller.instance.GetImageCount(ImageType.Sword);
+        int swordCount = Roller.instance.GetImageCount(ImageType.Sword);
+        int heartCount = Roller.instance.GetImageCount(ImageType.Heart);
+        int bookCount = Roller.instance.GetImageCount(ImageType.Book);
 
-        skillClicks = Roller.instance.GetImageCount(ImageType.Book);
+        for (int i = 0; i < swordCount; i++)
+        {
+            Instantiate(attackBubble, attackBubbleContainer);
+        }
+
+        for (int i = 0; i < heartCount; i++)
+        {
+            Instantiate(resilienceBubble, resilienceBubbleContainer);
+        }
+
+        for (int i = 0; i < bookCount; i++)
+        {
+            Instantiate(staminaBubble, staminaBubbleContainer);
+        }
     }
-
-    void ResetButtonClicks()
-    {
-        attackClicks = 0;
-
-        skillClicks = 0;
-    }
-    private void DecreaseAttackCLicks()
-    {
-        attackClicks--;
-    }
-
-    private void EnableEnemyCardsInteractivity()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void EnableCharacterCardsInteractivity()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void DisableEnemyCardsInteractivity()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void DisableCharacterCardsInteractivity()
-    {
-        throw new NotImplementedException();
-    }
-
-    void EndPhase()
-    {
-        ResetButtonClicks();
-    }
-
 }

@@ -11,25 +11,6 @@ public class Health : MonoBehaviour
     private int maxLives = 5;
     private int currentLives = 5;
 
-    [Header("Testing")]
-    [SerializeField] private bool testAddLives;
-    [SerializeField] private bool testDecreaseLives;
-
-    void OnValidate()
-    {
-        if (testAddLives)
-        {
-            ChangeLives(1);
-            testAddLives = false;
-        }
-
-        if (testDecreaseLives)
-        {
-            ChangeLives(-1);
-            testDecreaseLives = false;
-        }
-    }
-
     void Awake()
     {
         cardDisplay = GetComponent<CardDisplay>();
@@ -45,7 +26,7 @@ public class Health : MonoBehaviour
 
     public void ChangeLives(int lives)
     {
-        currentLives -= lives;
+        currentLives += lives;
 
         livesText.text = currentLives.ToString();
 

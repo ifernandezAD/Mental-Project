@@ -6,13 +6,22 @@ public class Card : ScriptableObject
     public enum CardType{Character,Ally,Enemy}
     public CardType cardType;
 
-    [Header("Common Variables")]
+    [Header("Display")]
     public string cardName;
     public Sprite art;
+
+    [Header("Stats")]
     public int maxHealth;
-    public string skill;    
+
+    [Header("Skills")]
+    public int staminaCost;
+    public string skillDescription;
         
     [Header("Enemy Variables")]
      public int attack;   
      public bool isBoss;
+
+     
+
+
 }

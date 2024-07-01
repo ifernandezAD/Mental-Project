@@ -5,11 +5,13 @@ public class CardDetector : MonoBehaviour
 {   
     private Card card;
     private Health health;
+    private Skill skill;
 
     void Awake()
     {
         card = GetComponent<CardDisplay>().card;
         health=GetComponent<Health>();
+        skill=GetComponent<Skill>();
     }
 
     public void CheckButtonType(DraggableButton button)
@@ -38,6 +40,7 @@ public class CardDetector : MonoBehaviour
         {
             if((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
+                skill.DecreaseStamina(1);
                 Destroy(button.gameObject);
             }
         }    

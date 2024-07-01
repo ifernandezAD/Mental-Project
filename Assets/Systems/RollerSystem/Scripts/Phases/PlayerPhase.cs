@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerPhase : Phase
 {
@@ -17,6 +18,10 @@ public class PlayerPhase : Phase
     [SerializeField] Transform attackBubbleContainer;
     [SerializeField] Transform resilienceBubbleContainer;
     [SerializeField] Transform staminaBubbleContainer;
+
+    private List<GameObject> attackBubbles = new List<GameObject>();
+    private List<GameObject> resilienceBubbles = new List<GameObject>();
+    private List<GameObject> staminaBubbles = new List<GameObject>();
 
     protected override void InternalOnEnable()
     {
@@ -39,18 +44,45 @@ public class PlayerPhase : Phase
 
         for (int i = 0; i < swordCount; i++)
         {
-            Instantiate(attackBubble, attackBubbleContainer);
+            GameObject bubble = Instantiate(attackBubble, attackBubbleContainer);
+            attackBubbles.Add(bubble);
         }
 
         for (int i = 0; i < heartCount; i++)
         {
-            Instantiate(resilienceBubble, resilienceBubbleContainer);
+            GameObject bubble = Instantiate(resilienceBubble, resilienceBubbleContainer);
+            resilienceBubbles.Add(bubble);
         }
 
         for (int i = 0; i < bookCount; i++)
         {
-            Instantiate(staminaBubble, staminaBubbleContainer);
+            GameObject bubble = Instantiate(staminaBubble, staminaBubbleContainer);
+            staminaBubbles.Add(bubble);
         }
+    }
+
+    private void DestroyAllBubbles()
+    {
+        // Destroy all attack bubbles
+        foreach (GameObject bubble in attackBubbles)
+        {
+            Destroy(bubble);
+        }
+        attackBubbles.Clear();
+
+        // Destroy all resilience bubbles
+        foreach (GameObject bubble in resilienceBubbles)
+        {
+            Destroy(bubble);
+        }
+        resilienceBubbles.Clear();
+
+        // Destroy all stamina bubbles
+        foreach (GameObject bubble in staminaBubbles)
+        {
+            Destroy(bubble);
+        }
+        staminaBubbles.Clear();
     }
 
     void ResetResilience()
@@ -63,5 +95,7 @@ public class PlayerPhase : Phase
     {
         base.InternalOnDisable();
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
+
+        DestroyAllBubbles();
     }
 }

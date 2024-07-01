@@ -18,9 +18,15 @@ public class EnemyPhase : Phase
 
     private void ManageMentalHealthDamageTaken()
     {
-        int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<CardDisplay>().card.attack;
 
-        characterCardContainer.GetChild(0).GetComponent<Health>().RemoveHealth(enemyDamage);
+        for (int i = 0; i < enemyCardContainer.childCount; i++)
+        {
+            CardDisplay enemyCardDisplay = enemyCardContainer.GetChild(i).GetComponent<CardDisplay>();
+            int enemyDamage = enemyCardDisplay.card.attack;
+
+
+            characterCardContainer.GetChild(0).GetComponent<Health>().RemoveHealth(enemyDamage);
+        }
     }
 
 }

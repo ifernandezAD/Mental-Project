@@ -141,6 +141,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayCommons
       objectReference: {fileID: 0}
+    - target: {fileID: 1041555916930660246, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

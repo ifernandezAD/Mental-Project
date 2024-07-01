@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI resilienceText;
     private int maxLives = 5;
     private int currentLives = 5;
 
@@ -36,6 +38,7 @@ public class Health : MonoBehaviour
     {
         int effectiveDamage = Mathf.Max(0, damage - resilience);
         resilience = Mathf.Max(0, resilience - damage);
+        resilienceText.text = resilience.ToString();
 
         currentLives -= effectiveDamage;
 
@@ -59,11 +62,13 @@ public class Health : MonoBehaviour
     public void AddResilience(int resilience)
     {
         this.resilience += resilience;
+        resilienceText.text = this.resilience.ToString();
     }
 
     public void ResetResilience()
     {
         resilience = 0;
+        resilienceText.text = resilience.ToString();
     }
 
     void ManageEnemyCardDead()

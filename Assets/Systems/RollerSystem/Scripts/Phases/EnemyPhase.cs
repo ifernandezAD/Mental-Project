@@ -18,13 +18,9 @@ public class EnemyPhase : Phase
 
     private void ManageMentalHealthDamageTaken()
     {
-        int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<EnemyCardDisplay>().enemyCard.attack;
-        int characterResilience = Roller.instance.GetImageCount(ImageType.Heart);
+        int enemyDamage = enemyCardContainer.GetChild(0).GetComponent<CardDisplay>().card.attack;
 
-        int netDamage = Mathf.Max(enemyDamage - characterResilience, 0);
-
-        characterCardContainer.GetChild(0).GetComponent<CharacterMentalHealth>().ChangeMentalHealth(enemyDamage);
-
+        characterCardContainer.GetChild(0).GetComponent<Health>().RemoveHealth(enemyDamage);
     }
 
 }

@@ -5,22 +5,30 @@ using UnityEngine.UI;
 
 public class PlayerPhase : Phase
 {
+    [SerializeField] Button okButton;
+
     [Header("Bubbles")]
     [SerializeField] GameObject attackBubble;
     [SerializeField] GameObject resilienceBubble;
     [SerializeField] GameObject staminaBubble;
 
-    
+
     [Header("Bubbles Containers")] //It will only be one when bubbles appears in random positions
     [SerializeField] Transform attackBubbleContainer;
     [SerializeField] Transform resilienceBubbleContainer;
     [SerializeField] Transform staminaBubbleContainer;
-    
+
+    protected override void InternalOnEnable()
+    {
+        base.InternalOnEnable();
+        OKButton.onOKButtonPressed += StartNextPhaseWithDelay;
+    }
+
     protected override void BeginPhase()
     {
-        InstantiateBubbles();
+        okButton.interactable=true;
 
-        //StartNextPhaseWithDelay();
+        InstantiateBubbles();
     }
 
     private void InstantiateBubbles()
@@ -43,5 +51,17 @@ public class PlayerPhase : Phase
         {
             Instantiate(staminaBubble, staminaBubbleContainer);
         }
+    }
+
+    void ResetResilience()
+    {
+        RoundManager.instance.characterCardContainer.GetChild(0).gameObject.GetComponent<Health>().ResetResilience();
+    }
+
+
+    protected override void InternalOnDisable()
+    {
+        base.InternalOnDisable();
+        OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
     }
 }

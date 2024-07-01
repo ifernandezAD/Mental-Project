@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-[DefaultExecutionOrder(-100)] 
+[DefaultExecutionOrder(-100)]
 public class RoundManager : MonoBehaviour
 {
     public static RoundManager instance { get; private set; }
@@ -36,7 +36,7 @@ public class RoundManager : MonoBehaviour
         phases = GetComponentsInChildren<Phase>();
         foreach (var phase in phases)
         {
-           phase.enabled = false;
+            phase.enabled = false;
         }
     }
 
@@ -47,7 +47,7 @@ public class RoundManager : MonoBehaviour
         StartRound();
     }
 
-        void StartRound()
+    void StartRound()
     {
         currentPhaseIndex = 0;
         currentRound++;
@@ -66,15 +66,15 @@ public class RoundManager : MonoBehaviour
     {
         if (currentPhaseIndex < phases.Length)
         {
-            phases[currentPhaseIndex].enabled=true;
+            phases[currentPhaseIndex].enabled = true;
         }
     }
 
-        public void EnableNextPhase()
+    public void EnableNextPhase()
     {
         if (currentPhaseIndex < phases.Length)
         {
-            phases[currentPhaseIndex].enabled=false;
+            phases[currentPhaseIndex].enabled = false;
         }
 
         currentPhaseIndex++;
@@ -88,7 +88,7 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-     public void StartNextRound()
+    public void StartNextRound()
     {
         StartRound();
     }

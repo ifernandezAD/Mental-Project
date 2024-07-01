@@ -25,16 +25,16 @@ public class OKButton : MonoBehaviour
         button.interactable = false;
     }
 
+    private void DisableAndLaunchEvent()
+    {
+        button.interactable = false;
+        onOKButtonPressed?.Invoke();
+    }
+
     private void DisableAndLaunchEventWithoutEnergy()
     {
         button.interactable = false;
         isOutOfEnergy = true;
-        onOKButtonPressed?.Invoke();
-    }
-
-    private void DisableAndLaunchEvent()
-    {
-        button.interactable = false;
         onOKButtonPressed?.Invoke();
     }
 

@@ -18,12 +18,19 @@ public class CardDetector : MonoBehaviour
         {
            if(card.cardType == Card.CardType.Enemy)
            {
-                health.ChangeLives(-1);
+                health.RemoveHealth(-1);
+                Destroy(button.gameObject);
            }
         }
 
-        Debug.Log("Button released over the card!");
-        Destroy(button.gameObject);
+        if(button.gameObject.tag == "Heart")
+        {
+            if((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
+            {
+                health.AddResilience(1);
+            }
+        }
+        
     }
 
   

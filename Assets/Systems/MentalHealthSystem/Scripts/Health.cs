@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     private int maxLives = 5;
     private int currentLives = 5;
 
+    [Header("Resilience")]
+    private int resilience = 0;
     void Awake()
     {
         cardDisplay = GetComponent<CardDisplay>();
@@ -24,9 +26,18 @@ public class Health : MonoBehaviour
         livesText.text = currentLives.ToString();
     }
 
-    public void ChangeLives(int lives)
+    public void AddHealth(int health)
     {
-        currentLives += lives;
+        currentLives += health;
+        livesText.text = currentLives.ToString();
+    }
+
+    public void RemoveHealth(int damage)
+    {
+        int effectiveDamage = Mathf.Max(0, damage - resilience);
+        resilience = Mathf.Max(0, resilience - damage);
+
+        currentLives -= effectiveDamage;
 
         livesText.text = currentLives.ToString();
 
@@ -42,17 +53,26 @@ public class Health : MonoBehaviour
             {
                 ManageCharacterCardDead();
             }
-
         }
-
     }
+
+    public void AddResilience(int resilience)
+    {
+        this.resilience += resilience;
+    }
+
+    public void ResetResilience()
+    {
+        resilience = 0;
+    }
+
     void ManageEnemyCardDead()
     {
-        if(cardDisplay.card.isBoss)
+        if (cardDisplay.card.isBoss)
         {
             //Haz que el roundmanager pase de acto
         }
-        
+
         Destroy(gameObject);
     }
 

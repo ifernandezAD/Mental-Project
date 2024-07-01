@@ -32,7 +32,6 @@ public abstract class Phase : MonoBehaviour
 
     private IEnumerator StartPhaseWithDelay()
     {
-
         yield return new WaitForSeconds(phaseDelay);
         BeginPhase();
     }

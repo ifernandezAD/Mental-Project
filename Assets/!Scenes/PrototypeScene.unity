@@ -118,21 +118,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &1647066559 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5060728125989193567, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+--- !u!114 &831073166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 353557308548826381, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
   m_PrefabInstance: {fileID: 5137238834213799204}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1675706904 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5225538104706034078, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-  m_PrefabInstance: {fileID: 5137238834213799204}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2075922312 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3872087697561528446, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-  m_PrefabInstance: {fileID: 5137238834213799204}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5137238834213799204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,24 +181,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3670247045895495621, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4365423417101173837, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4365423417101173837, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365423417101173837, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365423417101173837, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4365423417101173837, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
@@ -214,32 +198,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: attackBubble
+      propertyPath: okButton
       value: 
-      objectReference: {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: staminaBubble
-      value: 
-      objectReference: {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: resilienceBubble
-      value: 
-      objectReference: {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: attackBubbleContainer
-      value: 
-      objectReference: {fileID: 1675706904}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: staminaBubbleContainer
-      value: 
-      objectReference: {fileID: 2075922312}
-    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: resilienceBubbleContainer
-      value: 
-      objectReference: {fileID: 1647066559}
+      objectReference: {fileID: 831073166}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8636586679443331207, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}

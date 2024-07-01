@@ -164,6 +164,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 1675353877653612162, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -236,8 +240,15 @@ PrefabInstance:
       propertyPath: okButton
       value: 
       objectReference: {fileID: 831073166}
+    - target: {fileID: 6303988773544198052, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4063531546961537720, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+    - {fileID: 8243462814939707196, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+    - {fileID: 8857070835892623089, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4054259322207428336, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}

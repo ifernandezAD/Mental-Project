@@ -14,7 +14,7 @@ public class PlayerPhase : Phase
     [SerializeField] GameObject staminaBubble;
 
 
-    [Header("Bubbles Containers")] //It will only be one when bubbles appears in random positions
+    [Header("Bubbles Containers")] 
     [SerializeField] Transform attackBubbleContainer;
     [SerializeField] Transform resilienceBubbleContainer;
     [SerializeField] Transform staminaBubbleContainer;
@@ -63,21 +63,18 @@ public class PlayerPhase : Phase
 
     private void DestroyAllBubbles()
     {
-        // Destroy all attack bubbles
         foreach (GameObject bubble in attackBubbles)
         {
             Destroy(bubble);
         }
         attackBubbles.Clear();
 
-        // Destroy all resilience bubbles
         foreach (GameObject bubble in resilienceBubbles)
         {
             Destroy(bubble);
         }
         resilienceBubbles.Clear();
 
-        // Destroy all stamina bubbles
         foreach (GameObject bubble in staminaBubbles)
         {
             Destroy(bubble);
@@ -97,5 +94,7 @@ public class PlayerPhase : Phase
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
 
         DestroyAllBubbles();
+
+        //ResetResilience(); //Testing, puede que se elimine esta funcionalidad
     }
 }

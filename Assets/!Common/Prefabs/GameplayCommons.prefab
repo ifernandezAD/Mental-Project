@@ -195,6 +195,7 @@ MonoBehaviour:
   phaseDelay: 2
   nextPhaseDelay: 2
   phaseName: Player Phase
+  okButton: {fileID: 0}
   attackBubble: {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
   resilienceBubble: {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
   staminaBubble: {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}

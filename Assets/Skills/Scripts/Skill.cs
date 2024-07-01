@@ -9,12 +9,15 @@ public abstract class Skill : MonoBehaviour
     private int maxStamina = 0;
     private int currentStamina = 0;
     private TextMeshProUGUI staminaText;
+    protected Health health;
+
 
     private void Awake() { InternalAwake(); }
     protected virtual void InternalAwake()
     {
         maxStamina = GetComponent<CardDisplay>().card.staminaCost;
         staminaText = GetComponent<CardDisplay>().staminaText;
+        health = GetComponent<Health>();
     }
 
     private void Start(){InternalStart();}

@@ -90,7 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344360875776528542, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
       propertyPath: m_Name
-      value: CardTemplate Variant
+      value: Beaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624278138888238613, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: b72ef1dc910027d409bd28b0a1082d91, type: 2}
+    - target: {fileID: 7624278138888238613, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
+      propertyPath: attackText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

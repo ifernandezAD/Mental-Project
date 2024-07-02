@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPhase : Phase
@@ -12,6 +13,16 @@ public class EnemyPhase : Phase
         }
 
         ManageMentalHealthDamageTaken();
+
+        foreach (Transform child in enemyCardContainer)
+        {
+            CardDisplay cardDisplay = child.GetComponent<CardDisplay>();
+            if (cardDisplay != null && cardDisplay.card.isBoss)
+            {
+                StartRollerPhaseWithDelay();
+                return;
+            }
+        }
 
         StartNextPhaseWithDelay();
     }
@@ -28,5 +39,4 @@ public class EnemyPhase : Phase
             characterCardContainer.GetChild(0).GetComponent<Health>().RemoveHealth(enemyDamage);
         }
     }
-
 }

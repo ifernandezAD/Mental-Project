@@ -27,6 +27,7 @@ public class PlayerPhase : Phase
     {
         base.InternalOnEnable();
         OKButton.onOKButtonPressed += StartNextPhaseWithDelay;
+        Health.onBossDefeated += StartNextActWithDelay; 
     }
 
     protected override void BeginPhase()
@@ -92,7 +93,9 @@ public class PlayerPhase : Phase
     {
         base.InternalOnDisable();
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
+        Health.onBossDefeated -= StartNextActWithDelay; 
 
+        okButton.interactable=false;
         DestroyAllBubbles();
 
         //ResetResilience(); //Testing, puede que se elimine esta funcionalidad

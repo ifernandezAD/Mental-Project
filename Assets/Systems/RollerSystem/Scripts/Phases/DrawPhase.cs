@@ -8,6 +8,8 @@ public class DrawPhase : Phase
     {
         if (RoundManager.instance.IsBossRound())
         {
+            ClearEnemyCardContainer();
+
             DrawBossCard();
         }
         else
@@ -21,6 +23,15 @@ public class DrawPhase : Phase
         GameObject card = Instantiate(testingCardPrefab, enemyCardContainer);
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
+
+    private void ClearEnemyCardContainer()
+    {
+        foreach (Transform child in enemyCardContainer)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 
     private void DrawBossCard()
     {

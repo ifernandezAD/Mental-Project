@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public static Action onBossDefeated;
     private CardDisplay cardDisplay;
 
     [Header("Health")]
@@ -75,7 +76,7 @@ public class Health : MonoBehaviour
     {
         if (cardDisplay.card.isBoss)
         {
-            //Haz que el roundmanager pase de acto
+            onBossDefeated?.Invoke();
         }
 
         Destroy(gameObject);

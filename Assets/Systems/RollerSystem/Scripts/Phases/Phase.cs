@@ -22,7 +22,7 @@ public abstract class Phase : MonoBehaviour
         ShowPhaseText(phaseName);
     }
 
-    private void Awake(){InternalAwake();}
+    private void Awake() { InternalAwake(); }
 
     protected virtual void InternalAwake()
     {
@@ -46,6 +46,28 @@ public abstract class Phase : MonoBehaviour
 
         yield return new WaitForSeconds(nextPhaseDelay);
         RoundManager.instance.EnableNextPhase();
+    }
+
+    protected void StartRollerPhaseWithDelay()
+    {
+        StartCoroutine(StartRollerPhaseWithDelayCorroutine());
+    }
+
+    protected IEnumerator StartRollerPhaseWithDelayCorroutine()
+    {
+        yield return new WaitForSeconds(nextPhaseDelay);
+        RoundManager.instance.EnableRollerPhase();
+    }
+
+    protected void StartNextActWithDelay()
+    {
+        StartCoroutine(StartNextActWithDelayCorroutine());
+    }
+
+    protected IEnumerator StartNextActWithDelayCorroutine()
+    {
+        yield return new WaitForSeconds(nextPhaseDelay);
+        RoundManager.instance.StartNextAct();
     }
 
     private void ShowPhaseText(string phaseName)

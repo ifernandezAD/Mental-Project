@@ -88,6 +88,18 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    public void EnableRollerPhase()
+    {
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled = false;
+        }
+
+        currentPhaseIndex =1;
+
+        StartCurrentPhase();
+    }
+
     public void StartNextRound()
     {
         StartRound();
@@ -95,6 +107,8 @@ public class RoundManager : MonoBehaviour
 
     public void StartNextAct()
     {
+        phases[currentPhaseIndex].enabled = false;
+
         if (currentAct < maxActs)
         {
             currentAct++;

@@ -95,13 +95,24 @@ PrefabInstance:
     - target: {fileID: 7624278138888238613, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: b72ef1dc910027d409bd28b0a1082d91, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f1d65aea17c2a7489bb7159eda10ff8, type: 2}
     - target: {fileID: 7624278138888238613, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
       propertyPath: attackText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3460779537008175637}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
+--- !u!114 &3460779537008175637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6042616310339811832, guid: 7b26756a0d99b3f48aca20b6a412320f, type: 3}
+  m_PrefabInstance: {fileID: 7195774892356735981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

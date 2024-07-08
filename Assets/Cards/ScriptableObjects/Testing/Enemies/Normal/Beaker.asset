@@ -16,6 +16,7 @@ MonoBehaviour:
   cardName: Beaker
   art: {fileID: -8214379713626754130, guid: 5a7774dd9e1720445b3183a8957547be, type: 3}
   maxHealth: 1
-  skill: Just Beaker
+  staminaCost: 0
+  skillDescription: Just Beaker...
   attack: 1
   isBoss: 0

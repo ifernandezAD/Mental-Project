@@ -272,6 +272,8 @@ public class Roller : MonoBehaviour
 
         UpdateImageCount();
         RemoveEnergy();
+
+        CalculateRollOutcome(); //Testing
     }
 
     public void DisableAllSlotImages()
@@ -292,6 +294,7 @@ public class Roller : MonoBehaviour
         imageCount.Add(ImageType.Sword, 0);
         imageCount.Add(ImageType.Heart, 0);
         imageCount.Add(ImageType.Book, 0);
+        imageCount.Add(ImageType.Poison,0);
     }
 
     void UpdateImageCount()
@@ -332,7 +335,13 @@ public class Roller : MonoBehaviour
         {
             return ImageType.Book;
         }
-        return ImageType.None;
+
+        else if (imageObject.CompareTag("Poison"))
+        {
+            return ImageType.Poison;
+        }
+
+        return ImageType.None; 
     }
 
     public int GetImageCount(ImageType type)
@@ -349,10 +358,12 @@ public class Roller : MonoBehaviour
         int swordCount = GetImageCount(ImageType.Sword);
         int heartCount = GetImageCount(ImageType.Heart);
         int bookCount = GetImageCount(ImageType.Book);
+        int poisonCount=GetImageCount(ImageType.Poison);
 
         Debug.Log($"Swords count is {swordCount}");
         Debug.Log($"Hearts count is {heartCount}");
         Debug.Log($"Books count is {bookCount}");
+        Debug.Log($"Poison count is {poisonCount}");
     }
 
     #endregion

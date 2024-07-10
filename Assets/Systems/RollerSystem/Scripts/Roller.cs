@@ -40,6 +40,11 @@ public class Roller : MonoBehaviour
     public static Action onOutOfEnergy;
     public static Action onResetEnergy;
 
+    [Header("Roller icons")]
+    [SerializeField] GameObject swordPrefab;
+    [SerializeField] GameObject heartPrefab;
+    [SerializeField] GameObject bookPrefab;
+
 
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
@@ -234,7 +239,7 @@ public class Roller : MonoBehaviour
         return false;
     }
 
-    public void ActivateRandomImageInSlots()
+public void ActivateRandomImageInSlots()
     {
         if (currentEnergy <= 0)
         {
@@ -251,16 +256,14 @@ public class Roller : MonoBehaviour
         {
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
-                Transform icons = slot.GetChild(1);
-                int childCount = icons.childCount;
-
-                for (int i = 0; i < childCount; i++)
+                Transform iconsParent = slot.GetChild(1);
+                foreach (Transform child in iconsParent)
                 {
-                    icons.GetChild(i).gameObject.SetActive(false);
+                    Destroy(child.gameObject);
                 }
 
-                int randomIndex = UnityEngine.Random.Range(0, childCount);
-                icons.GetChild(randomIndex).gameObject.SetActive(true);
+                GameObject randomIcon = Instantiate(GetRandomPrefab(), iconsParent);
+                randomIcon.SetActive(true);
             }
             slotIndex++;
         }
@@ -269,14 +272,21 @@ public class Roller : MonoBehaviour
         RemoveEnergy();
     }
 
+    GameObject GetRandomPrefab()
+    {
+        List<GameObject> prefabs = new List<GameObject> { swordPrefab, heartPrefab, bookPrefab };
+        int randomIndex = UnityEngine.Random.Range(0, prefabs.Count);
+        return prefabs[randomIndex];
+    }
+
     public void DisableAllSlotImages()
     {
         foreach (Transform slot in slots.transform)
         {
-            Transform icons = slot.GetChild(1);
-            foreach (Transform icon in icons)
+            Transform iconsParent = slot.GetChild(1);
+            foreach (Transform child in iconsParent)
             {
-                icon.gameObject.SetActive(false);
+                Destroy(child.gameObject);
             }
         }
     }

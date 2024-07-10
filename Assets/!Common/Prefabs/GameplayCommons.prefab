@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 5776247187237767858}
   m_Layer: 5
   m_Name: Stamina
-  m_TagString: Heart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,6 +185,9 @@ MonoBehaviour:
   energyText: {fileID: 4553205046654512875}
   maxEnergy: 3
   currentEnergy: 3
+  swordPrefab: {fileID: 7973554996607475503, guid: 1d6ae0e916c3a5b46a7e86cf10179a32, type: 3}
+  heartPrefab: {fileID: 6806848911884789494, guid: eb96f6be6644bb3438998234ab9cce62, type: 3}
+  bookPrefab: {fileID: 3924023272180707825, guid: da6c5c65c130a954fb51ee3dda865ff9, type: 3}
 --- !u!114 &8702867741352744536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +206,7 @@ MonoBehaviour:
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}
   phaseTextDuration: 1
-  maxRoundsPerAct: 4
+  maxRoundsPerAct: 3
   currentRound: 0
   currentAct: 1
   maxActs: 3

@@ -3,6 +3,7 @@ using UnityEngine;
 public class DrawPhase : Phase
 {
     [SerializeField] GameObject testingCardPrefab;
+
     [SerializeField] GameObject testingBossPrefab;
     protected override void BeginPhase()
     {

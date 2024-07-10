@@ -37,9 +37,19 @@ public class Health : MonoBehaviour
 
     public void RemoveHealth(int damage)
     {
-        int effectiveDamage = Mathf.Max(0, damage - resilience);
-        resilience = Mathf.Max(0, resilience - damage);
-        resilienceText.text = resilience.ToString();
+
+        int effectiveDamage;
+
+        if (cardDisplay.card.cardType == Card.CardType.Enemy)
+        {
+            effectiveDamage = damage;
+        }
+        else
+        {
+            effectiveDamage = Mathf.Max(0, damage - resilience);
+            resilience = Mathf.Max(0, resilience - damage);
+            resilienceText.text = resilience.ToString();
+        }
 
         currentLives -= effectiveDamage;
 

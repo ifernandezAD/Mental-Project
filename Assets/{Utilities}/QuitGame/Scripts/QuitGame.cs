@@ -18,7 +18,4 @@ public class QuitGame : MonoBehaviour
     }
     private void OnDisable() { escapeGame.action.Disable(); }
 
-
-
-
 }

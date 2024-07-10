@@ -29,7 +29,7 @@ public abstract class Skill : MonoBehaviour
     public void DecreaseStamina(int stamina)
     {
         currentStamina -= stamina;
-        staminaText.text = "Sta: " + currentStamina;
+        staminaText.text = currentStamina.ToString();
 
         CheckCurrentStamina();
     }
@@ -49,7 +49,7 @@ public abstract class Skill : MonoBehaviour
     public void ResetStamina()
     {
         currentStamina = maxStamina;
-        staminaText.text = "Sta: " + currentStamina;
+        staminaText.text =currentStamina.ToString();
     }
 
     public virtual void TriggerSkill()

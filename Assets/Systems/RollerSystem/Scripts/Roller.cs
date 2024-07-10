@@ -239,7 +239,7 @@ public class Roller : MonoBehaviour
         return false;
     }
 
-public void ActivateRandomImageInSlots()
+    public void ActivateRandomImageInSlots()
     {
         if (currentEnergy <= 0)
         {
@@ -256,14 +256,16 @@ public void ActivateRandomImageInSlots()
         {
             if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
             {
-                Transform iconsParent = slot.GetChild(1);
-                foreach (Transform child in iconsParent)
+                Transform icons = slot.GetChild(1);
+                int childCount = icons.childCount;
+
+                for (int i = 0; i < childCount; i++)
                 {
-                    Destroy(child.gameObject);
+                    icons.GetChild(i).gameObject.SetActive(false);
                 }
 
-                GameObject randomIcon = Instantiate(GetRandomPrefab(), iconsParent);
-                randomIcon.SetActive(true);
+                int randomIndex = UnityEngine.Random.Range(0, childCount);
+                icons.GetChild(randomIndex).gameObject.SetActive(true);
             }
             slotIndex++;
         }
@@ -272,21 +274,14 @@ public void ActivateRandomImageInSlots()
         RemoveEnergy();
     }
 
-    GameObject GetRandomPrefab()
-    {
-        List<GameObject> prefabs = new List<GameObject> { swordPrefab, heartPrefab, bookPrefab };
-        int randomIndex = UnityEngine.Random.Range(0, prefabs.Count);
-        return prefabs[randomIndex];
-    }
-
     public void DisableAllSlotImages()
     {
         foreach (Transform slot in slots.transform)
         {
-            Transform iconsParent = slot.GetChild(1);
-            foreach (Transform child in iconsParent)
+            Transform icons = slot.GetChild(1);
+            foreach (Transform icon in icons)
             {
-                Destroy(child.gameObject);
+                icon.gameObject.SetActive(false);
             }
         }
     }

@@ -130,6 +130,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayCommons
       objectReference: {fileID: 0}
+    - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: imagePrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'imagePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7973554996607475503, guid: 1d6ae0e916c3a5b46a7e86cf10179a32, type: 3}
+    - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'imagePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6806848911884789494, guid: eb96f6be6644bb3438998234ab9cce62, type: 3}
+    - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'imagePrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: da6c5c65c130a954fb51ee3dda865ff9, type: 3}
+    - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'imagePrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: a437ca1b2a4031044a574deef0684f80, type: 3}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

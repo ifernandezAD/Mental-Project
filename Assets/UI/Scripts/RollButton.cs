@@ -15,7 +15,7 @@ public class RollButton : MonoBehaviour
     void OnEnable()
     {
         OKButton.onOKButtonPressed +=DisableButton;
-        Roller.onResetEnergy += EnableButton;
+        Energy.onResetEnergy += EnableButton;
     }
 
     private void RollOnce() 
@@ -30,7 +30,7 @@ public class RollButton : MonoBehaviour
     void OnDisable()
     {
         OKButton.onOKButtonPressed -=DisableButton;
-        Roller.onResetEnergy -= EnableButton;
+        Energy.onResetEnergy -= EnableButton;
     }
 
 }

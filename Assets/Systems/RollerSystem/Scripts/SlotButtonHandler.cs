@@ -22,14 +22,14 @@ public class SlotButtonHandler : MonoBehaviour
             return; 
         }
 
-        if (Roller.instance.IsSlotLocked(slotIndex))
+        if (Slots.instance.IsSlotLocked(slotIndex))
         {
-            Roller.instance.UnlockSlot(slotIndex);
+            Slots.instance.UnlockSlot(slotIndex);
             lockedImage.SetActive(false);
         }
         else
         {
-            Roller.instance.LockSlot(slotIndex);
+            Slots.instance.LockSlot(slotIndex);
             lockedImage.SetActive(true);
         }
     }

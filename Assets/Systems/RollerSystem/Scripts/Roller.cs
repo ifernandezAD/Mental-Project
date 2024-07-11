@@ -7,101 +7,29 @@ public class Roller : MonoBehaviour
 {
     public static Roller instance { get; private set; }
 
-    [Header("Testing Add/Remove Slots")]
-    [SerializeField] bool testAddSlot;
-    [SerializeField] bool testRemoveSlot;
-
-    [Header("Testing Locking Slots")]
-    [SerializeField] int testLockSlotInt;
-    [SerializeField] bool testLockSlot;
-    [SerializeField] bool testUnlockSlot;
-
-    [Header("Testing Energy")]
-    [SerializeField] bool testAddEnergy;
-    [SerializeField] bool testRemoveEnergy;
-    [SerializeField] bool testResetEnergy;
-
-
     [Header("Testing Slots")]
     [SerializeField] bool testRoll;
 
     [Header("Testing Roll Outcome")]
     [SerializeField] bool testOutcome;
 
-    [Header("Slots Variables")]
+    [Header("References")]
     [SerializeField] GameObject slots;
-    [SerializeField] int activeSlotCount = 3;
-    [SerializeField] bool[] lockedSlots;
-
-    [Header("Energy Variables")]
-    [SerializeField] TextMeshProUGUI energyText;
-    [SerializeField] int maxEnergy = 3;
-    [SerializeField] int currentEnergy = 3;
-    public static Action onOutOfEnergy;
-    public static Action onResetEnergy;
-
-    [Header("Roller icons")]
-    [SerializeField] GameObject swordPrefab;
-    [SerializeField] GameObject heartPrefab;
-    [SerializeField] GameObject bookPrefab;
-
 
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
     void OnValidate()
     {
-        if (testAddSlot)
-        {
-            AddSlot();
-            testAddSlot = false;
-        }
-
-        if (testRemoveSlot)
-        {
-            RemoveSlot();
-            testRemoveSlot = false;
-        }
-
         if (testRoll)
         {
             ActivateRandomImageInSlots();
             testRoll = false;
         }
 
-        if (testLockSlot)
-        {
-            LockSlot(testLockSlotInt);
-            testLockSlot = false;
-        }
-
-        if (testUnlockSlot)
-        {
-            UnlockSlot(testLockSlotInt);
-            testUnlockSlot = false;
-        }
-
         if (testOutcome)
         {
             CalculateRollOutcome();
             testOutcome = false;
-        }
-
-        if (testAddEnergy)
-        {
-            ChangeMaxEnergy(1);
-            testAddEnergy = false;
-        }
-
-        if (testRemoveEnergy)
-        {
-            ChangeMaxEnergy(-1);
-            testRemoveEnergy = false;
-        }
-
-        if (testResetEnergy)
-        {
-            ResetEnergy();
-            testResetEnergy = false;
         }
     }
 
@@ -112,115 +40,9 @@ public class Roller : MonoBehaviour
 
     void Start()
     {
-        if (lockedSlots == null || lockedSlots.Length != slots.transform.childCount)
-        {
-            lockedSlots = new bool[slots.transform.childCount];
-        }
-
-        InitializeImageCount();
-
-        energyText.text = "Energy: " + maxEnergy;
+        InitializeImageCount();     
     }
-
-    public void ResetRoller()
-    {
-        Roller.instance.ResetEnergy();
-        Roller.instance.DisableAllSlotImages();
-        Roller.instance.UnlockAllSlots();
-    }
-
-
-    #region Slots
-
-    void AddSlot()
-    {
-        if (activeSlotCount < slots.transform.childCount)
-        {
-            slots.transform.GetChild(activeSlotCount).gameObject.SetActive(true);
-            ResetSlot(activeSlotCount);
-            activeSlotCount++;
-        }
-    }
-
-    void RemoveSlot()
-    {
-        if (activeSlotCount > 3)
-        {
-            activeSlotCount--;
-            slots.transform.GetChild(activeSlotCount).gameObject.SetActive(false);
-            ResetSlot(activeSlotCount);
-        }
-    }
-
-    public void LockSlot(int slotIndex)
-    {
-        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
-        {
-            lockedSlots[slotIndex] = true;
-        }
-    }
-
-    public void UnlockSlot(int slotIndex)
-    {
-        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
-        {
-            lockedSlots[slotIndex] = false;
-        }
-    }
-
-    void ResetSlot(int slotIndex)
-    {
-        if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
-        {
-            Transform slot = slots.transform.GetChild(slotIndex);
-            Transform icons = slot.GetChild(1);
-            int childCount = icons.childCount;
-
-            for (int i = 0; i < childCount; i++)
-            {
-                icons.GetChild(i).gameObject.SetActive(false);
-            }
-
-            if (lockedSlots != null && slotIndex < lockedSlots.Length)
-            {
-                lockedSlots[slotIndex] = false;
-            }
-        }
-    }
-
-    public bool IsSlotLocked(int slotIndex)
-    {
-        if (slotIndex >= 0 && slotIndex < lockedSlots.Length)
-        {
-            return lockedSlots[slotIndex];
-        }
-        return false;
-    }
-
-    public void UnlockAllSlots()
-    {
-        for (int i = 0; i < lockedSlots.Length; i++)
-        {
-            lockedSlots[i] = false;
-
-
-            Transform slot = slots.transform.GetChild(i);
-            Transform visuals = slot.GetChild(0);
-
-            if (visuals != null)
-            {
-                foreach (Transform image in visuals)
-                {
-                    image.gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    #region RollImages
-
+    
     public bool IsImageActiveInSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
@@ -241,6 +63,8 @@ public class Roller : MonoBehaviour
 
     public void ActivateRandomImageInSlots()
     {
+        int currentEnergy = Energy.instance.GetCurrentEnergy();
+
         if (currentEnergy <= 0)
         {
             return;
@@ -248,13 +72,13 @@ public class Roller : MonoBehaviour
 
         if (currentEnergy == 1)
         {
-            onOutOfEnergy?.Invoke();
+            Energy.instance.TriggerOnOutOfEnergy();
         }
 
         int slotIndex = 0;
         foreach (Transform slot in slots.transform)
         {
-            if (slot.gameObject.activeSelf && !lockedSlots[slotIndex])
+            if (slot.gameObject.activeSelf && !Slots.instance.lockedSlots[slotIndex])
             {
                 Transform icons = slot.GetChild(1);
                 int childCount = icons.childCount;
@@ -271,7 +95,7 @@ public class Roller : MonoBehaviour
         }
 
         UpdateImageCount();
-        RemoveEnergy();
+        Energy.instance.RemoveEnergy();
 
         CalculateRollOutcome(); //Testing
     }
@@ -365,29 +189,5 @@ public class Roller : MonoBehaviour
         Debug.Log($"Books count is {bookCount}");
         Debug.Log($"Poison count is {poisonCount}");
     }
-
-    #endregion
-
-
-    #region Energy
-    public void ChangeMaxEnergy(int energy)
-    {
-        maxEnergy += energy;
-    }
-
-    void RemoveEnergy()
-    {
-        currentEnergy--;
-        energyText.text = "Energy: " + currentEnergy;
-    }
-    public void ResetEnergy()
-    {
-        currentEnergy = maxEnergy;
-        energyText.text = "Energy: " + maxEnergy;
-
-        onResetEnergy?.Invoke();
-    }
-
-    #endregion
 
 }

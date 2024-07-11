@@ -851,6 +851,8 @@ GameObject:
   m_Component:
   - component: {fileID: 267183744202568031}
   - component: {fileID: 559139420104403550}
+  - component: {fileID: 6235216477009507574}
+  - component: {fileID: 1468516013167317824}
   m_Layer: 5
   m_Name: Roller
   m_TagString: Untagged
@@ -871,7 +873,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2514153173038050185}
-  - {fileID: 3846081705695778931}
   m_Father: {fileID: 9168564933404159405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -891,25 +892,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c64d0d5f4e6304d9599909122d3220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testRoll: 0
+  testOutcome: 0
+  slots: {fileID: 3799590762947477941}
+--- !u!114 &6235216477009507574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398680906741091520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e28747c83ac6c146a31de036dbb1a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: {fileID: 3799590762947477941}
+  activeSlotCount: 3
+  lockedSlots: 
   testAddSlot: 0
   testRemoveSlot: 0
   testLockSlotInt: 0
   testLockSlot: 0
   testUnlockSlot: 0
-  testAddEnergy: 0
-  testRemoveEnergy: 0
-  testResetEnergy: 0
-  testRoll: 0
-  testOutcome: 0
-  slots: {fileID: 3799590762947477941}
-  activeSlotCount: 3
-  lockedSlots: 
+--- !u!114 &1468516013167317824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398680906741091520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39e537d4142b6842a974ea239f23132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   energyText: {fileID: 2094226925557272602}
   maxEnergy: 3
   currentEnergy: 3
-  swordPrefab: {fileID: 0}
-  heartPrefab: {fileID: 0}
-  bookPrefab: {fileID: 0}
+  testAddEnergy: 0
+  testRemoveEnergy: 0
+  testResetEnergy: 0
 --- !u!1 &4573887173261863841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1183,7 @@ GameObject:
   - component: {fileID: 6121719893868027092}
   - component: {fileID: 2094226925557272602}
   m_Layer: 5
-  m_Name: RollsLeftText
+  m_Name: EnergyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1173,16 +1196,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4958666191257254734}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 267183744202568031}
+  m_Father: {fileID: 5839233143114842068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: -493}
+  m_AnchoredPosition: {x: -30, y: -493.72}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6121719893868027092
@@ -1717,6 +1740,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3846081705695778931}
   - {fileID: 6949830083838554178}
   - {fileID: 2019290643287278925}
   m_Father: {fileID: 9168564933404159405}

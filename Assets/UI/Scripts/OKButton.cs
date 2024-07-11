@@ -18,7 +18,7 @@ public class OKButton : MonoBehaviour
     void OnEnable()
     {
         RollButton.onRoll += EnableButton;
-        Roller.onOutOfEnergy += DisableAndLaunchEventWithoutEnergy;
+        Energy.onOutOfEnergy += DisableAndLaunchEventWithoutEnergy;
     }
     void Start()
     {
@@ -53,6 +53,6 @@ public class OKButton : MonoBehaviour
     void OnDisable()
     {
         RollButton.onRoll -= EnableButton;
-        Roller.onOutOfEnergy -= DisableAndLaunchEventWithoutEnergy;
+        Energy.onOutOfEnergy -= DisableAndLaunchEventWithoutEnergy;
     }
 }

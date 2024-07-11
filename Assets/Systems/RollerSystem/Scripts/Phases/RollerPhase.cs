@@ -13,7 +13,10 @@ public class RollerPhase : Phase
     protected override void BeginPhase()
     {
         rollButton.interactable=true;
-        Roller.instance.ResetRoller();
+        
+        Slots.instance.UnlockAllSlots();
+        Energy.instance.ResetEnergy();
+        Roller.instance.DisableAllSlotImages();
     }
 
     protected override void InternalOnDisable()

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class Roller : MonoBehaviour
@@ -16,7 +15,17 @@ public class Roller : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject slots;
 
+    [Header("Image Prefabs")]
+    [SerializeField] List<ImagePrefab> imagePrefabs = new List<ImagePrefab>();
+
     private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
+
+    [Serializable]
+    public class ImagePrefab
+    {
+        public ImageType type;
+        public GameObject prefab;
+    }
 
     void OnValidate()
     {
@@ -40,9 +49,18 @@ public class Roller : MonoBehaviour
 
     void Start()
     {
-        InitializeImageCount();     
+        InitializeImageCount();
     }
-    
+
+    void InitializeImageCount()
+    {
+        imageCount.Clear();
+        foreach (ImageType type in Enum.GetValues(typeof(ImageType)))
+        {
+            imageCount.Add(type, 0);
+        }
+    }
+
     public bool IsImageActiveInSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
@@ -83,13 +101,14 @@ public class Roller : MonoBehaviour
                 Transform icons = slot.GetChild(1);
                 int childCount = icons.childCount;
 
-                for (int i = 0; i < childCount; i++)
+                // Destroy all existing icons in the slot
+                foreach (Transform child in icons)
                 {
-                    icons.GetChild(i).gameObject.SetActive(false);
+                    Destroy(child.gameObject);
                 }
 
-                int randomIndex = UnityEngine.Random.Range(0, childCount);
-                icons.GetChild(randomIndex).gameObject.SetActive(true);
+                // Instantiate a random prefab in the slot
+                InstantiateRandomPrefab(icons);
             }
             slotIndex++;
         }
@@ -100,6 +119,29 @@ public class Roller : MonoBehaviour
         CalculateRollOutcome(); //Testing
     }
 
+    void InstantiateRandomPrefab(Transform parent)
+    {
+        List<ImagePrefab> activePrefabs = GetActivePrefabs();
+        if (activePrefabs.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, activePrefabs.Count);
+            Instantiate(activePrefabs[randomIndex].prefab, parent);
+        }
+    }
+
+    List<ImagePrefab> GetActivePrefabs()
+    {
+        List<ImagePrefab> activePrefabs = new List<ImagePrefab>();
+        foreach (ImagePrefab prefab in imagePrefabs)
+        {
+            if (prefab.prefab != null) // Check if prefab is assigned
+            {
+                activePrefabs.Add(prefab);
+            }
+        }
+        return activePrefabs;
+    }
+
     public void DisableAllSlotImages()
     {
         foreach (Transform slot in slots.transform)
@@ -107,18 +149,9 @@ public class Roller : MonoBehaviour
             Transform icons = slot.GetChild(1);
             foreach (Transform icon in icons)
             {
-                icon.gameObject.SetActive(false);
+                Destroy(icon.gameObject);
             }
         }
-    }
-
-    void InitializeImageCount()
-    {
-        imageCount.Clear();
-        imageCount.Add(ImageType.Sword, 0);
-        imageCount.Add(ImageType.Heart, 0);
-        imageCount.Add(ImageType.Book, 0);
-        imageCount.Add(ImageType.Poison,0);
     }
 
     void UpdateImageCount()
@@ -132,13 +165,10 @@ public class Roller : MonoBehaviour
                 Transform icons = slot.GetChild(1);
                 foreach (Transform icon in icons)
                 {
-                    if (icon.gameObject.activeSelf)
+                    ImageType imageType = GetImageType(icon.gameObject);
+                    if (imageType != ImageType.None)
                     {
-                        ImageType imageType = GetImageType(icon.gameObject);
-                        if (imageType != ImageType.None)
-                        {
-                            imageCount[imageType]++;
-                        }
+                        imageCount[imageType]++;
                     }
                 }
             }
@@ -147,25 +177,14 @@ public class Roller : MonoBehaviour
 
     ImageType GetImageType(GameObject imageObject)
     {
-        if (imageObject.CompareTag("Sword"))
+        foreach (ImagePrefab prefab in imagePrefabs)
         {
-            return ImageType.Sword;
+            if (imageObject.CompareTag(prefab.type.ToString()))
+            {
+                return prefab.type;
+            }
         }
-        else if (imageObject.CompareTag("Heart"))
-        {
-            return ImageType.Heart;
-        }
-        else if (imageObject.CompareTag("Book"))
-        {
-            return ImageType.Book;
-        }
-
-        else if (imageObject.CompareTag("Poison"))
-        {
-            return ImageType.Poison;
-        }
-
-        return ImageType.None; 
+        return ImageType.None;
     }
 
     public int GetImageCount(ImageType type)
@@ -179,15 +198,9 @@ public class Roller : MonoBehaviour
 
     void CalculateRollOutcome()
     {
-        int swordCount = GetImageCount(ImageType.Sword);
-        int heartCount = GetImageCount(ImageType.Heart);
-        int bookCount = GetImageCount(ImageType.Book);
-        int poisonCount=GetImageCount(ImageType.Poison);
-
-        Debug.Log($"Swords count is {swordCount}");
-        Debug.Log($"Hearts count is {heartCount}");
-        Debug.Log($"Books count is {bookCount}");
-        Debug.Log($"Poison count is {poisonCount}");
+        foreach (KeyValuePair<ImageType, int> pair in imageCount)
+        {
+            Debug.Log($"{pair.Key} count is {pair.Value}");
+        }
     }
-
 }

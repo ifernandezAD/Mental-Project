@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Roller : MonoBehaviour
@@ -15,14 +16,7 @@ public class Roller : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject slots;
 
-    private List<ImageCounter> imageCounters = new List<ImageCounter>();
-
-    [Serializable]
-    public class ImageCounter
-    {
-        public ImageType type;
-        public int count;
-    }
+    private Dictionary<ImageType, int> imageCount = new Dictionary<ImageType, int>();
 
     void OnValidate()
     {
@@ -46,18 +40,9 @@ public class Roller : MonoBehaviour
 
     void Start()
     {
-        InitializeImageCounters();
+        InitializeImageCount();     
     }
-
-    void InitializeImageCounters()
-    {
-        imageCounters.Clear();
-        foreach (ImageType type in Enum.GetValues(typeof(ImageType)))
-        {
-            imageCounters.Add(new ImageCounter { type = type, count = 0 });
-        }
-    }
-
+    
     public bool IsImageActiveInSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)
@@ -109,7 +94,7 @@ public class Roller : MonoBehaviour
             slotIndex++;
         }
 
-        UpdateImageCounters();
+        UpdateImageCount();
         Energy.instance.RemoveEnergy();
 
         CalculateRollOutcome(); //Testing
@@ -127,9 +112,18 @@ public class Roller : MonoBehaviour
         }
     }
 
-    void UpdateImageCounters()
+    void InitializeImageCount()
     {
-        InitializeImageCounters(); // Reset counts
+        imageCount.Clear();
+        imageCount.Add(ImageType.Sword, 0);
+        imageCount.Add(ImageType.Heart, 0);
+        imageCount.Add(ImageType.Book, 0);
+        imageCount.Add(ImageType.Poison,0);
+    }
+
+    void UpdateImageCount()
+    {
+        InitializeImageCount(); // Reset counts
 
         foreach (Transform slot in slots.transform)
         {
@@ -143,11 +137,7 @@ public class Roller : MonoBehaviour
                         ImageType imageType = GetImageType(icon.gameObject);
                         if (imageType != ImageType.None)
                         {
-                            ImageCounter counter = imageCounters.Find(c => c.type == imageType);
-                            if (counter != null)
-                            {
-                                counter.count++;
-                            }
+                            imageCount[imageType]++;
                         }
                     }
                 }
@@ -169,25 +159,35 @@ public class Roller : MonoBehaviour
         {
             return ImageType.Book;
         }
+
         else if (imageObject.CompareTag("Poison"))
         {
             return ImageType.Poison;
         }
 
-        return ImageType.None;
+        return ImageType.None; 
     }
 
     public int GetImageCount(ImageType type)
     {
-        ImageCounter counter = imageCounters.Find(c => c.type == type);
-        return counter != null ? counter.count : 0;
+        if (imageCount.ContainsKey(type))
+        {
+            return imageCount[type];
+        }
+        return 0;
     }
 
     void CalculateRollOutcome()
     {
-        foreach (ImageCounter counter in imageCounters)
-        {
-            Debug.Log($"{counter.type} count is {counter.count}");
-        }
+        int swordCount = GetImageCount(ImageType.Sword);
+        int heartCount = GetImageCount(ImageType.Heart);
+        int bookCount = GetImageCount(ImageType.Book);
+        int poisonCount=GetImageCount(ImageType.Poison);
+
+        Debug.Log($"Swords count is {swordCount}");
+        Debug.Log($"Hearts count is {heartCount}");
+        Debug.Log($"Books count is {bookCount}");
+        Debug.Log($"Poison count is {poisonCount}");
     }
+
 }

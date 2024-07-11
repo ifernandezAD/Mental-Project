@@ -203,4 +203,19 @@ public class Roller : MonoBehaviour
             Debug.Log($"{pair.Key} count is {pair.Value}");
         }
     }
+
+    public void AddImagePrefab(ImageType type, GameObject prefab)
+    {
+        ImagePrefab newPrefab = new ImagePrefab { type = type, prefab = prefab };
+        imagePrefabs.Add(newPrefab);
+    }
+
+    public void RemoveImagePrefab(ImageType type)
+    {
+        ImagePrefab prefabToRemove = imagePrefabs.Find(p => p.type == type);
+        if (prefabToRemove != null)
+        {
+            imagePrefabs.Remove(prefabToRemove);
+        }
+    }
 }

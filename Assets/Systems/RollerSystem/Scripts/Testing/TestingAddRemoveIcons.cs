@@ -2,17 +2,37 @@ using UnityEngine;
 
 public class TestingAddRemoveIcons : MonoBehaviour
 {
- [Header("Testing")]
- [SerializeField] bool testAddIcon;
- [SerializeField] bool testRemoveIcon;
+    [SerializeField] GameObject poisonIconPrefab;
 
- void AddIcon()
- {
+    [Header("Testing")]
+    [SerializeField] bool testAddIcon;
+    [SerializeField] bool testRemoveIcon;
 
- }
+    void OnValidate()
+    {
+        if (testAddIcon)
+        {
+            AddIcon();
+            testAddIcon = false;
+        }
 
- void RemoveIcon()
- {
-    
- }
+        if (testRemoveIcon)
+        {
+            RemoveIcon();
+            testRemoveIcon = false;
+        }
+    }
+
+    void AddIcon()
+    {
+        Roller.instance.AddImagePrefab(ImageType.Poison,poisonIconPrefab);
+    }
+
+
+
+    void RemoveIcon()
+    {
+        Roller.instance.RemoveImagePrefab(ImageType.Sword);
+    }
+
 }

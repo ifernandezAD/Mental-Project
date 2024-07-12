@@ -205,8 +205,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2245971766489215537, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5137238834213799206}
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+--- !u!1 &5137238834213799205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2245971766489215537, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5137238834213799206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137238834213799205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db31420a985e104bae34a4648626cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poisonIconPrefab: {fileID: 3924023272180707825, guid: a437ca1b2a4031044a574deef0684f80, type: 3}
+  testAddIcon: 0
+  testRemoveIcon: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

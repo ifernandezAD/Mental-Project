@@ -31,7 +31,7 @@ public class Roller : MonoBehaviour
     {
         if (testRoll)
         {
-            ActivateRandomImageInSlots();
+            RollRandomImages();
             testRoll = false;
         }
 
@@ -79,7 +79,34 @@ public class Roller : MonoBehaviour
         return false;
     }
 
-    public void ActivateRandomImageInSlots()
+    public void RollRandomImages()
+    {
+        CheckEnergyForRoll();
+
+        int slotIndex = 0;
+        foreach (Transform slot in slots.transform)
+        {
+            if (slot.gameObject.activeSelf && !Slots.instance.lockedSlots[slotIndex])
+            {
+                Transform icons = slot.GetChild(1);
+                foreach (Transform child in icons)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                InstantiateRandomPrefab(icons);
+            }
+
+            slotIndex++;
+        }
+
+        UpdateImageCount();
+        Energy.instance.RemoveEnergy();
+
+        CalculateRollOutcome(); //Testing
+    }
+
+    void CheckEnergyForRoll()
     {
         int currentEnergy = Energy.instance.GetCurrentEnergy();
 
@@ -92,31 +119,6 @@ public class Roller : MonoBehaviour
         {
             Energy.instance.TriggerOnOutOfEnergy();
         }
-
-        int slotIndex = 0;
-        foreach (Transform slot in slots.transform)
-        {
-            if (slot.gameObject.activeSelf && !Slots.instance.lockedSlots[slotIndex])
-            {
-                Transform icons = slot.GetChild(1);
-                int childCount = icons.childCount;
-
-                // Destroy all existing icons in the slot
-                foreach (Transform child in icons)
-                {
-                    Destroy(child.gameObject);
-                }
-
-                // Instantiate a random prefab in the slot
-                InstantiateRandomPrefab(icons);
-            }
-            slotIndex++;
-        }
-
-        UpdateImageCount();
-        Energy.instance.RemoveEnergy();
-
-        CalculateRollOutcome(); //Testing
     }
 
     void InstantiateRandomPrefab(Transform parent)
@@ -134,7 +136,7 @@ public class Roller : MonoBehaviour
         List<ImagePrefab> activePrefabs = new List<ImagePrefab>();
         foreach (ImagePrefab prefab in imagePrefabs)
         {
-            if (prefab.prefab != null) // Check if prefab is assigned
+            if (prefab.prefab != null)
             {
                 activePrefabs.Add(prefab);
             }
@@ -156,8 +158,7 @@ public class Roller : MonoBehaviour
 
     void UpdateImageCount()
     {
-        InitializeImageCount(); // Reset counts
-
+        InitializeImageCount(); 
         foreach (Transform slot in slots.transform)
         {
             if (slot.gameObject.activeSelf)

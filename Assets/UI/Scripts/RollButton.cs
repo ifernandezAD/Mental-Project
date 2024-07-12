@@ -20,7 +20,7 @@ public class RollButton : MonoBehaviour
 
     private void RollOnce() 
     {
-        Roller.instance.ActivateRandomImageInSlots();
+        Roller.instance.RollRandomImages();
         onRoll?.Invoke();
     }
    

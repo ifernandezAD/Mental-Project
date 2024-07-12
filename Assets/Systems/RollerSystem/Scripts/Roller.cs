@@ -106,7 +106,7 @@ public class Roller : MonoBehaviour
 
         Energy.instance.RemoveEnergy();
         UpdateImageCount();
-        CalculateRollOutcome(); // Testing
+        //CalculateRollOutcome(); // Testing
     }
 
     bool CheckEnergyForRoll()
@@ -181,11 +181,6 @@ public class Roller : MonoBehaviour
                 }
             }
         }
-
-        foreach (KeyValuePair<ImageType, int> pair in imageCount)
-        {
-            Debug.Log($"{pair.Key} count is {pair.Value}");
-        }
     }
 
     ImageType GetImageType(GameObject imageObject)
@@ -205,8 +200,24 @@ public class Roller : MonoBehaviour
     }
 
     void CalculateRollOutcome()
-    {
-        UpdateImageCount();
+    {   
+        InitializeImageCount();
+        foreach (GameObject image in activeImages)
+        {
+            if (image != null)
+            {
+                ImageType imageType = GetImageType(image);
+                if (imageType != ImageType.None)
+                {
+                    imageCount[imageType]++;
+                }
+            }
+        }
+
+        foreach (KeyValuePair<ImageType, int> pair in imageCount)
+        {
+            Debug.Log($"{pair.Key} count is {pair.Value}");
+        }
     }
 
     public void AddImagePrefab(ImageType type, GameObject prefab)

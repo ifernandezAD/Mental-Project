@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 9020674747227419671}
   - component: {fileID: 4727714315174827349}
   - component: {fileID: 4561033956001679964}
+  - component: {fileID: -7499144299520084984}
   m_Layer: 5
   m_Name: HeartIcon
-  m_TagString: Heart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-7499144299520084984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806848911884789494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca10015c807a5ed46949d4d1749823f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageType: 1

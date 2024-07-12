@@ -127,7 +127,10 @@ public class Roller : MonoBehaviour
         if (activePrefabs.Count > 0)
         {
             int randomIndex = UnityEngine.Random.Range(0, activePrefabs.Count);
-            Instantiate(activePrefabs[randomIndex].prefab, parent);
+            GameObject instantiatedPrefab = Instantiate(activePrefabs[randomIndex].prefab, parent);
+            // Attach ImageTypeComponent to the instantiated prefab
+            ImageTypeComponent typeComponent = instantiatedPrefab.AddComponent<ImageTypeComponent>();
+            typeComponent.imageType = activePrefabs[randomIndex].type;
         }
     }
 
@@ -158,7 +161,7 @@ public class Roller : MonoBehaviour
 
     void UpdateImageCount()
     {
-        InitializeImageCount(); 
+        InitializeImageCount();
         foreach (Transform slot in slots.transform)
         {
             if (slot.gameObject.activeSelf)
@@ -178,12 +181,10 @@ public class Roller : MonoBehaviour
 
     ImageType GetImageType(GameObject imageObject)
     {
-        foreach (ImagePrefab prefab in imagePrefabs)
+        ImageTypeComponent typeComponent = imageObject.GetComponent<ImageTypeComponent>();
+        if (typeComponent != null)
         {
-            if (imageObject.CompareTag(prefab.type.ToString()))
-            {
-                return prefab.type;
-            }
+            return typeComponent.imageType;
         }
         return ImageType.None;
     }

@@ -106,7 +106,6 @@ public class Roller : MonoBehaviour
 
         Energy.instance.RemoveEnergy();
         UpdateImageCount();
-        //CalculateRollOutcome(); // Testing
     }
 
     bool CheckEnergyForRoll()

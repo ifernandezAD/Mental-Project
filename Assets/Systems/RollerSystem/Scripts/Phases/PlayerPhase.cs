@@ -13,8 +13,7 @@ public class PlayerPhase : Phase
     [SerializeField] GameObject resilienceBubble;
     [SerializeField] GameObject staminaBubble;
 
-
-    [Header("Bubbles Containers")] 
+    [Header("Bubbles Containers")]
     [SerializeField] Transform attackBubbleContainer;
     [SerializeField] Transform resilienceBubbleContainer;
     [SerializeField] Transform staminaBubbleContainer;
@@ -27,21 +26,23 @@ public class PlayerPhase : Phase
     {
         base.InternalOnEnable();
         OKButton.onOKButtonPressed += StartNextPhaseWithDelay;
-        Health.onBossDefeated += StartNextActWithDelay; 
+        Health.onBossDefeated += StartNextActWithDelay;
     }
 
     protected override void BeginPhase()
     {
-        okButton.interactable=true;
-
+        okButton.interactable = true;
         InstantiateBubbles();
     }
 
     private void InstantiateBubbles()
     {
-        int swordCount = Roller.instance.GetImageCount(ImageType.Sword);
-        int heartCount = Roller.instance.GetImageCount(ImageType.Heart);
-        int bookCount = Roller.instance.GetImageCount(ImageType.Book);
+        Roller roller = Roller.instance;
+        roller.UpdateImageCount(); 
+
+        int swordCount = roller.GetImageCount(ImageType.Sword);
+        int heartCount = roller.GetImageCount(ImageType.Heart);
+        int bookCount = roller.GetImageCount(ImageType.Book);
 
         for (int i = 0; i < swordCount; i++)
         {
@@ -88,14 +89,13 @@ public class PlayerPhase : Phase
         RoundManager.instance.characterCardContainer.GetChild(0).gameObject.GetComponent<Health>().ResetResilience();
     }
 
-
     protected override void InternalOnDisable()
     {
         base.InternalOnDisable();
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
-        Health.onBossDefeated -= StartNextActWithDelay; 
+        Health.onBossDefeated -= StartNextActWithDelay;
 
-        okButton.interactable=false;
+        okButton.interactable = false;
         DestroyAllBubbles();
 
         //ResetResilience(); //Testing, puede que se elimine esta funcionalidad

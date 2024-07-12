@@ -133,7 +133,7 @@ public class Roller : MonoBehaviour
         {
             int randomIndex = UnityEngine.Random.Range(0, activePrefabs.Count);
             GameObject instantiatedPrefab = Instantiate(activePrefabs[randomIndex].prefab, parent);
-            // Attach ImageTypeComponent to the instantiated prefab
+
             ImageTypeComponent typeComponent = instantiatedPrefab.AddComponent<ImageTypeComponent>();
             typeComponent.imageType = activePrefabs[randomIndex].type;
             activeImages.Add(instantiatedPrefab);
@@ -167,7 +167,7 @@ public class Roller : MonoBehaviour
         UpdateImageCount();
     }
 
-    void UpdateImageCount()
+    public void UpdateImageCount()
     {
         InitializeImageCount();
         foreach (GameObject image in activeImages)

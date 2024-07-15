@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 0
   cardName: Froggy
   art: {fileID: 5158404753353345565, guid: a02201dc0fa81d145801793e634ca209, type: 3}
-  maxHealth: 5
+  maxHealth: 6
   staminaCost: 2
   skillDescription: Heal 1 Mental Health
   attack: 0

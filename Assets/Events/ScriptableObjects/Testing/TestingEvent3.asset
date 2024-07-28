@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aa6c9195dad094bb87f1e0220c48c5, type: 3}
+  m_Name: TestingEvent3
+  m_EditorClassIdentifier: 
+  eventName: Prueba 3
+  art: {fileID: 3974929198232580112, guid: 0d930dc72a0371e4896365f8ebcc904f, type: 3}
+  firstButtonText: 'Pasa una cosa '
+  secondButtonText: Pasa la otra
+  thirdButtonText: Puede que pase algo

@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class DrawPhase : Phase
 {
+    [Header("Enemy Cards Variables")]    
     [SerializeField] GameObject testingCardPrefab;
-
     [SerializeField] GameObject testingBossPrefab;
+
+    [Header("Game Events Variables")]
+    [SerializeField] GameObject[] gameEventsArray;
+    [SerializeField] Transform eventContainer;
+    [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
+
+
     protected override void BeginPhase()
     {
         if (RoundManager.instance.IsBossRound())
@@ -15,7 +22,21 @@ public class DrawPhase : Phase
         }
         else
         {
-            DrawEnemyCard(); //TO DO , método que calcule de forma aleatoria si robamos carta de enemigo o evento
+            DrawRandomCard();
+        }
+    }
+
+       private void DrawRandomCard()
+    {
+        int randomValue = Random.Range(0, 100);
+
+        if (randomValue < eventDrawProbability)
+        {
+            DrawEvent();
+        }
+        else
+        {
+            DrawEnemyCard();
         }
     }
 
@@ -42,7 +63,18 @@ public class DrawPhase : Phase
 
     private void DrawEvent()
     {
-        
+        ClearEventContainer();
+
+        int randomIndex = Random.Range(0, gameEventsArray.Length);
+        GameObject eventCard = Instantiate(gameEventsArray[randomIndex], eventContainer);
+    }
+
+    private void ClearEventContainer()
+    {
+        foreach (Transform child in eventContainer)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
 }

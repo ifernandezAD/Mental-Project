@@ -109,7 +109,7 @@ MonoBehaviour:
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}
   phaseTextDuration: 1
-  maxRoundsPerAct: 3
+  maxRoundsPerAct: 10
   currentRound: 0
   currentAct: 1
   maxActs: 3
@@ -132,6 +132,12 @@ MonoBehaviour:
   phaseName: Draw Phase
   testingCardPrefab: {fileID: 8182129892686993895, guid: 9ae04a8f58a4bd44f8901b84a0700caa, type: 3}
   testingBossPrefab: {fileID: 913416788796525990, guid: fae7014c4d2fd9f488a43d049330a8b8, type: 3}
+  gameEventsArray:
+  - {fileID: 4152759035389439276, guid: 1d9b5b3d5ecea7b4c905f08d4a11729d, type: 3}
+  - {fileID: 4152759035389439276, guid: 329ce692e73423d4aafceac7070f2f20, type: 3}
+  - {fileID: 4152759035389439276, guid: 8628c3c0177adef4eaba4a88e762c4f9, type: 3}
+  eventContainer: {fileID: 2384212578028859944}
+  eventDrawProbability: 80
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +691,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2384212578028859944 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 231485833525349593, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3013506041595679305 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 860772820839312568, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

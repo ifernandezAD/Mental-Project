@@ -76,7 +76,7 @@ public class DrawPhase : Phase
     private void OnEventButtonPressed()
     {
         ClearEventContainer();
-        StartCoroutine(StartNextPhaseWithDelayCorroutine());
+        StartCoroutine(StartNextPhaseWithDelayCorroutine()); //Tenemos que checkear si hay enemigo o no, en el caso de que no se inicia una nueva drawphase
     }
 
     

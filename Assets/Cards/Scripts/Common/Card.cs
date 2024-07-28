@@ -19,9 +19,5 @@ public class Card : ScriptableObject
         
     [Header("Enemy Variables")]
      public int attack;   
-     public bool isBoss;
-
-     
-
-
+     public bool isBoss;   
 }

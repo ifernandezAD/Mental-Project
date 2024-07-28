@@ -12,6 +12,12 @@ public class DrawPhase : Phase
     [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
 
 
+    protected override void InternalOnEnable()
+    {
+        base.InternalOnEnable();
+        EventManager.onEventButtonPressed += OnEventButtonPressed;
+    }
+
     protected override void BeginPhase()
     {
         if (RoundManager.instance.IsBossRound())
@@ -63,12 +69,17 @@ public class DrawPhase : Phase
 
     private void DrawEvent()
     {
-        ClearEventContainer();
-
         int randomIndex = Random.Range(0, gameEventsArray.Length);
         GameObject eventCard = Instantiate(gameEventsArray[randomIndex], eventContainer);
     }
 
+    private void OnEventButtonPressed()
+    {
+        ClearEventContainer();
+        StartCoroutine(StartNextPhaseWithDelayCorroutine());
+    }
+
+    
     private void ClearEventContainer()
     {
         foreach (Transform child in eventContainer)
@@ -77,4 +88,9 @@ public class DrawPhase : Phase
         }
     }
 
+    protected override void InternalOnDisable()
+    {
+        base.InternalOnDisable();
+        EventManager.onEventButtonPressed -= OnEventButtonPressed;
+    }
 }

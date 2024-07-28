@@ -1,16 +1,13 @@
+using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static Action onEventButtonPressed;
 
-    // Update is called once per frame
-    void Update()
+    public void EventButtonPressed()
     {
-        
+        onEventButtonPressed?.Invoke();
     }
 }

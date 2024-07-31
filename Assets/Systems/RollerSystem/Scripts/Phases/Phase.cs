@@ -59,6 +59,17 @@ public abstract class Phase : MonoBehaviour
         RoundManager.instance.EnableRollerPhase();
     }
 
+    
+    protected void StartNextRoundWithDelay()
+    {
+        StartCoroutine(StartNextRoundWithDelayCorroutine());
+    }
+
+    protected IEnumerator StartNextRoundWithDelayCorroutine()
+    {
+        yield return new WaitForSeconds(nextPhaseDelay);
+        RoundManager.instance.StartNextRound();
+    }
     protected void StartNextActWithDelay()
     {
         StartCoroutine(StartNextActWithDelayCorroutine());

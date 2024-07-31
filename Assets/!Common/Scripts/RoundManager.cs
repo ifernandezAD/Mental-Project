@@ -102,6 +102,11 @@ public class RoundManager : MonoBehaviour
 
     public void StartNextRound()
     {
+        if (currentPhaseIndex < phases.Length)
+        {
+            phases[currentPhaseIndex].enabled = false;
+        }
+
         StartRound();
     }
 

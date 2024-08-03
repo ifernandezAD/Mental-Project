@@ -9,6 +9,7 @@ public abstract class Phase : MonoBehaviour
     [Header("References")]
     protected Transform enemyCardContainer;
     protected Transform characterCardContainer;
+    protected Transform allyCardContainer;
 
     [SerializeField] float phaseDelay = 2;
     [SerializeField] float nextPhaseDelay = 2;
@@ -28,6 +29,7 @@ public abstract class Phase : MonoBehaviour
     {
         enemyCardContainer = RoundManager.instance.enemyCardContainer;
         characterCardContainer = RoundManager.instance.characterCardContainer;
+        allyCardContainer = RoundManager.instance.allyCardContainer;
     }
 
     private IEnumerator StartPhaseWithDelay()

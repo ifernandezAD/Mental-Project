@@ -66,6 +66,10 @@ public class Health : MonoBehaviour
             {
                 ManageCharacterCardDead();
             }
+            if(cardDisplay.card.cardType == Card.CardType.Ally)
+            {
+                ManageAllyCardDead();
+            }
         }
     }
 
@@ -95,5 +99,11 @@ public class Health : MonoBehaviour
     {
         RoundManager.instance.EndGame();
         Debug.Log("GameOver");
+    }
+
+    private void ManageAllyCardDead()
+    {
+        Slots.instance.RemoveSlot();
+        Destroy(gameObject);
     }
 }

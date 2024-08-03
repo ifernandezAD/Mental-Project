@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCardContainer: {fileID: 6866420355703295398}
   characterCardContainer: {fileID: 4687522695868845786}
+  allyCardContainer: {fileID: 9181305805184565048}
   actText: {fileID: 908320373568627252}
   roundText: {fileID: 3013506041595679305}
   phaseText: {fileID: 5353796257288519717}

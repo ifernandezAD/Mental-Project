@@ -13,7 +13,6 @@ public class DrawPhase : Phase
     [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
     private bool allyDrawnInCurrentAct = false;
 
-
     protected override void InternalOnEnable()
     {
         base.InternalOnEnable();
@@ -22,10 +21,15 @@ public class DrawPhase : Phase
 
     protected override void BeginPhase()
     {
+        // Resetea la booleana al inicio de cada acto
+        if (RoundManager.instance.GetCurrentRound() == 1)
+        {
+            allyDrawnInCurrentAct = false;
+        }
+
         if (RoundManager.instance.IsBossRound())
         {
             ClearEnemyCardContainer();
-
             DrawBossCard();
         }
         else
@@ -36,15 +40,25 @@ public class DrawPhase : Phase
 
     private void DrawRandomCard()
     {
-        int randomValue = Random.Range(0, 100);
+        int roundNumber = RoundManager.instance.GetCurrentRound();
+        int actNumber = RoundManager.instance.GetCurrentAct();
 
-        if (randomValue < eventDrawProbability)
+        if (ShouldDrawAllyEvent(roundNumber, actNumber))
         {
-            DrawEvent();
+            DrawAllyEvent();
         }
         else
         {
-            DrawEnemyCard();
+            int randomValue = Random.Range(0, 100);
+
+            if (randomValue < eventDrawProbability)
+            {
+                DrawEvent();
+            }
+            else
+            {
+                DrawEnemyCard();
+            }
         }
     }
 
@@ -62,36 +76,26 @@ public class DrawPhase : Phase
         }
     }
 
-
     private void DrawBossCard()
     {
         GameObject card = Instantiate(testingBossPrefab, enemyCardContainer);
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
-  private void DrawEvent()
+    private void DrawEvent()
     {
-        int roundNumber = RoundManager.instance.GetCurrentRound();
-        int actNumber = RoundManager.instance.GetCurrentAct();
-
-        if (ShouldDrawAllyEvent(roundNumber, actNumber))
-        {
-            DrawAllyEvent();
-        }
-        else
-        {
-            DrawGeneralEvent();
-        }
+        DrawGeneralEvent();
     }
 
-        private bool ShouldDrawAllyEvent(int roundNumber, int actNumber)
+    private bool ShouldDrawAllyEvent(int roundNumber, int actNumber)
     {
         if (allyDrawnInCurrentAct)
             return false;
 
+        int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
+
         if (roundNumber >= 3 && roundNumber <= 8)
         {
-            int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
             if (actNumber == 3 && currentAllyCount < 3)
             {
                 return true;
@@ -101,6 +105,7 @@ public class DrawPhase : Phase
                 return true;
             }
         }
+
         return false;
     }
 
@@ -129,7 +134,6 @@ public class DrawPhase : Phase
 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
-
 
     private void ClearEventContainer()
     {

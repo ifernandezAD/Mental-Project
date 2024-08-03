@@ -23,7 +23,17 @@ public abstract class Skill : MonoBehaviour
     private void Start(){InternalStart();}
     protected virtual void InternalStart()
     {
+        if(GetComponent<CardDisplay>().card.cardType == Card.CardType.Ally)
+        {
+            AddSlot();
+        }
+
         currentStamina = maxStamina;
+    }
+
+    void AddSlot()
+    {
+        Slots.instance.AddSlot();
     }
 
     public void DecreaseStamina(int stamina)

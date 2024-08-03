@@ -58,7 +58,7 @@ public class Slots : MonoBehaviour
         }
     }
 
-    void AddSlot()
+    public void AddSlot()
     {
         if (activeSlotCount < slots.transform.childCount)
         {
@@ -68,7 +68,7 @@ public class Slots : MonoBehaviour
         }
     }
 
-    void RemoveSlot()
+    public void RemoveSlot()
     {
         if (activeSlotCount > 3)
         {

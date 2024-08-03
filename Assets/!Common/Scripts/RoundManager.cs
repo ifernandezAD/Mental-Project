@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 [DefaultExecutionOrder(-100)]
 public class RoundManager : MonoBehaviour
@@ -146,5 +147,15 @@ public class RoundManager : MonoBehaviour
     public void EndGame()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public int GetCurrentRound()
+    {
+       return currentRound;
+    }
+
+    public int GetCurrentAct()
+    {
+        return currentAct;
     }
 }

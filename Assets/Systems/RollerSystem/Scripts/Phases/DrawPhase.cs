@@ -7,9 +7,11 @@ public class DrawPhase : Phase
     [SerializeField] GameObject testingBossPrefab;
 
     [Header("Game Events Variables")]
-    [SerializeField] GameObject[] gameEventsArray;
+    [SerializeField] GameObject[] generalEventsArray;
+    [SerializeField] GameObject[] allyEventsArray;
     [SerializeField] Transform eventContainer;
     [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
+    private bool allyDrawnInCurrentAct = false;
 
 
     protected override void InternalOnEnable()
@@ -67,10 +69,52 @@ public class DrawPhase : Phase
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
-    private void DrawEvent()
+  private void DrawEvent()
     {
-        int randomIndex = Random.Range(0, gameEventsArray.Length);
-        GameObject eventCard = Instantiate(gameEventsArray[randomIndex], eventContainer);
+        int roundNumber = RoundManager.instance.GetCurrentRound();
+        int actNumber = RoundManager.instance.GetCurrentAct();
+
+        if (ShouldDrawAllyEvent(roundNumber, actNumber))
+        {
+            DrawAllyEvent();
+        }
+        else
+        {
+            DrawGeneralEvent();
+        }
+    }
+
+        private bool ShouldDrawAllyEvent(int roundNumber, int actNumber)
+    {
+        if (allyDrawnInCurrentAct)
+            return false;
+
+        if (roundNumber >= 3 && roundNumber <= 8)
+        {
+            int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
+            if (actNumber == 3 && currentAllyCount < 3)
+            {
+                return true;
+            }
+            else if (actNumber < 3 && currentAllyCount < actNumber)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void DrawAllyEvent()
+    {
+        int randomIndex = Random.Range(0, allyEventsArray.Length);
+        GameObject eventCard = Instantiate(allyEventsArray[randomIndex], eventContainer);
+        allyDrawnInCurrentAct = true;
+    }
+
+    private void DrawGeneralEvent()
+    {
+        int randomIndex = Random.Range(0, generalEventsArray.Length);
+        GameObject eventCard = Instantiate(generalEventsArray[randomIndex], eventContainer);
     }
 
     private void OnEventButtonPressed()

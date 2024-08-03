@@ -170,6 +170,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: eventDrawProbability
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: allyEventsArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyEventsArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4152759035389439276, guid: 1d9b5b3d5ecea7b4c905f08d4a11729d, type: 3}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: generalEventsArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'generalEventsArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4152759035389439276, guid: 329ce692e73423d4aafceac7070f2f20, type: 3}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'generalEventsArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4152759035389439276, guid: 8628c3c0177adef4eaba4a88e762c4f9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

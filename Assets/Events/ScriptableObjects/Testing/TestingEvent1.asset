@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31aa6c9195dad094bb87f1e0220c48c5, type: 3}
   m_Name: TestingEvent1
   m_EditorClassIdentifier: 
-  eventName: Prueba 1
+  eventName: Prueba Aliado
   art: {fileID: -3146924326065808076, guid: c9c8cf80a51d5634582b9ad10eb0a4de, type: 3}
-  firstButtonText: 'Pasa una cosa '
-  secondButtonText: Pasa la otra
-  thirdButtonText: Puede que pase algo
+  firstButtonText: Ganas un aliado
+  secondButtonText: Ganas un aliado
+  thirdButtonText: Ganas un aliado

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: Prueba 2
   art: {fileID: -9049676623607694209, guid: 71719208a35f48849a850940633408c8, type: 3}
-  firstButtonText: 'Pasa una cosa '
+  firstButtonText: 
   secondButtonText: Pasa la otra
   thirdButtonText: Puede que pase algo

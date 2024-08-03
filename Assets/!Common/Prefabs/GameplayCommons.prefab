@@ -137,7 +137,7 @@ MonoBehaviour:
   - {fileID: 4152759035389439276, guid: 329ce692e73423d4aafceac7070f2f20, type: 3}
   - {fileID: 4152759035389439276, guid: 8628c3c0177adef4eaba4a88e762c4f9, type: 3}
   eventContainer: {fileID: 2384212578028859944}
-  eventDrawProbability: 80
+  eventDrawProbability: 20
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,10 +579,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6328372122095327078, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -664,8 +660,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7887486595089616018, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

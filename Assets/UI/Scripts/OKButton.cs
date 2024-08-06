@@ -19,6 +19,7 @@ public class OKButton : MonoBehaviour
     {
         RollButton.onRoll += EnableButton;
         Energy.onOutOfEnergy += DisableAndLaunchEventWithoutEnergy;
+        Health.onBossDefeated += DisableButton;
     }
     void Start()
     {
@@ -50,9 +51,15 @@ public class OKButton : MonoBehaviour
         }
     }
 
+    void DisableButton()
+    {
+        button.interactable = false;
+    }
+
     void OnDisable()
     {
         RollButton.onRoll -= EnableButton;
         Energy.onOutOfEnergy -= DisableAndLaunchEventWithoutEnergy;
+        Health.onBossDefeated -= DisableButton;
     }
 }

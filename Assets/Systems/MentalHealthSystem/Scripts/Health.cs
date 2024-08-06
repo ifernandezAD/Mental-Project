@@ -89,7 +89,7 @@ public class Health : MonoBehaviour
     {
         if (cardDisplay.card.isBoss)
         {
-            onBossDefeated?.Invoke();
+           onBossDefeated?.Invoke();
         }
 
         Destroy(gameObject);

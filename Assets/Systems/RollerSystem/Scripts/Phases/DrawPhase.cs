@@ -8,10 +8,17 @@ public class DrawPhase : Phase
 
     [Header("Game Events Variables")]
     [SerializeField] GameObject[] generalEventsArray;
-    [SerializeField] GameObject[] allyEventsArray;
     [SerializeField] Transform eventContainer;
+
+    [Header("Ally Events Variables")]
+    [SerializeField] GameObject[] allyEventsArray;
     [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
+    [SerializeField] private int minRoundForAllyEvent = 3;
+    [SerializeField] private int maxRoundForAllyEvent = 8;
+    [SerializeField, Range(0, 100)] private int allyEventProbability = 50;
     private bool allyDrawnInCurrentAct = false;
+
+
 
     protected override void InternalOnEnable()
     {
@@ -21,7 +28,6 @@ public class DrawPhase : Phase
 
     protected override void BeginPhase()
     {
-        // Resetea la booleana al inicio de cada acto
         if (RoundManager.instance.GetCurrentRound() == 1)
         {
             allyDrawnInCurrentAct = false;
@@ -94,13 +100,18 @@ public class DrawPhase : Phase
 
         int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
 
-        if (roundNumber >= 3 && roundNumber <= 8)
+        
+        if (roundNumber >= minRoundForAllyEvent && roundNumber <= maxRoundForAllyEvent)
         {
-            if (actNumber == 3 && currentAllyCount < 3)
+            if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))
             {
-                return true;
+                return Random.Range(0, 100) < allyEventProbability;
             }
-            else if (actNumber < 3 && currentAllyCount < actNumber)
+        }
+
+        if (roundNumber == maxRoundForAllyEvent + 1 && !allyDrawnInCurrentAct)
+        {
+            if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))
             {
                 return true;
             }

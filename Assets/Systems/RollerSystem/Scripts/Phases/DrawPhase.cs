@@ -9,10 +9,11 @@ public class DrawPhase : Phase
     [Header("Game Events Variables")]
     [SerializeField] GameObject[] generalEventsArray;
     [SerializeField] Transform eventContainer;
+    [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
 
     [Header("Ally Events Variables")]
     [SerializeField] GameObject[] allyEventsArray;
-    [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
+   
     [SerializeField] private int minRoundForAllyEvent = 3;
     [SerializeField] private int maxRoundForAllyEvent = 8;
     [SerializeField, Range(0, 100)] private int allyEventProbability = 50;

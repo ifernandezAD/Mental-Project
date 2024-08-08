@@ -170,43 +170,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: allyEventProbability
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: eventDrawProbability
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: allyEventsArray.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'allyEventsArray.Array.data[0]'
+    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: allyContainer
       value: 
-      objectReference: {fileID: 4152759035389439276, guid: 1d9b5b3d5ecea7b4c905f08d4a11729d, type: 3}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: generalEventsArray.Array.size
-      value: 2
+      objectReference: {fileID: 5137238834213799205}
+    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: allyArray.Array.size
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'generalEventsArray.Array.data[0]'
+    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 4152759035389439276, guid: 329ce692e73423d4aafceac7070f2f20, type: 3}
-    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'generalEventsArray.Array.data[1]'
+      objectReference: {fileID: 7481429011589584531, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
+    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 4152759035389439276, guid: 8628c3c0177adef4eaba4a88e762c4f9, type: 3}
-    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: maxRoundsPerAct
-      value: 10
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6414097265643455243, guid: fcd3a37c94c165447b0dd7acfbc33f0d, type: 3}
+    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6621019777469433973, guid: e897cd1293ffd20419ece930c0f92c09, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+--- !u!224 &5137238834213799205 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8898394700778858366, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

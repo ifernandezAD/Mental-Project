@@ -15,6 +15,8 @@ public class GameLogic : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        remainingAllies = new List<GameObject>(allyArray);
     }
 
     void OnEnable()

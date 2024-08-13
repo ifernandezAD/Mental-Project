@@ -196,9 +196,7 @@ MonoBehaviour:
   attackBubble: {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
   resilienceBubble: {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
   staminaBubble: {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
-  attackBubbleContainer: {fileID: 0}
-  resilienceBubbleContainer: {fileID: 0}
-  staminaBubbleContainer: {fileID: 0}
+  bubbleContainer: {fileID: 3524729008611330304}
 --- !u!114 &610478503897062249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3524729008611330304 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1353984580976572401, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4545159255959611980 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2104216584081953981, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

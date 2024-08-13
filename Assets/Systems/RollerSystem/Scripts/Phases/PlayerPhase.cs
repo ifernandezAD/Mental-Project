@@ -12,11 +12,7 @@ public class PlayerPhase : Phase
     [SerializeField] GameObject attackBubble;
     [SerializeField] GameObject resilienceBubble;
     [SerializeField] GameObject staminaBubble;
-
-    [Header("Bubbles Containers")]
-    [SerializeField] Transform attackBubbleContainer;
-    [SerializeField] Transform resilienceBubbleContainer;
-    [SerializeField] Transform staminaBubbleContainer;
+    [SerializeField] Transform bubbleContainer;
 
     private List<GameObject> attackBubbles = new List<GameObject>();
     private List<GameObject> resilienceBubbles = new List<GameObject>();
@@ -46,19 +42,19 @@ public class PlayerPhase : Phase
 
         for (int i = 0; i < swordCount; i++)
         {
-            GameObject bubble = Instantiate(attackBubble, attackBubbleContainer);
+            GameObject bubble = Instantiate(attackBubble, bubbleContainer);
             attackBubbles.Add(bubble);
         }
 
         for (int i = 0; i < heartCount; i++)
         {
-            GameObject bubble = Instantiate(resilienceBubble, resilienceBubbleContainer);
+            GameObject bubble = Instantiate(resilienceBubble, bubbleContainer);
             resilienceBubbles.Add(bubble);
         }
 
         for (int i = 0; i < bookCount; i++)
         {
-            GameObject bubble = Instantiate(staminaBubble, staminaBubbleContainer);
+            GameObject bubble = Instantiate(staminaBubble, bubbleContainer);
             staminaBubbles.Add(bubble);
         }
     }

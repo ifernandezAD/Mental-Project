@@ -118,6 +118,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &1493065082 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3524729008611330304, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5137238834213799204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,36 +175,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: allyContainer
+    - target: {fileID: 5827085210453425730, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: bubbleContainer
       value: 
-      objectReference: {fileID: 5137238834213799205}
-    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: allyArray.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'allyArray.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7481429011589584531, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
-    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'allyArray.Array.data[1]'
-      value: 
-      objectReference: {fileID: 6414097265643455243, guid: fcd3a37c94c165447b0dd7acfbc33f0d, type: 3}
-    - target: {fileID: 4545521749853110572, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'allyArray.Array.data[2]'
-      value: 
-      objectReference: {fileID: 6621019777469433973, guid: e897cd1293ffd20419ece930c0f92c09, type: 3}
+      objectReference: {fileID: 1493065082}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
---- !u!224 &5137238834213799205 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8898394700778858366, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-  m_PrefabInstance: {fileID: 5137238834213799204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

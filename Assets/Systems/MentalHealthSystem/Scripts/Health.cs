@@ -31,6 +31,12 @@ public class Health : MonoBehaviour
     public void AddHealth(int health)
     {
         currentLives += health;
+
+        if (currentLives > maxLives)
+        {
+            currentLives = maxLives;
+        }
+
         livesText.text = currentLives.ToString();
     }
 
@@ -66,7 +72,7 @@ public class Health : MonoBehaviour
             {
                 ManageCharacterCardDead();
             }
-            if(cardDisplay.card.cardType == Card.CardType.Ally)
+            if (cardDisplay.card.cardType == Card.CardType.Ally)
             {
                 ManageAllyCardDead();
             }
@@ -89,7 +95,7 @@ public class Health : MonoBehaviour
     {
         if (cardDisplay.card.isBoss)
         {
-           onBossDefeated?.Invoke();
+            onBossDefeated?.Invoke();
         }
 
         Destroy(gameObject);

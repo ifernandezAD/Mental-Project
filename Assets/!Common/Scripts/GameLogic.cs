@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)] 
 public class GameLogic : MonoBehaviour
 {
     public static GameLogic instance { get; private set; }
+
+    [Header("References")]
+    [SerializeField] public GameObject molePopUp;
 
     [Header("Ally Related Variables")]
     [SerializeField] Transform allyContainer; 
@@ -17,6 +21,11 @@ public class GameLogic : MonoBehaviour
         instance = this;
 
         remainingAllies = new List<GameObject>(allyArray);
+    }
+
+    void Start()
+    {
+        molePopUp.SetActive(false);
     }
 
     void OnEnable()

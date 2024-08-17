@@ -6,7 +6,7 @@ public class MolePopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 {
     private GameObject molePopup;
     private TextMeshProUGUI popupText;
-    private CardDisplay cardDisplay;
+    [SerializeField] CardDisplay cardDisplay;
 
     void Awake()
     {
@@ -16,17 +16,19 @@ public class MolePopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse Entered");
         molePopup.SetActive(true);
-        if (cardDisplay != null)
+
+        Debug.Log("Has entered");
+
+        if (cardDisplay != null) 
         {
+            Debug.Log("Card display found");
             popupText.text = cardDisplay.card.skillDescription; 
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse Exited");
         molePopup.SetActive(false);
     }
 

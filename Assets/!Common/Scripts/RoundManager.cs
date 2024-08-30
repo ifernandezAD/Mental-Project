@@ -55,6 +55,16 @@ public class RoundManager : MonoBehaviour
         GameLogic.instance.mainCharacterCard.GetComponent<MentalHealthEffects>().TriggerFirstActMentalHealthEffects();
     }
 
+    void SolveActTwoMentalHealthEffects()
+    {
+        GameLogic.instance.mainCharacterCard.GetComponent<MentalHealthEffects>().TriggerSecondActMentalHealthEffects();
+    }
+
+    void SolveActThreeMentalHealthEffects()
+    {
+        GameLogic.instance.mainCharacterCard.GetComponent<MentalHealthEffects>().TriggerThirdActMentalHealthEffects();
+    }
+
     void StartRound()
     {
         currentPhaseIndex = 0;
@@ -127,9 +137,17 @@ public class RoundManager : MonoBehaviour
             currentAct++;
             currentRound = 0;
 
-            StartRound();
+            if(currentAct==2)
+            {
+                SolveActTwoMentalHealthEffects();
+            }
 
-            //Here we launch the event to worse mental disease and increase difficulty
+            if(currentAct==3)
+            {
+                SolveActThreeMentalHealthEffects();
+            }
+
+            StartRound();
         }
         else
         {

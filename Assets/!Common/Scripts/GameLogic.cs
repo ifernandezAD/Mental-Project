@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(-100)] 
+[DefaultExecutionOrder(-150)] 
 public class GameLogic : MonoBehaviour
 {
     public static GameLogic instance { get; private set; }
 
     [Header("References")]
     [SerializeField] public GameObject molePopUp;
+    [SerializeField] Transform characterContainer;
+    public GameObject mainCharacterCard;
 
     [Header("Ally Related Variables")]
     [SerializeField] Transform allyContainer; 
@@ -25,6 +27,8 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
+        mainCharacterCard = characterContainer.GetChild(0).gameObject;
+
         molePopUp.SetActive(false);
     }
 

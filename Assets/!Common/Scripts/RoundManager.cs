@@ -46,7 +46,13 @@ public class RoundManager : MonoBehaviour
     {
         phaseText.gameObject.SetActive(false);
 
+        SolveActOneMentalHealthEffects();
         StartRound();
+    }
+
+    void SolveActOneMentalHealthEffects()
+    {
+        GameLogic.instance.mainCharacterCard.GetComponent<MentalHealthEffects>().TriggerFirstActMentalHealthEffects();
     }
 
     void StartRound()

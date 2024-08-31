@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class FrogMentalHealthEffects : MentalHealthEffects
 {
+    [SerializeField] GameObject randomIconPrefab;
+
     public override void TriggerFirstActMentalHealthEffects()
     {
-        Debug.Log("First mental health effects added to the game");
+        Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
     }
 
     public override void TriggerSecondActMentalHealthEffects()
     {
-       Debug.Log("Second mental health effects added to the game");
+       Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
     }
     public override void TriggerThirdActMentalHealthEffects()
     {
-        Debug.Log("Third mental health effects added to the game");
+        Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
     }
 
 }

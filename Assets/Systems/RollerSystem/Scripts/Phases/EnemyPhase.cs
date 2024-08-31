@@ -39,34 +39,7 @@ public class EnemyPhase : Phase
             CardDisplay enemyCardDisplay = enemyCardContainer.GetChild(i).GetComponent<CardDisplay>();
             int enemyDamage = enemyCardDisplay.card.attack;
 
-            Health targetHealth = GetRandomTargetHealth();
-            if (targetHealth != null)
-            {
-                targetHealth.RemoveHealth(enemyDamage);
-            }
+             GameLogic.instance.ApplyDamageToRandomTarget(enemyDamage);
         }
-    }
-
-    private Health GetRandomTargetHealth()
-    {
-        
-        List<Health> possibleTargets = new List<Health> { characterHealth };
-
-        for (int i = 0; i < allyCardContainer.childCount; i++)
-        {
-            Health allyHealth = allyCardContainer.GetChild(i).GetComponent<Health>();
-            if (allyHealth != null)
-            {
-                possibleTargets.Add(allyHealth);
-            }
-        }
-
-        if (possibleTargets.Count > 0)
-        {
-            int randomIndex = UnityEngine.Random.Range(0, possibleTargets.Count);
-            return possibleTargets[randomIndex];
-        }
-
-        return null;
     }
 }

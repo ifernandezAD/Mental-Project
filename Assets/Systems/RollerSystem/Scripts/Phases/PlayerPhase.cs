@@ -69,6 +69,8 @@ public class PlayerPhase : Phase
         {
             Destroy(bubble.gameObject);
         }
+
+        //To do, si la burbuja es de tipo veneno nos quitará un punto de daño aleatorio entre todos
     }
 
     void ResetResilience()

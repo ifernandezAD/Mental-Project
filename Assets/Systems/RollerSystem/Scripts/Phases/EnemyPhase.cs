@@ -17,7 +17,7 @@ public class EnemyPhase : Phase
             return;
         }
 
-        ManageMentalHealthDamageTaken();
+        ManageMentalHealthDamageApplied();
 
         foreach (Transform child in enemyCardContainer)
         {
@@ -32,7 +32,7 @@ public class EnemyPhase : Phase
         StartNextPhaseWithDelay();
     }
 
-    private void ManageMentalHealthDamageTaken()
+    private void ManageMentalHealthDamageApplied()
     {
         for (int i = 0; i < enemyCardContainer.childCount; i++)
         {

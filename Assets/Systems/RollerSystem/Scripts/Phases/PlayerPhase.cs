@@ -67,10 +67,13 @@ public class PlayerPhase : Phase
     {
         foreach (Transform bubble in bubbleContainer)
         {
+              if (bubble.CompareTag("Poison"))
+            {
+                GameLogic.instance.ApplyDamageToRandomTarget(1);
+            }
+
             Destroy(bubble.gameObject);
         }
-
-        //To do, si la burbuja es de tipo veneno nos quitará un punto de daño aleatorio entre todos
     }
 
     void ResetResilience()

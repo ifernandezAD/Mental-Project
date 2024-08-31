@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 3924023272180707825, guid: f0ef0b41dd211794592eeb19a3763c4c, type: 3}
     - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: maxRoundsPerAct
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

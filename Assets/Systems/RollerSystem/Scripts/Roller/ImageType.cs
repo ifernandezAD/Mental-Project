@@ -6,5 +6,6 @@ public enum ImageType
     Heart,
     Book,
     Poison,
+    Random,
     None
 }

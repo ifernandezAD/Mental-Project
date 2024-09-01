@@ -69,7 +69,7 @@ public class PlayerPhase : Phase
         {
               if (bubble.CompareTag("Poison"))
             {
-                GameLogic.instance.ApplyDamageToRandomTarget(1);
+                AttackManager.instance.ApplyDamageToRandomTarget(1);
             }
 
             Destroy(bubble.gameObject);

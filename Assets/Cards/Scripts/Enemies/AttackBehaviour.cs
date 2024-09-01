@@ -11,6 +11,6 @@ public class AttackBehaviour : MonoBehaviour
     public virtual void Attack()
     {
         int enemyDamage = cardDisplay.card.attack;
-        GameLogic.instance.ApplyDamageToRandomTarget(enemyDamage);
+        AttackManager.instance.ApplyDamageToRandomTarget(enemyDamage);
     }
 }

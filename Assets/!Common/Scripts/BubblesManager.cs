@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class BubblesManager : MonoBehaviour
-{   
+{
     public static BubblesManager instance { get; private set; }
 
     [Header("Bubbles")]
@@ -11,7 +11,7 @@ public class BubblesManager : MonoBehaviour
     {
         instance = this;
     }
-    public  void InstantiateBubbles()
+    public void InstantiateBubbles()
     {
         Roller roller = Roller.instance;
         roller.UpdateImageCount();
@@ -59,6 +59,23 @@ public class BubblesManager : MonoBehaviour
             }
 
             Destroy(bubble.gameObject);
+        }
+    }
+
+
+    public void TransformBubblesToRandom()
+    {
+        int bubbleCount = bubbleContainer.childCount;
+
+        foreach (Transform bubble in bubbleContainer)
+        {
+            Destroy(bubble.gameObject);
+        }
+
+        for (int i = 0; i < bubbleCount-1; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
+            GameObject newBubble = Instantiate(bubbles[randomIndex], bubbleContainer);
         }
     }
 }

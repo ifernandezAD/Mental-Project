@@ -11,6 +11,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public GameObject molePopUp;
     [SerializeField] Transform characterContainer;
     public GameObject mainCharacterCard;
+    [SerializeField] public Transform bubblesContainer;
 
     [Header("Ally Related Variables")]
     [SerializeField] public Transform allyContainer;

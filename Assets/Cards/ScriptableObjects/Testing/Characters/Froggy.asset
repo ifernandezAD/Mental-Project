@@ -17,6 +17,6 @@ MonoBehaviour:
   art: {fileID: 5158404753353345565, guid: a02201dc0fa81d145801793e634ca209, type: 3}
   maxHealth: 6
   staminaCost: 2
-  skillDescription: Heal 1 Mental Health
+  skillDescription: Change remaining bubbles into random ones
   attack: 0
   isBoss: 0

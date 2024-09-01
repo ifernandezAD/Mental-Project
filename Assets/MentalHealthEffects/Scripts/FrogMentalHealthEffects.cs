@@ -6,16 +6,15 @@ public class FrogMentalHealthEffects : MentalHealthEffects
 
     public override void TriggerFirstActMentalHealthEffects()
     {
-        Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
+        Roller.instance.AddImagePrefab(ImageType.Random,randomIconPrefab);
     }
 
     public override void TriggerSecondActMentalHealthEffects()
     {
-       Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
+       Roller.instance.AddImagePrefab(ImageType.Random,randomIconPrefab);
     }
     public override void TriggerThirdActMentalHealthEffects()
     {
-        Roller.instance.AddImagePrefab(ImageType.Poison,randomIconPrefab);
+        Roller.instance.AddImagePrefab(ImageType.Random,randomIconPrefab);
     }
-
 }

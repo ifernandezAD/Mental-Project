@@ -7,5 +7,6 @@ public enum ImageType
     Book,
     Poison,
     Random,
+    Empty,
     None
 }

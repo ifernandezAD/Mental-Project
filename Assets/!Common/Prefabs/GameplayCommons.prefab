@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 226489784761642767}
   - component: {fileID: 7413156019120316313}
   - component: {fileID: 6237406775622350115}
+  - component: {fileID: 8327505551512498634}
   - component: {fileID: 3208223768015470426}
   m_Layer: 0
   m_Name: GameLogic
@@ -273,6 +274,7 @@ MonoBehaviour:
   molePopUp: {fileID: 7953166627902185688}
   characterContainer: {fileID: 4687522695868845786}
   mainCharacterCard: {fileID: 0}
+  bubblesContainer: {fileID: 0}
   allyContainer: {fileID: 8898394700778858366}
   allyArray:
   - {fileID: 7481429011589584531, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
@@ -288,6 +290,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d450c0a62caec5c4b8d6b67cbee4f1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8327505551512498634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552592793387651162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4ec2b9026eb8e4992d25123f83ee0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3208223768015470426

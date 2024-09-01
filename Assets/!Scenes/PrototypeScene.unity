@@ -118,6 +118,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &3580252 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3524729008611330304, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5137238834213799204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +175,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: bubbleContainer
+      value: 
+      objectReference: {fileID: 3580252}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: bubbles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7357296721871014533, guid: f48b305d89626bb4d94bb65576b9b065, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

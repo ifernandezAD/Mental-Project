@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
 
 public class MolePopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -8,28 +8,43 @@ public class MolePopUp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private TextMeshProUGUI popupText;
     [SerializeField] CardDisplay cardDisplay;
 
+    private bool isMouseOver = false;
+
     void Awake()
     {
         molePopup = GameLogic.instance.molePopUp;
         popupText = molePopup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 
+    void Update()
+    {
+        if (isMouseOver && Input.GetMouseButtonUp(1))
+        {
+            molePopup.SetActive(false);
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        molePopup.SetActive(true);
+        isMouseOver = true;
 
-        Debug.Log("Has entered");
-
-        if (cardDisplay != null) 
+        if (Input.GetMouseButton(1)) 
         {
-            Debug.Log("Card display found");
-            popupText.text = cardDisplay.card.skillDescription; 
+            molePopup.SetActive(true);
+
+            Debug.Log("Has entered with right mouse button held down");
+
+            if (cardDisplay != null) 
+            {
+                Debug.Log("Card display found");
+                popupText.text = cardDisplay.card.skillDescription;
+            }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        isMouseOver = false;
         molePopup.SetActive(false);
     }
-
 }

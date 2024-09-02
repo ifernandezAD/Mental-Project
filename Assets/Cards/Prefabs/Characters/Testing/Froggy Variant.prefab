@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260548f97148144409619b5d2d573527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomIconPrefab: {fileID: 0}
+  randomIconPrefab: {fileID: 3924023272180707825, guid: f0ef0b41dd211794592eeb19a3763c4c, type: 3}
 --- !u!114 &3910592943389238758
 MonoBehaviour:
   m_ObjectHideFlags: 0

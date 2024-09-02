@@ -17,6 +17,6 @@ MonoBehaviour:
   art: {fileID: 1075993247170539406, guid: 275bf971cb4c43a46bcbb95f50cda126, type: 3}
   maxHealth: 6
   staminaCost: 2
-  skillDescription: Empty slots transforms into resilience or attack bubbles
+  skillDescription: Transform empty bubbles into resilience or attack bubbles
   attack: 0
   isBoss: 0

@@ -68,7 +68,7 @@ public class BubblesManager : MonoBehaviour
         }
     }
 
-
+    #region Skills
     public void TransformBubblesToRandom()
     {
         int bubbleCount = bubbleContainer.childCount;
@@ -78,10 +78,37 @@ public class BubblesManager : MonoBehaviour
             Destroy(bubble.gameObject);
         }
 
-        for (int i = 0; i < bubbleCount-1; i++)
+        for (int i = 0; i < bubbleCount - 1; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
             GameObject newBubble = Instantiate(bubbles[randomIndex], bubbleContainer);
         }
     }
+
+    public void TransformEmptyBubblesToDefenseOrAttack()
+    {
+        foreach (Transform bubble in bubbleContainer)
+        {
+            if (bubble.CompareTag("Empty"))
+            {
+                Destroy(bubble.gameObject);
+
+                int randomIndex = UnityEngine.Random.Range(0, 2);
+                GameObject newBubble;
+
+                if (randomIndex == 0)
+                {
+                    newBubble = Instantiate(bubbles[0], bubbleContainer);
+                }
+                else
+                {
+                    newBubble = Instantiate(bubbles[1], bubbleContainer);
+                }
+
+                newBubble.transform.position = bubble.position;
+            }
+        }
+    }
+    #endregion
+
 }

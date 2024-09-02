@@ -4,7 +4,7 @@ public class TransformEmptySlotsSkill : Skill
 {
    public override void TriggerSkill()
     {
-        BubblesManager.instance.TransformBubblesToRandom();
+        BubblesManager.instance.TransformEmptyBubblesToDefenseOrAttack();
 
         base.TriggerSkill();
     }

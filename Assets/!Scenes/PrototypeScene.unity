@@ -305,6 +305,10 @@ PrefabInstance:
       propertyPath: 'bubbles.Array.data[4]'
       value: 
       objectReference: {fileID: 6407166507641768061, guid: 08727c3e3ec932642a29a26dd4a0fd78, type: 3}
+    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: maxRoundsPerAct
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 622840499362881790, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}

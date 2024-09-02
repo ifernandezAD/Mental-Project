@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class TransformEmptySlotsSkill : MonoBehaviour
+public class TransformEmptySlotsSkill : Skill
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   public override void TriggerSkill()
     {
-        
-    }
+        BubblesManager.instance.TransformBubblesToRandom();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.TriggerSkill();
     }
 }

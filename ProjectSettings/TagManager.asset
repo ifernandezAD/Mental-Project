@@ -8,6 +8,7 @@ TagManager:
   - Heart
   - Book
   - Poison
+  - Empty
   layers:
   - Default
   - TransparentFX

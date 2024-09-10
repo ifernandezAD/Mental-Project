@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public class Happiness : MonoBehaviour
 {
-    [SerializeField] CharacterController characterController;
+    [SerializeField] CharacterSelector characterController;
     public static Action<int,int> onHappinessChange;
 
     [SerializeField] private int happinessRange =10;
@@ -31,7 +31,7 @@ public class Happiness : MonoBehaviour
 
     void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterSelector>();
     }
 
     void Start()

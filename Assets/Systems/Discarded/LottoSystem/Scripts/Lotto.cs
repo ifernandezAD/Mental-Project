@@ -12,7 +12,7 @@ public class Loto : MonoBehaviour
     [SerializeField] bool testIncreasePoolSize;
     [SerializeField] bool testDecreasePoolSize;
 
-    [SerializeField] CharacterController characterController;
+    [SerializeField] CharacterSelector characterController;
     [SerializeField] private int maxValue;
     private List<int> lottoPool;
 
@@ -52,7 +52,7 @@ public class Loto : MonoBehaviour
 
     void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterSelector>();
     }
 
     void Start()

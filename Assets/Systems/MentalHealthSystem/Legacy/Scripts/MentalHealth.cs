@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MentalHealth : MonoBehaviour
 {
-    [SerializeField] CharacterController characterController;
+    [SerializeField] CharacterSelector characterController;
     public static Action<int,int> onMentalHealthChange;
 
     [Header("Mental Health")]
@@ -33,7 +33,7 @@ public class MentalHealth : MonoBehaviour
 
     void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterSelector>();
     }
 
     void Start()

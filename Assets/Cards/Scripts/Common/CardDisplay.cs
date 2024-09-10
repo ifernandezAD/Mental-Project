@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] public TextMeshProUGUI staminaText;
 
     [Header("Enemy References")]
-    [SerializeField] TextMeshProUGUI attackText;
+    [SerializeField] public TextMeshProUGUI attackText;
 
 
     void Start()

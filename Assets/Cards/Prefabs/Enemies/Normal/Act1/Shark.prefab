@@ -90,14 +90,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: m_Name
-      value: Shark Variant
+      value: Shark
       objectReference: {fileID: 0}
     - target: {fileID: 9146376925995587020, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: cec05a801b1fed344a373019fec3eb5c, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7257991301758015689, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 3093093871034429642}
   m_SourcePrefab: {fileID: 100100000, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+--- !u!114 &1371741362329479643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5044682022860926463, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 6128035776685360164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3738948591467222801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 6128035776685360164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3093093871034429642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738948591467222801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e120dd1a4e011d94dbda68a015082a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackText: {fileID: 1371741362329479643}

@@ -1,10 +1,18 @@
 using UnityEngine;
-
+using TMPro;
 public class SharkAttack : AttackBehaviour
 {
-    public override void Attack()
+    [SerializeField] public TextMeshProUGUI attackText;
+    private int temporaryAttack;
+
+      void Start()
     {
-        base.Attack();
-        cardDisplay.card.attack++;
+        temporaryAttack = cardDisplay.card.attack;
+    }
+    public override void Attack()
+    {    
+        AttackManager.instance.ApplyDamageToRandomTarget(temporaryAttack);
+        temporaryAttack++;
+        attackText.text=temporaryAttack.ToString();
     }
 }

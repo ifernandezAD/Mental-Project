@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackBehaviour : MonoBehaviour
 {
-    private CardDisplay cardDisplay;
+    protected CardDisplay cardDisplay;
 
     void Awake()
     {

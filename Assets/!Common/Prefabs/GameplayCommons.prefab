@@ -171,12 +171,6 @@ MonoBehaviour:
   nextPhaseDelay: 1
   phaseName: Player Phase
   okButton: {fileID: 353557308548826381}
-  bubbles:
-  - {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
-  - {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
-  - {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
-  - {fileID: 7357296721871014533, guid: f48b305d89626bb4d94bb65576b9b065, type: 3}
-  bubbleContainer: {fileID: 3524729008611330304}
 --- !u!114 &610478503897062249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4ec2b9026eb8e4992d25123f83ee0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbles:
+  - {fileID: 7357296721871014533, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
+  - {fileID: 6407166507641768061, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
+  - {fileID: 8558265924817352723, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
+  - {fileID: 7357296721871014533, guid: f48b305d89626bb4d94bb65576b9b065, type: 3}
+  - {fileID: 6407166507641768061, guid: 08727c3e3ec932642a29a26dd4a0fd78, type: 3}
+  bubbleContainer: {fileID: 3524729008611330304}
 --- !u!114 &3208223768015470426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +763,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7146480990224248875, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2356084473851487330}
+      addedObject: {fileID: 2197085133976433914}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
 --- !u!114 &353557308548826381 stripped
@@ -855,7 +856,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6439436371157948815, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
   m_PrefabInstance: {fileID: 2458978138567081713}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6980553563199565031
+--- !u!1001 &6777929990250380415
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -863,10 +864,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4687522695868845786}
     m_Modifications:
-    - target: {fileID: -4903560742824892081, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
-      propertyPath: randomIconPrefab
-      value: 
-      objectReference: {fileID: 3924023272180707825, guid: f0ef0b41dd211794592eeb19a3763c4c, type: 3}
     - target: {fileID: 4642531870685513861, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -951,17 +948,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Froggy Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 7528662163785288729, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
---- !u!224 &2356084473851487330 stripped
+--- !u!224 &2197085133976433914 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4642531870685513861, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
-  m_PrefabInstance: {fileID: 6980553563199565031}
+  m_PrefabInstance: {fileID: 6777929990250380415}
   m_PrefabAsset: {fileID: 0}

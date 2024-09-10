@@ -8,7 +8,6 @@ public class GameLogic : MonoBehaviour
     public static GameLogic instance { get; private set; }
 
     [Header("References")]
-    [SerializeField] public GameObject molePopUp;
     [SerializeField] Transform characterContainer;
     public GameObject mainCharacterCard;
     [SerializeField] public Transform bubblesContainer;
@@ -29,8 +28,6 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         mainCharacterCard = characterContainer.GetChild(0).gameObject;
-
-        molePopUp.SetActive(false);
     }
 
     void OnEnable()

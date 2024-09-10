@@ -8,7 +8,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private RectTransform rectTransform;
     private Canvas canvas;
 
-    private CardDetector cardDetector;
+    private BubbleDetector cardDetector;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-         cardDetector = other.GetComponent<CardDetector>();   
+         cardDetector = other.GetComponent<BubbleDetector>();   
     }
 
    private void OnTriggerStay2D()

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CardDetector : MonoBehaviour
+public class BubbleDetector : MonoBehaviour
 {   
     private Card card;
     private Health health;

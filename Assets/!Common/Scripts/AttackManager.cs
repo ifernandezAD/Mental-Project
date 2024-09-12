@@ -30,6 +30,17 @@ public class AttackManager : MonoBehaviour
         }
     }
 
+        public void ApplyDamageToRandomTargetNoResilience(int damage)
+    {
+        List<Health> possibleTargets = GetAllPossibleTargets();
+
+        if (possibleTargets.Count > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, possibleTargets.Count);
+            possibleTargets[randomIndex].RemoveHealthNoResilience(damage);
+        }
+    }
+
     public List<Health> GetAllPossibleTargets()
     {
         List<Health> possibleTargets = new List<Health>();

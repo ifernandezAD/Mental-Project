@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class WormCombat : MonoBehaviour
+public class WormCombat : CombatBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Attack()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int enemyDamage = cardDisplay.card.attack;
+        AttackManager.instance.ApplyDamageToRandomTargetNoResilience(enemyDamage);
     }
 }

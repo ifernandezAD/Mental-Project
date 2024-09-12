@@ -61,6 +61,20 @@ public class Health : MonoBehaviour
 
         livesText.text = currentLives.ToString();
 
+        HandleCardDeath();
+    }
+
+    public void RemoveHealthNoResilience(int damage)
+    {
+        int effectiveDamage = damage;
+        currentLives -= effectiveDamage;
+        livesText.text = currentLives.ToString();
+
+        HandleCardDeath();
+    }
+
+    private void HandleCardDeath()
+    {
         if (currentLives <= 0)
         {
             currentLives = 0;
@@ -69,27 +83,15 @@ public class Health : MonoBehaviour
             {
                 ManageEnemyCardDead();
             }
-            if (cardDisplay.card.cardType == Card.CardType.Character)
+            else if (cardDisplay.card.cardType == Card.CardType.Character)
             {
                 ManageCharacterCardDead();
             }
-            if (cardDisplay.card.cardType == Card.CardType.Ally)
+            else if (cardDisplay.card.cardType == Card.CardType.Ally)
             {
                 ManageAllyCardDead();
             }
         }
-    }
-
-    public void AddResilience(int resilience)
-    {
-        this.resilience += resilience;
-        resilienceText.text = this.resilience.ToString();
-    }
-
-    public void ResetResilience()
-    {
-        resilience = 0;
-        resilienceText.text = resilience.ToString();
     }
 
     void ManageEnemyCardDead()
@@ -113,4 +115,17 @@ public class Health : MonoBehaviour
         Slots.instance.RemoveSlot();
         Destroy(gameObject);
     }
+
+    public void AddResilience(int resilience)
+    {
+        this.resilience += resilience;
+        resilienceText.text = this.resilience.ToString();
+    }
+
+    public void ResetResilience()
+    {
+        resilience = 0;
+        resilienceText.text = resilience.ToString();
+    }
+
 }

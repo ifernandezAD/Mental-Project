@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: testingCardPrefab
       value: 
-      objectReference: {fileID: 6620311894565444377, guid: 297cfaa59566033418e1f35eb3feacbd, type: 3}
+      objectReference: {fileID: 2036564047115731805, guid: dd00aec75c59f9643a5a80f05a82af5d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

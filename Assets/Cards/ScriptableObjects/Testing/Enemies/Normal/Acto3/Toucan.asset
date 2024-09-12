@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d436c014c9944e948be009ecc0b3ea68, type: 3}
-  m_Name: Tucan
+  m_Name: Toucan
   m_EditorClassIdentifier: 
   cardType: 2
   cardName: Tucan

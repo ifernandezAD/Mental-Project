@@ -20,10 +20,10 @@ public abstract class Skill : MonoBehaviour
         health = GetComponent<Health>();
     }
 
-    private void Start(){InternalStart();}
+    private void Start() { InternalStart(); }
     protected virtual void InternalStart()
     {
-        if(GetComponent<CardDisplay>().card.cardType == Card.CardType.Ally)
+        if (GetComponent<CardDisplay>().card.cardType == Card.CardType.Ally)
         {
             AddSlot();
         }
@@ -44,9 +44,21 @@ public abstract class Skill : MonoBehaviour
         CheckCurrentStamina();
     }
 
+    public void IncreaseStamina(int stamina)
+    {
+        currentStamina += stamina;
+
+        if (currentStamina > maxStamina)
+        {
+            currentStamina = maxStamina;
+        }
+
+        staminaText.text = currentStamina.ToString();
+    }
+
     private void CheckCurrentStamina()
     {
-        if(currentStamina > 0)
+        if (currentStamina > 0)
         {
             return;
         }
@@ -59,11 +71,13 @@ public abstract class Skill : MonoBehaviour
     public void ResetStamina()
     {
         currentStamina = maxStamina;
-        staminaText.text =currentStamina.ToString();
+        staminaText.text = currentStamina.ToString();
     }
 
     public virtual void TriggerSkill()
     {
         ResetStamina();
     }
+
+
 }

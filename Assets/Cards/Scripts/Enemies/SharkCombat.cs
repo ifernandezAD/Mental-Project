@@ -11,7 +11,7 @@ public class SharkCombat : CombatBehaviour
     }
     public override void Attack()
     {    
-        AttackManager.instance.ApplyDamageToRandomTarget(temporaryAttack);
+        StatsManager.instance.ApplyDamageToRandomTarget(temporaryAttack);
         temporaryAttack++;
         attackText.text=temporaryAttack.ToString();
     }

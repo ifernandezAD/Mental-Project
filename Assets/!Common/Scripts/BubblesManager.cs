@@ -61,7 +61,7 @@ public class BubblesManager : MonoBehaviour
         {
             if (bubble.CompareTag("Poison"))
             {
-                AttackManager.instance.ApplyDamageToRandomTarget(1);
+                StatsManager.instance.ApplyDamageToRandomTarget(1);
             }
 
             Destroy(bubble.gameObject);

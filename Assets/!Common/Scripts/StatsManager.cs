@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackManager : MonoBehaviour
+public class StatsManager : MonoBehaviour
 {
-    public static AttackManager instance { get; private set; }
+    public static StatsManager instance { get; private set; }
 
     [Header("References")]
     private GameObject mainCharacterCard;
@@ -39,7 +39,7 @@ public class AttackManager : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, possibleTargets.Count);
             possibleTargets[randomIndex].RemoveHealthNoResilience(damage);
         }
-    }
+    } 
 
     public List<Health> GetAllPossibleTargets()
     {

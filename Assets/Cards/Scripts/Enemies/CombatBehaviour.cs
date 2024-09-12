@@ -13,7 +13,7 @@ public class CombatBehaviour : MonoBehaviour
     public virtual void Attack()
     {
         int enemyDamage = cardDisplay.card.attack;
-        AttackManager.instance.ApplyDamageToRandomTarget(enemyDamage);
+        StatsManager.instance.ApplyDamageToRandomTarget(enemyDamage);
     }
 
     public virtual void Defense(int damage)

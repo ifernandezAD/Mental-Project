@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-public class SharkAttack : AttackBehaviour
+public class SharkCombat : CombatBehaviour
 {
     [SerializeField] public TextMeshProUGUI attackText;
     private int temporaryAttack;

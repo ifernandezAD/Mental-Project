@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RabbitAttack : AttackBehaviour
+public class RabbitCombat : CombatBehaviour
 {
     [Range(0, 100)]
     public float dodgeChance = 25f;

@@ -36,10 +36,10 @@ public class EnemyPhase : Phase
     {
         for (int i = 0; i < enemyCardContainer.childCount; i++)
         {
-            AttackBehaviour attackBehaviour = enemyCardContainer.GetChild(i).GetComponent<AttackBehaviour>();
-            if (attackBehaviour != null)
+            CombatBehaviour combatBehaviour = enemyCardContainer.GetChild(i).GetComponent<CombatBehaviour>();
+            if (combatBehaviour != null)
             {
-                attackBehaviour.Attack();
+                combatBehaviour.Attack();
             }
         }
     }

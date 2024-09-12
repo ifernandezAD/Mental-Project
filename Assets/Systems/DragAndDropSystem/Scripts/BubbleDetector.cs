@@ -6,12 +6,18 @@ public class BubbleDetector : MonoBehaviour
     private Card card;
     private Health health;
     private Skill skill;
+    private CombatBehaviour combatBehaviour;
 
     void Awake()
     {
         card = GetComponent<CardDisplay>().card;
         health=GetComponent<Health>();
         skill=GetComponent<Skill>();
+
+        if(card.cardType == Card.CardType.Enemy)
+        {
+            combatBehaviour=GetComponent<CombatBehaviour>();
+        }
     }
 
     public void CheckButtonType(DraggableButton button)
@@ -20,7 +26,7 @@ public class BubbleDetector : MonoBehaviour
         {
            if(card.cardType == Card.CardType.Enemy)
            {
-                health.RemoveHealth(1);
+                combatBehaviour.Defense(1);
                 Destroy(button.gameObject);
            }
         }

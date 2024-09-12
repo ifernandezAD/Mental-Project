@@ -20,7 +20,7 @@ public class CardDisplay : MonoBehaviour
     {
         cardArt.sprite = card.art;
         healthText.text = card.maxHealth.ToString();
-        staminaText.text= card.staminaCost.ToString();
+        staminaText.text= 0.ToString();
         skillText.text = card.skillDescription;
 
         if (card.cardType == Card.CardType.Enemy)

@@ -15,10 +15,10 @@ public class StatsManager : MonoBehaviour
     }
     void Start()
     {
-        mainCharacterCard=GameLogic.instance.mainCharacterCard;
-        allyContainer=GameLogic.instance.allyContainer;
+        mainCharacterCard = GameLogic.instance.mainCharacterCard;
+        allyContainer = GameLogic.instance.allyContainer;
     }
-    
+
     public void ApplyDamageToRandomTarget(int damage)
     {
         List<Health> possibleTargets = GetAllPossibleTargets();
@@ -30,7 +30,7 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-        public void ApplyDamageToRandomTargetNoResilience(int damage)
+    public void ApplyDamageToRandomTargetNoResilience(int damage)
     {
         List<Health> possibleTargets = GetAllPossibleTargets();
 
@@ -39,7 +39,21 @@ public class StatsManager : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, possibleTargets.Count);
             possibleTargets[randomIndex].RemoveHealthNoResilience(damage);
         }
-    } 
+    }
+
+    public void ReduceStaminaForAll(int amount)
+    {
+        List<Health> allTargets = GetAllPossibleTargets();
+
+        foreach (Health target in allTargets)
+        {
+            Skill targetSkill = target.GetComponent<Skill>();
+            if (targetSkill != null)
+            {
+                targetSkill.DecreaseStamina(amount);
+            }
+        }
+    }
 
     public List<Health> GetAllPossibleTargets()
     {

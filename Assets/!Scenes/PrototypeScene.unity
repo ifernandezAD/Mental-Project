@@ -118,7 +118,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1152335202
+--- !u!1001 &263458003
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -215,15 +215,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
+--- !u!224 &1143990524 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5748238504633176591, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
+  m_PrefabInstance: {fileID: 263458003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1816241053 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8898394700778858366, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
   m_PrefabInstance: {fileID: 5137238834213799204}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1854647988 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5748238504633176591, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
-  m_PrefabInstance: {fileID: 1152335202}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5137238834213799204
 PrefabInstance:
@@ -284,13 +284,13 @@ PrefabInstance:
     - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: testingCardPrefab
       value: 
-      objectReference: {fileID: 8047891775737969280, guid: e4666d35bdc2c544bb8f71c16cff319d, type: 3}
+      objectReference: {fileID: 1580558323669755680, guid: c5ff17cfa075cf84e9f8080a625105d3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8898394700778858366, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1854647988}
+      addedObject: {fileID: 1143990524}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
 --- !u!1660057539 &9223372036854775807

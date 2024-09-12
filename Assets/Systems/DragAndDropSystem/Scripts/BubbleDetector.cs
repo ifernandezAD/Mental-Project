@@ -46,7 +46,7 @@ public class BubbleDetector : MonoBehaviour
         {
             if((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
-                skill.DecreaseStamina(1);
+                skill.IncreaseStamina(1);
                 Destroy(button.gameObject);
             }
         }    

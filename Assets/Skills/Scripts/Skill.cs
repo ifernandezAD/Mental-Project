@@ -7,10 +7,9 @@ using System;
 public abstract class Skill : MonoBehaviour
 {
     private int maxStamina = 0;
-    private int currentStamina = 0;
+    private int currentStamina = 0; 
     private TextMeshProUGUI staminaText;
     protected Health health;
-
 
     private void Awake() { InternalAwake(); }
     protected virtual void InternalAwake()
@@ -28,7 +27,8 @@ public abstract class Skill : MonoBehaviour
             AddSlot();
         }
 
-        currentStamina = maxStamina;
+        currentStamina = 0;
+        staminaText.text = currentStamina.ToString();
     }
 
     void AddSlot()
@@ -36,48 +36,40 @@ public abstract class Skill : MonoBehaviour
         Slots.instance.AddSlot();
     }
 
-    public void DecreaseStamina(int stamina)
-    {
-        currentStamina -= stamina;
-        staminaText.text = currentStamina.ToString();
-
-        CheckCurrentStamina();
-    }
-
     public void IncreaseStamina(int stamina)
     {
         currentStamina += stamina;
 
-        if (currentStamina > maxStamina)
+        if (currentStamina >= maxStamina)
         {
             currentStamina = maxStamina;
+            TriggerSkill();  
         }
 
         staminaText.text = currentStamina.ToString();
     }
 
-    private void CheckCurrentStamina()
+       public void DecreaseStamina(int stamina)
     {
-        if (currentStamina > 0)
+        currentStamina -= stamina;
+
+        if (currentStamina < 0)
         {
-            return;
+            currentStamina = 0;
         }
-        else
-        {
-            TriggerSkill();
-        }
+
+        staminaText.text = currentStamina.ToString();
     }
 
     public void ResetStamina()
     {
-        currentStamina = maxStamina;
+        currentStamina = 0; 
         staminaText.text = currentStamina.ToString();
     }
 
     public virtual void TriggerSkill()
     {
-        ResetStamina();
+        Debug.Log("Habilidad activada!");
+        ResetStamina();  
     }
-
-
 }

@@ -17,6 +17,6 @@ MonoBehaviour:
   art: {fileID: -8688392260014441854, guid: 60de8e9c420698b42abf73bf20509606, type: 3}
   maxHealth: 4
   staminaCost: 0
-  skillDescription: Adds poison to roller if damage is done
+  skillDescription: Adds poison  if direct damage to player is done
   attack: 2
   isBoss: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public static Action onBossDefeated;
+    public static Action<Health> onDirectDamage;
     private CardDisplay cardDisplay;
 
     [Header("Health")]
@@ -43,7 +44,6 @@ public class Health : MonoBehaviour
 
     public void RemoveHealth(int damage)
     {
-
         int effectiveDamage;
 
         if (cardDisplay.card.cardType == Card.CardType.Enemy)
@@ -52,18 +52,23 @@ public class Health : MonoBehaviour
         }
         else
         {
-            effectiveDamage = Mathf.Max(0, damage - resilience);
+            int damageAfterResilience = Mathf.Max(0, damage - resilience);
+            effectiveDamage = damageAfterResilience;
+
             resilience = Mathf.Max(0, resilience - damage);
             resilienceText.text = resilience.ToString();
+
+            if (damageAfterResilience > 0)
+            {
+                onDirectDamage?.Invoke(this); 
+            }
         }
 
         currentLives -= effectiveDamage;
-
         livesText.text = currentLives.ToString();
 
         HandleCardDeath();
     }
-
     public void RemoveHealthNoResilience(int damage)
     {
         int effectiveDamage = damage;

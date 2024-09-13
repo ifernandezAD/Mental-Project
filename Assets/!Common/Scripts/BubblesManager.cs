@@ -6,11 +6,15 @@ public class BubblesManager : MonoBehaviour
 
     [Header("Bubbles")]
     [SerializeField] GameObject[] bubbles;
+    [SerializeField] GameObject doubleStaminaBubblePrefab;
+    [SerializeField] GameObject doubleResilienceBubblePrefab;
     [SerializeField] Transform bubbleContainer;
+
     void Awake()
     {
         instance = this;
     }
+
     public void InstantiateBubbles()
     {
         Roller roller = Roller.instance;
@@ -59,26 +63,27 @@ public class BubblesManager : MonoBehaviour
     {
         foreach (Transform bubble in bubbleContainer)
         {
-            if (bubble.CompareTag("Poison"))
-            {
-                StatsManager.instance.ApplyDamageToRandomTarget(1);
-            }
+            CheckForPoisonBubbles(bubble);
 
             Destroy(bubble.gameObject);
         }
     }
 
+    private void CheckForPoisonBubbles(Transform bubble)
+    {
+        if (bubble.CompareTag("Poison"))
+        {
+            StatsManager.instance.ApplyDamageToRandomTarget(1);
+        }
+    }
+
     #region Skills
+
     public void TransformBubblesToRandom()
     {
-        int bubbleCount = bubbleContainer.childCount;
+        int bubbleCount = ClearBubblesContainer();
 
-        foreach (Transform bubble in bubbleContainer)
-        {
-            Destroy(bubble.gameObject);
-        }
-
-        for (int i = 0; i < bubbleCount - 1; i++)
+        for (int i = 0; i < bubbleCount; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
             GameObject newBubble = Instantiate(bubbles[randomIndex], bubbleContainer);
@@ -109,6 +114,38 @@ public class BubblesManager : MonoBehaviour
             }
         }
     }
-    #endregion
 
+    public void TransformBubblesToDoubleStamina()
+    {
+        int bubbleCount = ClearBubblesContainer();
+
+        for (int i = 0; i < bubbleCount; i++)
+        {
+            GameObject newBubble = Instantiate(doubleStaminaBubblePrefab, bubbleContainer);
+        }
+    }
+
+    public void TransformBubblesToDoubleResilience()
+    {
+        int bubbleCount = ClearBubblesContainer();
+
+        for (int i = 0; i < bubbleCount; i++)
+        {
+            GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
+        }
+    }
+
+    private int ClearBubblesContainer()
+    {
+        int bubbleCount = bubbleContainer.childCount;
+
+        foreach (Transform bubble in bubbleContainer)
+        {
+            Destroy(bubble.gameObject);
+        }
+
+        return bubbleCount;
+    }
+
+    #endregion
 }

@@ -9,6 +9,9 @@ TagManager:
   - Book
   - Poison
   - Empty
+  - DoubleRay
+  - DoubleShield
+  - DoubleSword
   layers:
   - Default
   - TransparentFX

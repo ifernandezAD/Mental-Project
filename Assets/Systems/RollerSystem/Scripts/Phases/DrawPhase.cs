@@ -3,7 +3,9 @@ using UnityEngine;
 public class DrawPhase : Phase
 {
     [Header("Enemy Cards Variables")]
-    [SerializeField] GameObject testingCardPrefab;
+    [SerializeField] GameObject[] act1EnemyCardsArray;
+    [SerializeField] GameObject[] act2EnemyCardsArray;
+    [SerializeField] GameObject[] act3EnemyCardsArray;
     [SerializeField] GameObject testingBossPrefab;
 
     [Header("Game Events Variables")]
@@ -64,14 +66,31 @@ public class DrawPhase : Phase
             }
             else
             {
-                DrawEnemyCard();
+                DrawEnemyCardByAct(actNumber);
             }
         }
     }
 
-    private void DrawEnemyCard()
+        private void DrawEnemyCardByAct(int actNumber)
     {
-        GameObject card = Instantiate(testingCardPrefab, enemyCardContainer);
+        GameObject[] selectedArray;
+
+        if (actNumber == 1)
+        {
+            selectedArray = act1EnemyCardsArray;
+        }
+        else if (actNumber == 2)
+        {
+            selectedArray = act2EnemyCardsArray;
+        }
+        else
+        {
+            selectedArray = act3EnemyCardsArray;
+        }
+
+        int randomIndex = Random.Range(0, selectedArray.Length);
+        GameObject enemyCard = Instantiate(selectedArray[randomIndex], enemyCardContainer);
+
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 

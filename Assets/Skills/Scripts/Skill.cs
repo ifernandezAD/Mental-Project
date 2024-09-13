@@ -69,7 +69,6 @@ public abstract class Skill : MonoBehaviour
 
     public virtual void TriggerSkill()
     {
-        Debug.Log("Habilidad activada!");
         ResetStamina();  
     }
 }

@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class HealSkill : Skill
 {
+    [SerializeField] int healAmount = 1;
     public override void TriggerSkill()
     {
-        health.AddHealth(1);
+        StatsManager.instance.HealAllAlliesAndPlayer(healAmount);
         base.TriggerSkill();
     }
 }

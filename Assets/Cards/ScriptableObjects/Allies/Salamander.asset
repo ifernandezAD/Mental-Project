@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436c014c9944e948be009ecc0b3ea68, type: 3}
+  m_Name: Salamander
+  m_EditorClassIdentifier: 
+  cardType: 1
+  cardName: Salamander
+  art: {fileID: -6473013637101471423, guid: 874fb1837d1be9b4eba48966d95ca9d2, type: 3}
+  maxHealth: 3
+  staminaCost: 3
+  skillDescription: Heal 1 point to all team
+  attack: 0
+  isBoss: 0

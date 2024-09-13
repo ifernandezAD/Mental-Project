@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16539142ae28cb740a1bd782ff8b3040
+guid: 874fb1837d1be9b4eba48966d95ca9d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8706654855476345625
-    second: Jesse_0
+      213: -6473013637101471423
+    second: salamander_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,6 +84,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jesse_0
+      name: salamander_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4368
-        height: 2912
+        width: 1485
+        height: 980
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91bf892167044d870800000000000000
-      internalID: 8706654855476345625
+      spriteID: 149be4e746c3b26a0800000000000000
+      internalID: -6473013637101471423
       vertices: []
       indices: 
       edges: []
@@ -147,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Jesse_0: 8706654855476345625
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

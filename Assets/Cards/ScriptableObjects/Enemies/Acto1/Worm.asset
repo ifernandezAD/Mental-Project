@@ -17,6 +17,6 @@ MonoBehaviour:
   art: {fileID: 6683298738078154646, guid: ea69a831598216f45ace839b51cb10a6, type: 3}
   maxHealth: 2
   staminaCost: 0
-  skillDescription: Clones itself if not defeated
+  skillDescription: Deals damage ignoring resilience
   attack: 1
   isBoss: 0

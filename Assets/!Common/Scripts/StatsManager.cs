@@ -55,6 +55,16 @@ public class StatsManager : MonoBehaviour
         }
     }
 
+    public void HealAllAlliesAndPlayer(int healingAmount)
+    {
+        List<Health> allTargets = GetAllPossibleTargets();
+
+        foreach (Health target in allTargets)
+        {
+            target.AddHealth(healingAmount);
+        }
+    }
+
     public List<Health> GetAllPossibleTargets()
     {
         List<Health> possibleTargets = new List<Health>();

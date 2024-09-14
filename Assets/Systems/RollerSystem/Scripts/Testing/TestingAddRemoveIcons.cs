@@ -32,7 +32,7 @@ public class TestingAddRemoveIcons : MonoBehaviour
 
     void RemoveIcon()
     {
-        Roller.instance.RemoveImagePrefab(ImageType.Sword);
+        Roller.instance.RemoveImagePrefab(ImageType.Poison);
     }
 
 }

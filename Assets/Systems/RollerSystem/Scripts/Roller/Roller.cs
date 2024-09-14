@@ -225,6 +225,7 @@ public class Roller : MonoBehaviour
         imagePrefabs.Add(newPrefab);
     }
 
+    #region Skills
     public void RemoveImagePrefab(ImageType type)
     {
         ImagePrefab prefabToRemove = imagePrefabs.Find(p => p.type == type);
@@ -234,34 +235,25 @@ public class Roller : MonoBehaviour
         }
     }
 
-    #region Skills
-
-    public void RemoveAllPoisonSymbols()
+    public void RemoveAllPoisonPrefabs()
     {
-        List<GameObject> poisonIconsToRemove = new List<GameObject>();
+        List<ImagePrefab> poisonPrefabsToRemove = new List<ImagePrefab>();
 
-        foreach (GameObject image in activeImages)
+        foreach (ImagePrefab prefab in imagePrefabs)
         {
-            if (image != null)
+            if (prefab.prefab != null)
             {
-                ImageTypeComponent typeComponent = image.GetComponent<ImageTypeComponent>();
-                if (typeComponent != null && typeComponent.imageType == ImageType.Poison)
+                if (prefab.type == ImageType.Poison)
                 {
-                    poisonIconsToRemove.Add(image);
+                    poisonPrefabsToRemove.Add(prefab);
                 }
             }
         }
 
-        foreach (GameObject poisonIcon in poisonIconsToRemove)
+        foreach (ImagePrefab poisonPrefab in poisonPrefabsToRemove)
         {
-            if (poisonIcon != null)
-            {
-                activeImages.Remove(poisonIcon);
-                Destroy(poisonIcon);
-            }
+            imagePrefabs.Remove(poisonPrefab);
         }
-
-        UpdateImageCount();
     }
     #endregion
 }

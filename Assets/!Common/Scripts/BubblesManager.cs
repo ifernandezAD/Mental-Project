@@ -8,6 +8,7 @@ public class BubblesManager : MonoBehaviour
     [SerializeField] GameObject[] bubbles;
     [SerializeField] GameObject doubleStaminaBubblePrefab;
     [SerializeField] GameObject doubleResilienceBubblePrefab;
+    [SerializeField] GameObject doubleSwordBubblePrefab;
     [SerializeField] Transform bubbleContainer;
 
     void Awake()
@@ -133,6 +134,21 @@ public class BubblesManager : MonoBehaviour
         {
             GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
         }
+    }
+
+    public void AddDoubleSwordBubble()
+    {
+        GameObject newBubble = Instantiate(doubleSwordBubblePrefab, bubbleContainer);
+    }
+
+    public void AddDoubleStaminaBubble()
+    {
+        GameObject newBubble = Instantiate(doubleStaminaBubblePrefab, bubbleContainer);
+    }
+
+    public void AddDoubleResilienceBubble()
+    {
+        GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
     }
 
     private int ClearBubblesContainer()

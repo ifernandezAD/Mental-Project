@@ -31,6 +31,7 @@ public class ActivateOnPress : MonoBehaviour
         if (button.interactable) 
         {
             consumable.Use();
+            Destroy(this.gameObject);
         }
     }
 }

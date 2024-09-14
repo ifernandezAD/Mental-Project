@@ -199,7 +199,7 @@ public class Roller : MonoBehaviour
     }
 
     void CalculateRollOutcome()
-    {   
+    {
         InitializeImageCount();
         foreach (GameObject image in activeImages)
         {
@@ -233,5 +233,36 @@ public class Roller : MonoBehaviour
             imagePrefabs.Remove(prefabToRemove);
         }
     }
+
+    #region Skills
+
+    public void RemoveAllPoisonSymbols()
+    {
+        List<GameObject> poisonIconsToRemove = new List<GameObject>();
+
+        foreach (GameObject image in activeImages)
+        {
+            if (image != null)
+            {
+                ImageTypeComponent typeComponent = image.GetComponent<ImageTypeComponent>();
+                if (typeComponent != null && typeComponent.imageType == ImageType.Poison)
+                {
+                    poisonIconsToRemove.Add(image);
+                }
+            }
+        }
+
+        foreach (GameObject poisonIcon in poisonIconsToRemove)
+        {
+            if (poisonIcon != null)
+            {
+                activeImages.Remove(poisonIcon);
+                Destroy(poisonIcon);
+            }
+        }
+
+        UpdateImageCount();
+    }
+    #endregion
 }
 

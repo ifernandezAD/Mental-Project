@@ -126,10 +126,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5137238834213799205}
     m_Modifications:
-    - target: {fileID: 1520729443124393210, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4956101077695812143, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
       propertyPath: m_Name
       value: ObjectTemplate

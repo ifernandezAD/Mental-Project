@@ -96,8 +96,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8429862613185991361, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+      propertyPath: consumable
+      value: 
+      objectReference: {fileID: -6832103374243438990}
+    m_RemovedComponents:
+    - {fileID: 299506394715581169, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4956101077695812143, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6832103374243438990}
   m_SourcePrefab: {fileID: 100100000, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+--- !u!1 &4162665995680692729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4956101077695812143, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+  m_PrefabInstance: {fileID: 9008141540397706198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6832103374243438990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162665995680692729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817e33f3747ff2c4790cc030d3b98f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Heals 2 points of health to player
+  healthAmount: 2

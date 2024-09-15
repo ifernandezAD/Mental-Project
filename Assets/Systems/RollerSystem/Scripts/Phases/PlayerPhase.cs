@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerPhase : Phase
 {
     [SerializeField] Button okButton;
+    public static Action onPlayerPhaseEnded;
 
     protected override void InternalOnEnable()
     {
@@ -26,5 +28,6 @@ public class PlayerPhase : Phase
 
         okButton.interactable = false;
         BubblesManager.instance.DestroyAllBubbles();
+        onPlayerPhaseEnded?.Invoke();
     }
 }

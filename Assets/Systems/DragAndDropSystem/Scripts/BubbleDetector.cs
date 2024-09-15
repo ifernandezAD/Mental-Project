@@ -8,6 +8,9 @@ public class BubbleDetector : MonoBehaviour
     private Skill skill;
     private CombatBehaviour combatBehaviour;
 
+    [Header("Relics")]
+    public static Action onSwordUsed;
+
     void Awake()
     {
         card = GetComponent<CardDisplay>().card;
@@ -27,6 +30,7 @@ public class BubbleDetector : MonoBehaviour
             if (card.cardType == Card.CardType.Enemy)
             {
                 combatBehaviour.Defense(1);
+                onSwordUsed?.Invoke();
                 Destroy(button.gameObject);
             }
         }
@@ -74,6 +78,7 @@ public class BubbleDetector : MonoBehaviour
             if (card.cardType == Card.CardType.Enemy)
             {
                 combatBehaviour.Defense(2);
+                onSwordUsed?.Invoke();
                 Destroy(button.gameObject);
             }
         }

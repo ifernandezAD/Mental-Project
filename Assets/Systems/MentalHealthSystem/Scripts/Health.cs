@@ -17,6 +17,12 @@ public class Health : MonoBehaviour
 
     [Header("Resilience")]
     private int resilience = 0;
+
+    [Header("Relics")]
+    private bool canSurviveLethalHit = false;
+    private bool hasUsedRelicEffect = false;
+
+
     void Awake()
     {
         cardDisplay = GetComponent<CardDisplay>();
@@ -60,11 +66,20 @@ public class Health : MonoBehaviour
 
             if (damageAfterResilience > 0)
             {
-                onDirectDamage?.Invoke(this); 
+                onDirectDamage?.Invoke(this);
             }
         }
 
         currentLives -= effectiveDamage;
+
+        if (currentLives <= 0 && canSurviveLethalHit && !hasUsedRelicEffect)
+        {
+
+            currentLives = 1;
+            hasUsedRelicEffect = true;
+            Debug.Log("Lethal hit survived thanks to relic!");
+        }
+
         livesText.text = currentLives.ToString();
 
         HandleCardDeath();
@@ -132,5 +147,14 @@ public class Health : MonoBehaviour
         resilience = 0;
         resilienceText.text = resilience.ToString();
     }
+
+    #region Relics
+
+    public void EnableLethalSurvival()
+    {
+        canSurviveLethalHit = true;
+    }
+
+    #endregion
 
 }

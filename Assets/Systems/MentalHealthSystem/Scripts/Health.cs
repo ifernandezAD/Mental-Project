@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     [Header("Relics")]
     private bool canSurviveLethalHit = false;
     private bool hasUsedRelicEffect = false;
+    private bool gainResilienceOnLostHealth = false;
 
 
     void Awake()
@@ -67,6 +68,11 @@ public class Health : MonoBehaviour
             if (damageAfterResilience > 0)
             {
                 onDirectDamage?.Invoke(this);
+
+                if (gainResilienceOnLostHealth)
+                {
+                    AddResilience(1);
+                }
             }
         }
 
@@ -153,6 +159,11 @@ public class Health : MonoBehaviour
     public void EnableLethalSurvival()
     {
         canSurviveLethalHit = true;
+    }
+
+    public void EnableResilienceOnLostHealth()
+    {
+        gainResilienceOnLostHealth = true;
     }
 
     #endregion

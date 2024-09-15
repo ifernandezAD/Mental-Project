@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DrawPhase : Phase
@@ -21,6 +22,8 @@ public class DrawPhase : Phase
     [SerializeField, Range(0, 100)] private int allyEventProbability = 50;
     private bool allyDrawnInCurrentAct = false;
 
+    [Header("Relics")]
+    public static Action onEventTriggered;
 
 
     protected override void InternalOnEnable()
@@ -58,7 +61,7 @@ public class DrawPhase : Phase
         }
         else
         {
-            int randomValue = Random.Range(0, 100);
+            int randomValue = UnityEngine.Random.Range(0, 100);
 
             if (randomValue < eventDrawProbability)
             {
@@ -88,7 +91,7 @@ public class DrawPhase : Phase
             selectedArray = act3EnemyCardsArray;
         }
 
-        int randomIndex = Random.Range(0, selectedArray.Length);
+        int randomIndex = UnityEngine.Random.Range(0, selectedArray.Length);
         GameObject enemyCard = Instantiate(selectedArray[randomIndex], enemyCardContainer);
 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
@@ -125,7 +128,7 @@ public class DrawPhase : Phase
         {
             if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))
             {
-                return Random.Range(0, 100) < allyEventProbability;
+                return UnityEngine.Random.Range(0, 100) < allyEventProbability;
             }
         }
 
@@ -142,15 +145,19 @@ public class DrawPhase : Phase
 
     private void DrawAllyEvent()
     {
-        int randomIndex = Random.Range(0, allyEventsArray.Length);
+        int randomIndex = UnityEngine.Random.Range(0, allyEventsArray.Length);
         GameObject eventCard = Instantiate(allyEventsArray[randomIndex], eventContainer);
         allyDrawnInCurrentAct = true;
+
+        onEventTriggered?.Invoke();
     }
 
     private void DrawGeneralEvent()
     {
-        int randomIndex = Random.Range(0, generalEventsArray.Length);
+        int randomIndex = UnityEngine.Random.Range(0, generalEventsArray.Length);
         GameObject eventCard = Instantiate(generalEventsArray[randomIndex], eventContainer);
+
+        onEventTriggered?.Invoke();
     }
 
     private void OnEventButtonPressed()

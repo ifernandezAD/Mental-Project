@@ -16,7 +16,7 @@ public class DrawPhase : Phase
 
     [Header("Ally Events Variables")]
     [SerializeField] GameObject[] allyEventsArray;
-   
+
     [SerializeField] private int minRoundForAllyEvent = 3;
     [SerializeField] private int maxRoundForAllyEvent = 8;
     [SerializeField, Range(0, 100)] private int allyEventProbability = 50;
@@ -74,7 +74,7 @@ public class DrawPhase : Phase
         }
     }
 
-        private void DrawEnemyCardByAct(int actNumber)
+    private void DrawEnemyCardByAct(int actNumber)
     {
         GameObject[] selectedArray;
 
@@ -123,7 +123,9 @@ public class DrawPhase : Phase
 
         int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
 
-        
+        if (currentAllyCount >= 2)
+            return false;
+
         if (roundNumber >= minRoundForAllyEvent && roundNumber <= maxRoundForAllyEvent)
         {
             if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))

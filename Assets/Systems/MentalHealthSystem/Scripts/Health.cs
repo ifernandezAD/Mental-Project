@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public static Action onBossDefeated;
     public static Action<Health> onDirectDamage;
+
     private CardDisplay cardDisplay;
 
     [Header("Health")]
@@ -20,11 +20,10 @@ public class Health : MonoBehaviour
 
     [Header("Relics")]
     private bool canSurviveLethalHit = false;
-    private bool hasUsedRelicEffect = false;
+    private bool hasUsedLethalSurvival = false;
     private bool gainResilienceOnLostHealth = false;
-    private bool canReviveWithHalfLife = false;  
-    private bool hasRevived = false; 
-
+    private bool canReviveWithHalfLife = false;
+    private bool hasRevived = false;
 
     void Awake()
     {
@@ -35,70 +34,87 @@ public class Health : MonoBehaviour
     {
         maxLives = cardDisplay.card.maxHealth;
         currentLives = maxLives;
-
-        livesText.text = currentLives.ToString();
+        UpdateLivesText();
     }
 
     public void AddHealth(int health)
     {
         currentLives += health;
-
-        if (currentLives > maxLives)
-        {
-            currentLives = maxLives;
-        }
-
-        livesText.text = currentLives.ToString();
+        if (currentLives > maxLives) currentLives = maxLives;
+        UpdateLivesText();
     }
 
     public void RemoveHealth(int damage)
     {
-        int effectiveDamage;
+        int effectiveDamage = HandleDamageReduction(damage);
+        ApplyDamage(effectiveDamage);
+        CheckForRelicEffects(effectiveDamage);
+        HandleCardDeath();
+    }
 
+    public void RemoveHealthNoResilience(int damage)
+    {
+        ApplyDamage(damage);
+        HandleCardDeath();
+    }
+
+    private void ApplyDamage(int damage)
+    {
+        currentLives -= damage;
+        UpdateLivesText();
+    }
+
+    private int HandleDamageReduction(int damage)
+    {
         if (cardDisplay.card.cardType == Card.CardType.Enemy)
         {
-            effectiveDamage = damage;
+            return damage;
         }
-        else
+
+        int damageAfterResilience = Mathf.Max(0, damage - resilience);
+        resilience = Mathf.Max(0, resilience - damage);
+        UpdateResilienceText();
+        
+        return damageAfterResilience;
+    }
+
+    private void CheckForRelicEffects(int effectiveDamage)
+    {
+        if (effectiveDamage > 0)
         {
-            int damageAfterResilience = Mathf.Max(0, damage - resilience);
-            effectiveDamage = damageAfterResilience;
-
-            resilience = Mathf.Max(0, resilience - damage);
-            resilienceText.text = resilience.ToString();
-
-            if (damageAfterResilience > 0)
+            onDirectDamage?.Invoke(this);
+            
+            if (gainResilienceOnLostHealth)
             {
-                onDirectDamage?.Invoke(this);
-
-                if (gainResilienceOnLostHealth)
-                {
-                    AddResilience(1);
-                }
+                AddResilience(1); 
             }
         }
 
-        currentLives -= effectiveDamage;
-
-        if (currentLives <= 0 && canSurviveLethalHit && !hasUsedRelicEffect)
+        if (currentLives <= 0)
         {
-
-            currentLives = 1;
-            hasUsedRelicEffect = true;
-            Debug.Log("Lethal hit survived thanks to relic!");
+            HandleLethalSurvival();
+            HandleReviveWithHalfLife();
         }
-
-        livesText.text = currentLives.ToString();
-
-        HandleCardDeath();
     }
-    public void RemoveHealthNoResilience(int damage)
-    {
-        int effectiveDamage = damage;
-        currentLives -= effectiveDamage;
-        livesText.text = currentLives.ToString();
 
-        HandleCardDeath();
+    private void HandleLethalSurvival()
+    {
+        if (canSurviveLethalHit && !hasUsedLethalSurvival)
+        {
+            currentLives = 1; 
+            hasUsedLethalSurvival = true;
+            UpdateLivesText();
+        }
+    }
+
+    private void HandleReviveWithHalfLife()
+    {
+        if (canReviveWithHalfLife && !hasRevived)
+        {
+            currentLives = Mathf.CeilToInt(maxLives / 2f); 
+            hasRevived = true;
+            UpdateLivesText();
+        }
     }
 
     private void HandleCardDeath()
@@ -106,39 +122,49 @@ public class Health : MonoBehaviour
         if (currentLives <= 0)
         {
             currentLives = 0;
+            UpdateLivesText();
 
             if (cardDisplay.card.cardType == Card.CardType.Enemy)
             {
-                ManageEnemyCardDead();
+                ManageEnemyCardDeath();
             }
             else if (cardDisplay.card.cardType == Card.CardType.Character)
             {
-                ManageCharacterCardDead();
+                ManageCharacterCardDeath();
             }
             else if (cardDisplay.card.cardType == Card.CardType.Ally)
             {
-                ManageAllyCardDead();
+                ManageAllyCardDeath();
             }
         }
     }
 
-    void ManageEnemyCardDead()
+    private void UpdateLivesText()
+    {
+        livesText.text = currentLives.ToString();
+    }
+
+    private void UpdateResilienceText()
+    {
+        resilienceText.text = resilience.ToString();
+    }
+
+    private void ManageEnemyCardDeath()
     {
         if (cardDisplay.card.isBoss)
         {
             onBossDefeated?.Invoke();
         }
-
         Destroy(gameObject);
     }
 
-    private void ManageCharacterCardDead()
+    private void ManageCharacterCardDeath()
     {
         RoundManager.instance.EndGame();
         Debug.Log("GameOver");
     }
 
-    private void ManageAllyCardDead()
+    private void ManageAllyCardDeath()
     {
         Slots.instance.RemoveSlot();
         Destroy(gameObject);
@@ -147,13 +173,13 @@ public class Health : MonoBehaviour
     public void AddResilience(int resilience)
     {
         this.resilience += resilience;
-        resilienceText.text = this.resilience.ToString();
+        UpdateResilienceText();
     }
 
     public void ResetResilience()
     {
         resilience = 0;
-        resilienceText.text = resilience.ToString();
+        UpdateResilienceText();
     }
 
     #region Relics
@@ -168,11 +194,10 @@ public class Health : MonoBehaviour
         gainResilienceOnLostHealth = true;
     }
 
-     public void EnableReviveWithHalfLife()  
+    public void EnableReviveWithHalfLife()
     {
         canReviveWithHalfLife = true;
     }
 
     #endregion
-
 }

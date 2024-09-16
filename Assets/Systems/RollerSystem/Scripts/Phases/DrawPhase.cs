@@ -77,7 +77,6 @@ public class DrawPhase : Phase
         return;
     }
 
-    // Si se debe dibujar un evento aliado
     if (ShouldDrawAllyEvent(roundNumber, actNumber))
     {
         DrawAllyEvent();

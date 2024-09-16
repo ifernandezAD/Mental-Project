@@ -13,8 +13,13 @@ public class QuitGame : MonoBehaviour
     {
         if (escapeGame.action.WasPerformedThisFrame())
         {
-            Application.Quit();
+            EndApplication();
         }
+    }
+
+    public void EndApplication()
+    {
+        Application.Quit();
     }
     private void OnDisable() { escapeGame.action.Disable(); }
 

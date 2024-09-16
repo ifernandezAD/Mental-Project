@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 2
   cardName: Shark
   art: {fileID: 5746764926269108267, guid: d68dd150d92fe1244a777594ef654bbf, type: 3}
-  maxHealth: 5
+  maxHealth: 4
   staminaCost: 0
   skillDescription: + 1 power after each attack
   attack: 2

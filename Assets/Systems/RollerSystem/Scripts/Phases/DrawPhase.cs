@@ -13,6 +13,9 @@ public class DrawPhase : Phase
     [SerializeField] GameObject[] generalEventsArray;
     [SerializeField] Transform eventContainer;
     [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
+    private int normalEventCount = 0; 
+    private int maxNormalEventsPerAct = 3; 
+    private bool lastDrawWasEvent = false; 
 
     [Header("Ally Events Variables")]
     [SerializeField] GameObject[] allyEventsArray;
@@ -51,28 +54,50 @@ public class DrawPhase : Phase
     }
 
     private void DrawRandomCard()
+{
+    int roundNumber = RoundManager.instance.GetCurrentRound();
+    int actNumber = RoundManager.instance.GetCurrentAct();
+
+    if (roundNumber <= 2)
     {
-        int roundNumber = RoundManager.instance.GetCurrentRound();
-        int actNumber = RoundManager.instance.GetCurrentAct();
-
-        if (ShouldDrawAllyEvent(roundNumber, actNumber))
-        {
-            DrawAllyEvent();
-        }
-        else
-        {
-            int randomValue = UnityEngine.Random.Range(0, 100);
-
-            if (randomValue < eventDrawProbability)
-            {
-                DrawEvent();
-            }
-            else
-            {
-                DrawEnemyCardByAct(actNumber);
-            }
-        }
+        DrawEnemyCardByAct(actNumber);
+        return;
     }
+
+    if (lastDrawWasEvent)
+    {
+        DrawEnemyCardByAct(actNumber);
+        lastDrawWasEvent = false;
+        return;
+    }
+
+    if (normalEventCount >= maxNormalEventsPerAct)
+    {
+        DrawEnemyCardByAct(actNumber);
+        return;
+    }
+
+    // Si se debe dibujar un evento aliado
+    if (ShouldDrawAllyEvent(roundNumber, actNumber))
+    {
+        DrawAllyEvent();
+        lastDrawWasEvent = true;  
+        return;
+    }
+
+    int randomValue = UnityEngine.Random.Range(0, 100);
+    if (randomValue < eventDrawProbability)
+    {
+        DrawEvent();
+        normalEventCount++;  
+        lastDrawWasEvent = true;
+    }
+    else
+    {
+        DrawEnemyCardByAct(actNumber);
+        lastDrawWasEvent = false;
+    }
+}
 
     private void DrawEnemyCardByAct(int actNumber)
     {

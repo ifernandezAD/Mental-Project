@@ -22,6 +22,8 @@ public class Health : MonoBehaviour
     private bool canSurviveLethalHit = false;
     private bool hasUsedRelicEffect = false;
     private bool gainResilienceOnLostHealth = false;
+    private bool canReviveWithHalfLife = false;  
+    private bool hasRevived = false; 
 
 
     void Awake()
@@ -164,6 +166,11 @@ public class Health : MonoBehaviour
     public void EnableResilienceOnLostHealth()
     {
         gainResilienceOnLostHealth = true;
+    }
+
+     public void EnableReviveWithHalfLife()  
+    {
+        canReviveWithHalfLife = true;
     }
 
     #endregion

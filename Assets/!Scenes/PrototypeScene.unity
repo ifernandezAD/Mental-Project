@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: 'allyArray.Array.data[2]'
       value: 
       objectReference: {fileID: 2042040212543849362, guid: ec09a0fb0db714143ac3963891190fc1, type: 3}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: allyEventProbability
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: doubleSwordBubblePrefab
       value: 

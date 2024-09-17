@@ -9,7 +9,8 @@ public class GameLogic : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Transform characterContainer;
-    public GameObject mainCharacterCard;
+    public GameObject mainCharacterCard; 
+    [SerializeField] public GameObject[] availableCharacters; 
     [SerializeField] public Transform bubblesContainer;
 
     [Header("Ally Related Variables")]
@@ -21,13 +22,15 @@ public class GameLogic : MonoBehaviour
     void Awake()
     {
         instance = this;
-
         remainingAllies = new List<GameObject>(allyArray);
     }
 
     void Start()
     {
-        mainCharacterCard = characterContainer.GetChild(0).gameObject;
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); 
+        GameObject selectedCharacter = Instantiate(availableCharacters[selectedCharacterIndex], characterContainer);
+
+        mainCharacterCard = selectedCharacter;
     }
 
     void OnEnable()

@@ -33,16 +33,16 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
         {
             if (cardDisplay != null)
             {
-                GameInfoPopup.instance.ShowPopUp(cardDisplay.card.skillDescription);
+                GameInfoPopup.instance.ShowPopUp(cardDisplay.card.skillName ,cardDisplay.card.skillDescription);
             }
 
             else if (consumable != null)
             {
-                GameInfoPopup.instance.ShowPopUp(consumable.description);
+                GameInfoPopup.instance.ShowPopUp(consumable.consumableName,consumable.consumableDescription);
             }
             else if (relic != null)
             {
-                GameInfoPopup.instance.ShowPopUp(relic.description);
+                GameInfoPopup.instance.ShowPopUp(relic.relicName,relic.relicDescription);
             }
         }
     }

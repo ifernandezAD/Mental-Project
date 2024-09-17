@@ -6,7 +6,9 @@ public class GameInfoPopup : MonoBehaviour
     public static GameInfoPopup instance { get; private set; }
 
     [SerializeField] private GameObject molePopup;
-    [SerializeField] private TextMeshProUGUI popupText;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+
 
     private void Awake()
     {
@@ -15,9 +17,10 @@ public class GameInfoPopup : MonoBehaviour
         molePopup.SetActive(false); 
     }
 
-    public void ShowPopUp(string text)
+    public void ShowPopUp(string name, string description)
     {
-        popupText.text = text;
+        nameText.text = name;
+        descriptionText.text = description;
         molePopup.SetActive(true);
     }
 

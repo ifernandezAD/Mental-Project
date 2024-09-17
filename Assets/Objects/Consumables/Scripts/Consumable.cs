@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    [SerializeField] public string description;
+    [SerializeField] public string consumableName;
+    [SerializeField] public string consumableDescription;
 
     public virtual void Use(){}
 }

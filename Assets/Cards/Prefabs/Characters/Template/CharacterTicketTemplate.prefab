@@ -482,7 +482,7 @@ MonoBehaviour:
   card: {fileID: 11400000, guid: b72ef1dc910027d409bd28b0a1082d91, type: 2}
   cardArt: {fileID: 2949701616959334166}
   healthText: {fileID: 4988411680210515343}
-  skillText: {fileID: 84207388983631987}
+  skillDescriptionText: {fileID: 84207388983631987}
   staminaText: {fileID: 7859014729645158928}
   attackText: {fileID: 1529501289257112596}
 --- !u!114 &4342426021321554881

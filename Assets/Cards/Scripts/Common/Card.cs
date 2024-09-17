@@ -15,6 +15,7 @@ public class Card : ScriptableObject
 
     [Header("Skills")]
     public int staminaCost;
+    public string skillName;
     public string skillDescription;
         
     [Header("Enemy Variables")]

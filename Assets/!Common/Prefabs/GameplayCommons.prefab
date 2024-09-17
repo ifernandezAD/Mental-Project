@@ -87,7 +87,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -175.24463, y: 336.34436}
+  m_AnchoredPosition: {x: -1300, y: 300}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8001432939500697246
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 15, y: 0}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 4
 --- !u!1 &2093725935796269349
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   - {fileID: 4152759035389439276, guid: 1d9b5b3d5ecea7b4c905f08d4a11729d, type: 3}
   minRoundForAllyEvent: 3
   maxRoundForAllyEvent: 8
-  allyEventProbability: 35
+  allyEventProbability: 50
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: 7413156019120316313}
   - component: {fileID: 6237406775622350115}
   - component: {fileID: 8327505551512498634}
-  - component: {fileID: 3208223768015470426}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -410,9 +409,9 @@ MonoBehaviour:
   bubblesContainer: {fileID: 0}
   allyContainer: {fileID: 8898394700778858366}
   allyArray:
-  - {fileID: 7481429011589584531, guid: 034b92afc6f182a41ae1f6c997a73d7d, type: 3}
-  - {fileID: 6414097265643455243, guid: fcd3a37c94c165447b0dd7acfbc33f0d, type: 3}
-  - {fileID: 6621019777469433973, guid: e897cd1293ffd20419ece930c0f92c09, type: 3}
+  - {fileID: 2042040212543849362, guid: 5448cedb8f4c46d4a8d5d3fd336e8914, type: 3}
+  - {fileID: 2042040212543849362, guid: 68ce07289fbfd8d41899b83fcfd862bb, type: 3}
+  - {fileID: 2042040212543849362, guid: ec09a0fb0db714143ac3963891190fc1, type: 3}
 --- !u!114 &6237406775622350115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,20 +447,8 @@ MonoBehaviour:
   - {fileID: 8558265924817352723, guid: 16b5f494f44063742a3cb880d7f50aeb, type: 3}
   doubleStaminaBubblePrefab: {fileID: 8558265924817352723, guid: 16b5f494f44063742a3cb880d7f50aeb, type: 3}
   doubleResilienceBubblePrefab: {fileID: 6407166507641768061, guid: 54cb6d2474a24e441a6ae81b23293729, type: 3}
+  doubleSwordBubblePrefab: {fileID: 7357296721871014533, guid: 3d5ad8892b3617b4e96d23c1caa3fedc, type: 3}
   bubbleContainer: {fileID: 3524729008611330304}
---- !u!114 &3208223768015470426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552592793387651162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d18b6073109dc84f965f7ec0395175c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  escapeGame: {fileID: -5716450392400340515, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &6463109656143938258
 GameObject:
   m_ObjectHideFlags: 0

@@ -161,7 +161,6 @@ public class Health : MonoBehaviour
     private void ManageCharacterCardDeath()
     {
         RoundManager.instance.EndGame();
-        Debug.Log("GameOver");
     }
 
     private void ManageAllyCardDeath()

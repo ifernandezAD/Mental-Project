@@ -6,10 +6,12 @@ public class PlayerPhase : Phase
 {
     [SerializeField] Button okButton;
     public static Action onPlayerPhaseEnded;
+    public static Action onPlayerPhaseBegin;
 
     protected override void InternalOnEnable()
     {
         base.InternalOnEnable();
+        onPlayerPhaseBegin?.Invoke();
         OKButton.onOKButtonPressed += StartNextPhaseWithDelay;
         Health.onBossDefeated += StartNextActWithDelay;
     }

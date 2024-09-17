@@ -5,7 +5,6 @@ public class ActivateOnPress : MonoBehaviour
 {
     private Button button;
     private Consumable consumable;
-    private const int playerPhaseIndex = 2;
 
     void Awake()
     {
@@ -14,16 +13,24 @@ public class ActivateOnPress : MonoBehaviour
         button.onClick.AddListener(OnButtonClick);
     }
 
-    void Update()
+    void Start()
     {
-        if (RoundManager.instance.currentPhaseIndex == playerPhaseIndex)
-        {
-            button.interactable = true; 
-        }
-        else
-        {
-            button.interactable = false; 
-        }
+        DisableButton();
+    }
+    void OnEnable()
+    {
+        PlayerPhase.onPlayerPhaseBegin += EnableButton;
+        PlayerPhase.onPlayerPhaseEnded += DisableButton;
+    }
+
+    void EnableButton()
+    {
+        button.interactable = true;
+    }
+
+    void DisableButton()
+    {
+        button.interactable = false;
     }
 
     void OnButtonClick()
@@ -34,4 +41,12 @@ public class ActivateOnPress : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    
+    void OnDisable()
+    {
+        PlayerPhase.onPlayerPhaseBegin -= EnableButton;
+        PlayerPhase.onPlayerPhaseEnded -= DisableButton;
+    }
+
 }

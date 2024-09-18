@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 0
   cardName: Cat
   art: {fileID: 1075993247170539406, guid: 275bf971cb4c43a46bcbb95f50cda126, type: 3}
-  maxHealth: 6
+  maxHealth: 7
   staminaCost: 2
   skillName: Void Transformation
   skillDescription: Transform empty bubbles into resilience or attack bubbles

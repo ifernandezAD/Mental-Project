@@ -12,22 +12,17 @@ public class DrawPhase : Phase
     [Header("Game Events Variables")]
     [SerializeField] GameObject[] generalEventsArray;
     [SerializeField] Transform eventContainer;
-    [SerializeField, Range(0, 100)] private int eventDrawProbability = 20;
-    private int normalEventCount = 0; 
-    private int maxNormalEventsPerAct = 3; 
-    private bool lastDrawWasEvent = false; 
+    private int normalEventCount = 0;
+    private bool lastDrawWasEvent = false;
 
     [Header("Ally Events Variables")]
     [SerializeField] GameObject[] allyEventsArray;
-
-    [SerializeField] private int minRoundForAllyEvent = 3;
-    [SerializeField] private int maxRoundForAllyEvent = 8;
-    [SerializeField, Range(0, 100)] private int allyEventProbability = 50;
     private bool allyDrawnInCurrentAct = false;
+    private int[] eventRounds = new int[] { 3, 6, 9 };
+    private int chosenAllyRound;
 
     [Header("Relics")]
     public static Action onEventTriggered;
-
 
     protected override void InternalOnEnable()
     {
@@ -40,6 +35,7 @@ public class DrawPhase : Phase
         if (RoundManager.instance.GetCurrentRound() == 1)
         {
             allyDrawnInCurrentAct = false;
+            chosenAllyRound = UnityEngine.Random.Range(0, eventRounds.Length);
         }
 
         if (RoundManager.instance.IsBossRound())
@@ -54,70 +50,52 @@ public class DrawPhase : Phase
     }
 
     private void DrawRandomCard()
-{
-    int roundNumber = RoundManager.instance.GetCurrentRound();
-    int actNumber = RoundManager.instance.GetCurrentAct();
-
-    if (roundNumber <= 2)
     {
-        DrawEnemyCardByAct(actNumber);
-        return;
-    }
+        int roundNumber = RoundManager.instance.GetCurrentRound();
+        int actNumber = RoundManager.instance.GetCurrentAct();
 
-    if (lastDrawWasEvent)
-    {
-        DrawEnemyCardByAct(actNumber);
-        lastDrawWasEvent = false;
-        return;
-    }
-
-    if (normalEventCount >= maxNormalEventsPerAct)
-    {
-        DrawEnemyCardByAct(actNumber);
-        return;
-    }
-
-    if (ShouldDrawAllyEvent(roundNumber, actNumber))
-    {
-        DrawAllyEvent();
-        lastDrawWasEvent = true;  
-        return;
-    }
-
-    int randomValue = UnityEngine.Random.Range(0, 100);
-    if (randomValue < eventDrawProbability)
-    {
-        DrawEvent();
-        normalEventCount++;  
-        lastDrawWasEvent = true;
-    }
-    else
-    {
-        DrawEnemyCardByAct(actNumber);
-        lastDrawWasEvent = false;
-    }
-}
-
-    private void DrawEnemyCardByAct(int actNumber)
-    {
-        GameObject[] selectedArray;
-
-        if (actNumber == 1)
+        if (roundNumber <= 2)
         {
-            selectedArray = act1EnemyCardsArray;
+            DrawEnemyCardByAct(actNumber);
+            return;
         }
-        else if (actNumber == 2)
+
+        if (Array.Exists(eventRounds, round => round == roundNumber))
         {
-            selectedArray = act2EnemyCardsArray;
+            if (actNumber == 3 && RoundManager.instance.allyCardContainer.childCount >= 2)
+            {
+                DrawEvent();
+                return;
+            }
+
+            if (roundNumber == eventRounds[chosenAllyRound] && !allyDrawnInCurrentAct)
+            {
+                DrawAllyEvent();
+                allyDrawnInCurrentAct = true;
+            }
+            else
+            {
+                DrawEvent();
+            }
         }
         else
         {
-            selectedArray = act3EnemyCardsArray;
+            DrawEnemyCardByAct(actNumber);
         }
+    }
+
+    private void DrawEnemyCardByAct(int actNumber)
+    {
+        GameObject[] selectedArray = actNumber switch
+        {
+            1 => act1EnemyCardsArray,
+            2 => act2EnemyCardsArray,
+            3 => act3EnemyCardsArray,
+            _ => null
+        };
 
         int randomIndex = UnityEngine.Random.Range(0, selectedArray.Length);
         GameObject enemyCard = Instantiate(selectedArray[randomIndex], enemyCardContainer);
-
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
@@ -128,6 +106,7 @@ public class DrawPhase : Phase
             Destroy(child.gameObject);
         }
     }
+
 
     private void DrawBossCard()
     {
@@ -140,41 +119,10 @@ public class DrawPhase : Phase
         DrawGeneralEvent();
     }
 
-    private bool ShouldDrawAllyEvent(int roundNumber, int actNumber)
-    {
-        if (allyDrawnInCurrentAct)
-            return false;
-
-        int currentAllyCount = RoundManager.instance.allyCardContainer.childCount;
-
-        if (currentAllyCount >= 2)
-            return false;
-
-        if (roundNumber >= minRoundForAllyEvent && roundNumber <= maxRoundForAllyEvent)
-        {
-            if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))
-            {
-                return UnityEngine.Random.Range(0, 100) < allyEventProbability;
-            }
-        }
-
-        if (roundNumber == maxRoundForAllyEvent + 1 && !allyDrawnInCurrentAct)
-        {
-            if ((actNumber == 3 && currentAllyCount < 3) || (actNumber < 3 && currentAllyCount < actNumber))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private void DrawAllyEvent()
     {
         int randomIndex = UnityEngine.Random.Range(0, allyEventsArray.Length);
         GameObject eventCard = Instantiate(allyEventsArray[randomIndex], eventContainer);
-        allyDrawnInCurrentAct = true;
-
         onEventTriggered?.Invoke();
     }
 
@@ -182,20 +130,17 @@ public class DrawPhase : Phase
     {
         int randomIndex = UnityEngine.Random.Range(0, generalEventsArray.Length);
         GameObject eventCard = Instantiate(generalEventsArray[randomIndex], eventContainer);
-
         onEventTriggered?.Invoke();
     }
 
     private void OnEventButtonPressed()
     {
         ClearEventContainer();
-
         if (enemyCardContainer.childCount == 0)
         {
             StartNextRoundWithDelay();
             return;
         }
-
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 

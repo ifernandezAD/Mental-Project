@@ -153,7 +153,7 @@ public class BubblesManager : MonoBehaviour
 
     private int ClearBubblesContainer()
     {
-        int bubbleCount = bubbleContainer.childCount - 1;
+        int bubbleCount = bubbleContainer.childCount;
 
         foreach (Transform bubble in bubbleContainer)
         {

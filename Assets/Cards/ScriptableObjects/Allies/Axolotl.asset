@@ -17,6 +17,7 @@ MonoBehaviour:
   art: {fileID: 322690188718553509, guid: 5889b679d9423d84d81dc48cea83f0aa, type: 3}
   maxHealth: 5
   staminaCost: 2
+  skillName: Fortified Shield
   skillDescription: Transform remaining bubbles in double resilience
   attack: 0
   isBoss: 0

@@ -17,6 +17,7 @@ MonoBehaviour:
   art: {fileID: -2787336069663290539, guid: e0cd0bb7b5d51a34aa4ec21c26296393, type: 3}
   maxHealth: 3
   staminaCost: 0
+  skillName: Resource Stea
   skillDescription: Steals 1 stamina to player and allies
   attack: 2
   isBoss: 0

@@ -17,6 +17,7 @@ MonoBehaviour:
   art: {fileID: 6561307278471440763, guid: 6d925e49cc390e64bb10a8a91daf0220, type: 3}
   maxHealth: 5
   staminaCost: 2
+  skillName: Calming Serenity
   skillDescription: Transform remaining bubbles in double stamina
   attack: 0
   isBoss: 0

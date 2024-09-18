@@ -15,8 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: Turtle
   art: {fileID: -429890163646538327, guid: 0f7166f257948bb47846fc0268a78737, type: 3}
-  maxHealth: 5
+  maxHealth: 4
   staminaCost: 0
+  skillName: Slow Recovery
   skillDescription: Heals 1 point of health if not defeated
   attack: 1
   isBoss: 0

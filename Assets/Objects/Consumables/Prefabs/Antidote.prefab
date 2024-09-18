@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c80ec249dade34b90782e332ceef89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Removes poison symbols from the roller
+  consumableName: Antidote
+  consumableDescription: Removes poison symbols from the roller

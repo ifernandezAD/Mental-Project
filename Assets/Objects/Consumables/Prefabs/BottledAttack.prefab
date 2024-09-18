@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75d56844c08d974293d702224f19350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Generates an Attack bubble with double value
+  consumableName: Bottled Attack
+  consumableDescription: Generates an Attack bubble with double value

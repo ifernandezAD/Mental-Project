@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227705377967520956, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Name
-      value: StaminaNoAttack
+      value: Patient's Refuge
       objectReference: {fileID: 0}
     - target: {fileID: 2093423977604774466, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: consumable
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dbc4ee1a0202a4ebff780625590ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: If you don't play any attack symbols in a turn, you gain 1 extra point
-    of Stamina.
+  relicName: Patient's Refuge
+  relicDescription: If you don't play any attack symbols in a turn, gain 1 extra
+    point of Stamina
   staminaToIncrease: 1

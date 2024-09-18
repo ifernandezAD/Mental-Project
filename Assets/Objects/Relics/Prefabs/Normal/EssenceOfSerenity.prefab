@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227705377967520956, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Name
-      value: HealOnEvent
+      value: Essence of Serenity
       objectReference: {fileID: 0}
     - target: {fileID: 2093423977604774466, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: consumable
@@ -122,5 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8495fa782303624d811fd3f0a95a7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Heals 1 point to player when an event appears
+  relicName: Essence of Serenity
+  relicDescription: Recover 1 point of health after every event
   amountToHeal: 1

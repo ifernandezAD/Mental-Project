@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995b46f1669755a43946579d61f7e57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Generates a Resilience bubble with double value
+  consumableName: Bottled Resilience
+  consumableDescription: ' Generates a Resilience bubble with double value'

@@ -17,6 +17,7 @@ MonoBehaviour:
   art: {fileID: -3347910513992916872, guid: fccdef9a7e312f14385aa8b5c7df5a99, type: 3}
   maxHealth: 3
   staminaCost: 0
+  skillName: Sharp Spines
   skillDescription: Returns 1 point of damage each time is attacked
   attack: 2
   isBoss: 0

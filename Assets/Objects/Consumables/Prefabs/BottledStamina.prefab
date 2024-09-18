@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23239344fd81b334e8ad3e7aa024b6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Generates a Stamina bubble with double value
+  consumableName: Bottled Stamina
+  consumableDescription: Generates a Stamina bubble with double value

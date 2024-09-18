@@ -15,8 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: Tucan
   art: {fileID: 4901174345347946800, guid: 40e495ffd28ab8f468600e0eddde17bb, type: 3}
-  maxHealth: 4
+  maxHealth: 3
   staminaCost: 0
+  skillName: Flying Attack
   skillDescription: Attacks 3 times on random targets
   attack: 1
   isBoss: 0

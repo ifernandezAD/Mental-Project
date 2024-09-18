@@ -126,5 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817e33f3747ff2c4790cc030d3b98f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Heals 2 points of health to player
+  consumableName: Health Potion
+  consumableDescription: Heals 2 health points to player
   healthAmount: 2

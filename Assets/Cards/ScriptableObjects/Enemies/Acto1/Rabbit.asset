@@ -17,6 +17,7 @@ MonoBehaviour:
   art: {fileID: 5110612511535974256, guid: eaf76bbade122f9449e7881486ff0693, type: 3}
   maxHealth: 2
   staminaCost: 0
+  skillName: Quick Dodge
   skillDescription: 25% of evading attacks
   attack: 1
   isBoss: 0

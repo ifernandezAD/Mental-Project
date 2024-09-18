@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227705377967520956, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Name
-      value: ReviveHalfLife
+      value: Infinite Whirl
       objectReference: {fileID: 0}
     - target: {fileID: 1868001734710228629, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Sprite
@@ -107,14 +107,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 227705377967520956, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4732591619322400936}
+      addedObject: {fileID: 3493312877058297214}
   m_SourcePrefab: {fileID: 100100000, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
 --- !u!1 &5995319839985989836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 227705377967520956, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
   m_PrefabInstance: {fileID: 5772312303353742448}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4732591619322400936
+--- !u!114 &3493312877058297214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5995319839985989836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7a6fd2be67a914b92d9959ab82272e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4295626b4419fa94784622ac482bdbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: The first time you are going to die, revive with half life
+  relicName: Infinite Whirl
+  relicDescription: Gain an extra roller spin

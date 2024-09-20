@@ -16,7 +16,7 @@ public class DrawPhase : Phase
     private bool lastDrawWasEvent = false;
 
     [Header("Ally Events Variables")]
-    [SerializeField] GameObject[] allyEventsArray;
+    [SerializeField] GameObject allyEventPopup;
     private bool allyDrawnInCurrentAct = false;
     private int[] eventRounds = new int[] { 3, 6, 9 };
     private int chosenAllyRound;
@@ -121,8 +121,7 @@ public class DrawPhase : Phase
 
     private void DrawAllyEvent()
     {
-        int randomIndex = UnityEngine.Random.Range(0, allyEventsArray.Length);
-        GameObject eventCard = Instantiate(allyEventsArray[randomIndex], eventContainer);
+        allyEventPopup.SetActive(true);
         onEventTriggered?.Invoke();
     }
 

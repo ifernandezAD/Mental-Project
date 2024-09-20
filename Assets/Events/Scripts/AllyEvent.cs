@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,21 +9,38 @@ public class AllyEvent : MonoBehaviour
     [SerializeField] Transform allyContainer; 
 
     private int selectedAllyIndex; 
+    private List<int> selectedAllyIndices = new List<int>(); 
     private List<GameObject> remainingAllies; 
-
-
 
     private void Awake()
     {
-        // Inicializa la lista de aliados restantes usando el array de aliados
         remainingAllies = new List<GameObject>(allyArray);
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        selectedAllyIndex = UnityEngine.Random.Range(0, alliesPool.Length);
-        SetAllyCard(alliesPool[selectedAllyIndex]);
+        SelectRandomAllyCard();
         allyTemplate.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        allyTemplate.SetActive(false);
+    }
+
+    private void SelectRandomAllyCard()
+    {
+        if (remainingAllies.Count == 0) return; 
+
+        selectedAllyIndex = UnityEngine.Random.Range(0, alliesPool.Length);
+        
+        while (selectedAllyIndices.Contains(selectedAllyIndex))
+        {
+            selectedAllyIndex = UnityEngine.Random.Range(0, alliesPool.Length);
+        }
+
+        selectedAllyIndices.Add(selectedAllyIndex);
+        SetAllyCard(alliesPool[selectedAllyIndex]);
     }
 
     public void AllyObtained()
@@ -37,8 +53,7 @@ public class AllyEvent : MonoBehaviour
         if (allyIndex >= 0 && allyIndex < remainingAllies.Count)
         {
             GameObject selectedAlly = remainingAllies[allyIndex];
-            GameObject newAlly = Instantiate(selectedAlly, allyContainer);
-
+            Instantiate(selectedAlly, allyContainer);
             remainingAllies.RemoveAt(allyIndex); 
         }
         else

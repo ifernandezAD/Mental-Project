@@ -134,21 +134,12 @@ public class DrawPhase : Phase
 
     private void OnEventButtonPressed()
     {
-        ClearEventContainer();
         if (enemyCardContainer.childCount == 0)
         {
             StartNextRoundWithDelay();
             return;
         }
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
-    }
-
-    private void ClearEventContainer()
-    {
-        foreach (Transform child in eventContainer)
-        {
-            Destroy(child.gameObject);
-        }
     }
 
     protected override void InternalOnDisable()

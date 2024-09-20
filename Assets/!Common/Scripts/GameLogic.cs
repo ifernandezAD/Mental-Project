@@ -33,7 +33,7 @@ public class GameLogic : MonoBehaviour
 
     void OnEnable()
     {
-        AllyEvent.onAllyObtained += AddAlly;
+        //AllyEvent.onAllyObtained += AddAlly;
     }
 
     private void AddAlly(int allyIndex)
@@ -53,6 +53,6 @@ public class GameLogic : MonoBehaviour
 
     void OnDisable()
     {
-        AllyEvent.onAllyObtained -= AddAlly;
+        //AllyEvent.onAllyObtained -= AddAlly;
     }
 }

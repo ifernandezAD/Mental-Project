@@ -4,15 +4,12 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     public static Action onEventButtonPressed;
-    public static Action onAllyObtained;
+
 
     public void EventButtonPressed()
     {
+        Debug.Log("Event Button Pressed");
         onEventButtonPressed?.Invoke();
     }
 
-    public void AllyObtained()
-    {
-        onAllyObtained?.Invoke();
-    }
 }

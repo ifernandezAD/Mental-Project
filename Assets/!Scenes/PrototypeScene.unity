@@ -393,6 +393,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyEventsArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6255163744744202121, guid: 6e8d12349741f5a4693310a63d8711de, type: 3}
     - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: maxRoundsPerAct
       value: 11

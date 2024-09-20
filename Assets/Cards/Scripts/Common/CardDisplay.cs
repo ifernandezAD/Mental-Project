@@ -7,8 +7,8 @@ public class CardDisplay : MonoBehaviour
 {
     [Header("Common References")]
     [SerializeField] public Card card;
-    [SerializeField] Image cardArt;
-    [SerializeField] TextMeshProUGUI healthText; 
+    [SerializeField] public Image cardArt;
+    [SerializeField] public TextMeshProUGUI healthText; 
     [SerializeField] public TextMeshProUGUI staminaText;
 
     [Header("Enemy References")]

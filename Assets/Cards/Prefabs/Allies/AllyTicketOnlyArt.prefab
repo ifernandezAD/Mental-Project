@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6527330664984157584
+--- !u!1001 &312541630551542876
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -91,12 +91,16 @@ PrefabInstance:
     - target: {fileID: 3302787352107904039, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: cfb6831882e77e7429c4d0cdefcf0947, type: 2}
+      objectReference: {fileID: 11400000, guid: 058af6ce1ed84cf409714c42a98b039a, type: 2}
     - target: {fileID: 3878706757273266910, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
       propertyPath: m_Name
-      value: AllyTicketTemplate Variant
+      value: AllyTicketOnlyArt
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4342426021321554881, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
+    - {fileID: 1387868734512209753, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
+    - {fileID: -8693625739836676655, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
+    - {fileID: 7221278521622272890, guid: 6adc9f7fc574a2548955a602b9ae66f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

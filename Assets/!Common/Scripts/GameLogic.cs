@@ -18,7 +18,6 @@ public class GameLogic : MonoBehaviour
     [SerializeField] GameObject[] allyArray;
     private List<GameObject> remainingAllies;
 
-
     void Awake()
     {
         instance = this;
@@ -29,27 +28,31 @@ public class GameLogic : MonoBehaviour
     {
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0); 
         GameObject selectedCharacter = Instantiate(availableCharacters[selectedCharacterIndex], characterContainer);
-
         mainCharacterCard = selectedCharacter;
     }
 
     void OnEnable()
     {
-        EventManager.onAllyObtained += AddRandomAlly;
+        AllyEvent.onAllyObtained += AddAlly;
     }
 
-    private void AddRandomAlly()
+    private void AddAlly(int allyIndex)
     {
-        int randomIndex = UnityEngine.Random.Range(0, remainingAllies.Count);
-        GameObject selectedAlly = remainingAllies[randomIndex];
+        if (allyIndex >= 0 && allyIndex < remainingAllies.Count)
+        {
+            GameObject selectedAlly = remainingAllies[allyIndex];
+            GameObject newAlly = Instantiate(selectedAlly, allyContainer);
 
-        GameObject newAlly = Instantiate(selectedAlly, allyContainer);
-
-        remainingAllies.RemoveAt(randomIndex);
+            remainingAllies.RemoveAt(allyIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Índice de aliado fuera de rango o inválido.");
+        }
     }
 
     void OnDisable()
     {
-        EventManager.onAllyObtained -= AddRandomAlly;
+        AllyEvent.onAllyObtained -= AddAlly;
     }
 }

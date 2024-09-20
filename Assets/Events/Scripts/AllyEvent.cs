@@ -6,7 +6,7 @@ public class AllyEvent : MonoBehaviour
     [SerializeField] Card[] alliesPool; 
     [SerializeField] GameObject[] allyArray; 
     [SerializeField] GameObject allyTemplate; 
-    [SerializeField] Transform allyContainer; 
+    private Transform allyContainer; 
 
     private int selectedAllyIndex; 
     private List<int> selectedAllyIndices = new List<int>(); 
@@ -15,6 +15,7 @@ public class AllyEvent : MonoBehaviour
     private void Awake()
     {
         remainingAllies = new List<GameObject>(allyArray);
+        allyContainer = GameLogic.instance.allyContainer;
     }
 
     private void OnEnable()

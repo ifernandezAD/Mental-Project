@@ -196,7 +196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5038136445003698776}
-  - component: {fileID: 7998726433379274037}
   m_Layer: 5
   m_Name: AllyEvent
   m_TagString: Untagged
@@ -225,23 +224,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7998726433379274037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255163744744202121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88390f0f2a8ab84087b2f455758e78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alliesPool:
-  - {fileID: 11400000, guid: 47d850b75d25271419e3a0de922438e1, type: 2}
-  - {fileID: 11400000, guid: 5f2612c68961849428254fe5708e6c3a, type: 2}
-  - {fileID: 11400000, guid: 2d3d02ee2b844114a90f3d56bd28f2e0, type: 2}
-  allyTemplate: {fileID: 5680315977034804958}
 --- !u!1 &7005125228736076100
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +327,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ally Event
+  m_text: 'Consumable Event
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
@@ -481,7 +465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5851641258879466201, guid: 0800a4907710de849aa3dd7ab566994d, type: 3}
+  m_Sprite: {fileID: -6886366809225412869, guid: 4c070041f022ca842ba36bc0609e3d66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -668,7 +652,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7998726433379274037}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
         m_MethodName: EventButtonPressed
         m_Mode: 1
@@ -680,7 +664,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7998726433379274037}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AllyEvent, Assembly-CSharp
         m_MethodName: AllyObtained
         m_Mode: 1

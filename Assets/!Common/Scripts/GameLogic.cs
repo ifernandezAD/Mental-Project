@@ -13,6 +13,10 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public GameObject[] availableCharacters; 
     [SerializeField] public Transform bubblesContainer;
 
+    [Header("Ally Related Variables")]
+    [SerializeField] public Transform allyContainer;
+
+
     void Awake()
     {
         instance = this;
@@ -24,4 +28,5 @@ public class GameLogic : MonoBehaviour
         GameObject selectedCharacter = Instantiate(availableCharacters[selectedCharacterIndex], characterContainer);
         mainCharacterCard = selectedCharacter;
     }
+
 }

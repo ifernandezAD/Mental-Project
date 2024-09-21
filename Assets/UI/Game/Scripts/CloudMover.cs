@@ -1,33 +1,44 @@
 using UnityEngine;
 
-public class CloudMover : MonoBehaviour
+public class ContinuousCloudMover : MonoBehaviour
 {
-    [SerializeField] float speed = 50f;
+    [SerializeField] RectTransform cloud1;  
+    [SerializeField] RectTransform cloud2;  
+    [SerializeField] float speed = 25f;  
     [SerializeField] bool moveLeft = true;  
-    [SerializeField] float leftResetPositionX = -400f;  
-    [SerializeField] float rightResetPositionX = 400f;  
-    [SerializeField] float startPositionX = 0f;   
+    [SerializeField] float overlapOffset = 5f;  
 
-    private Vector3 startPosition;
+    private float cloudWidth;  
 
     void Start()
     {
-        startPosition = new Vector3(startPositionX, transform.position.y, transform.position.z);
+        cloudWidth = cloud1.rect.width;
     }
 
     void Update()
     {
         float moveDirection = moveLeft ? -1 : 1;
 
-        transform.Translate(Vector3.right * moveDirection * speed * Time.deltaTime);
+        cloud1.anchoredPosition += new Vector2(moveDirection * speed * Time.deltaTime, 0);
+        cloud2.anchoredPosition += new Vector2(moveDirection * speed * Time.deltaTime, 0);
 
-        if (moveLeft && transform.position.x <= leftResetPositionX)
+        if (moveLeft && cloud1.anchoredPosition.x <= -cloudWidth)
         {
-            transform.position = startPosition;
+            cloud1.anchoredPosition = new Vector2(cloud2.anchoredPosition.x + cloudWidth - overlapOffset, cloud1.anchoredPosition.y);
         }
-        else if (!moveLeft && transform.position.x >= rightResetPositionX)
+        else if (moveLeft && cloud2.anchoredPosition.x <= -cloudWidth)
         {
-            transform.position = startPosition;
+            cloud2.anchoredPosition = new Vector2(cloud1.anchoredPosition.x + cloudWidth - overlapOffset, cloud2.anchoredPosition.y);
+        }
+
+        if (!moveLeft && cloud1.anchoredPosition.x >= cloudWidth)
+        {
+            cloud1.anchoredPosition = new Vector2(cloud2.anchoredPosition.x - cloudWidth + overlapOffset, cloud1.anchoredPosition.y);
+        }
+
+        else if (!moveLeft && cloud2.anchoredPosition.x >= cloudWidth)
+        {
+            cloud2.anchoredPosition = new Vector2(cloud1.anchoredPosition.x - cloudWidth + overlapOffset, cloud2.anchoredPosition.y);
         }
     }
 }

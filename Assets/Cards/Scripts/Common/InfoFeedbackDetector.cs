@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private CardDisplay cardDisplay;
-    [SerializeField] private ConsumableDisplay consumableDisplay;
-    [SerializeField] private Relic relic;
+     private CardDisplay cardDisplay;
+     private ConsumableDisplay consumableDisplay;
+     private Relic relic;
 
     private bool isMouseOver = false;
 

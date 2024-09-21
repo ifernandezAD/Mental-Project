@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 362255835253780742}
   - component: {fileID: 9065740471927555434}
   - component: {fileID: 3761094181840028191}
+  - component: {fileID: 6586288464697842557}
   - component: {fileID: 8497043584479158723}
   m_Layer: 0
   m_Name: ConsumableOnlyArt
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumableObject: {fileID: 11400000, guid: 45e3af5cf1c55a14ead24f7ef2ab5035, type: 2}
   consumableArt: {fileID: 4535755470278053183}
+--- !u!114 &6586288464697842557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609480747650713366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae90d80b32bbae498ac4384edb3434c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8497043584479158723
 MonoBehaviour:
   m_ObjectHideFlags: 0

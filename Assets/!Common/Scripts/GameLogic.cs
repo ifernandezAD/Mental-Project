@@ -12,9 +12,8 @@ public class GameLogic : MonoBehaviour
     public GameObject mainCharacterCard; 
     [SerializeField] public GameObject[] availableCharacters; 
     [SerializeField] public Transform bubblesContainer;
-
-    [Header("Ally Related Variables")]
     [SerializeField] public Transform allyContainer;
+    [SerializeField] public Transform objectContainer;
 
 
     void Awake()

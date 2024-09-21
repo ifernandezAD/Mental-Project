@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottledResilience
       objectReference: {fileID: 0}
+    - target: {fileID: 6107778823650105126, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+      propertyPath: consumableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 9924b3077c931bf43a18f0bfd8cc0d56, type: 2}
     - target: {fileID: 7347581572030227519, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -126,5 +130,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995b46f1669755a43946579d61f7e57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableName: Bottled Resilience
-  consumableDescription: ' Generates a Resilience bubble with double value'

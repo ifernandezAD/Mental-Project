@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcf6afd11024644b9a67f9a2ebab2d2, type: 3}
+  m_Name: BottledResiilence
+  m_EditorClassIdentifier: 
+  index: 2
+  consumableName: Bottled Resilience
+  consumableDescription: Generates a Resilience bubble with double value
+  consumableArt: {fileID: 3598234260382501415, guid: ca2ff85aa744bcf4bad975f2f61f65da, type: 3}

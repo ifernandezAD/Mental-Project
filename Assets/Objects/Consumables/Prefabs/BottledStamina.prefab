@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottledStamina
       objectReference: {fileID: 0}
+    - target: {fileID: 6107778823650105126, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+      propertyPath: consumableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 58dbfe0b3f9708a4c8afc004a653e870, type: 2}
     - target: {fileID: 7347581572030227519, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -126,5 +130,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23239344fd81b334e8ad3e7aa024b6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableName: Bottled Stamina
-  consumableDescription: Generates a Stamina bubble with double value

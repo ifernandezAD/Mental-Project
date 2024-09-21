@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private CardDisplay cardDisplay;
-    [SerializeField] private Consumable consumable;
+    [SerializeField] private ConsumableDisplay consumableDisplay;
     [SerializeField] private Relic relic;
 
     private bool isMouseOver = false;
@@ -13,7 +13,7 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
     void Awake()
     {
         cardDisplay = GetComponent<CardDisplay>();
-        consumable = GetComponent<Consumable>();
+        consumableDisplay = GetComponent<ConsumableDisplay>();
         relic = GetComponent<Relic>();
     }
 
@@ -36,9 +36,9 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
                 GameInfoPopup.instance.ShowPopUp(cardDisplay.card.skillName ,cardDisplay.card.skillDescription);
             }
 
-            else if (consumable != null)
+            else if (consumableDisplay != null)
             {
-                GameInfoPopup.instance.ShowPopUp(consumable.consumableName,consumable.consumableDescription);
+                GameInfoPopup.instance.ShowPopUp(consumableDisplay.consumableObject.consumableName,consumableDisplay.consumableObject.consumableDescription);
             }
             else if (relic != null)
             {

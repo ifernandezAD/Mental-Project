@@ -38,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1493134840252607260, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Color.g
-      value: 0.71369886
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1493134840252607260, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Color.r
-      value: 0.6556604
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1493134840252607260, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_RaycastTarget
@@ -157,6 +157,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1043761175784874293, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8429862613185991361}
+    - targetCorrespondingSourceObject: {fileID: 1043761175784874293, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6107778823650105126}
   m_SourcePrefab: {fileID: 100100000, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
 --- !u!1 &4956101077695812143 stripped
 GameObject:
@@ -187,8 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd0a40bed874f94c99abf692e1adc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumableName: 
-  consumableDescription: 
 --- !u!114 &8429862613185991361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +203,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDisplay: {fileID: 0}
-  consumable: {fileID: 299506394715581169}
+  consumableDisplay: {fileID: 0}
   relic: {fileID: 0}
+--- !u!114 &6107778823650105126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4956101077695812143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ff5cbeb8b308640ac4a423505d903e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumableObject: {fileID: 11400000, guid: 45e3af5cf1c55a14ead24f7ef2ab5035, type: 2}
+  consumableArt: {fileID: 6774287746844923910}
+--- !u!114 &6774287746844923910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1493134840252607260, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 5385096694687675162}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

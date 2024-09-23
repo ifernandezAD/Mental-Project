@@ -10,7 +10,7 @@ public class DrawPhase : Phase
     [SerializeField] GameObject testingBossPrefab;
 
     [Header("Game Events Variables")]
-    [SerializeField] GameObject consumableEventPopUp;
+    [SerializeField] GameObject[] eventsPopupArray;
     [SerializeField] Transform eventContainer;
     private int normalEventCount = 0;
     private bool lastDrawWasEvent = false;
@@ -127,7 +127,10 @@ public class DrawPhase : Phase
 
     private void DrawGeneralEvent()
     {
-        consumableEventPopUp.SetActive(true);
+        int randomIndex = UnityEngine.Random.Range(0, eventsPopupArray.Length);
+        GameObject selectedEvent = eventsPopupArray[randomIndex];
+        selectedEvent.SetActive(true);
+
         onEventTriggered?.Invoke();
     }
 

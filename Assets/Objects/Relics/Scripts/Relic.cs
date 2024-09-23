@@ -8,7 +8,7 @@ public class Relic : MonoBehaviour
     }
     protected virtual void Effect()
     {
-        Debug.Log("Base Relic effect triggered.");
+        //Debug.Log("Base Relic effect triggered.");
     }
 
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc379feec6d097548a60123beca4f775, type: 3}
+  m_Name: InifiniteWhirl
+  m_EditorClassIdentifier: 
+  relicName: Infinite Whirl
+  relicDescription: Gain an extra roller spin
+  relicArt: {fileID: 4804129713715688978, guid: 7fdf718f5b88b154a8600a11de6e20af, type: 3}
+  index: 0

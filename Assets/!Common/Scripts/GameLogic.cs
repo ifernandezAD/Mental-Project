@@ -14,6 +14,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public Transform bubblesContainer;
     [SerializeField] public Transform allyContainer;
     [SerializeField] public Transform objectContainer;
+    [SerializeField] public Transform relicContainer;
 
 
     void Awake()

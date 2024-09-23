@@ -6,6 +6,7 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
 {
      private CardDisplay cardDisplay;
      private ConsumableDisplay consumableDisplay;
+     private RelicDisplay relicDisplay;
      private Relic relic;
 
     private bool isMouseOver = false;
@@ -14,6 +15,7 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
     {
         cardDisplay = GetComponent<CardDisplay>();
         consumableDisplay = GetComponent<ConsumableDisplay>();
+        relicDisplay = GetComponent<RelicDisplay>();
         relic = GetComponent<Relic>();
     }
 
@@ -40,9 +42,9 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
             {
                 GameInfoPopup.instance.ShowPopUp(consumableDisplay.consumableObject.consumableName,consumableDisplay.consumableObject.consumableDescription);
             }
-            else if (relic != null)
+            else if (relicDisplay != null)
             {
-                GameInfoPopup.instance.ShowPopUp(relic.relicName,relic.relicDescription);
+                GameInfoPopup.instance.ShowPopUp(relicDisplay.relicObject.relicName,relicDisplay.relicObject.relicDescription);
             }
         }
     }

@@ -1,6 +1,8 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -12,16 +14,24 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private bool isBeingDragged = false;
     private RectTransform rectTransform;
 
-    [Header("Bubble Multiplier")]
+    [Header("Bubble Multiplier Logic")]
     private Vector3 originalScale;
     private int bubbleMultiplier = 1;
     private bool hasCombined = false;
+
+    [Header("Multiplier UI")]
+    [SerializeField] TextMeshProUGUI multiplierText; 
+    [SerializeField] Image multiplierBackground; 
+
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         originalScale = rectTransform.localScale;
+
+        multiplierBackground.gameObject.SetActive(false);
+        multiplierText.gameObject.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -86,9 +96,25 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         hasCombined = true;
 
         bubbleMultiplier += 1;
-
         rectTransform.localScale = originalScale * (1 + 0.2f * bubbleMultiplier);
 
+        UpdateMultiplierDisplay();
+
         Destroy(otherBubble.gameObject);
+    }
+
+    private void UpdateMultiplierDisplay()
+    {
+        if (bubbleMultiplier >= 2)
+        {
+            multiplierBackground.gameObject.SetActive(true);
+            multiplierText.gameObject.SetActive(true);
+            multiplierText.text = "x" + bubbleMultiplier; 
+        }
+        else
+        {
+            multiplierBackground.gameObject.SetActive(false);
+            multiplierText.gameObject.SetActive(false);
+        }
     }
 }

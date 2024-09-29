@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     private Canvas canvas;
-    private BubbleDetector cardDetector;
+    private BubbleDetector bubbleDetector;
 
     [Header("Drag Button")]
     private bool isReleased = false;
@@ -53,14 +53,17 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         isBeingDragged = false;
     }
 
-private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        cardDetector = other.GetComponent<BubbleDetector>();
-
-        if (other.CompareTag(gameObject.tag) && other.GetComponent<DraggableButton>() != null)
+        
+        if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
-            DraggableButton otherBubble = other.GetComponent<DraggableButton>();
             
+        }
+
+        
+        if (other.CompareTag(gameObject.tag) && other.TryGetComponent<DraggableButton>(out DraggableButton otherBubble))
+        {
             if (!otherBubble.hasCombined && !hasCombined)
             {
                 if (isBeingDragged)
@@ -75,7 +78,7 @@ private void OnTriggerEnter2D(Collider2D other)
     {
         if (isReleased)
         {
-            cardDetector.CheckButtonType(this);
+            bubbleDetector.CheckButtonType(this);
         }
     }
 

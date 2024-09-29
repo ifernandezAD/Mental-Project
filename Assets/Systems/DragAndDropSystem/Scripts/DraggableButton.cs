@@ -17,12 +17,10 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private int bubbleMultiplier = 1;
     private bool hasCombined = false;
 
-
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-
         originalScale = rectTransform.localScale;
     }
 
@@ -34,14 +32,12 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-
         Vector2 localPoint;
         Camera camera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, camera, out localPoint);
 
         Vector2 worldPoint = canvas.transform.TransformPoint(localPoint);
-
         Vector2 localPointInParent = rectTransform.parent.InverseTransformPoint(worldPoint);
 
         rectTransform.localPosition = localPointInParent;
@@ -51,17 +47,20 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         isReleased = true;
         isBeingDragged = false;
+
+        if (bubbleDetector != null)
+        {
+            bubbleDetector.CheckButtonType(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
-            
+            // BubbleDetector encontrado, se puede usar posteriormente en OnPointerUp
         }
 
-        
         if (other.CompareTag(gameObject.tag) && other.TryGetComponent<DraggableButton>(out DraggableButton otherBubble))
         {
             if (!otherBubble.hasCombined && !hasCombined)
@@ -76,7 +75,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     private void OnTriggerStay2D()
     {
-        if (isReleased)
+        if (isReleased && bubbleDetector != null)
         {
             bubbleDetector.CheckButtonType(this);
         }

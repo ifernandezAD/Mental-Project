@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8580692116087063368, guid: 1f9f7097732f80c4381d71f559d78301, type: 3}
+    - target: {fileID: 1532205635942700180, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_Name
+      value: PoisonBubble
+      objectReference: {fileID: 0}
     - target: {fileID: 3408220424808191781, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -111,6 +115,14 @@ PrefabInstance:
     - target: {fileID: 3408220424808191781, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249726525283731674, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8580692116087063368, guid: 1f9f7097732f80c4381d71f559d78301, type: 3}
+    - target: {fileID: 6249726525283731674, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class BubblesManager : MonoBehaviour
 {
@@ -11,9 +13,16 @@ public class BubblesManager : MonoBehaviour
     [SerializeField] GameObject doubleSwordBubblePrefab;
     [SerializeField] Transform bubbleContainer;
 
+    [SerializeField] GridLayoutGroup bubblesLayout;
+
     void Awake()
     {
         instance = this;
+    }
+
+    void OnEnable()
+    {
+        PlayerPhase.onPlayerPhaseEnded += EnableLayout;
     }
 
     public void InstantiateBubbles()
@@ -58,6 +67,8 @@ public class BubblesManager : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
             GameObject bubble = Instantiate(bubbles[randomIndex], bubbleContainer);
         }
+
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
 
     public void DestroyAllBubbles()
@@ -164,4 +175,19 @@ public class BubblesManager : MonoBehaviour
     }
 
     #endregion
+
+    void EnableLayout()
+    {
+        bubblesLayout.enabled = true;
+    }
+
+    void DisableLayout()
+    {
+        bubblesLayout.enabled = false;
+    }
+
+    void OnDisable()
+    {
+        PlayerPhase.onPlayerPhaseEnded -= EnableLayout;
+    }
 }

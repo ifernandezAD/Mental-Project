@@ -314,6 +314,30 @@ PrefabInstance:
       propertyPath: 'eventsPopupArray.Array.data[2]'
       value: 
       objectReference: {fileID: 5137238834213799205}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: bubbles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9017628986933755684, guid: 3667d5735015bf045be8103bf59ef90a, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4887954085840666076, guid: cd85026751a650a4d93ca14eb27edda3, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: 548f1437dc43d174c8865dafe18802ce, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[3]'
+      value: 
+      objectReference: {fileID: 9017628986933755684, guid: f48b305d89626bb4d94bb65576b9b065, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[4]'
+      value: 
+      objectReference: {fileID: 4887954085840666076, guid: 08727c3e3ec932642a29a26dd4a0fd78, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -60,7 +60,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
         if (bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this);
+            bubbleDetector.CheckButtonType(this,bubbleMultiplier);
         }
     }
 
@@ -87,7 +87,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (isReleased && bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this);
+            bubbleDetector.CheckButtonType(this,bubbleMultiplier);
         }
     }
 

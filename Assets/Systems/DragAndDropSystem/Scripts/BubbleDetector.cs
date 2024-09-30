@@ -23,13 +23,13 @@ public class BubbleDetector : MonoBehaviour
         }
     }
 
-    public void CheckButtonType(DraggableButton button)
+    public void CheckButtonType(DraggableButton button, int multiplier)
     {
         if (button.gameObject.tag == "Sword")
         {
             if (card.cardType == Card.CardType.Enemy)
             {
-                combatBehaviour.Defense(1);
+                combatBehaviour.Defense(multiplier);
                 onSwordUsed?.Invoke();
                 Destroy(button.gameObject);
             }
@@ -40,7 +40,7 @@ public class BubbleDetector : MonoBehaviour
         {
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
-                health.AddResilience(1);
+                health.AddResilience(multiplier);
                 Destroy(button.gameObject);
             }
         }
@@ -50,38 +50,10 @@ public class BubbleDetector : MonoBehaviour
         {
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
-                skill.IncreaseStamina(1);
+                skill.IncreaseStamina(multiplier);
                 Destroy(button.gameObject);
             }
         }
-
-        if (button.gameObject.tag == "DoubleRay")
-        {
-            if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
-            {
-                skill.IncreaseStamina(2);
-                Destroy(button.gameObject);
-            }
-        }
-
-        if (button.gameObject.tag == "DoubleShield")
-        {
-            if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
-            {
-                health.AddResilience(2);
-                Destroy(button.gameObject);
-            }
-        }
-
-        if (button.gameObject.tag == "DoubleSword")
-        {
-            if (card.cardType == Card.CardType.Enemy)
-            {
-                combatBehaviour.Defense(2);
-                onSwordUsed?.Invoke();
-                Destroy(button.gameObject);
-            }
-        }
-
+        
     }
 }

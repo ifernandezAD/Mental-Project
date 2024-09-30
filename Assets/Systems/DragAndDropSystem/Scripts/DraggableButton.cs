@@ -17,7 +17,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     [Header("Bubble Multiplier Logic")]
     private Vector3 originalScale;
-    private int bubbleMultiplier = 1;
+    public int bubbleMultiplier {get;private set;} = 1;
     private bool hasCombined = false;
 
     [Header("Multiplier UI")]

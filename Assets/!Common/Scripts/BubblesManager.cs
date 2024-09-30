@@ -81,13 +81,22 @@ public class BubblesManager : MonoBehaviour
         }
     }
 
-    private void CheckForPoisonBubbles(Transform bubble)
+private void CheckForPoisonBubbles(Transform bubble)
+{
+    if (bubble.CompareTag("Poison"))
     {
-        if (bubble.CompareTag("Poison"))
+        DraggableButton draggableButton = bubble.GetComponent<DraggableButton>();
+
+        if (draggableButton != null)
         {
-            StatsManager.instance.ApplyDamageToRandomTarget(1);
+            int multiplier = draggableButton.bubbleMultiplier;
+            for (int i = 0; i < multiplier; i++)
+            {
+                StatsManager.instance.ApplyDamageToRandomTarget(1);
+            }
         }
     }
+}
 
     #region Skills
 

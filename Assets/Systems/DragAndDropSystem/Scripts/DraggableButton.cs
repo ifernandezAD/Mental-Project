@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
 
 public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -20,9 +21,16 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private bool hasCombined = false;
 
     [Header("Multiplier UI")]
-    [SerializeField] TextMeshProUGUI multiplierText; 
-    [SerializeField] Image multiplierBackground; 
+    [SerializeField] TextMeshProUGUI multiplierText;
+    [SerializeField] Image multiplierBackground;
 
+    [Header("Growth Factor")]
+    [SerializeField] private float growthFactor = 0.2f;  
+
+    [Header("Fusion Control")]
+    [SerializeField] private float fusionCooldown = 0.5f;  
+
+    private bool fusionReady = true;  
 
     void Start()
     {
@@ -60,7 +68,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
         if (bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this,bubbleMultiplier);
+            bubbleDetector.CheckButtonType(this, bubbleMultiplier);
         }
     }
 
@@ -73,34 +81,36 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
         if (other.CompareTag(gameObject.tag) && other.TryGetComponent<DraggableButton>(out DraggableButton otherBubble))
         {
-            if (!otherBubble.hasCombined && !hasCombined)
+            if (fusionReady && !otherBubble.hasCombined && isBeingDragged)
             {
-                if (isBeingDragged)
-                {
-                    CombineBubbles(otherBubble);
-                }
+                StartCoroutine(CombineBubbles(otherBubble));
             }
         }
+    }
+
+    private IEnumerator CombineBubbles(DraggableButton otherBubble)
+    {
+        otherBubble.hasCombined = true;
+        fusionReady = false;
+
+        bubbleMultiplier += 1;
+
+        rectTransform.localScale = originalScale * (1 + growthFactor * bubbleMultiplier);
+
+        UpdateMultiplierDisplay();
+        Destroy(otherBubble.gameObject);
+
+        yield return new WaitForSeconds(fusionCooldown);
+
+        fusionReady = true;
     }
 
     private void OnTriggerStay2D()
     {
         if (isReleased && bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this,bubbleMultiplier);
+            bubbleDetector.CheckButtonType(this, bubbleMultiplier);
         }
-    }
-
-    private void CombineBubbles(DraggableButton otherBubble)
-    {
-        hasCombined = true;
-
-        bubbleMultiplier += 1;
-        rectTransform.localScale = originalScale * (1 + 0.2f * bubbleMultiplier);
-
-        UpdateMultiplierDisplay();
-
-        Destroy(otherBubble.gameObject);
     }
 
     private void UpdateMultiplierDisplay()
@@ -109,7 +119,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         {
             multiplierBackground.gameObject.SetActive(true);
             multiplierText.gameObject.SetActive(true);
-            multiplierText.text = "x" + bubbleMultiplier; 
+            multiplierText.text = "x" + bubbleMultiplier;
         }
         else
         {

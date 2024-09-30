@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185138247684723686, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: fusionCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 826841882646699241, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Layer
       value: 0

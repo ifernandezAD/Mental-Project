@@ -173,10 +173,10 @@ public class BubblesManager : MonoBehaviour
         GameObject newBubble = Instantiate(bubbles[0], bubbleContainer);
 
         DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+
         if (draggableButton != null)
         {
-            draggableButton.bubbleMultiplier = 2;
-            draggableButton.UpdateMultiplierDisplay();
+            draggableButton.InitializeMultiplier(2);
         }
 
         EnableLayout();
@@ -192,8 +192,7 @@ public class BubblesManager : MonoBehaviour
         DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
         if (draggableButton != null)
         {
-            draggableButton.bubbleMultiplier = 2;
-            draggableButton.UpdateMultiplierDisplay();
+            draggableButton.InitializeMultiplier(2);
         }
         
         EnableLayout();
@@ -207,8 +206,7 @@ public class BubblesManager : MonoBehaviour
         DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
         if (draggableButton != null)
         {
-            draggableButton.bubbleMultiplier = 2;
-            draggableButton.UpdateMultiplierDisplay();
+            draggableButton.InitializeMultiplier(2);
         }
         EnableLayout();
         DOVirtual.DelayedCall(0.5f, DisableLayout);

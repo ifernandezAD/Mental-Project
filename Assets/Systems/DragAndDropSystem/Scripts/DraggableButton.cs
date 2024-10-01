@@ -17,7 +17,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     [Header("Bubble Multiplier Logic")]
     private Vector3 originalScale;
-    public int bubbleMultiplier  = 1;
+    public int bubbleMultiplier { get; private set; } = 1;
     private bool hasCombined = false;
 
     [Header("Multiplier UI")]
@@ -25,14 +25,13 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     [SerializeField] Image multiplierBackground;
 
     [Header("Growth Factor")]
-    [SerializeField] private float growthFactor = 0.2f;  
+    [SerializeField] private float growthFactor = 0.2f;
 
     [Header("Fusion Control")]
-    [SerializeField] private float fusionCooldown = 0.5f;  
+    [SerializeField] private float fusionCooldown = 0.5f;
+    private bool fusionReady = true;
 
-    private bool fusionReady = true;  
-
-    void Start()
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
@@ -111,6 +110,15 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         {
             bubbleDetector.CheckButtonType(this, bubbleMultiplier);
         }
+    }
+
+    public void InitializeMultiplier(int multiplier)
+    {
+        bubbleMultiplier = multiplier;
+
+        rectTransform.localScale = originalScale * (1 + growthFactor * bubbleMultiplier);
+
+        UpdateMultiplierDisplay();
     }
 
     public void UpdateMultiplierDisplay()

@@ -81,22 +81,22 @@ public class BubblesManager : MonoBehaviour
         }
     }
 
-private void CheckForPoisonBubbles(Transform bubble)
-{
-    if (bubble.CompareTag("Poison"))
+    private void CheckForPoisonBubbles(Transform bubble)
     {
-        DraggableButton draggableButton = bubble.GetComponent<DraggableButton>();
-
-        if (draggableButton != null)
+        if (bubble.CompareTag("Poison"))
         {
-            int multiplier = draggableButton.bubbleMultiplier;
-            for (int i = 0; i < multiplier; i++)
+            DraggableButton draggableButton = bubble.GetComponent<DraggableButton>();
+
+            if (draggableButton != null)
             {
-                StatsManager.instance.ApplyDamageToRandomTarget(1);
+                int multiplier = draggableButton.bubbleMultiplier;
+                for (int i = 0; i < multiplier; i++)
+                {
+                    StatsManager.instance.ApplyDamageToRandomTarget(1);
+                }
             }
         }
     }
-}
 
     #region Skills
 
@@ -113,6 +113,8 @@ private void CheckForPoisonBubbles(Transform bubble)
 
     public void TransformEmptyBubblesToDefenseOrAttack()
     {
+        EnableLayout();
+
         foreach (Transform bubble in bubbleContainer)
         {
             if (bubble.CompareTag("Empty"))
@@ -134,42 +136,84 @@ private void CheckForPoisonBubbles(Transform bubble)
                 newBubble.transform.position = bubble.position;
             }
         }
+
+        DisableLayout();
     }
 
     public void TransformBubblesToDoubleStamina()
     {
+        EnableLayout();
+
         int bubbleCount = ClearBubblesContainer();
 
         for (int i = 0; i < bubbleCount; i++)
         {
             GameObject newBubble = Instantiate(doubleStaminaBubblePrefab, bubbleContainer);
         }
+
+        DisableLayout();
     }
 
     public void TransformBubblesToDoubleResilience()
     {
+        EnableLayout();
+
         int bubbleCount = ClearBubblesContainer();
 
         for (int i = 0; i < bubbleCount; i++)
         {
             GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
         }
+
+        DisableLayout();
     }
 
     public void AddDoubleSwordBubble()
     {
-        GameObject newBubble = Instantiate(doubleSwordBubblePrefab, bubbleContainer);
-    }
+        GameObject newBubble = Instantiate(bubbles[0], bubbleContainer);
 
-    public void AddDoubleStaminaBubble()
-    {
-        GameObject newBubble = Instantiate(doubleStaminaBubblePrefab, bubbleContainer);
+        DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+        if (draggableButton != null)
+        {
+            draggableButton.bubbleMultiplier = 2;
+            draggableButton.UpdateMultiplierDisplay();
+        }
+
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
 
     public void AddDoubleResilienceBubble()
     {
-        GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
+
+
+        GameObject newBubble = Instantiate(bubbles[1], bubbleContainer);
+
+        DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+        if (draggableButton != null)
+        {
+            draggableButton.bubbleMultiplier = 2;
+            draggableButton.UpdateMultiplierDisplay();
+        }
+        
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
+
+    public void AddDoubleStaminaBubble()
+    {
+        GameObject newBubble = Instantiate(bubbles[2], bubbleContainer);
+
+        DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+        if (draggableButton != null)
+        {
+            draggableButton.bubbleMultiplier = 2;
+            draggableButton.UpdateMultiplierDisplay();
+        }
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
+    }
+
 
     private int ClearBubblesContainer()
     {

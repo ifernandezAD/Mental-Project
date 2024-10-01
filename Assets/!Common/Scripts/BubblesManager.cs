@@ -8,9 +8,6 @@ public class BubblesManager : MonoBehaviour
 
     [Header("Bubbles")]
     [SerializeField] GameObject[] bubbles;
-    [SerializeField] GameObject doubleStaminaBubblePrefab;
-    [SerializeField] GameObject doubleResilienceBubblePrefab;
-    [SerializeField] GameObject doubleSwordBubblePrefab;
     [SerializeField] Transform bubbleContainer;
 
     [SerializeField] GridLayoutGroup bubblesLayout;
@@ -113,8 +110,6 @@ public class BubblesManager : MonoBehaviour
 
     public void TransformEmptyBubblesToDefenseOrAttack()
     {
-        EnableLayout();
-
         foreach (Transform bubble in bubbleContainer)
         {
             if (bubble.CompareTag("Empty"))
@@ -137,36 +132,48 @@ public class BubblesManager : MonoBehaviour
             }
         }
 
-        DisableLayout();
-    }
-
-    public void TransformBubblesToDoubleStamina()
-    {
         EnableLayout();
-
-        int bubbleCount = ClearBubblesContainer();
-
-        for (int i = 0; i < bubbleCount; i++)
-        {
-            GameObject newBubble = Instantiate(doubleStaminaBubblePrefab, bubbleContainer);
-        }
-
-        DisableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
 
     public void TransformBubblesToDoubleResilience()
     {
-        EnableLayout();
-
         int bubbleCount = ClearBubblesContainer();
 
         for (int i = 0; i < bubbleCount; i++)
         {
-            GameObject newBubble = Instantiate(doubleResilienceBubblePrefab, bubbleContainer);
+            GameObject newBubble = Instantiate(bubbles[1], bubbleContainer);
+            DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+
+            if (draggableButton != null)
+            {
+                draggableButton.InitializeMultiplier(2);
+            }
+
         }
 
-        DisableLayout();
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
+    public void TransformBubblesToDoubleStamina()
+    {
+        int bubbleCount = ClearBubblesContainer();
+
+        for (int i = 0; i < bubbleCount; i++)
+        {
+            GameObject newBubble = Instantiate(bubbles[2], bubbleContainer);
+            DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+
+            if (draggableButton != null)
+            {
+                draggableButton.InitializeMultiplier(2);
+            }
+        }
+
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
+    }
+
 
     public void AddDoubleSwordBubble()
     {
@@ -185,8 +192,6 @@ public class BubblesManager : MonoBehaviour
 
     public void AddDoubleResilienceBubble()
     {
-
-
         GameObject newBubble = Instantiate(bubbles[1], bubbleContainer);
 
         DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
@@ -194,7 +199,7 @@ public class BubblesManager : MonoBehaviour
         {
             draggableButton.InitializeMultiplier(2);
         }
-        
+
         EnableLayout();
         DOVirtual.DelayedCall(0.5f, DisableLayout);
     }

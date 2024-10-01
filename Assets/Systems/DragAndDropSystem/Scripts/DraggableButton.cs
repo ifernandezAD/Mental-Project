@@ -92,7 +92,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         otherBubble.hasCombined = true;
         fusionReady = false;
 
-        bubbleMultiplier += 1;
+        bubbleMultiplier += otherBubble.bubbleMultiplier;
 
         rectTransform.localScale = originalScale * (1 + growthFactor * bubbleMultiplier);
 

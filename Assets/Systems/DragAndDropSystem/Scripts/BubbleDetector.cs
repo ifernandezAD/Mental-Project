@@ -25,7 +25,7 @@ public class BubbleDetector : MonoBehaviour
 
     public void CheckButtonType(DraggableButton button, int multiplier)
     {
-        if (button.gameObject.tag == "Sword")
+        if (button.gameObject.tag == "Attack")
         {
             if (card.cardType == Card.CardType.Enemy)
             {
@@ -36,7 +36,7 @@ public class BubbleDetector : MonoBehaviour
         }
 
 
-        if (button.gameObject.tag == "Heart")
+        if (button.gameObject.tag == "Resilience")
         {
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
@@ -46,7 +46,7 @@ public class BubbleDetector : MonoBehaviour
         }
 
 
-        if (button.gameObject.tag == "Book")
+        if (button.gameObject.tag == "Stamina")
         {
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {

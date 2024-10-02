@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Sword
-  - Heart
-  - Book
+  - Attack
+  - Resilience
+  - Stamina
   - Poison
   - Empty
   layers:

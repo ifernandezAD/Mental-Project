@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 3607178744555022380}
   - component: {fileID: 6848105758122420569}
   m_Layer: 5
-  m_Name: Slot 1
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -150, y: -400}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -173.15051, y: -400}
+  m_SizeDelta: {x: 65, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4231826183445973938
 CanvasRenderer:
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969204083341841370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.8418, y: 0}
+  m_SizeDelta: {x: 64.5204, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1034370222502746650
 CanvasRenderer:

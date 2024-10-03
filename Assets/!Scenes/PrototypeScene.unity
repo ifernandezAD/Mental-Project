@@ -282,6 +282,42 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: bubbles.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: 16a19370d64133a45a328c2f8705759f, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[6]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: 4d4ad5c8ceb422b4897be3ad1936841a, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[7]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: b753ad57b05e3dc469d76026782d7c08, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[8]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: 9ffc2246400176e41b7dc16df9efbc82, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[9]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: d9c754be205598e4d854242d3b102439, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[10]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: e1f8f752ea0691f4c9603ff635da40c8, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[11]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: ef113342697e2184dab750345d693463, type: 3}
+    - target: {fileID: 8327505551512498634, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'bubbles.Array.data[12]'
+      value: 
+      objectReference: {fileID: 7924719241832844722, guid: 62507a83431c1554ca6c7d2e1a01eb36, type: 3}
     - target: {fileID: 8556162374836031955, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_Enabled
       value: 0

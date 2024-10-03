@@ -28,8 +28,8 @@ public class BubblesManager : MonoBehaviour
         roller.UpdateImageCount();
 
         int swordCount = roller.GetImageCount(ImageType.Sword);
-        int heartCount = roller.GetImageCount(ImageType.Heart);
-        int bookCount = roller.GetImageCount(ImageType.Book);
+        int shieldCount = roller.GetImageCount(ImageType.Resilience);
+        int raysCount = roller.GetImageCount(ImageType.Stamina);
         int poisonCount = roller.GetImageCount(ImageType.Poison);
         int emptyCount = roller.GetImageCount(ImageType.Empty);
         int randomCount = roller.GetImageCount(ImageType.Random);
@@ -39,12 +39,12 @@ public class BubblesManager : MonoBehaviour
             GameObject bubble = Instantiate(bubbles[0], bubbleContainer);
         }
 
-        for (int i = 0; i < heartCount; i++)
+        for (int i = 0; i < shieldCount; i++)
         {
             GameObject bubble = Instantiate(bubbles[1], bubbleContainer);
         }
 
-        for (int i = 0; i < bookCount; i++)
+        for (int i = 0; i < raysCount; i++)
         {
             GameObject bubble = Instantiate(bubbles[2], bubbleContainer);
         }

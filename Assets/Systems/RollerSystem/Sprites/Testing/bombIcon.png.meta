@@ -135,59 +135,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bombIcon_0
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 437
-        width: 83
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 382d7013f4f19bbf0800000000000000
-      internalID: -308180674512694653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bombIcon_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 409
-        width: 65
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 150a321c437509860800000000000000
-      internalID: 7534618060681093201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bombIcon_2
       rect:
         serializedVersion: 2
-        x: 84
+        x: 0
         y: 11
-        width: 428
-        height: 412
+        width: 512
+        height: 501
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,33 +156,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: bombIcon_3
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 292
-        width: 64
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6335c7f06475328d0800000000000000
-      internalID: -2872356178913111242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cc3ef360db5c4ff4397e7a23843d1eb0
     internalID: 0
     vertices: []
     indices: 
@@ -235,7 +169,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bombIcon_4: 143324481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

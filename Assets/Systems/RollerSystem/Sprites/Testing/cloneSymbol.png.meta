@@ -135,12 +135,12 @@ TextureImporter:
       name: cloneSymbol_0
       rect:
         serializedVersion: 2
-        x: 72
+        x: 0
         y: 0
-        width: 177
+        width: 320
         height: 319
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,55 +153,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: cloneSymbol_1
-      rect:
-        serializedVersion: 2
-        x: 237
-        y: 210
-        width: 83
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fec89c2008abbac70800000000000000
-      internalID: 8983478940685929711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cloneSymbol_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 36
-        width: 84
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25c21a76f48689800800000000000000
-      internalID: 619359639013764178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 22b49bfd41a686649893afa838b2965d
     internalID: 0
     vertices: []
     indices: 
@@ -210,7 +166,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cloneSymbol_0: 1401883132836962327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

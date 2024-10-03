@@ -132,37 +132,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DebuffSymbol_0
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 270
-        width: 207
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82dd5e4ce550cad30800000000000000
-      internalID: 4443932836896300328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: DebuffSymbol_1
       rect:
         serializedVersion: 2
-        x: 270
-        y: 106
-        width: 266
-        height: 597
+        x: 107
+        y: 93
+        width: 591
+        height: 621
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,33 +153,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: DebuffSymbol_2
-      rect:
-        serializedVersion: 2
-        x: 485
-        y: 270
-        width: 208
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d327efb94cc8d83f0800000000000000
-      internalID: -896905974718238147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7b3a610012af27948886b8d12e8d3631
     internalID: 0
     vertices: []
     indices: 
@@ -210,7 +166,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DebuffSymbol_0: 589335042
+      DebuffSymbol_2: 1577215772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

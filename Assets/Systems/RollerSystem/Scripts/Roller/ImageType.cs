@@ -3,10 +3,18 @@ using UnityEngine;
 public enum ImageType
 {
     Sword,
-    Heart,
-    Book,
+    Resilience,
+    Stamina,
     Poison,
     Random,
     Empty,
+    DebuffAttack,
+    Multiply,
+    Clone,
+    Destroy,
+    Split,
+    StaminaPoison,
+    ResiliensePoison,
+    Health,
     None
 }

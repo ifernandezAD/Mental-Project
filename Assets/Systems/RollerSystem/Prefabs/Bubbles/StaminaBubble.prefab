@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1532205635942700180, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_TagString
-      value: Book
+      value: Stamina
       objectReference: {fileID: 0}
     - target: {fileID: 3408220424808191781, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Pivot.x

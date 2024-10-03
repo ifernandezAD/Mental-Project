@@ -67,6 +67,38 @@ public class BubblesManager : MonoBehaviour
         {
             GameObject bubble = Instantiate(bubbles[4], bubbleContainer);
         }
+        for (int i = 0; i < debbufAttackCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[5], bubbleContainer);
+        }
+        for (int i = 0; i < multiplyCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[6], bubbleContainer);
+        }
+        for (int i = 0; i < cloneCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[7], bubbleContainer);
+        }
+        for (int i = 0; i < destroyCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[8], bubbleContainer);
+        }
+        for (int i = 0; i < splitCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[9], bubbleContainer);
+        }
+        for (int i = 0; i < staminaPoisonCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[10], bubbleContainer);
+        }
+        for (int i = 0; i < resiliencePoisonCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[11], bubbleContainer);
+        }
+        for (int i = 0; i < healthCount; i++)
+        {
+            GameObject bubble = Instantiate(bubbles[12], bubbleContainer);
+        }
 
         for (int i = 0; i < randomCount; i++)
         {

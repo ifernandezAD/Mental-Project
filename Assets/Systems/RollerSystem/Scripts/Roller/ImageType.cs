@@ -14,7 +14,7 @@ public enum ImageType
     Destroy,
     Split,
     StaminaPoison,
-    ResiliensePoison,
+    ResiliencePoison,
     Health,
     None
 }

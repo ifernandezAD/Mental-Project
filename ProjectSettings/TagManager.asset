@@ -9,6 +9,14 @@ TagManager:
   - Stamina
   - Poison
   - Empty
+  - DebuffAttack
+  - Multiply
+  - Clone
+  - Destroy
+  - Split
+  - StaminaPoison
+  - ResiliencePoison
+  - Health
   layers:
   - Default
   - TransparentFX

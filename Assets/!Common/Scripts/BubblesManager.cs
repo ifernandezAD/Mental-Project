@@ -33,6 +33,15 @@ public class BubblesManager : MonoBehaviour
         int poisonCount = roller.GetImageCount(ImageType.Poison);
         int emptyCount = roller.GetImageCount(ImageType.Empty);
         int randomCount = roller.GetImageCount(ImageType.Random);
+        int debbufAttackCount = roller.GetImageCount(ImageType.DebuffAttack);
+        int multiplyCount = roller.GetImageCount(ImageType.Multiply);
+        int cloneCount = roller.GetImageCount(ImageType.Clone);
+        int destroyCount = roller.GetImageCount(ImageType.Destroy);
+        int splitCount = roller.GetImageCount(ImageType.Split);
+        int staminaPoisonCount = roller.GetImageCount(ImageType.StaminaPoison);
+        int resiliencePoisonCount = roller.GetImageCount(ImageType.ResiliencePoison);
+        int healthCount = roller.GetImageCount(ImageType.Health);
+
 
         for (int i = 0; i < swordCount; i++)
         {

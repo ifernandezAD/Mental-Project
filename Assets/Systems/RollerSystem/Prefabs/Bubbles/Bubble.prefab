@@ -105,9 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07029299954720a4f8a28d953d839096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthFactor: 0.2
   multiplierText: {fileID: 6496512948310368522}
   multiplierBackground: {fileID: 4341005794312678046}
+  growthFactor: 0.2
+  fusionCooldown: 0.5
 --- !u!58 &7465228856443420586
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -54,6 +54,14 @@ public class BubbleDetector : MonoBehaviour
                 Destroy(button.gameObject);
             }
         }
-        
+
+        if (button.gameObject.tag == "DebuffAttack")
+        {
+            if (card.cardType == Card.CardType.Enemy)
+            {
+                combatBehaviour.DebuffAttack();
+                Destroy(button.gameObject);
+            }
+        }
     }
 }

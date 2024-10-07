@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 927829398654176186, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -201228590995811960, guid: 4476458717a4f864481505591ab4dc8a, type: 3}
+    - target: {fileID: 927829398654176186, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1043761175784874293, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Name
       value: StaminaBubble
@@ -125,7 +133,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7126009011027934185, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}

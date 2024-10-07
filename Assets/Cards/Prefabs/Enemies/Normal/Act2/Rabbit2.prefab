@@ -122,4 +122,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4827d2a1247acab45bbaf77754a19758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackText: {fileID: 8865930671858640339}
   dodgeChance: 50
+--- !u!114 &8865930671858640339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5044682022860926463, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 4397856753043327020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

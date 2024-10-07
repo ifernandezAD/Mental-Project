@@ -59,7 +59,7 @@ public class BubbleDetector : MonoBehaviour
         {
             if (card.cardType == Card.CardType.Enemy)
             {
-                combatBehaviour.DebuffAttack();
+                combatBehaviour.DebuffAttack(multiplier);
                 Destroy(button.gameObject);
             }
         }

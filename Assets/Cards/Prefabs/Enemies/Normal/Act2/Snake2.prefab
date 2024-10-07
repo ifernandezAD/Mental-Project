@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: m_Name
-      value: Snake
+      value: Snake2
       objectReference: {fileID: 0}
     - target: {fileID: 9146376925995587020, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: card
@@ -105,6 +105,17 @@ PrefabInstance:
       insertIndex: 5
       addedObject: {fileID: 4981435616101279980}
   m_SourcePrefab: {fileID: 100100000, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+--- !u!114 &5712205353998091338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5044682022860926463, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 668673576270342581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8047891775737969280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
@@ -122,4 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3e3e658e697cd48a583f0b5ffe9816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackText: {fileID: 5712205353998091338}
   poisonPrefab: {fileID: 3924023272180707825, guid: a437ca1b2a4031044a574deef0684f80, type: 3}

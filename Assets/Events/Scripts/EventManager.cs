@@ -7,7 +7,6 @@ public class EventManager : MonoBehaviour
 
     public void EventButtonPressed()
     {
-        Debug.Log("Event Button Pressed");
         onEventButtonPressed?.Invoke();
     }
 

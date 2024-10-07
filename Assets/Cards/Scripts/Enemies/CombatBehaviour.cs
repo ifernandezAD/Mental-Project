@@ -16,7 +16,6 @@ public class CombatBehaviour : MonoBehaviour
     }
     public virtual void Attack()
     {
-
         StatsManager.instance.ApplyDamageToRandomTarget(enemyDamage);
     }
 
@@ -25,9 +24,9 @@ public class CombatBehaviour : MonoBehaviour
         health.RemoveHealth(damage);
     }
 
-    public void DebuffAttack()
+    public void DebuffAttack(int multiplier)
     {
-        enemyDamage--;
+        enemyDamage -= multiplier;
 
         if (enemyDamage <= 0)
         {

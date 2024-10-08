@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3898596970858977038, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Name
-      value: AdversityShield Variant
+      value: AdversityShield
       objectReference: {fileID: 0}
     - target: {fileID: 4970761418852424783, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: m_Pivot.x
@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7679434104286388050, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7710093030765516367, guid: 7bed25f09e8322b419b8fac5138acd4b, type: 3}
     - target: {fileID: 8260602764927025730, guid: 8381faa2dd5e40c449297d51bd13090a, type: 3}
       propertyPath: relicObject
       value: 

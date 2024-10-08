@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 
-public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+public class BubbleBehaviour : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     private Canvas canvas;
     private BubbleDetector bubbleDetector;
@@ -78,7 +78,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
             // BubbleDetector encontrado, se puede usar posteriormente en OnPointerUp
         }
 
-        if (other.CompareTag(gameObject.tag) && other.TryGetComponent<DraggableButton>(out DraggableButton otherBubble))
+        if (other.CompareTag(gameObject.tag) && other.TryGetComponent<BubbleBehaviour>(out BubbleBehaviour otherBubble))
         {
             if (fusionReady && !otherBubble.hasCombined && isBeingDragged)
             {
@@ -87,7 +87,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         }
     }
 
-    private IEnumerator CombineBubbles(DraggableButton otherBubble)
+    private IEnumerator CombineBubbles(BubbleBehaviour otherBubble)
     {
         otherBubble.hasCombined = true;
         fusionReady = false;

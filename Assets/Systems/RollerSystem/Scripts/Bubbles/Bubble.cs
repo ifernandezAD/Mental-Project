@@ -9,6 +9,8 @@ public class Bubble : MonoBehaviour
 
     public int bubbleMultiplier { get; private set; } = 1;
     private bool hasCombined = false;
+    private bool isCombining = false; 
+    private bool isBeingDragged = false; 
 
     [Header("Multiplier UI")]
     [SerializeField] TextMeshProUGUI multiplierText;
@@ -29,13 +31,18 @@ public class Bubble : MonoBehaviour
         multiplierText.gameObject.SetActive(false);
     }
 
+    public void SetBeingDragged(bool state)
+    {
+        isBeingDragged = state; 
+    }
+
     public void HandleCollision(Collider2D other)
     {
         if (other.TryGetComponent<Bubble>(out Bubble otherBubble))
         {
             if (other.CompareTag(gameObject.tag))
             {
-                if (fusionReady && !otherBubble.hasCombined)
+                if (fusionReady && !hasCombined && (isBeingDragged || !otherBubble.isBeingDragged))
                 {
                     StartCoroutine(CombineBubbles(otherBubble));
                 }
@@ -45,17 +52,25 @@ public class Bubble : MonoBehaviour
 
     private IEnumerator CombineBubbles(Bubble otherBubble)
     {
-        otherBubble.hasCombined = true;
+        isCombining = true; 
         fusionReady = false;
 
         bubbleMultiplier += otherBubble.bubbleMultiplier;
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
 
         UpdateMultiplierDisplay();
-        Destroy(otherBubble.gameObject);
+
+        otherBubble.DestroyBubble(); 
 
         yield return new WaitForSeconds(fusionCooldown);
+        isCombining = false; 
         fusionReady = true;
+    }
+
+    public void DestroyBubble()
+    {
+        hasCombined = true; 
+        Destroy(gameObject); 
     }
 
     public void InitializeMultiplier(int multiplier)

@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -25,6 +24,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         isReleased = false;
         isBeingDragged = true;
+        bubble.SetBeingDragged(true);  
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -44,6 +44,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         isReleased = true;
         isBeingDragged = false;
+        bubble.SetBeingDragged(false);  
 
         if (bubbleDetector != null)
         {
@@ -58,7 +59,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
             // BubbleDetector encontrado, se puede usar posteriormente en OnPointerUp
         }
 
-        bubble.HandleCollision(other);
+        bubble.HandleCollision(other);  
     }
 
     private void OnTriggerStay2D()

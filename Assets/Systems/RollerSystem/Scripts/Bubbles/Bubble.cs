@@ -36,7 +36,7 @@ public class Bubble : MonoBehaviour
         isBeingDragged = state; 
     }
 
-    public void HandleCollision(Collider2D other)
+    public virtual void HandleCollision(Collider2D other)
     {
         if (other.TryGetComponent<Bubble>(out Bubble otherBubble))
         {

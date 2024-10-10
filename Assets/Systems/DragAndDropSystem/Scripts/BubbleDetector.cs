@@ -23,7 +23,7 @@ public class BubbleDetector : MonoBehaviour
         }
     }
 
-    public void CheckButtonType(BubbleBehaviour button, int multiplier)
+    public void CheckButtonType(DraggableButton button, int multiplier)
     {
         if (button.gameObject.tag == "Attack")
         {

@@ -20,6 +20,6 @@ public class MultiplierBubble : Bubble
 
     private void IncreaseMultiplier(Bubble otherBubble)
     {
-        otherBubble.InitializeMultiplier(otherBubble.bubbleMultiplier + 1); 
+        otherBubble.InitializeMultiplier(otherBubble.bubbleMultiplier + this.bubbleMultiplier); 
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2851398465090900057}
   - component: {fileID: 6691378719187683876}
   - component: {fileID: 185138247684723686}
+  - component: {fileID: 7867534132530287839}
   - component: {fileID: 7465228856443420586}
   - component: {fileID: 2603924134648136053}
   m_Layer: 3
@@ -105,10 +106,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07029299954720a4f8a28d953d839096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7867534132530287839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532205635942700180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efb06c53fb6c67479e0e36465e2c4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   multiplierText: {fileID: 6496512948310368522}
   multiplierBackground: {fileID: 4341005794312678046}
   growthFactor: 0.2
-  fusionCooldown: 0.5
+  fusionCooldown: 0.2
 --- !u!58 &7465228856443420586
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -25,11 +25,11 @@ public class BubblesManager : MonoBehaviour
     private void InstantiateBubble(int bubbleIndex, int multiplier = 1)
     {
         GameObject newBubble = Instantiate(bubbles[bubbleIndex], bubbleContainer);
-        DraggableButton draggableButton = newBubble.GetComponent<DraggableButton>();
+        Bubble bubbleClass = newBubble.GetComponent<Bubble>();
 
-        if (draggableButton != null && multiplier > 1)
+        if (bubbleClass != null && multiplier > 1)
         {
-            draggableButton.InitializeMultiplier(multiplier);
+            bubbleClass.InitializeMultiplier(multiplier);
         }
     }
 
@@ -87,11 +87,11 @@ public class BubblesManager : MonoBehaviour
     {
         if (bubble.CompareTag("Poison"))
         {
-            DraggableButton draggableButton = bubble.GetComponent<DraggableButton>();
+            Bubble bubbleClass = bubble.GetComponent<Bubble>();
 
-            if (draggableButton != null)
+            if (bubbleClass != null)
             {
-                int multiplier = draggableButton.bubbleMultiplier;
+                int multiplier = bubbleClass.bubbleMultiplier;
                 for (int i = 0; i < multiplier; i++)
                 {
                     StatsManager.instance.ApplyDamageToRandomTarget(1);

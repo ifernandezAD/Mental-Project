@@ -12,12 +12,12 @@ public class CloneBubble : Bubble
         {
             if (other.CompareTag(gameObject.tag))
             {
-                base.HandleCollision(other);  // Comportamiento normal de fusión si son del mismo tipo
+                base.HandleCollision(other);  
             }
-            else if (!hasCloned)  // Solo clonar una vez
+            else if (!hasCloned)  
             {
                 CloneOtherBubble(otherBubble.gameObject);
-                DestroyBubble();  // Destruir la CloneBubble después de clonar
+                DestroyBubble();  
                 hasCloned = true;
             }
         }
@@ -25,27 +25,21 @@ public class CloneBubble : Bubble
 
     private void CloneOtherBubble(GameObject otherBubble)
     {
-        // Crear una copia exacta del GameObject con el que choca la CloneBubble
         GameObject clonedBubble = Instantiate(otherBubble, transform.position, Quaternion.identity);
-
-        // Obtener el parent (contenedor) de la burbuja con la que colisionamos
         Transform parentContainer = otherBubble.transform.parent;
-        
-        // Asegurarnos de que la burbuja clonada esté dentro del mismo contenedor
         clonedBubble.transform.SetParent(parentContainer, false);
 
-        // Obtener el componente Bubble del objeto clonado y transferir el multiplicador solo si es mayor que 1
         Bubble clonedBubbleComponent = clonedBubble.GetComponent<Bubble>();
         if (clonedBubbleComponent != null)
         {
             int originalMultiplier = otherBubble.GetComponent<Bubble>().bubbleMultiplier;
-            if (originalMultiplier > 1)  // Solo ajustar si el multiplicador original es mayor que 1
+            if (originalMultiplier > 1)  
             {
                 clonedBubbleComponent.InitializeMultiplier(originalMultiplier);
             }
 
-            clonedBubbleComponent.SetFusionReady(false);  // Desactivar temporalmente la fusión
-            StartCoroutine(EnableInteractionAfterDelay(clonedBubbleComponent, 0.5f));  // Habilitar interacción después de un delay
+            clonedBubbleComponent.SetFusionReady(false); 
+            StartCoroutine(EnableInteractionAfterDelay(clonedBubbleComponent, 0.5f));  
         }
 
         BubblesManager.instance.EnableLayout();
@@ -55,7 +49,7 @@ public class CloneBubble : Bubble
     private IEnumerator EnableInteractionAfterDelay(Bubble clonedBubble, float delay)
     {
         yield return new WaitForSeconds(delay);
-        clonedBubble.SetFusionReady(true);  // Reactivar fusión
-        clonedBubble.SetBeingDragged(false);  // Asegurar que la burbuja se pueda arrastrar y no interactúe automáticamente
+        clonedBubble.SetFusionReady(true);  
+        clonedBubble.SetBeingDragged(false);  
     }
 }

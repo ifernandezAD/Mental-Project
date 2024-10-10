@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class Bubble : MonoBehaviour
 {
+    [Header("Components")]
     private RectTransform rectTransform;
 
+    [Header("Bubble Properties")]
     public int bubbleMultiplier { get; private set; } = 1;
-    
     private bool hasCombined = false;
-    private bool isCombining = false;
+    private bool isCombining = false; 
     private bool isBeingDragged = false;  
     private bool canInteract = false;     
 
     [Header("Multiplier UI")]
-    [SerializeField] TextMeshProUGUI multiplierText;
-    [SerializeField] Image multiplierBackground;
+    [SerializeField] private TextMeshProUGUI multiplierText;
+    [SerializeField] private Image multiplierBackground;
 
     [Header("Growth Factor")]
     [SerializeField] private float growthFactor = 0.2f;
@@ -28,37 +29,35 @@ public class Bubble : MonoBehaviour
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-
-        multiplierBackground.gameObject.SetActive(false);
-        multiplierText.gameObject.SetActive(false);
+        InitializeMultiplierUI();
     }
 
+    void Start()
+    {
+        fusionReady = true;
+    }
+
+    #region Setters
     public void SetBeingDragged(bool state)
     {
         isBeingDragged = state;
-
-        if (state)  
-        {
-            canInteract = true;
-        }
+        canInteract = state; // Allow interaction if being dragged
     }
 
-    
     public void SetFusionReady(bool state)
     {
         fusionReady = state;
     }
+    #endregion
 
+    #region Collision Handling
     public virtual void HandleCollision(Collider2D other)
     {
         if (other.TryGetComponent<Bubble>(out Bubble otherBubble) && canInteract)  
         {
-            if (other.CompareTag(gameObject.tag))
+            if (other.CompareTag(gameObject.tag) && fusionReady && !hasCombined && isBeingDragged)  
             {
-                if (fusionReady && !hasCombined && isBeingDragged)  
-                {
-                    StartCoroutine(CombineBubbles(otherBubble));
-                }
+                StartCoroutine(CombineBubbles(otherBubble));
             }
         }
     }
@@ -72,18 +71,19 @@ public class Bubble : MonoBehaviour
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
 
         UpdateMultiplierDisplay();
-
         otherBubble.DestroyBubble();
 
         yield return new WaitForSeconds(fusionCooldown);
         isCombining = false;
         fusionReady = true;
     }
+    #endregion
 
+    #region Bubble Management
     public void DestroyBubble()
     {
-        hasCombined = true;
-        Destroy(gameObject);
+        hasCombined = true; 
+        Destroy(gameObject); 
     }
 
     public void InitializeMultiplier(int multiplier)
@@ -93,6 +93,14 @@ public class Bubble : MonoBehaviour
         UpdateMultiplierDisplay();
 
         canInteract = false;  
+    }
+    #endregion
+
+    #region UI Updates
+    private void InitializeMultiplierUI()
+    {
+        multiplierBackground.gameObject.SetActive(false);
+        multiplierText.gameObject.SetActive(false);
     }
 
     public void UpdateMultiplierDisplay()
@@ -109,4 +117,5 @@ public class Bubble : MonoBehaviour
             multiplierText.gameObject.SetActive(false);
         }
     }
+    #endregion
 }

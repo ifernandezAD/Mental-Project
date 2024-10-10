@@ -180,12 +180,12 @@ public class BubblesManager : MonoBehaviour
 
     #endregion
 
-    void EnableLayout()
+    public void EnableLayout()
     {
         bubblesLayout.enabled = true;
     }
 
-    void DisableLayout()
+    public void DisableLayout()
     {
         bubblesLayout.enabled = false;
     }

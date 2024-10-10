@@ -8,9 +8,11 @@ public class Bubble : MonoBehaviour
     private RectTransform rectTransform;
 
     public int bubbleMultiplier { get; private set; } = 1;
+    
     private bool hasCombined = false;
-    private bool isCombining = false; 
-    private bool isBeingDragged = false; 
+    private bool isCombining = false;
+    private bool isBeingDragged = false;  
+    private bool canInteract = false;     
 
     [Header("Multiplier UI")]
     [SerializeField] TextMeshProUGUI multiplierText;
@@ -33,16 +35,27 @@ public class Bubble : MonoBehaviour
 
     public void SetBeingDragged(bool state)
     {
-        isBeingDragged = state; 
+        isBeingDragged = state;
+
+        if (state)  
+        {
+            canInteract = true;
+        }
+    }
+
+    
+    public void SetFusionReady(bool state)
+    {
+        fusionReady = state;
     }
 
     public virtual void HandleCollision(Collider2D other)
     {
-        if (other.TryGetComponent<Bubble>(out Bubble otherBubble))
+        if (other.TryGetComponent<Bubble>(out Bubble otherBubble) && canInteract)  
         {
             if (other.CompareTag(gameObject.tag))
             {
-                if (fusionReady && !hasCombined && (isBeingDragged || !otherBubble.isBeingDragged))
+                if (fusionReady && !hasCombined && isBeingDragged)  
                 {
                     StartCoroutine(CombineBubbles(otherBubble));
                 }
@@ -52,7 +65,7 @@ public class Bubble : MonoBehaviour
 
     private IEnumerator CombineBubbles(Bubble otherBubble)
     {
-        isCombining = true; 
+        isCombining = true;
         fusionReady = false;
 
         bubbleMultiplier += otherBubble.bubbleMultiplier;
@@ -60,17 +73,17 @@ public class Bubble : MonoBehaviour
 
         UpdateMultiplierDisplay();
 
-        otherBubble.DestroyBubble(); 
+        otherBubble.DestroyBubble();
 
         yield return new WaitForSeconds(fusionCooldown);
-        isCombining = false; 
+        isCombining = false;
         fusionReady = true;
     }
 
     public void DestroyBubble()
     {
-        hasCombined = true; 
-        Destroy(gameObject); 
+        hasCombined = true;
+        Destroy(gameObject);
     }
 
     public void InitializeMultiplier(int multiplier)
@@ -78,6 +91,8 @@ public class Bubble : MonoBehaviour
         bubbleMultiplier = multiplier;
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
         UpdateMultiplierDisplay();
+
+        canInteract = false;  
     }
 
     public void UpdateMultiplierDisplay()

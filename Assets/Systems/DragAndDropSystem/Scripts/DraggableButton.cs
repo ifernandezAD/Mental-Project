@@ -8,7 +8,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private BubbleDetector bubbleDetector;
     private RectTransform rectTransform;
 
-    private Bubble bubble; 
+    private Bubble bubble;
 
     private bool isReleased = false;
     private bool isBeingDragged = false;
@@ -17,38 +17,40 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        bubble = GetComponent<Bubble>(); 
+        bubble = GetComponent<Bubble>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         isReleased = false;
         isBeingDragged = true;
-        bubble.SetBeingDragged(true);  
+        bubble.SetBeingDragged(true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 localPoint;
+
+        if(canvas ==null){canvas = GetComponentInParent<Canvas>();}
+
         Camera camera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, camera, out localPoint);
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, camera, out localPoint))
+        {
 
-        Vector2 worldPoint = canvas.transform.TransformPoint(localPoint);
-        Vector2 localPointInParent = rectTransform.parent.InverseTransformPoint(worldPoint);
-
-        rectTransform.localPosition = localPointInParent;
+            rectTransform.localPosition = localPoint;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         isReleased = true;
         isBeingDragged = false;
-        bubble.SetBeingDragged(false);  
+        bubble.SetBeingDragged(false);
 
         if (bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier); 
+            bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);
         }
     }
 
@@ -59,14 +61,14 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
             // BubbleDetector encontrado, se puede usar posteriormente en OnPointerUp
         }
 
-        bubble.HandleCollision(other);  
+        bubble.HandleCollision(other);
     }
 
     private void OnTriggerStay2D()
     {
         if (isReleased && bubbleDetector != null)
         {
-            bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier); 
+            bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);
         }
     }
 }

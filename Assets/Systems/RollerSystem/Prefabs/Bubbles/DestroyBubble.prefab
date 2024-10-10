@@ -132,9 +132,56 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7867534132530287839, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7126009011027934185, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1532205635942700180, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 7203856956569753957}
   m_SourcePrefab: {fileID: 100100000, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+--- !u!114 &2490911547804809260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6496512948310368522, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4938028785577128888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4341005794312678046, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7924719241832844722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1532205635942700180, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7203856956569753957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924719241832844722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e439436d17c25a1419ac73fc1d569623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplierText: {fileID: 2490911547804809260}
+  multiplierBackground: {fileID: 4938028785577128888}
+  growthFactor: 0.2
+  fusionCooldown: 0.2

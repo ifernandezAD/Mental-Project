@@ -55,6 +55,15 @@ public class BubbleDetector : MonoBehaviour
             }
         }
 
+           if (button.gameObject.tag == "Health")
+        {
+            if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
+            {
+                health.AddHealth(multiplier);
+                Destroy(button.gameObject);
+            }
+        }
+
         if (button.gameObject.tag == "DebuffAttack")
         {
             if (card.cardType == Card.CardType.Enemy)

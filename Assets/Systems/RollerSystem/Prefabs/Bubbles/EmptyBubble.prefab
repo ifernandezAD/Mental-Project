@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 927829398654176186, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -636277382, guid: 655bd3e986d159b4896832b043772928, type: 3}
     - target: {fileID: 1043761175784874293, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Name
       value: EmptyBubble
@@ -123,6 +127,14 @@ PrefabInstance:
     - target: {fileID: 6249726525283731674, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
       propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249726525283731674, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126009011027934185, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

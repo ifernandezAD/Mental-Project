@@ -168,8 +168,6 @@ public class Roller : MonoBehaviour
 
     public void UpdateImageCount()
     {
-        Debug.Log("Aquí estamos");
-
         InitializeImageCount();
 
         foreach (GameObject image in activeImages)

@@ -22,6 +22,6 @@ public class SymbolSpawner : MonoBehaviour
 
         EventManager.instance.EventButtonPressed();
 
-        EventManager.instance.gameObject.SetActive(false);
+        transform.parent.parent.gameObject.SetActive(false);
     }
 }

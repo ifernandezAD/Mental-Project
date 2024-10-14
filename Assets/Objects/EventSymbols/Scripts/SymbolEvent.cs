@@ -44,7 +44,6 @@ public class SymbolEvent : MonoBehaviour
     private void InstantiateSymbol(GameObject symbolPrefab)
     {
         GameObject symbolInstance = Instantiate(symbolPrefab, symbolContainer);
-        Debug.Log("Símbolo instanciado: " + symbolInstance.name);
     }
 
     private void ClearSymbols()

@@ -210,7 +210,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Burbujas_2_0: -9175856286511577599
+      Burbujas_2_1: 7440031498981190826
+      Burbujas_2_2: 6488095806777811115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -43,6 +43,7 @@ public class BubblesManager : MonoBehaviour
 
     public void InstantiateBubbles()
     {
+        roller= Roller.instance;
         roller.UpdateImageCount();
 
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.Sword), 0);
@@ -58,7 +59,7 @@ public class BubblesManager : MonoBehaviour
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.StaminaPoison), 10);
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.ResiliencePoison), 11);
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.Health), 12);
-
+ 
         InstantiateRandomBubbles();
 
         DOVirtual.DelayedCall(0.5f, DisableLayout);

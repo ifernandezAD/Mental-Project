@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Reliquias_1_0: 4532322339956459385
+      Reliquias_1_1: 479994306004560282
+      Reliquias_1_2: 9144556046407082873
+      Reliquias_1_3: -9011174770129062762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

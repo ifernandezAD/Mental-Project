@@ -7,7 +7,6 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
      private CardDisplay cardDisplay;
      private ConsumableDisplay consumableDisplay;
      private RelicDisplay relicDisplay;
-     private Relic relic;
 
     private bool isMouseOver = false;
 
@@ -16,7 +15,6 @@ public class InfoFeedbackDetector : MonoBehaviour, IPointerEnterHandler, IPointe
         cardDisplay = GetComponent<CardDisplay>();
         consumableDisplay = GetComponent<ConsumableDisplay>();
         relicDisplay = GetComponent<RelicDisplay>();
-        relic = GetComponent<Relic>();
     }
 
     void Update()

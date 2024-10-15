@@ -123,6 +123,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3204723265021189398, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
   m_PrefabInstance: {fileID: 5137238834213799204}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1502163933 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1255593601085561638, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5137238834213799204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: enemyCardContainer
+      value: 
+      objectReference: {fileID: 1502163933}
     - target: {fileID: 8774514910575687863, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_SizeDelta.x
       value: 55.401

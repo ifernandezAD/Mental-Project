@@ -7,7 +7,8 @@ public abstract class Phase : MonoBehaviour
     public static Action onPhaseEnded;
 
     [Header("References")]
-    protected Transform enemyCardContainer;
+    protected Transform enemyContainerFront; 
+    protected Transform enemyContainerBack; 
     protected Transform characterCardContainer;
     protected Transform allyCardContainer;
 
@@ -27,7 +28,9 @@ public abstract class Phase : MonoBehaviour
 
     protected virtual void InternalAwake()
     {
-        enemyCardContainer = RoundManager.instance.enemyCardContainer;
+        enemyContainerFront =RoundManager.instance.enemyContainerFront;
+        enemyContainerBack =RoundManager.instance.enemyContainerBack;
+
         characterCardContainer = RoundManager.instance.characterCardContainer;
         allyCardContainer = RoundManager.instance.allyCardContainer;
     }

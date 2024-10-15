@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPhase : Phase
@@ -11,7 +9,7 @@ public class EnemyPhase : Phase
     {
         characterHealth = characterCardContainer.GetChild(0).GetComponent<Health>();
 
-        if (enemyCardContainer.childCount == 0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerBack.childCount == 0)
         {
             StartNextPhaseWithDelay();
             return;
@@ -19,14 +17,10 @@ public class EnemyPhase : Phase
 
         ManageMentalHealthDamageApplied();
 
-        foreach (Transform child in enemyCardContainer)
+        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerBack))
         {
-            CardDisplay cardDisplay = child.GetComponent<CardDisplay>();
-            if (cardDisplay != null && cardDisplay.card.isBoss)
-            {
-                StartRollerPhaseWithDelay();
-                return;
-            }
+            StartRollerPhaseWithDelay();
+            return;
         }
 
         StartNextPhaseWithDelay();
@@ -34,13 +28,33 @@ public class EnemyPhase : Phase
 
     private void ManageMentalHealthDamageApplied()
     {
-        for (int i = 0; i < enemyCardContainer.childCount; i++)
+        ApplyAttacksFromContainer(enemyContainerFront);
+
+        ApplyAttacksFromContainer(enemyContainerBack);
+    }
+
+    private void ApplyAttacksFromContainer(Transform container)
+    {
+        for (int i = 0; i < container.childCount; i++)
         {
-            CombatBehaviour combatBehaviour = enemyCardContainer.GetChild(i).GetComponent<CombatBehaviour>();
+            CombatBehaviour combatBehaviour = container.GetChild(i).GetComponent<CombatBehaviour>();
             if (combatBehaviour != null)
             {
                 combatBehaviour.Attack();
             }
         }
+    }
+
+    private bool HasBossCard(Transform container)
+    {
+        foreach (Transform child in container)
+        {
+            CardDisplay cardDisplay = child.GetComponent<CardDisplay>();
+            if (cardDisplay != null && cardDisplay.card.isBoss)
+            {
+                return true;  
+            }
+        }
+        return false;
     }
 }

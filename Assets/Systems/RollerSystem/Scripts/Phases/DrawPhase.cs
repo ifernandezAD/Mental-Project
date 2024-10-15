@@ -21,6 +21,7 @@ public class DrawPhase : Phase
     private int[] eventRounds = new int[] { 3, 6, 9 };
     private int chosenAllyRound;
 
+
     [Header("Relics")]
     public static Action onEventTriggered;
 
@@ -95,22 +96,41 @@ public class DrawPhase : Phase
         };
 
         int randomIndex = UnityEngine.Random.Range(0, selectedArray.Length);
-        GameObject enemyCard = Instantiate(selectedArray[randomIndex], enemyCardContainer);
+        GameObject enemyCard = selectedArray[randomIndex];
+
+        if (enemyContainerFront.childCount == 0)
+        {
+            Instantiate(enemyCard, enemyContainerFront);
+        }
+
+        else if (enemyContainerBack.childCount < 2)
+        {
+            Instantiate(enemyCard, enemyContainerBack);
+        }
+        else
+        {
+            Debug.LogWarning("Ambos contenedores de enemigos están llenos.");
+        }
+
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
     private void ClearEnemyCardContainer()
     {
-        foreach (Transform child in enemyCardContainer)
+        foreach (Transform child in enemyContainerFront)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in enemyContainerBack)
         {
             Destroy(child.gameObject);
         }
     }
 
-
     private void DrawBossCard()
     {
-        GameObject card = Instantiate(testingBossPrefab, enemyCardContainer);
+        GameObject card = Instantiate(testingBossPrefab, enemyContainerFront); 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
 
@@ -136,7 +156,7 @@ public class DrawPhase : Phase
 
     private void OnEventButtonPressed()
     {
-        if (enemyCardContainer.childCount == 0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerBack.childCount == 0)
         {
             StartNextRoundWithDelay();
             return;

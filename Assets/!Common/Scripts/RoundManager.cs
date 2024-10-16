@@ -138,6 +138,8 @@ public class RoundManager : MonoBehaviour
             currentAct++;
             currentRound = 0;
 
+            UIManagement.instance.SetActiveActImage(currentAct - 1);
+
             if(currentAct==2)
             {
                 SolveActTwoMentalHealthEffects();

@@ -684,6 +684,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1628328601817368457, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2204563159605119605, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -703,6 +707,10 @@ PrefabInstance:
     - target: {fileID: 3843356711916327891, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237353955826215999, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_Spacing.x
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
@@ -759,6 +767,10 @@ PrefabInstance:
     - target: {fileID: 9037149374874465111, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 425
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166384498957299132, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1350
       objectReference: {fileID: 0}
     - target: {fileID: 9168564933404159405, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Pivot.x
@@ -841,7 +853,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1812709735224352330, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

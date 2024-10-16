@@ -15,4 +15,4 @@ MonoBehaviour:
   index: 1
   consumableName: Bottled Attack
   consumableDescription: Generates an Attack bubble with double value
-  consumableArt: {fileID: -2281770355326584315, guid: a23ef98d39f588049b3375d8eb4b39a5, type: 3}
+  consumableArt: {fileID: -7427006506032107257, guid: f2aa34dd3af68a64c9775ca231dd83a4, type: 3}

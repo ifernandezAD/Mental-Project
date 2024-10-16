@@ -15,4 +15,4 @@ MonoBehaviour:
   index: 3
   consumableName: Bottled Stamina
   consumableDescription: Generates a Stamina bubble with double value
-  consumableArt: {fileID: -6975848846046647570, guid: dc35dddd3bdd42e4c9c394e885d36fd0, type: 3}
+  consumableArt: {fileID: -5627578454709504814, guid: f2aa34dd3af68a64c9775ca231dd83a4, type: 3}

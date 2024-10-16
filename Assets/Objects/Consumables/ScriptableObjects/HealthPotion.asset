@@ -15,4 +15,4 @@ MonoBehaviour:
   index: 0
   consumableName: Health Potion
   consumableDescription: Heals 2 health points to player
-  consumableArt: {fileID: 6791410471410813795, guid: a5da8d2a66f05d94697f9fe9087ffa4f, type: 3}
+  consumableArt: {fileID: -8608634092076967610, guid: f2aa34dd3af68a64c9775ca231dd83a4, type: 3}

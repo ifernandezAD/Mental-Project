@@ -15,4 +15,4 @@ MonoBehaviour:
   index: 4
   consumableName: Antidote
   consumableDescription: Removes poison symbols from the roller
-  consumableArt: {fileID: -4157149184500617447, guid: 42b017bf915d01d4e96e10ac22046643, type: 3}
+  consumableArt: {fileID: -4098628875230246518, guid: a98d906d63d69dc4cb842cb42b21505f, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   index: 2
   consumableName: Bottled Resilience
   consumableDescription: Generates a Resilience bubble with double value
-  consumableArt: {fileID: 3598234260382501415, guid: ca2ff85aa744bcf4bad975f2f61f65da, type: 3}
+  consumableArt: {fileID: 3710362919305426461, guid: a98d906d63d69dc4cb842cb42b21505f, type: 3}

@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3960164785955100543, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
       propertyPath: m_Name
-      value: Antidote Variant
+      value: Antidote
       objectReference: {fileID: 0}
+    - target: {fileID: 4103662700169963259, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4098628875230246518, guid: a98d906d63d69dc4cb842cb42b21505f, type: 3}
     - target: {fileID: 6939743000248103439, guid: 8df3c739ee624d74ca074f894209ecfe, type: 3}
       propertyPath: consumableObject
       value: 

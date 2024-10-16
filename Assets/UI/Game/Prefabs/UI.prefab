@@ -4672,6 +4672,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7173918033064720856, guid: 17bcb34afb1c02c478c4a0d55c68466e, type: 3}
+      propertyPath: 'consumablePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6141902364773761241, guid: df98d2b96a2ebe14db4f6749fb9d0a1c, type: 3}
+    - target: {fileID: 7173918033064720856, guid: 17bcb34afb1c02c478c4a0d55c68466e, type: 3}
+      propertyPath: 'consumablePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1847981313259838865, guid: 677f5daa95ba7e04cb3c74ac96e2ca10, type: 3}
+    - target: {fileID: 7173918033064720856, guid: 17bcb34afb1c02c478c4a0d55c68466e, type: 3}
+      propertyPath: 'consumablePrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5734387259328644197, guid: 540903ec3c85db34aa16d929cfea25f9, type: 3}
+    - target: {fileID: 7173918033064720856, guid: 17bcb34afb1c02c478c4a0d55c68466e, type: 3}
+      propertyPath: 'consumablePrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1393566815070734621, guid: 364570083fc38994b86d77807b4668d8, type: 3}
     - target: {fileID: 7561162226546877878, guid: 17bcb34afb1c02c478c4a0d55c68466e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2

@@ -92,8 +92,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 97ad8f7fadd03ec4db83f589aa42a5a7, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ea7312095ef84344fa2e38c9f674f99f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -330,6 +330,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6217273971514229427, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217273971514229427, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217273971514229427, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361003642442411564, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8491471714040133671, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -393,6 +409,10 @@ PrefabInstance:
     - target: {fileID: 8941206458185466843, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051879386361050873, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -72,6 +72,8 @@ public class RoundManager : MonoBehaviour
         currentRound++;
 
         UpdateUI();
+        UIManagement.instance.TurnOnNextLight();
+
         StartCurrentPhase();
     }
 
@@ -139,6 +141,7 @@ public class RoundManager : MonoBehaviour
             currentRound = 0;
 
             UIManagement.instance.SetActiveActImage(currentAct - 1);
+            UIManagement.instance.ResetAllLights();
 
             if(currentAct==2)
             {

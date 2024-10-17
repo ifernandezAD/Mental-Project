@@ -3086,6 +3086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actImageContainer: {fileID: 9040890845165299992}
+  lightsContainer: {fileID: 4135206638862460976}
 --- !u!1 &5500689474047095287
 GameObject:
   m_ObjectHideFlags: 0

@@ -1368,7 +1368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &542495586930463307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1831,7 +1831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7313319874322551124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3685,13 +3685,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 581760499528931347}
+  - {fileID: 542495586930463307}
+  - {fileID: 7313319874322551124}
   - {fileID: 7146480990224248875}
   - {fileID: 6439436371157948815}
   - {fileID: 3696549489583629783}
   - {fileID: 5633879479606424553}
   - {fileID: 8793365619515066994}
-  - {fileID: 542495586930463307}
-  - {fileID: 7313319874322551124}
   - {fileID: 5739805798254648290}
   - {fileID: 7096308886159105059}
   - {fileID: 1460582292532277521}
@@ -3721,7 +3721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloud1: {fileID: 542495586930463307}
   cloud2: {fileID: 7313319874322551124}
-  speed: 50
+  speed: 25
   moveLeft: 0
   overlapOffset: 5
 --- !u!1 &6955288565364120353

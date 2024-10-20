@@ -70,7 +70,8 @@ public class BubblesManager : MonoBehaviour
         int randomCount = roller.GetImageCount(ImageType.Random);
         for (int i = 0; i < randomCount; i++)
         {
-            int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
+            int randomIndex = UnityEngine.Random.Range(0, 9); //Temporalmente, las 3 ultimas burbujas todavia no estan habilitadas
+            Debug.Log("Random index is " + randomIndex);
             InstantiateBubble(randomIndex);
         }
     }
@@ -108,9 +109,12 @@ public class BubblesManager : MonoBehaviour
         int bubbleCount = ClearBubblesContainer();
         for (int i = 0; i < bubbleCount; i++)
         {
-            int randomIndex = UnityEngine.Random.Range(0, bubbles.Length);
+            int randomIndex = UnityEngine.Random.Range(0, 9); //Temporalmente, las 3 ultimas burbujas todavia no estan habilitadas
             InstantiateBubble(randomIndex);
         }
+
+        EnableLayout();
+        DOVirtual.DelayedCall(0.5f, DisableLayout);
     }
 
     public void TransformEmptyBubblesToDefenseOrAttack()

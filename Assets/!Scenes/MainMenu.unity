@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14ea0bd9defa604e9e39f213775ac52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: PrototypeScene
   actInputField: {fileID: 1049214630}
   roundInputField: {fileID: 1703174605}
 --- !u!1 &1137026219

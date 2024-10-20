@@ -10,8 +10,8 @@ public class RoundManager : MonoBehaviour
     public static RoundManager instance { get; private set; }
 
     [Header("References")]
-    [SerializeField] public Transform enemyContainerFront; 
-    [SerializeField] public Transform enemyContainerBack; 
+    [SerializeField] public Transform enemyContainerFront;
+    [SerializeField] public Transform enemyContainerBack;
     [SerializeField] public Transform characterCardContainer;
     [SerializeField] public Transform allyCardContainer;
 
@@ -46,6 +46,8 @@ public class RoundManager : MonoBehaviour
     void Start()
     {
         phaseText.gameObject.SetActive(false);
+
+        LoadTestingPreferences();
 
         SolveActOneMentalHealthEffects();
         StartRound();
@@ -116,7 +118,7 @@ public class RoundManager : MonoBehaviour
             phases[currentPhaseIndex].enabled = false;
         }
 
-        currentPhaseIndex =1;
+        currentPhaseIndex = 1;
 
         StartCurrentPhase();
     }
@@ -143,12 +145,12 @@ public class RoundManager : MonoBehaviour
             UIManagement.instance.SetActiveActImage(currentAct - 1);
             UIManagement.instance.ResetAllLights();
 
-            if(currentAct==2)
+            if (currentAct == 2)
             {
                 SolveActTwoMentalHealthEffects();
             }
 
-            if(currentAct==3)
+            if (currentAct == 3)
             {
                 SolveActThreeMentalHealthEffects();
             }
@@ -181,11 +183,44 @@ public class RoundManager : MonoBehaviour
 
     public int GetCurrentRound()
     {
-       return currentRound;
+        return currentRound;
     }
 
     public int GetCurrentAct()
     {
         return currentAct;
     }
+
+    #region Testing
+
+    public void SaveTestingPreferences(int act, int round)
+    {
+        PlayerPrefs.SetInt("Testing_Act", act);
+        PlayerPrefs.SetInt("Testing_Round", round);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadTestingPreferences()
+    {
+        int savedAct = PlayerPrefs.GetInt("Testing_Act", 1); 
+        int savedRound = PlayerPrefs.GetInt("Testing_Round", 1); 
+
+        TestingSetAct(savedAct);
+        TestingSetRound(savedRound);
+
+        Debug.Log($"Iniciando en Acto: {savedAct}, Ronda: {savedRound}");
+    }
+
+    public void TestingSetRound(int round)
+    {
+        currentRound = Mathf.Clamp(round, 1, maxRoundsPerAct);
+    }
+
+
+    public void TestingSetAct(int act)
+    {
+        currentAct = Mathf.Clamp(act, 1, maxActs);
+    }
+
+    #endregion
 }

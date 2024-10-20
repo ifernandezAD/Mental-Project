@@ -45,9 +45,9 @@ public class RoundManager : MonoBehaviour
 
     void Start()
     {
-        phaseText.gameObject.SetActive(false);
+        LoadTestingPreferences(); //Testing
 
-        LoadTestingPreferences();
+        phaseText.gameObject.SetActive(false);
 
         SolveActOneMentalHealthEffects();
         StartRound();
@@ -193,33 +193,58 @@ public class RoundManager : MonoBehaviour
 
     #region Testing
 
-    public void SaveTestingPreferences(int act, int round)
+    private void SaveTestingPreferences(int act, int round)
     {
         PlayerPrefs.SetInt("Testing_Act", act);
         PlayerPrefs.SetInt("Testing_Round", round);
         PlayerPrefs.Save();
     }
 
-    public void LoadTestingPreferences()
+    private void LoadTestingPreferences()
     {
-        int savedAct = PlayerPrefs.GetInt("Testing_Act", 1); 
-        int savedRound = PlayerPrefs.GetInt("Testing_Round", 1); 
+        int savedAct = PlayerPrefs.GetInt("Testing_Act", 1);
+        int savedRound = PlayerPrefs.GetInt("Testing_Round", 1);
 
         TestingSetAct(savedAct);
         TestingSetRound(savedRound);
 
+        TestingSetActAndRound(savedAct, savedRound);
+
         Debug.Log($"Iniciando en Acto: {savedAct}, Ronda: {savedRound}");
     }
 
-    public void TestingSetRound(int round)
+    private void TestingSetRound(int round)
     {
         currentRound = Mathf.Clamp(round, 1, maxRoundsPerAct);
     }
 
 
-    public void TestingSetAct(int act)
+    private void TestingSetAct(int act)
     {
         currentAct = Mathf.Clamp(act, 1, maxActs);
+    }
+
+    private void TestingSetActAndRound(int act, int round)
+    {
+        TestingSetAct(act);
+        TestingSetRound(round);
+
+        TestingInitializeMentalHealthEffectsForCurrentAct();
+    }
+
+    private void TestingInitializeMentalHealthEffectsForCurrentAct()
+    {
+
+        if (currentAct == 2)
+        {
+            SolveActTwoMentalHealthEffects();
+        }
+
+        if (currentAct == 3)
+        {
+            SolveActTwoMentalHealthEffects();
+            SolveActThreeMentalHealthEffects();
+        }
     }
 
     #endregion

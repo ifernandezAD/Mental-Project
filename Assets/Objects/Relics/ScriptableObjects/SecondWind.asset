@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Second Wind
   relicDescription: Survives a fatal hit
-  relicArt: {fileID: -4440232420012255624, guid: e486fa54b92042543a7e35baddb97154, type: 3}
+  relicArt: {fileID: -9011174770129062762, guid: c3d377006eefb43469761811584da523, type: 3}
   index: 3

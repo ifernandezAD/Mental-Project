@@ -15,5 +15,5 @@ MonoBehaviour:
   relicName: The Last Effort
   relicDescription: The first time thep layer is about to die, revive with half of
     your maximum health.
-  relicArt: {fileID: 1075035293639349628, guid: 2d738b9355e4fd746819cca5f1043907, type: 3}
+  relicArt: {fileID: 4532322339956459385, guid: c3d377006eefb43469761811584da523, type: 3}
   index: 0

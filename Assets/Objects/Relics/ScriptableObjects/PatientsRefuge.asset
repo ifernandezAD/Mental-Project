@@ -15,5 +15,5 @@ MonoBehaviour:
   relicName: Patient's Refuge
   relicDescription: If you don't play any attack symbols in a turn, gain 1 extra
     point of Stamina
-  relicArt: {fileID: 7675578376448764368, guid: 611ab9493b4682a4e81fdf22a83aa542, type: 3}
+  relicArt: {fileID: 4313217859084919590, guid: 994a93c6003981341a145a47a5559ceb, type: 3}
   index: 2

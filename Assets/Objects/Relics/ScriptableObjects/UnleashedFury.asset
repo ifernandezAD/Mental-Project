@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Unleashed Fury
   relicDescription: When playing 3 attack symbols in one turn, gain 1 point of Stamina
-  relicArt: {fileID: 2441494145189079358, guid: 721778c261646504f89f038c872325e4, type: 3}
+  relicArt: {fileID: 9144556046407082873, guid: c3d377006eefb43469761811584da523, type: 3}
   index: 4

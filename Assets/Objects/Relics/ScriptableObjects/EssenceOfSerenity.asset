@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Essence of Serenity
   relicDescription: Recover 1 point of health after every event
-  relicArt: {fileID: 6787115906689368469, guid: c115f3547d9175b44b15848c75f0f32e, type: 3}
+  relicArt: {fileID: 3082168775035992411, guid: 994a93c6003981341a145a47a5559ceb, type: 3}
   index: 1

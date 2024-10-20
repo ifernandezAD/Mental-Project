@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Adversity Shield
   relicDescription: Each time you lose 1 point of health, gain 1 point of Resilience
-  relicArt: {fileID: -1164505125680107674, guid: 44158eaa0c3c67342ac1e72d586c8906, type: 3}
+  relicArt: {fileID: 7710093030765516367, guid: 7bed25f09e8322b419b8fac5138acd4b, type: 3}
   index: 0

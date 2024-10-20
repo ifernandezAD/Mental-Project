@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicName: Infinite Whirl
   relicDescription: Gain an extra roller spin
-  relicArt: {fileID: 4804129713715688978, guid: 7fdf718f5b88b154a8600a11de6e20af, type: 3}
+  relicArt: {fileID: 4260423065879606059, guid: 994a93c6003981341a145a47a5559ceb, type: 3}
   index: 0

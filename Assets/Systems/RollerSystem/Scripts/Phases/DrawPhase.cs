@@ -7,6 +7,11 @@ public class DrawPhase : Phase
     [SerializeField] GameObject[] act1EnemyCardsArray;
     [SerializeField] GameObject[] act2EnemyCardsArray;
     [SerializeField] GameObject[] act3EnemyCardsArray;
+
+    [Header("Boss Cards Variables")]
+    [SerializeField] GameObject[] act1BossParts; 
+    [SerializeField] GameObject[] act2BossParts; 
+    [SerializeField] GameObject[] act3BossParts; 
     [SerializeField] GameObject testingBossPrefab;
 
     [Header("Game Events Variables")]

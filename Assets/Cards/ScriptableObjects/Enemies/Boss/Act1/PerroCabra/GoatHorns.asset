@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436c014c9944e948be009ecc0b3ea68, type: 3}
+  m_Name: GoatHorns
+  m_EditorClassIdentifier: 
+  cardType: 2
+  cardName: GoatHorns
+  art: {fileID: 2819991420628118339, guid: 6aa97be5cd37496499e6c3cb79a0af58, type: 3}
+  maxHealth: 5
+  staminaCost: 0
+  skillName: Horns Attack
+  skillDescription: Do Sumething
+  attack: 2
+  isBoss: 1

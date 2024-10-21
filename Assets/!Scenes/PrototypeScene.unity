@@ -136,6 +136,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: symbolTypes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: 'allyArray.Array.data[0]'
       value: 
       objectReference: {fileID: 2042040212543849362, guid: 5448cedb8f4c46d4a8d5d3fd336e8914, type: 3}
@@ -150,6 +154,30 @@ PrefabInstance:
     - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: relicsPrefabs.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: symbolPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolTypes.Array.data[0]'
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolTypes.Array.data[1]'
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolTypes.Array.data[2]'
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolTypes.Array.data[3]'
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolTypes.Array.data[4]'
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: 'relicsPrefabs.Array.data[0]'
@@ -171,6 +199,26 @@ PrefabInstance:
       propertyPath: 'relicsPrefabs.Array.data[4]'
       value: 
       objectReference: {fileID: 7063473983518597042, guid: 9f85ee0229293c44fbb1e14ebaf8be7c, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: 35a1d47706e2b804eac6d5125fea275f, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: fcc133779f6b3cd4fa838277481ce4db, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: 27f33645b23ecf24d9ea89fdf69b68ef, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolPrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: 777fc223d0746e945934f9119e574cd8, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'symbolPrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3924023272180707825, guid: 2e5408df5b261b24d911042cceb86fa1, type: 3}
     - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: consumablePrefabs.Array.size
       value: 5

@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.U2D.IK;
 
 public class EnableTestingGameSettings : MonoBehaviour
 {
     [SerializeField] GameObject[] allyArray;
     [SerializeField] GameObject[] consumablePrefabs;
     [SerializeField] GameObject[] relicsPrefabs;
+    [SerializeField] GameObject[] symbolPrefabs;
+    [SerializeField] ImageType[] symbolTypes;
     private Transform allyContainer;
     private Transform consumableContainer;
     private Transform relicContainer;
-
 
     void Awake()
     {
@@ -24,6 +26,7 @@ public class EnableTestingGameSettings : MonoBehaviour
         TestingInstantiateAllies();
         TestingInstantiateConsumables();
         TestingInstantiateRelics();
+        TestingInstantiateSymbols();
     }
 
     private void TestingInstantiateAllies()
@@ -74,25 +77,51 @@ public class EnableTestingGameSettings : MonoBehaviour
     }
 
     private void TestingInstantiateRelics()
-{
-    int numberOfRelics = PlayerPrefs.GetInt("Testing_Relics", 0);  
+    {
+        int numberOfRelics = PlayerPrefs.GetInt("Testing_Relics", 0);
 
-    
-    numberOfRelics = Mathf.Clamp(numberOfRelics, 0, relicsPrefabs.Length);
+
+        numberOfRelics = Mathf.Clamp(numberOfRelics, 0, relicsPrefabs.Length);
+
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < relicsPrefabs.Length; i++)
+        {
+            availableIndices.Add(i);
+        }
+
+        for (int i = 0; i < numberOfRelics; i++)
+        {
+            int randomIndex = Random.Range(0, availableIndices.Count);
+            int selectedRelicIndex = availableIndices[randomIndex];
+
+
+            GameObject relicObject = Instantiate(relicsPrefabs[selectedRelicIndex], relicContainer);
+
+            availableIndices.RemoveAt(randomIndex);
+        }
+    }
+
+    private void TestingInstantiateSymbols()
+{
+    int numberOfSymbols = PlayerPrefs.GetInt("Testing_Symbols", 0);
+
+    numberOfSymbols = Mathf.Clamp(numberOfSymbols, 0, consumablePrefabs.Length); 
+
+
 
     List<int> availableIndices = new List<int>();
-    for (int i = 0; i < relicsPrefabs.Length; i++)
+    for (int i = 0; i < symbolPrefabs.Length; i++)
     {
         availableIndices.Add(i);
     }
 
-    for (int i = 0; i < numberOfRelics; i++)
+    for (int i = 0; i < numberOfSymbols; i++)
     {
         int randomIndex = Random.Range(0, availableIndices.Count);
-        int selectedRelicIndex = availableIndices[randomIndex];
+        int selectedSymbolIndex = availableIndices[randomIndex];
 
-
-        GameObject relicObject = Instantiate(relicsPrefabs[selectedRelicIndex], relicContainer);
+        
+        Roller.instance.AddImagePrefab(symbolTypes[selectedSymbolIndex], symbolPrefabs[selectedSymbolIndex]);
 
         availableIndices.RemoveAt(randomIndex);
     }

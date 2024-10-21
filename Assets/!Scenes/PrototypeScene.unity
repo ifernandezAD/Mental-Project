@@ -131,6 +131,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayCommons
       objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: allyArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2042040212543849362, guid: 5448cedb8f4c46d4a8d5d3fd336e8914, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2042040212543849362, guid: 68ce07289fbfd8d41899b83fcfd862bb, type: 3}
+    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'allyArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2042040212543849362, guid: ec09a0fb0db714143ac3963891190fc1, type: 3}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

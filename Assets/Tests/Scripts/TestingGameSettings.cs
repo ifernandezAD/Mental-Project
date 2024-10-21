@@ -10,38 +10,41 @@ public class TestingGameSettings : MonoBehaviour
     [SerializeField] TMP_InputField alliesInputField; 
     [SerializeField] TMP_InputField consumablesInputField; 
     [SerializeField] TMP_InputField relicsInputField; 
-     [SerializeField] TMP_InputField symbolsInputField; 
+    [SerializeField] TMP_InputField symbolsInputField; 
 
- public void StartGameWithTesting()
+    public void StartGameWithTesting()
     {
-        int selectedAct = int.Parse(actInputField.text);
-        int selectedRound = int.Parse(roundInputField.text);
+        int selectedAct = TryParseInputField(actInputField, 0);
+        int selectedRound = TryParseInputField(roundInputField, 0);
         PlayerPrefs.SetInt("Testing_Act", selectedAct);
         PlayerPrefs.SetInt("Testing_Round", selectedRound);
 
-        
-        int selectedCharacter = int.Parse(characterInputField.text);
+        int selectedCharacter = TryParseInputField(characterInputField, 0);
         PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
 
-        
-        int numberOfConsumables = int.Parse(consumablesInputField.text);
+            int numberOfAllies = TryParseInputField(alliesInputField, 0); 
+        PlayerPrefs.SetInt("Testing_Allies", numberOfAllies); 
+
+        int numberOfConsumables = TryParseInputField(consumablesInputField, 0);
         PlayerPrefs.SetInt("Testing_Consumables", numberOfConsumables);
 
-        
-        int numberOfRelics = int.Parse(relicsInputField.text);
+        int numberOfRelics = TryParseInputField(relicsInputField, 0);
         PlayerPrefs.SetInt("Testing_Relics", numberOfRelics);
 
-        int numberOfSymbols = int.Parse(symbolsInputField.text);
+        int numberOfSymbols = TryParseInputField(symbolsInputField, 0);
         PlayerPrefs.SetInt("Testing_Symbols", numberOfSymbols);
-
-        
-        string alliesToSpawn = alliesInputField.text;
-        PlayerPrefs.SetString("Testing_Allies", alliesToSpawn);
 
         PlayerPrefs.Save();
 
-    
         LoadingScreen.LoadScene(sceneToLoad);
     }
 
+    private int TryParseInputField(TMP_InputField inputField, int defaultValue)
+    {
+        if (int.TryParse(inputField.text, out int result))
+        {
+            return result;
+        }
+        return defaultValue; 
+    }
 }

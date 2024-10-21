@@ -1588,7 +1588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &438442633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 481430515}
   - component: {fileID: 481430514}
   m_Layer: 5
-  m_Name: ActInputField
+  m_Name: CharacterInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3732,11 +3732,11 @@ MonoBehaviour:
   sceneToLoad: PrototypeScene
   actInputField: {fileID: 1049214630}
   roundInputField: {fileID: 1703174605}
-  characterInputField: {fileID: 0}
-  alliesInputField: {fileID: 0}
-  consumablesInputField: {fileID: 0}
-  relicsInputField: {fileID: 0}
-  symbolsInputField: {fileID: 0}
+  characterInputField: {fileID: 481430514}
+  alliesInputField: {fileID: 1380732379}
+  consumablesInputField: {fileID: 1353122322}
+  relicsInputField: {fileID: 1864169816}
+  symbolsInputField: {fileID: 1910945868}
 --- !u!1 &1128313155
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 1353122323}
   - component: {fileID: 1353122322}
   m_Layer: 5
-  m_Name: ActInputField
+  m_Name: ConsumableInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5090,7 +5090,7 @@ GameObject:
   - component: {fileID: 1380732380}
   - component: {fileID: 1380732379}
   m_Layer: 5
-  m_Name: RoundnputField
+  m_Name: AlliesInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6694,7 +6694,7 @@ GameObject:
   - component: {fileID: 1864169817}
   - component: {fileID: 1864169816}
   m_Layer: 5
-  m_Name: RoundnputField
+  m_Name: RelicInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6872,7 +6872,7 @@ GameObject:
   - component: {fileID: 1910945869}
   - component: {fileID: 1910945868}
   m_Layer: 5
-  m_Name: RoundnputField
+  m_Name: SymbolInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7386,7 +7386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2067576591
 RectTransform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AllyEvent : MonoBehaviour
 {
+    public static AllyEvent instance { get; private set; }
+
     [SerializeField] Card[] alliesPool;
     [SerializeField] GameObject[] allyArray;
     [SerializeField] GameObject allyTemplate;
@@ -15,6 +17,8 @@ public class AllyEvent : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         remainingAllies = new List<GameObject>(allyArray);
         remainingAllyCards = new List<Card>(alliesPool);
         allyContainer = GameLogic.instance.allyContainer;

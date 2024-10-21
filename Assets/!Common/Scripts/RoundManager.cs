@@ -45,8 +45,6 @@ public class RoundManager : MonoBehaviour
 
     void Start()
     {
-        LoadTestingPreferences(); //Testing
-
         phaseText.gameObject.SetActive(false);
 
         SolveActOneMentalHealthEffects();
@@ -193,14 +191,7 @@ public class RoundManager : MonoBehaviour
 
     #region Testing
 
-    private void SaveTestingPreferences(int act, int round)
-    {
-        PlayerPrefs.SetInt("Testing_Act", act);
-        PlayerPrefs.SetInt("Testing_Round", round);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadTestingPreferences()
+    public void LoadTestingRoundManagerPreferences()
     {
         int savedAct = PlayerPrefs.GetInt("Testing_Act", 1);
         int savedRound = PlayerPrefs.GetInt("Testing_Round", 1);
@@ -211,6 +202,13 @@ public class RoundManager : MonoBehaviour
         TestingSetActAndRound(savedAct, savedRound);
 
         Debug.Log($"Iniciando en Acto: {savedAct}, Ronda: {savedRound}");
+    }
+
+    private void SaveTestingPreferences(int act, int round)
+    {
+        PlayerPrefs.SetInt("Testing_Act", act);
+        PlayerPrefs.SetInt("Testing_Round", round);
+        PlayerPrefs.Save();
     }
 
     private void TestingSetRound(int round)

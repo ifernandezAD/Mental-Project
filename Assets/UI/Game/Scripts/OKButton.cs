@@ -29,15 +29,17 @@ public class OKButton : MonoBehaviour
 
     private void DisableAndLaunchEvent()
     {
-        button.interactable = false;
-        onOKButtonPressed?.Invoke();
-
-        if(bossDefeated)
+        if (bossDefeated)
         {
-            Debug.Log("Boss Defeated");
             PlayerPhase.instance.StartNextActWithDelay();
             PlayerPhase.instance.ResetBossPartsCount();
-            bossDefeated=false;
+            bossDefeated = false;
+            button.interactable = false;
+        }
+        else
+        {
+            button.interactable = false;
+            onOKButtonPressed?.Invoke();
         }
     }
 
@@ -73,6 +75,6 @@ public class OKButton : MonoBehaviour
 
     public void ActivateBossDefeated()
     {
-        bossDefeated =true;
+        bossDefeated = true;
     }
 }

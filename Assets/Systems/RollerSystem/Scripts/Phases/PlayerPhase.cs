@@ -4,11 +4,18 @@ using UnityEngine.UI;
 
 public class PlayerPhase : Phase
 {
+    public static PlayerPhase instance;
     [SerializeField] Button okButton;
     public static Action onPlayerPhaseEnded;
     public static Action onPlayerPhaseBegin;
 
     [SerializeField] int bossPartsDefeatedCount = 0;
+
+    protected override void InternalAwake()
+    {
+        base.InternalAwake();
+        instance=this;
+    }
 
     protected override void InternalOnEnable()
     {
@@ -30,9 +37,14 @@ public class PlayerPhase : Phase
 
         if (bossPartsDefeatedCount >= 3)
         {
-            StartNextActWithDelay();
-            bossPartsDefeatedCount = 0;
+            okButton.interactable = true; 
+            okButton.GetComponent<OKButton>().ActivateBossDefeated();
         }
+    }
+
+    public void ResetBossPartsCount()
+    {
+        bossPartsDefeatedCount=0;
     }
 
     protected override void InternalOnDisable()

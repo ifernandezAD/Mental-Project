@@ -77,7 +77,7 @@ public abstract class Phase : MonoBehaviour
         yield return new WaitForSeconds(nextPhaseDelay);
         RoundManager.instance.StartNextRound();
     }
-    protected void StartNextActWithDelay()
+    public void StartNextActWithDelay()
     {
         StartCoroutine(StartNextActWithDelayCorroutine());
     }

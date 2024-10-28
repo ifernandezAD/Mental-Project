@@ -7,7 +7,9 @@ public class OKButton : MonoBehaviour
 {
     private Button button;
     private bool isOutOfEnergy;
+    private bool bossDefeated;
     public static Action onOKButtonPressed;
+
 
     void Awake()
     {
@@ -29,6 +31,14 @@ public class OKButton : MonoBehaviour
     {
         button.interactable = false;
         onOKButtonPressed?.Invoke();
+
+        if(bossDefeated)
+        {
+            Debug.Log("Boss Defeated");
+            PlayerPhase.instance.StartNextActWithDelay();
+            PlayerPhase.instance.ResetBossPartsCount();
+            bossDefeated=false;
+        }
     }
 
     private void DisableAndLaunchEventWithoutEnergy()
@@ -59,5 +69,10 @@ public class OKButton : MonoBehaviour
     {
         RollButton.onRoll -= EnableButton;
         Energy.onOutOfEnergy -= DisableAndLaunchEventWithoutEnergy;
+    }
+
+    public void ActivateBossDefeated()
+    {
+        bossDefeated =true;
     }
 }

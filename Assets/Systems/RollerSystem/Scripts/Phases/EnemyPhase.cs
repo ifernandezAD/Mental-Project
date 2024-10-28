@@ -19,6 +19,7 @@ public class EnemyPhase : Phase
 
         if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp)||HasBossCard(enemyContainerDown))
         {
+            Debug.Log("Boss new round started");
             StartRollerPhaseWithDelay();
             return;
         }

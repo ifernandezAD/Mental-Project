@@ -74,7 +74,7 @@ public class Health : MonoBehaviour
         int damageAfterResilience = Mathf.Max(0, damage - resilience);
         resilience = Mathf.Max(0, resilience - damage);
         UpdateResilienceText();
-        
+
         return damageAfterResilience;
     }
 
@@ -83,10 +83,10 @@ public class Health : MonoBehaviour
         if (effectiveDamage > 0)
         {
             onDirectDamage?.Invoke(this);
-            
+
             if (gainResilienceOnLostHealth)
             {
-                AddResilience(1); 
+                AddResilience(1);
             }
         }
 
@@ -101,7 +101,7 @@ public class Health : MonoBehaviour
     {
         if (canSurviveLethalHit && !hasUsedLethalSurvival)
         {
-            currentLives = 1; 
+            currentLives = 1;
             hasUsedLethalSurvival = true;
             UpdateLivesText();
         }
@@ -111,7 +111,7 @@ public class Health : MonoBehaviour
     {
         if (canReviveWithHalfLife && !hasRevived)
         {
-            currentLives = Mathf.CeilToInt(maxLives / 2f); 
+            currentLives = Mathf.CeilToInt(maxLives / 2f);
             hasRevived = true;
             UpdateLivesText();
         }
@@ -157,6 +157,7 @@ public class Health : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
 
     private void ManageCharacterCardDeath()
     {

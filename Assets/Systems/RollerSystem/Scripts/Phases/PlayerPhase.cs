@@ -39,7 +39,7 @@ public class PlayerPhase : Phase
     {
         base.InternalOnDisable();
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
-        Health.onBossDefeated -= StartNextActWithDelay;
+        Health.onBossDefeated -= CountBossPartDefeat;
 
         okButton.interactable = false;
         BubblesManager.instance.DestroyAllBubbles();

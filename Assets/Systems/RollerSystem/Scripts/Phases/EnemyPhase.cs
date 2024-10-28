@@ -9,7 +9,7 @@ public class EnemyPhase : Phase
     {
         characterHealth = characterCardContainer.GetChild(0).GetComponent<Health>();
 
-        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount==0)
         {
             StartNextPhaseWithDelay();
             return;
@@ -17,7 +17,7 @@ public class EnemyPhase : Phase
 
         ManageMentalHealthDamageApplied();
 
-        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp))
+        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp)||HasBossCard(enemyContainerDown))
         {
             StartRollerPhaseWithDelay();
             return;

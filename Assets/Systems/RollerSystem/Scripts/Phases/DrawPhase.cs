@@ -107,18 +107,22 @@ public class DrawPhase : Phase
         {
             Instantiate(enemyCard, enemyContainerFront);
         }
-
-        else if (enemyContainerBack.childCount < 2)
+        else if (enemyContainerUp.childCount == 0)
         {
-            Instantiate(enemyCard, enemyContainerBack);
+            Instantiate(enemyCard, enemyContainerUp);
+        }
+        else if (enemyContainerDown.childCount == 0)
+        {
+            Instantiate(enemyCard, enemyContainerDown);
         }
         else
         {
-            Debug.LogWarning("Ambos contenedores de enemigos están llenos.");
+            Debug.LogWarning("Todos los contenedores de enemigos están llenos.");
         }
 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
+
 
     private void ClearEnemyCardContainer()
     {
@@ -127,7 +131,7 @@ public class DrawPhase : Phase
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in enemyContainerBack)
+        foreach (Transform child in enemyContainerUp)
         {
             Destroy(child.gameObject);
         }
@@ -146,12 +150,14 @@ public class DrawPhase : Phase
 
         if (bossParts != null)
         {
-            Instantiate(bossParts[0], enemyContainerFront);
+            if (bossParts.Length > 0)
+                Instantiate(bossParts[0], enemyContainerFront);
 
-            for (int i = 1; i < bossParts.Length; i++)
-            {
-                Instantiate(bossParts[i], enemyContainerBack);
-            }
+            if (bossParts.Length > 1)
+                Instantiate(bossParts[1], enemyContainerUp);
+
+            if (bossParts.Length > 2)
+                Instantiate(bossParts[2], enemyContainerDown);
         }
 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
@@ -180,7 +186,7 @@ public class DrawPhase : Phase
 
     private void OnEventButtonPressed()
     {
-        if (enemyContainerFront.childCount == 0 && enemyContainerBack.childCount == 0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0)
         {
             StartNextRoundWithDelay();
             return;

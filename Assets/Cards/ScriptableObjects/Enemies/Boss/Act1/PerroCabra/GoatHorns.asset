@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 2
   cardName: GoatHorns
   art: {fileID: 2819991420628118339, guid: 6aa97be5cd37496499e6c3cb79a0af58, type: 3}
-  maxHealth: 5
+  maxHealth: 3
   staminaCost: 0
   skillName: Horns Attack
   skillDescription: Do Sumething

@@ -11,7 +11,8 @@ public class RoundManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public Transform enemyContainerFront;
-    [SerializeField] public Transform enemyContainerBack;
+    [SerializeField] public Transform enemyContainerUp;
+    [SerializeField] public Transform enemyContainerDown;
     [SerializeField] public Transform characterCardContainer;
     [SerializeField] public Transform allyCardContainer;
 

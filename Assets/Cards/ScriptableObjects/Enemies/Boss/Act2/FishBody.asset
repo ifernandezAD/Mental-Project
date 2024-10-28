@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d436c014c9944e948be009ecc0b3ea68, type: 3}
-  m_Name: GoatTail
+  m_Name: FishBody
   m_EditorClassIdentifier: 
   cardType: 2
-  cardName: GoatTail
-  art: {fileID: 8407233646922414516, guid: 8640ce3d78d495741b181b64708bee5c, type: 3}
+  cardName: FishBody
+  art: {fileID: -7988263916890279925, guid: 0d7ed40cd7e336146b63343dece9a533, type: 3}
   maxHealth: 1
   staminaCost: 0
   skillName: Body Attack

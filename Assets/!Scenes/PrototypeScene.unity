@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,6 +175,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: act2BossParts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'act2BossParts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 979068888095191372, guid: 433285a9cc3d2f2419735b3c39966b76, type: 3}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'act2BossParts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8160494481476009246, guid: 69be229505b95f94389319712a72240e, type: 3}
+    - target: {fileID: 8240592582235315514, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: 'act2BossParts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4195074657626742241, guid: 6fb8c9696b659df4eb51c1131ea67d9b, type: 3}
     - target: {fileID: 8702867741352744536, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: enemyContainerUp
       value: 

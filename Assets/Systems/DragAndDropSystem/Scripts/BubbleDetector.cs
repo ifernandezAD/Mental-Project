@@ -42,7 +42,7 @@ public class BubbleDetector : MonoBehaviour
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
                 health.AddResilience(multiplier);
-                Destroy(button.gameObject);
+                button.GetComponent<Bubble>().DestroyBubbleOnCardContact();
             }
         }
 
@@ -52,7 +52,7 @@ public class BubbleDetector : MonoBehaviour
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
                 skill.IncreaseStamina(multiplier);
-                Destroy(button.gameObject);
+                button.GetComponent<Bubble>().DestroyBubbleOnCardContact();
             }
         }
 
@@ -61,7 +61,7 @@ public class BubbleDetector : MonoBehaviour
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
                 health.AddHealth(multiplier);
-                Destroy(button.gameObject);
+                button.GetComponent<Bubble>().DestroyBubbleOnCardContact();
             }
         }
 
@@ -70,7 +70,7 @@ public class BubbleDetector : MonoBehaviour
             if (card.cardType == Card.CardType.Enemy)
             {
                 combatBehaviour.DebuffAttack(multiplier);
-                Destroy(button.gameObject);
+                button.GetComponent<Bubble>().DestroyBubbleOnCardContact();
             }
         }
     }

@@ -25,11 +25,15 @@ public class Bubble : MonoBehaviour
 
     [Header("Fusion Control")]
     [SerializeField] private float fusionCooldown = 0.5f;
+    private bool fusionReady = true;
 
     [Header("Particles")]
-    [SerializeField] private GameObject cardParticleEffect;
+    [SerializeField] private GameObject particleContainer;
     [SerializeField] private GameObject visuals;
-    private bool fusionReady = true;
+    [SerializeField] private Collider2D bubbleCollider;
+    private GameObject cloneParticleEffect;
+    private GameObject inGameParticleEffect;
+    
 
     void Awake()
     {
@@ -40,6 +44,8 @@ public class Bubble : MonoBehaviour
     void Start()
     {
         fusionReady = true;
+        cloneParticleEffect = particleContainer.transform.GetChild(0).gameObject;
+        inGameParticleEffect = particleContainer.transform.GetChild(1).gameObject;
     }
 
     #region Setters
@@ -92,9 +98,11 @@ public class Bubble : MonoBehaviour
     }
     public void DestroyBubbleOnCardContact()
     {
-        if (cardParticleEffect != null)
+        bubbleCollider.enabled=false;
+
+        if (inGameParticleEffect != null)
         {
-            cardParticleEffect.SetActive(true);
+            inGameParticleEffect.SetActive(true);
         }
 
         visuals.SetActive(false);

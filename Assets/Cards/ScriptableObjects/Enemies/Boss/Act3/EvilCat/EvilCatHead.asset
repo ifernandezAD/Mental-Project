@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: EvilCatHead
   art: {fileID: -6278635695234855344, guid: 1e3023e7de9451e44b3da830c98d4388, type: 3}
-  maxHealth: 1
+  maxHealth: 3
   staminaCost: 0
   skillName: Horns Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 3
   isBoss: 1

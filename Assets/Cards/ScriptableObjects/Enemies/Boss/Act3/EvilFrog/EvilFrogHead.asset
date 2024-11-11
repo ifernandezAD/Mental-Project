@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: EvilFrogHead
   art: {fileID: 4542868237754411182, guid: 16e1652225346304c9111409bcf8ca8f, type: 3}
-  maxHealth: 1
+  maxHealth: 3
   staminaCost: 0
   skillName: Horns Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 3
   isBoss: 1

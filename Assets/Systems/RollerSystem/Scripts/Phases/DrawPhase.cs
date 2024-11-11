@@ -11,7 +11,9 @@ public class DrawPhase : Phase
     [Header("Boss Cards Variables")]
     [SerializeField] GameObject[] act1BossParts;
     [SerializeField] GameObject[] act2BossParts;
-    [SerializeField] GameObject[] act3BossParts;
+    [SerializeField] GameObject[] act3Boss0;
+    [SerializeField] GameObject[] act3Boss1;
+    [SerializeField] GameObject[] act3Boss2;
     [SerializeField] GameObject testingBossPrefab;
 
     [Header("Game Events Variables")]
@@ -139,12 +141,13 @@ public class DrawPhase : Phase
 
     private void DrawBossCard()
     {
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
         int actNumber = RoundManager.instance.GetCurrentAct();
         GameObject[] bossParts = actNumber switch
         {
             1 => act1BossParts,
             2 => act2BossParts,
-            3 => act3BossParts,
+            3 => GetAct3BossParts(selectedCharacterIndex),
             _ => null
         };
 
@@ -162,6 +165,17 @@ public class DrawPhase : Phase
 
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
     }
+
+    private GameObject[] GetAct3BossParts(int index)
+{
+    return index switch
+    {
+        0 => act3Boss0,
+        1 => act3Boss1,
+        2 => act3Boss2,
+        _ => act3Boss0 
+    };
+}
 
 
     private void DrawEvent()

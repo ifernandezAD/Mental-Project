@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: FishBody
   art: {fileID: -7988263916890279925, guid: 0d7ed40cd7e336146b63343dece9a533, type: 3}
-  maxHealth: 1
+  maxHealth: 2
   staminaCost: 0
   skillName: Body Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 2
   isBoss: 1

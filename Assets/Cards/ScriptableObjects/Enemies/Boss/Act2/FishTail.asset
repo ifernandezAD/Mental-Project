@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: FishTail
   art: {fileID: -863515234952368668, guid: 1659f78a1f0abbc429bcb73bd2f4f05c, type: 3}
-  maxHealth: 1
+  maxHealth: 2
   staminaCost: 0
   skillName: Body Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 2
   isBoss: 1

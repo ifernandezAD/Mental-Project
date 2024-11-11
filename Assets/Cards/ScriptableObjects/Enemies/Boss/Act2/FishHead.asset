@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: FishHead
   art: {fileID: 5984453768814104078, guid: f8a934cc1d6ee444d94b07ea27db30bb, type: 3}
-  maxHealth: 1
+  maxHealth: 2
   staminaCost: 0
   skillName: Horns Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 2
   isBoss: 1

@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: EvilCatBody
   art: {fileID: 6370930181638868744, guid: 8c96c42543e98194980b7fba905a20c0, type: 3}
-  maxHealth: 1
+  maxHealth: 3
   staminaCost: 0
   skillName: Body Attack
   skillDescription: Do Sumething
-  attack: 1
+  attack: 3
   isBoss: 1

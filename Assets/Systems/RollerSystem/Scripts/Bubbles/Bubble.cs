@@ -82,7 +82,7 @@ public class Bubble : MonoBehaviour
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
 
         UpdateMultiplierDisplay();
-        otherBubble.DestroyBubble();
+        otherBubble.DestroyBubbleOnClone();
 
         yield return new WaitForSeconds(fusionCooldown);
         isCombining = false;
@@ -91,11 +91,22 @@ public class Bubble : MonoBehaviour
     #endregion
 
     #region Bubble Management
-    public void DestroyBubble()
+public void DestroyBubbleOnClone()
+{
+    if (cloneParticleEffect != null)
     {
-        hasCombined = true;
-        Destroy(gameObject);
+        cloneParticleEffect.SetActive(true); 
     }
+
+    visuals.SetActive(false); 
+
+    bubbleCollider.enabled = false; 
+
+    DOVirtual.DelayedCall(1f, () =>
+    {
+        Destroy(gameObject); 
+    });
+}
     public void DestroyBubbleOnCardContact()
     {
         bubbleCollider.enabled=false;

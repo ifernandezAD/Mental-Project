@@ -17,7 +17,7 @@ public class CloneBubble : Bubble
             else if (!hasCloned)  
             {
                 CloneOtherBubble(otherBubble.gameObject);
-                DestroyBubble();  
+                DestroyBubbleOnClone();  
                 hasCloned = true;
             }
         }

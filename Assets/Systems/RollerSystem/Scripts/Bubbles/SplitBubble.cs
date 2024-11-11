@@ -14,8 +14,8 @@ public class SplitBubble : Bubble
             else if (otherBubble.bubbleMultiplier > 1) 
             {
                 SplitBubbleIntoBasics(otherBubble);
-                otherBubble.DestroyBubble(); 
-                DestroyBubble();
+                otherBubble.DestroyBubbleOnClone(); 
+                DestroyBubbleOnClone();
             }
         }
     }

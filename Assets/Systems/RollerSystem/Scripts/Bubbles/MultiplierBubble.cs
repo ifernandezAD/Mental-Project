@@ -13,7 +13,7 @@ public class MultiplierBubble : Bubble
             else
             {
                 IncreaseMultiplier(otherBubble);
-                DestroyBubble(); 
+                DestroyBubbleOnClone(); 
             }
         }
     }

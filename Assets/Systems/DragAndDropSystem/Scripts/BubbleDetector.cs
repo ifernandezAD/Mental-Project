@@ -31,7 +31,8 @@ public class BubbleDetector : MonoBehaviour
             {
                 combatBehaviour.Defense(multiplier);
                 onSwordUsed?.Invoke();
-                Destroy(button.gameObject);
+
+                button.GetComponent<Bubble>().DestroyBubbleOnCardContact();
             }
         }
 

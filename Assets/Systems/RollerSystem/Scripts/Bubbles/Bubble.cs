@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Bubble : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Bubble : MonoBehaviour
     [Header("Bubble Properties")]
     public int bubbleMultiplier { get; private set; } = 1;
     private bool hasCombined = false;
-    private bool isCombining = false; 
-    private bool isBeingDragged = false;  
-    private bool canInteract = false;     
+    private bool isCombining = false;
+    private bool isBeingDragged = false;
+    private bool canInteract = false;
 
     [Header("Multiplier UI")]
     [SerializeField] private TextMeshProUGUI multiplierText;
@@ -24,6 +25,10 @@ public class Bubble : MonoBehaviour
 
     [Header("Fusion Control")]
     [SerializeField] private float fusionCooldown = 0.5f;
+
+    [Header("Particles")]
+    [SerializeField] private GameObject cardParticleEffect;
+    [SerializeField] private GameObject visuals;
     private bool fusionReady = true;
 
     void Awake()
@@ -41,7 +46,7 @@ public class Bubble : MonoBehaviour
     public void SetBeingDragged(bool state)
     {
         isBeingDragged = state;
-        canInteract = state; // Allow interaction if being dragged
+        canInteract = state;
     }
 
     public void SetFusionReady(bool state)
@@ -53,9 +58,9 @@ public class Bubble : MonoBehaviour
     #region Collision Handling
     public virtual void HandleCollision(Collider2D other)
     {
-        if (other.TryGetComponent<Bubble>(out Bubble otherBubble) && canInteract)  
+        if (other.TryGetComponent<Bubble>(out Bubble otherBubble) && canInteract)
         {
-            if (other.CompareTag(gameObject.tag) && fusionReady && !hasCombined && isBeingDragged)  
+            if (other.CompareTag(gameObject.tag) && fusionReady && !hasCombined && isBeingDragged)
             {
                 StartCoroutine(CombineBubbles(otherBubble));
             }
@@ -82,8 +87,22 @@ public class Bubble : MonoBehaviour
     #region Bubble Management
     public void DestroyBubble()
     {
-        hasCombined = true; 
-        Destroy(gameObject); 
+        hasCombined = true;
+        Destroy(gameObject);
+    }
+    public void DestroyBubbleOnCardContact()
+    {
+        if (cardParticleEffect != null)
+        {
+            cardParticleEffect.SetActive(true);
+        }
+
+        visuals.SetActive(false);
+
+        DOVirtual.DelayedCall(1f, () =>
+   {
+       Destroy(gameObject);
+   });
     }
 
     public void InitializeMultiplier(int multiplier)
@@ -92,7 +111,7 @@ public class Bubble : MonoBehaviour
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
         UpdateMultiplierDisplay();
 
-        canInteract = false;  
+        canInteract = false;
     }
     #endregion
 

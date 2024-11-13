@@ -6,8 +6,8 @@ public class DestroyBubble : Bubble
     {
         if (other.TryGetComponent<Bubble>(out Bubble otherBubble))
         {
-            DestroyBubbleOnClone(); 
-            otherBubble.DestroyBubbleOnClone();
+            DestroyBubble(); 
+            otherBubble.DestroyBubble();
         }
     }
 }

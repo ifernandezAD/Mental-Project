@@ -33,7 +33,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private Collider2D bubbleCollider;
     private GameObject cloneParticleEffect;
     private GameObject inGameParticleEffect;
-    
+
 
     void Awake()
     {
@@ -82,7 +82,12 @@ public class Bubble : MonoBehaviour
         rectTransform.localScale = Vector3.one * (1 + growthFactor * bubbleMultiplier);
 
         UpdateMultiplierDisplay();
-        otherBubble.DestroyBubbleOnClone();
+        otherBubble.DestroyBubble();
+
+        if (cloneParticleEffect != null)
+        {
+            cloneParticleEffect.SetActive(true);
+        }
 
         yield return new WaitForSeconds(fusionCooldown);
         isCombining = false;
@@ -91,25 +96,20 @@ public class Bubble : MonoBehaviour
     #endregion
 
     #region Bubble Management
-public void DestroyBubbleOnClone()
-{
-    if (cloneParticleEffect != null)
+    public void DestroyBubble()
     {
-        cloneParticleEffect.SetActive(true); 
+        visuals.SetActive(false);
+
+        bubbleCollider.enabled = false;
+
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            Destroy(gameObject);
+        });
     }
-
-    visuals.SetActive(false); 
-
-    bubbleCollider.enabled = false; 
-
-    DOVirtual.DelayedCall(1f, () =>
-    {
-        Destroy(gameObject); 
-    });
-}
     public void DestroyBubbleOnCardContact()
     {
-        bubbleCollider.enabled=false;
+        bubbleCollider.enabled = false;
 
         if (inGameParticleEffect != null)
         {

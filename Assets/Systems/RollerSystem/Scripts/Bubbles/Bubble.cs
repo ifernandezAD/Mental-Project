@@ -83,20 +83,34 @@ public class Bubble : MonoBehaviour
 
         UpdateMultiplierDisplay();
         otherBubble.DestroyBubble();
-
-        if (cloneParticleEffect != null)
-        {
-            cloneParticleEffect.SetActive(true);
-            DOVirtual.DelayedCall(0.5f, () =>
-      {
-          cloneParticleEffect.SetActive(false);
-      });
-        }
+        StartCoroutine(ActivateCloneParticleEffect());
 
         yield return new WaitForSeconds(fusionCooldown);
         isCombining = false;
         fusionReady = true;
     }
+
+    private IEnumerator ActivateCloneParticleEffect()
+    {
+        if (cloneParticleEffect != null)
+        {
+            cloneParticleEffect.transform.localScale = Vector3.zero;
+            cloneParticleEffect.SetActive(true);
+
+            cloneParticleEffect.transform.DOScale(200f, 0.25f)
+                .OnComplete(() =>
+                {
+                    cloneParticleEffect.transform.DOScale(0f, 0.25f)
+                        .OnComplete(() =>
+                        {
+                            cloneParticleEffect.SetActive(false);
+                        });
+                });
+
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
     #endregion
 
     #region Bubble Management

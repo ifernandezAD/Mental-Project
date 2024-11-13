@@ -87,6 +87,10 @@ public class Bubble : MonoBehaviour
         if (cloneParticleEffect != null)
         {
             cloneParticleEffect.SetActive(true);
+            DOVirtual.DelayedCall(0.5f, () =>
+      {
+          cloneParticleEffect.SetActive(false);
+      });
         }
 
         yield return new WaitForSeconds(fusionCooldown);

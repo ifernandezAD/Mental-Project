@@ -13,7 +13,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private bool isReleased = false;
     private bool isBeingDragged = false;
 
-    private bool isOverBubbleDetector = false; // Nueva variable para saber si estamos sobre un BubbleDetector
+    private bool isOverBubbleDetector = false; 
 
     void Awake()
     {
@@ -28,9 +28,8 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         isBeingDragged = true;
         bubble.SetBeingDragged(true);
 
-        // Resetear estado al inicio del arrastre
         isOverBubbleDetector = false;
-        bubbleDetector = null; // Limpiar la referencia del detector
+        bubbleDetector = null; 
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -56,7 +55,6 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         isBeingDragged = false;
         bubble.SetBeingDragged(false);
 
-        // Solo resolver el efecto si la burbuja fue soltada sobre un BubbleDetector
         if (isOverBubbleDetector && bubbleDetector != null)
         {
             bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);
@@ -67,9 +65,8 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
-            // Establecemos que estamos sobre un BubbleDetector
             isOverBubbleDetector = true;
-            // Aseguramos que solo se mantenga la referencia al primer detector
+
             if (bubbleDetector != null)
             {
                 bubbleDetector = other.GetComponent<BubbleDetector>();
@@ -83,7 +80,6 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
-            // Si salimos del BubbleDetector, limpiamos la referencia
             isOverBubbleDetector = false;
             bubbleDetector = null;
         }
@@ -91,18 +87,15 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        // Aquí actualizamos la referencia si estamos sobre un BubbleDetector
         if (other.TryGetComponent<BubbleDetector>(out BubbleDetector newDetector))
         {
             if (newDetector != bubbleDetector)
             {
-                // Si estamos sobre un nuevo detector, actualizamos la referencia
                 bubbleDetector = newDetector;
                 isOverBubbleDetector = true;
             }
         }
 
-        // Solo se debe verificar la acción si la burbuja fue soltada sobre un BubbleDetector
         if (isReleased && isOverBubbleDetector && bubbleDetector != null)
         {
             bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);

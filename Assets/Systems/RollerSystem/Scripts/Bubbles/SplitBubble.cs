@@ -15,7 +15,7 @@ public class SplitBubble : Bubble
             {
                 SplitBubbleIntoBasics(otherBubble);
                 otherBubble.DestroyBubble(); 
-                DestroyBubble();
+                DestroyBubbleWithEffect();
             }
         }
     }

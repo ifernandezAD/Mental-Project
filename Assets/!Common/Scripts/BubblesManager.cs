@@ -17,11 +17,6 @@ public class BubblesManager : MonoBehaviour
         roller = Roller.instance;
     }
 
-    void OnEnable()
-    {
-        PlayerPhase.onPlayerPhaseEnded += EnableLayout;
-    }
-
     private void InstantiateBubble(int bubbleIndex, int multiplier = 1)
     {
         GameObject newBubble = Instantiate(bubbles[bubbleIndex], bubbleContainer);
@@ -78,30 +73,30 @@ public class BubblesManager : MonoBehaviour
 
     public void DestroyAllBubbles()
     {
-        
+        DisableLayout();
+
         foreach (Transform bubble in bubbleContainer)
         {
-            CheckForPoisonBubbles(bubble); 
+            if (bubble.CompareTag("Poison"))
+            {
+                CheckForPoisonBubbles(bubble);
+            }
         }
 
         foreach (Transform bubble in bubbleContainer)
         {
-            if (!bubble.CompareTag("Poison")) 
+            if (!bubble.CompareTag("Poison"))
             {
                 Bubble bubbleClass = bubble.GetComponent<Bubble>();
                 if (bubbleClass != null)
-                {
-                    bubbleClass.DestroyBubbleWithEffect();
-                }
-                else
                 {
                     Destroy(bubble.gameObject);
                 }
             }
         }
+
+        DOVirtual.DelayedCall(1f, EnableLayout);
     }
-
-
 
     private void CheckForPoisonBubbles(Transform bubble)
     {
@@ -213,10 +208,5 @@ public class BubblesManager : MonoBehaviour
     public void DisableLayout()
     {
         bubblesLayout.enabled = false;
-    }
-
-    void OnDisable()
-    {
-        PlayerPhase.onPlayerPhaseEnded -= EnableLayout;
     }
 }

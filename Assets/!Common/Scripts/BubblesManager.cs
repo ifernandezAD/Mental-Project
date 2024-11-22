@@ -14,7 +14,7 @@ public class BubblesManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        roller= Roller.instance;
+        roller = Roller.instance;
     }
 
     void OnEnable()
@@ -43,7 +43,7 @@ public class BubblesManager : MonoBehaviour
 
     public void InstantiateBubbles()
     {
-        roller= Roller.instance;
+        roller = Roller.instance;
         roller.UpdateImageCount();
 
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.Sword), 0);
@@ -59,7 +59,7 @@ public class BubblesManager : MonoBehaviour
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.StaminaPoison), 10);
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.ResiliencePoison), 11);
         InstantiateMultipleBubbles(roller.GetImageCount(ImageType.Health), 12);
- 
+
         InstantiateRandomBubbles();
 
         DOVirtual.DelayedCall(0.5f, DisableLayout);
@@ -78,12 +78,30 @@ public class BubblesManager : MonoBehaviour
 
     public void DestroyAllBubbles()
     {
+        
         foreach (Transform bubble in bubbleContainer)
         {
-            CheckForPoisonBubbles(bubble);
-            Destroy(bubble.gameObject);
+            CheckForPoisonBubbles(bubble); 
+        }
+
+        foreach (Transform bubble in bubbleContainer)
+        {
+            if (!bubble.CompareTag("Poison")) 
+            {
+                Bubble bubbleClass = bubble.GetComponent<Bubble>();
+                if (bubbleClass != null)
+                {
+                    bubbleClass.DestroyBubbleWithEffect();
+                }
+                else
+                {
+                    Destroy(bubble.gameObject);
+                }
+            }
         }
     }
+
+
 
     private void CheckForPoisonBubbles(Transform bubble)
     {
@@ -98,6 +116,8 @@ public class BubblesManager : MonoBehaviour
                 {
                     StatsManager.instance.ApplyDamageToRandomTarget(1);
                 }
+
+                bubbleClass.DestroyBubbleWithEffect();
             }
         }
     }

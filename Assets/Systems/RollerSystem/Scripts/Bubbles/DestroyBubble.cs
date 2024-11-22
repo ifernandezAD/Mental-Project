@@ -6,7 +6,7 @@ public class DestroyBubble : Bubble
     {
         if (other.TryGetComponent<Bubble>(out Bubble otherBubble))
         {
-            DestroyBubble(); 
+            DestroyBubbleWithEffect(); 
             otherBubble.DestroyBubble();
         }
     }

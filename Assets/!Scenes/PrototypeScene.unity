@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: imagePrefabs.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2729882594849084591, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: imagePrefabs.Array.data[3].type

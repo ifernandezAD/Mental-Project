@@ -13,6 +13,8 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private bool isReleased = false;
     private bool isBeingDragged = false;
 
+    private bool isOverBubbleDetector = false; // Nueva variable para saber si estamos sobre un BubbleDetector
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -25,19 +27,25 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         isReleased = false;
         isBeingDragged = true;
         bubble.SetBeingDragged(true);
+
+        // Resetear estado al inicio del arrastre
+        isOverBubbleDetector = false;
+        bubbleDetector = null; // Limpiar la referencia del detector
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 localPoint;
 
-        if(canvas ==null){canvas = GetComponentInParent<Canvas>();}
+        if (canvas == null)
+        {
+            canvas = GetComponentInParent<Canvas>();
+        }
 
         Camera camera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, camera, out localPoint))
         {
-
             rectTransform.localPosition = localPoint;
         }
     }
@@ -48,7 +56,8 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         isBeingDragged = false;
         bubble.SetBeingDragged(false);
 
-        if (bubbleDetector != null)
+        // Solo resolver el efecto si la burbuja fue soltada sobre un BubbleDetector
+        if (isOverBubbleDetector && bubbleDetector != null)
         {
             bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);
         }
@@ -58,16 +67,28 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
-            // BubbleDetector encontrado, se puede usar posteriormente en OnPointerUp
+            // Establecemos que estamos sobre un BubbleDetector
+            isOverBubbleDetector = true;
         }
 
         bubble.HandleCollision(other);
     }
 
-    private void OnTriggerStay2D()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (isReleased && bubbleDetector != null)
+        if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
+            // Si salimos del BubbleDetector, limpiamos la referencia
+            isOverBubbleDetector = false;
+            bubbleDetector = null;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (isReleased && isOverBubbleDetector && bubbleDetector != null)
+        {
+            // Verificamos que estamos sobre el BubbleDetector y lo procesamos al soltar
             bubbleDetector.CheckButtonType(this, bubble.bubbleMultiplier);
         }
     }

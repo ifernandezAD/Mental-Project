@@ -142,6 +142,11 @@ PrefabInstance:
       insertIndex: 4
       addedObject: {fileID: -1498525501541568960}
   m_SourcePrefab: {fileID: 100100000, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+--- !u!58 &2243053018773661324 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7465228856443420586, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2490911547804809260 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6496512948310368522, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
@@ -153,6 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3607819045432247907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5379746083216940869, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4938028785577128888 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4341005794312678046, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
@@ -164,6 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6495142595584921085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2493409825498076379, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
+  m_PrefabInstance: {fileID: 8699053156963784998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7924719241832844722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532205635942700180, guid: c2e1bc19836e20545b6e008916011f1a, type: 3}
@@ -185,3 +200,6 @@ MonoBehaviour:
   multiplierBackground: {fileID: 4938028785577128888}
   growthFactor: 0.2
   fusionCooldown: 0.2
+  particleContainer: {fileID: 6495142595584921085}
+  visuals: {fileID: 3607819045432247907}
+  bubbleCollider: {fileID: 2243053018773661324}

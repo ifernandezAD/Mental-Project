@@ -125,6 +125,34 @@ public class Bubble : MonoBehaviour
             Destroy(gameObject);
         });
     }
+
+    public void DestroyBubbleWithEffect()
+    {
+
+        if (inGameParticleEffect != null)
+        {
+            inGameParticleEffect.transform.localScale = Vector3.zero; 
+            inGameParticleEffect.SetActive(true);
+
+            inGameParticleEffect.transform.DOScale(150f, 0.25f) 
+                .OnComplete(() =>
+                {
+                    inGameParticleEffect.transform.DOScale(0f, 0.25f)
+                        .OnComplete(() =>
+                        {
+                            inGameParticleEffect.SetActive(false); 
+                        });
+                });
+        }
+
+        visuals.SetActive(false); 
+        bubbleCollider.enabled = false; 
+
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            Destroy(gameObject); 
+        });
+    }
     public void DestroyBubbleOnCardContact()
     {
         bubbleCollider.enabled = false;

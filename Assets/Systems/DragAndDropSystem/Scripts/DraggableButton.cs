@@ -67,9 +67,9 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         {
             isOverBubbleDetector = true;
 
-            if (bubbleDetector != null)
+            if (bubbleDetector.ShouldEnableOutline(gameObject.tag))
             {
-                bubbleDetector.EnableOutline(); 
+                bubbleDetector.EnableOutline();
             }
         }
 
@@ -82,7 +82,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         {
             if (bubbleDetector != null)
             {
-                bubbleDetector.DisableOutline(); 
+                bubbleDetector.DisableOutline();
             }
 
             isOverBubbleDetector = false;
@@ -99,7 +99,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
                 bubbleDetector = newDetector;
                 isOverBubbleDetector = true;
 
-                bubbleDetector.EnableOutline(); 
+                bubbleDetector.EnableOutline();
             }
         }
 

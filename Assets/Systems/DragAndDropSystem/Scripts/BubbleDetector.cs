@@ -78,6 +78,23 @@ public class BubbleDetector : MonoBehaviour
         }
     }
 
+    public bool ShouldEnableOutline(string bubbleTag)
+    {
+        if ((bubbleTag == "Attack" || bubbleTag == "DebuffAttack") && card.cardType == Card.CardType.Enemy)
+        {
+            return true;
+        }
+
+        if ((bubbleTag == "Resilience" || bubbleTag == "Stamina" || bubbleTag == "Health") &&
+            (card.cardType == Card.CardType.Character || card.cardType == Card.CardType.Ally))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public void EnableOutline()
     {
         if (outline != null)

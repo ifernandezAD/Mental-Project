@@ -13,7 +13,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     private bool isReleased = false;
     private bool isBeingDragged = false;
 
-    private bool isOverBubbleDetector = false; 
+    private bool isOverBubbleDetector = false;
 
     void Awake()
     {
@@ -29,7 +29,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
         bubble.SetBeingDragged(true);
 
         isOverBubbleDetector = false;
-        bubbleDetector = null; 
+        bubbleDetector = null;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -69,7 +69,7 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
             if (bubbleDetector != null)
             {
-                bubbleDetector = other.GetComponent<BubbleDetector>();
+                bubbleDetector.EnableOutline(); 
             }
         }
 
@@ -80,6 +80,11 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if (other.TryGetComponent<BubbleDetector>(out bubbleDetector))
         {
+            if (bubbleDetector != null)
+            {
+                bubbleDetector.DisableOutline(); 
+            }
+
             isOverBubbleDetector = false;
             bubbleDetector = null;
         }
@@ -93,6 +98,8 @@ public class DraggableButton : MonoBehaviour, IPointerDownHandler, IDragHandler,
             {
                 bubbleDetector = newDetector;
                 isOverBubbleDetector = true;
+
+                bubbleDetector.EnableOutline(); 
             }
         }
 

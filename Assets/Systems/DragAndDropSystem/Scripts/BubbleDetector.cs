@@ -11,6 +11,9 @@ public class BubbleDetector : MonoBehaviour
     [Header("Relics")]
     public static Action onSwordUsed;
 
+    [Header("Visuals")]
+    [SerializeField] private GameObject outline;
+
     void Awake()
     {
         card = GetComponent<CardDisplay>().card;
@@ -56,7 +59,7 @@ public class BubbleDetector : MonoBehaviour
             }
         }
 
-           if (button.gameObject.tag == "Health")
+        if (button.gameObject.tag == "Health")
         {
             if ((card.cardType == Card.CardType.Character) || card.cardType == Card.CardType.Ally)
             {
@@ -74,4 +77,21 @@ public class BubbleDetector : MonoBehaviour
             }
         }
     }
+
+    public void EnableOutline()
+    {
+        if (outline != null)
+        {
+            outline.SetActive(true);
+        }
+    }
+
+    public void DisableOutline()
+    {
+        if (outline != null)
+        {
+            outline.SetActive(false);
+        }
+    }
+
 }

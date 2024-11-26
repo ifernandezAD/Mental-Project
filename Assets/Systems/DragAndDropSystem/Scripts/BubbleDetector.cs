@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BubbleDetector : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class BubbleDetector : MonoBehaviour
     public static Action onSwordUsed;
 
     [Header("Visuals")]
-    [SerializeField] private GameObject outline;
+    [SerializeField] private Outline outlineMain;
+    [SerializeField] private Outline outlineCutout;
 
     void Awake()
     {
@@ -97,18 +99,14 @@ public class BubbleDetector : MonoBehaviour
 
     public void EnableOutline()
     {
-        if (outline != null)
-        {
-            outline.SetActive(true);
-        }
+        outlineMain.enabled=true;
+        outlineCutout.enabled=true;
     }
 
     public void DisableOutline()
     {
-        if (outline != null)
-        {
-            outline.SetActive(false);
-        }
+        outlineMain.enabled=false;
+        outlineCutout.enabled=false;
     }
 
 }

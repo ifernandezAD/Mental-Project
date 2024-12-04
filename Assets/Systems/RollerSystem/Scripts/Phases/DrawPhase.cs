@@ -40,6 +40,8 @@ public class DrawPhase : Phase
 
     protected override void BeginPhase()
     {
+        UIManagement.instance.OpenCurtain();
+
         if (RoundManager.instance.GetCurrentRound() == 1)
         {
             allyDrawnInCurrentAct = false;

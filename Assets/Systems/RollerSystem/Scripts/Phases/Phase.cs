@@ -98,6 +98,6 @@ public abstract class Phase : MonoBehaviour
     private void OnDisable() { InternalOnDisable(); }
     protected virtual void InternalOnDisable()
     {
-
+        
     }
 }

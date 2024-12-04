@@ -11,6 +11,7 @@ public class EnemyPhase : Phase
 
         if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount==0)
         {
+            UIManagement.instance.CloseCurtain();
             StartNextPhaseWithDelay();
             return;
         }
@@ -23,7 +24,8 @@ public class EnemyPhase : Phase
             StartRollerPhaseWithDelay();
             return;
         }
-
+        
+        UIManagement.instance.CloseCurtain();
         StartNextPhaseWithDelay();
     }
 

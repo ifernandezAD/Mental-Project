@@ -36,12 +36,11 @@ public class DrawPhase : Phase
     {
         base.InternalOnEnable();
         EventManager.onEventButtonPressed += OnEventButtonPressed;
+        UIManagement.instance.OpenCurtain();
     }
 
     protected override void BeginPhase()
-    {
-        UIManagement.instance.OpenCurtain();
-
+    {    
         if (RoundManager.instance.GetCurrentRound() == 1)
         {
             allyDrawnInCurrentAct = false;

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyPhase : Phase
 {
@@ -12,7 +13,7 @@ public class EnemyPhase : Phase
         if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount==0)
         {
             UIManagement.instance.CloseCurtain();
-            StartNextPhaseWithDelay();
+            DOVirtual.DelayedCall(1, () =>{StartNextPhaseWithDelay();});    
             return;
         }
 
@@ -24,9 +25,9 @@ public class EnemyPhase : Phase
             StartRollerPhaseWithDelay();
             return;
         }
-        
+
         UIManagement.instance.CloseCurtain();
-        StartNextPhaseWithDelay();
+        DOVirtual.DelayedCall(1, () =>{StartNextPhaseWithDelay();}); 
     }
 
     private void ManageMentalHealthDamageApplied()

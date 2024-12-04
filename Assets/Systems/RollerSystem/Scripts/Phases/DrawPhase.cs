@@ -36,11 +36,16 @@ public class DrawPhase : Phase
     {
         base.InternalOnEnable();
         EventManager.onEventButtonPressed += OnEventButtonPressed;
-        UIManagement.instance.OpenCurtain();
+
+        int currentRound = RoundManager.instance.GetCurrentRound();
+        if (!Array.Exists(eventRounds, round => round == currentRound))
+        {
+            UIManagement.instance.OpenCurtain();
+        }
     }
 
     protected override void BeginPhase()
-    {    
+    {
         if (RoundManager.instance.GetCurrentRound() == 1)
         {
             allyDrawnInCurrentAct = false;
@@ -168,15 +173,15 @@ public class DrawPhase : Phase
     }
 
     private GameObject[] GetAct3BossParts(int index)
-{
-    return index switch
     {
-        0 => act3Boss0,
-        1 => act3Boss1,
-        2 => act3Boss2,
-        _ => act3Boss0 
-    };
-}
+        return index switch
+        {
+            0 => act3Boss0,
+            1 => act3Boss1,
+            2 => act3Boss2,
+            _ => act3Boss0
+        };
+    }
 
 
     private void DrawEvent()
@@ -201,12 +206,14 @@ public class DrawPhase : Phase
 
     private void OnEventButtonPressed()
     {
-        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount == 0)
         {
             StartNextRoundWithDelay();
+            UIManagement.instance.OpenCurtain();
             return;
         }
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
+        UIManagement.instance.OpenCurtain();
     }
 
     protected override void InternalOnDisable()

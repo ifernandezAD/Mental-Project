@@ -23,7 +23,7 @@ public class EnemyPhase : Phase
         {
             if (hasBoss)
             {
-                DOVirtual.DelayedCall(1, () => { StartRollerPhaseWithDelay(); });
+                DOVirtual.DelayedCall(0.5f, () => { StartRollerPhaseWithDelay(); });
             }
             else
             {
@@ -41,7 +41,6 @@ public class EnemyPhase : Phase
         AddContainerAttacksToSequence(attackSequence, enemyContainerUp);
         AddContainerAttacksToSequence(attackSequence, enemyContainerDown);
 
-        // Llamar al callback al completar la secuencia
         attackSequence.OnComplete(() =>
         {
             onComplete?.Invoke();

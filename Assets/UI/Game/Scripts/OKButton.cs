@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class OKButton : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class OKButton : MonoBehaviour
     {
         if (bossDefeated)
         {
-            PlayerPhase.instance.StartNextActWithDelay();
+            UIManagement.instance.CloseCurtain();
+            DOVirtual.DelayedCall(1, () => { PlayerPhase.instance.StartNextActWithDelay(); });
+
             PlayerPhase.instance.ResetBossPartsCount();
             bossDefeated = false;
             button.interactable = false;

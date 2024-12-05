@@ -10,41 +10,51 @@ public class EnemyPhase : Phase
     {
         characterHealth = characterCardContainer.GetChild(0).GetComponent<Health>();
 
-        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount==0)
+        if (enemyContainerFront.childCount == 0 && enemyContainerUp.childCount == 0 && enemyContainerDown.childCount == 0)
         {
             UIManagement.instance.CloseCurtain();
-            DOVirtual.DelayedCall(1, () =>{StartNextPhaseWithDelay();});    
+            DOVirtual.DelayedCall(1, () => { StartNextPhaseWithDelay(); });
             return;
         }
 
-        ManageMentalHealthDamageApplied();
-
-        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp)||HasBossCard(enemyContainerDown))
+        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp) || HasBossCard(enemyContainerDown))
         {
             Debug.Log("Boss new round started");
             StartRollerPhaseWithDelay();
             return;
         }
 
-        UIManagement.instance.CloseCurtain();
-        DOVirtual.DelayedCall(1, () =>{StartNextPhaseWithDelay();}); 
+        ManageMentalHealthDamageApplied();
     }
 
     private void ManageMentalHealthDamageApplied()
     {
-        ApplyAttacksFromContainer(enemyContainerFront);
+        Sequence attackSequence = DOTween.Sequence();
 
-        ApplyAttacksFromContainer(enemyContainerUp);
+        AddContainerAttacksToSequence(attackSequence, enemyContainerFront);
+        AddContainerAttacksToSequence(attackSequence, enemyContainerUp);
+        AddContainerAttacksToSequence(attackSequence, enemyContainerDown);
+
+        attackSequence.OnComplete(() =>
+        {
+            UIManagement.instance.CloseCurtain();
+            DOVirtual.DelayedCall(1, () => { StartNextPhaseWithDelay(); });
+        });
     }
 
-    private void ApplyAttacksFromContainer(Transform container)
+    private void AddContainerAttacksToSequence(Sequence sequence, Transform container)
     {
-        for (int i = 0; i < container.childCount; i++)
+        foreach (Transform enemy in container)
         {
-            CombatBehaviour combatBehaviour = container.GetChild(i).GetComponent<CombatBehaviour>();
+            CombatBehaviour combatBehaviour = enemy.GetComponent<CombatBehaviour>();
             if (combatBehaviour != null)
             {
-                combatBehaviour.Attack();
+                sequence.AppendCallback(() =>
+                {
+                    combatBehaviour.Attack();
+                });
+                
+                sequence.AppendInterval(1f);
             }
         }
     }
@@ -56,7 +66,7 @@ public class EnemyPhase : Phase
             CardDisplay cardDisplay = child.GetComponent<CardDisplay>();
             if (cardDisplay != null && cardDisplay.card.isBoss)
             {
-                return true;  
+                return true;
             }
         }
         return false;

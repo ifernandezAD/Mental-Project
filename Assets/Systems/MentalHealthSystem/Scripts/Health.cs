@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
@@ -200,4 +201,27 @@ public class Health : MonoBehaviour
     }
 
     #endregion
+
+
+    private void AnimateLivesText()
+    {
+        float originalScale = livesText.transform.localScale.x;
+        float enlargedScale = originalScale * 1.2f;
+        float animationDuration = 0.2f;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(livesText.transform.DOScale(enlargedScale, animationDuration).SetEase(Ease.OutBack));
+        sequence.Append(livesText.transform.DOScale(originalScale, animationDuration).SetEase(Ease.InBack));
+    }
+
+    private void AnimateResilienceText()
+    {
+        float originalScale = resilienceText.transform.localScale.x;
+        float enlargedScale = originalScale * 1.2f;
+        float animationDuration = 0.2f;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(resilienceText.transform.DOScale(enlargedScale, animationDuration).SetEase(Ease.OutBack));
+        sequence.Append(resilienceText.transform.DOScale(originalScale, animationDuration).SetEase(Ease.InBack));
+    }
 }

@@ -17,17 +17,23 @@ public class EnemyPhase : Phase
             return;
         }
 
-        if (HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp) || HasBossCard(enemyContainerDown))
-        {
-            Debug.Log("Boss new round started");
-            StartRollerPhaseWithDelay();
-            return;
-        }
+        bool hasBoss = HasBossCard(enemyContainerFront) || HasBossCard(enemyContainerUp) || HasBossCard(enemyContainerDown);
 
-        ManageMentalHealthDamageApplied();
+        ManageMentalHealthDamageApplied(() =>
+        {
+            if (hasBoss)
+            {
+                DOVirtual.DelayedCall(1, () => { StartRollerPhaseWithDelay(); });
+            }
+            else
+            {
+                UIManagement.instance.CloseCurtain();
+                DOVirtual.DelayedCall(1, () => { StartNextPhaseWithDelay(); });
+            }
+        });
     }
 
-    private void ManageMentalHealthDamageApplied()
+    private void ManageMentalHealthDamageApplied(Action onComplete)
     {
         Sequence attackSequence = DOTween.Sequence();
 
@@ -35,10 +41,10 @@ public class EnemyPhase : Phase
         AddContainerAttacksToSequence(attackSequence, enemyContainerUp);
         AddContainerAttacksToSequence(attackSequence, enemyContainerDown);
 
+        // Llamar al callback al completar la secuencia
         attackSequence.OnComplete(() =>
         {
-            UIManagement.instance.CloseCurtain();
-            DOVirtual.DelayedCall(1, () => { StartNextPhaseWithDelay(); });
+            onComplete?.Invoke();
         });
     }
 
@@ -53,7 +59,7 @@ public class EnemyPhase : Phase
                 {
                     combatBehaviour.Attack();
                 });
-                
+
                 sequence.AppendInterval(1f);
             }
         }

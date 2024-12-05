@@ -48,6 +48,12 @@ public class Health : MonoBehaviour
     public void RemoveHealth(int damage)
     {
         int effectiveDamage = HandleDamageReduction(damage);
+
+          if (effectiveDamage > 0) 
+        {
+            AnimateLivesText(); 
+        }
+
         ApplyDamage(effectiveDamage);
         CheckForRelicEffects(effectiveDamage);
         HandleCardDeath();
@@ -55,6 +61,11 @@ public class Health : MonoBehaviour
 
     public void RemoveHealthNoResilience(int damage)
     {
+          if (damage > 0) 
+        {
+            AnimateLivesText(); 
+        }
+
         ApplyDamage(damage);
         HandleCardDeath();
     }
@@ -73,6 +84,12 @@ public class Health : MonoBehaviour
         }
 
         int damageAfterResilience = Mathf.Max(0, damage - resilience);
+
+        if (resilience > 0) 
+        {
+            AnimateResilienceText(); 
+        }
+
         resilience = Mathf.Max(0, resilience - damage);
         UpdateResilienceText();
 

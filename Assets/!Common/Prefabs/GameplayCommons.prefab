@@ -167,6 +167,7 @@ MonoBehaviour:
   - {fileID: 3041392704543151470}
   - {fileID: 1648688732312520914}
   - {fileID: 3204723265021189398}
+  flashbackEventPopup: {fileID: 4068958806791299795}
   eventContainer: {fileID: 2384212578028859944}
   allyEventPopup: {fileID: 3037873239820317463}
 --- !u!114 &9066439388552797577
@@ -901,6 +902,11 @@ GameObject:
 --- !u!224 &3524729008611330304 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353984580976572401, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4068958806791299795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898218792614616098, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
   m_PrefabInstance: {fileID: 2458978138567081713}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4545159255959611980 stripped

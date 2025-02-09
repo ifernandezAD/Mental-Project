@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class DrawPhase : Phase
 {
@@ -31,6 +32,10 @@ public class DrawPhase : Phase
 
     [Header("Relics")]
     public static Action onEventTriggered;
+
+    [Header("Flashbacks")]
+    [SerializeField] GameObject flashbackEventPopup;
+    [SerializeField] private float flashbackProbability = 0.5f;
 
     protected override void InternalOnEnable()
     {
@@ -78,7 +83,7 @@ public class DrawPhase : Phase
         {
             if (actNumber == 3 && RoundManager.instance.allyCardContainer.childCount >= 2)
             {
-                DrawEvent();
+                DrawGeneralEvent();
                 return;
             }
 
@@ -89,7 +94,7 @@ public class DrawPhase : Phase
             }
             else
             {
-                DrawEvent();
+                DrawGeneralEvent();
             }
         }
         else
@@ -183,25 +188,26 @@ public class DrawPhase : Phase
         };
     }
 
-
-    private void DrawEvent()
-    {
-        DrawGeneralEvent();
-    }
-
     private void DrawAllyEvent()
     {
-        allyEventPopup.SetActive(true);
-        onEventTriggered?.Invoke();
+        // Usamos la función genérica para el evento aliado
+        DrawEventWithFlashback(() =>
+        {
+            allyEventPopup.SetActive(true);
+            onEventTriggered?.Invoke();
+        });
     }
 
     private void DrawGeneralEvent()
     {
-        int randomIndex = UnityEngine.Random.Range(0, eventsPopupArray.Length);
-        GameObject selectedEvent = eventsPopupArray[randomIndex];
-        selectedEvent.SetActive(true);
-
-        onEventTriggered?.Invoke();
+        // Usamos la función genérica para el evento general
+        DrawEventWithFlashback(() =>
+        {
+            int randomIndex = UnityEngine.Random.Range(0, eventsPopupArray.Length);
+            GameObject selectedEvent = eventsPopupArray[randomIndex];
+            selectedEvent.SetActive(true);
+            onEventTriggered?.Invoke();
+        });
     }
 
     private void OnEventButtonPressed()
@@ -215,6 +221,39 @@ public class DrawPhase : Phase
         StartCoroutine(StartNextPhaseWithDelayCorroutine());
         UIManagement.instance.OpenCurtain();
     }
+
+    #region Flashbacks Management
+    private void ShowFlashback()
+    {
+        flashbackEventPopup.SetActive(true);
+        DOVirtual.DelayedCall(1f, () =>{flashbackEventPopup.SetActive(false); });    
+    }
+
+    private void DrawEventWithFlashback(Action eventAction)
+    {
+        if (ShouldTriggerFlashback())
+        {
+
+            ShowFlashback();
+            DOVirtual.DelayedCall(1f, () =>
+            {
+                eventAction?.Invoke();
+            });
+        }
+        else
+        {
+            eventAction?.Invoke();
+        }
+    }
+    private bool ShouldTriggerFlashback()
+    {
+        return UnityEngine.Random.value <= flashbackProbability;
+    }
+    public void ChangeProbability(float newProbability)
+    {
+        flashbackProbability = Mathf.Clamp01(newProbability);
+    }
+    #endregion
 
     protected override void InternalOnDisable()
     {

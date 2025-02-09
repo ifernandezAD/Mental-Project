@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayCommons
       objectReference: {fileID: 0}
-    - target: {fileID: 1852926902206992352, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901307379889921014, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3117750773265143654, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -179,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7413156019120316313, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: availableCharacters.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413156019120316313, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
-      propertyPath: 'availableCharacters.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2199714607687294015, guid: ac038a0d2c4abff44805bde09ec03126, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

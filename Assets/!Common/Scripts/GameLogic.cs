@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public GameObject[] availableCharacters; 
     [SerializeField] public Transform bubblesContainer;
     [SerializeField] public Transform allyContainer;
+    [SerializeField] public Transform enemyContainer;
     [SerializeField] public Transform objectContainer;
     [SerializeField] public Transform relicContainer;
 

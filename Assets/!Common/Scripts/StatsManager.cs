@@ -8,6 +8,7 @@ public class StatsManager : MonoBehaviour
     [Header("References")]
     private GameObject mainCharacterCard;
     private Transform allyContainer;
+    private Transform enemyContainer;
 
     void Awake()
     {
@@ -17,11 +18,12 @@ public class StatsManager : MonoBehaviour
     {
         mainCharacterCard = GameLogic.instance.mainCharacterCard;
         allyContainer = GameLogic.instance.allyContainer;
+        enemyContainer = GameLogic.instance.enemyContainer;
     }
 
     public void ApplyDamageToRandomTarget(int damage)
     {
-        List<Health> possibleTargets = GetAllPossibleTargets();
+        List<Health> possibleTargets = GetAllPossibleFriendlyTargets();
 
         if (possibleTargets.Count > 0)
         {
@@ -32,7 +34,7 @@ public class StatsManager : MonoBehaviour
 
     public void ApplyDamageToRandomTargetNoResilience(int damage)
     {
-        List<Health> possibleTargets = GetAllPossibleTargets();
+        List<Health> possibleTargets = GetAllPossibleFriendlyTargets();
 
         if (possibleTargets.Count > 0)
         {
@@ -43,7 +45,7 @@ public class StatsManager : MonoBehaviour
 
     public void ReduceStaminaForAll(int amount)
     {
-        List<Health> allTargets = GetAllPossibleTargets();
+        List<Health> allTargets = GetAllPossibleFriendlyTargets();
 
         foreach (Health target in allTargets)
         {
@@ -57,7 +59,7 @@ public class StatsManager : MonoBehaviour
 
     public void HealAllAlliesAndPlayer(int healingAmount)
     {
-        List<Health> allTargets = GetAllPossibleTargets();
+        List<Health> allTargets = GetAllPossibleFriendlyTargets();
 
         foreach (Health target in allTargets)
         {
@@ -65,7 +67,7 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    public List<Health> GetAllPossibleTargets()
+    public List<Health> GetAllPossibleFriendlyTargets()
     {
         List<Health> possibleTargets = new List<Health>();
 
@@ -86,4 +88,22 @@ public class StatsManager : MonoBehaviour
 
         return possibleTargets;
     }
+
+    public List<GameObject> GetAllEnemyTargets()
+{
+    List<GameObject> enemyCards = new List<GameObject>();
+
+    for (int i = 0; i < enemyContainer.childCount; i++)
+    {
+        Transform enemySlot = enemyContainer.GetChild(i);
+        if (enemySlot.childCount > 0) // Asegura que el slot tiene una carta
+        {
+            GameObject enemyCard = enemySlot.GetChild(0).gameObject;
+            enemyCards.Add(enemyCard);
+        }
+    }
+
+    return enemyCards;
+}
+
 }

@@ -301,8 +301,10 @@ MonoBehaviour:
   availableCharacters:
   - {fileID: 7528662163785288729, guid: 85f8fd8af7b1ac94c88de179acc3d0b4, type: 3}
   - {fileID: 7528662163785288729, guid: bc9c0fd7ac4895c4fbb0162d4d216083, type: 3}
+  - {fileID: 2199714607687294015, guid: ac038a0d2c4abff44805bde09ec03126, type: 3}
   bubblesContainer: {fileID: 0}
   allyContainer: {fileID: 8898394700778858366}
+  enemyContainer: {fileID: 1255593601085561638}
   objectContainer: {fileID: 6707409831831196493}
   relicContainer: {fileID: 7403937888669853039}
 --- !u!114 &6237406775622350115
@@ -720,6 +722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3117750773265143654}
     m_Modifications:
+    - target: {fileID: 4054021879924991239, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
       value: UI
@@ -851,6 +857,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1255593601085561638 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3696549489583629783, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+  m_PrefabInstance: {fileID: 2458978138567081713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1648688732312520914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3801418774239819299, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}

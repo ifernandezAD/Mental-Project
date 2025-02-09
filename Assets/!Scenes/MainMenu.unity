@@ -7644,7 +7644,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1306765532589055721, guid: 6ba22d0f336c1744799c5e3e70ce9c46, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1306765532589055721, guid: 6ba22d0f336c1744799c5e3e70ce9c46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

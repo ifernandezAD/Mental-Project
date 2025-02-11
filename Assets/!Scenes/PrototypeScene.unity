@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &1342267734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1924789508403205194, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+  m_PrefabInstance: {fileID: 5137238834213799204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88390f0f2a8ab84087b2f455758e78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5137238834213799204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 7251761764502615461, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1342267734}
+    - target: {fileID: 7251761764502615461, guid: 1e5ee54141796c54ea70617a4e8bd6de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AllyObtained
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

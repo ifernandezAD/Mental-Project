@@ -79,6 +79,6 @@ public class AllyEvent : MonoBehaviour
 
     private void OnDisable()
     {
-        allyTemplate.SetActive(false);
+        allyTemplate.SetActive(false);    
     }
 }

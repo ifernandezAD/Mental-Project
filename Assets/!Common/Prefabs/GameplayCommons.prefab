@@ -167,9 +167,10 @@ MonoBehaviour:
   - {fileID: 3041392704543151470}
   - {fileID: 1648688732312520914}
   - {fileID: 3204723265021189398}
-  flashbackEventPopup: {fileID: 4068958806791299795}
   eventContainer: {fileID: 2384212578028859944}
   allyEventPopup: {fileID: 3037873239820317463}
+  flashbackEventPopup: {fileID: 4068958806791299795}
+  flashbackProbability: 0.5
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +728,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5081016344825940820, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5475265656022607884, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
       propertyPath: m_Name
       value: UI
@@ -815,7 +820,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1736272643989368005, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
+    - {fileID: 315201937126625662, guid: 14489437e74376f40bb3a67eb9af59b8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

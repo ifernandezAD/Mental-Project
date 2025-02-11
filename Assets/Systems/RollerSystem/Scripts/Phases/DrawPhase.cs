@@ -35,7 +35,7 @@ public class DrawPhase : Phase
 
     [Header("Flashbacks")]
     [SerializeField] GameObject flashbackEventPopup;
-    [SerializeField] private float flashbackProbability = 0.5f;
+    [SerializeField] private float flashbackProbability = 0.9f;
 
     protected override void InternalOnEnable()
     {
@@ -190,7 +190,6 @@ public class DrawPhase : Phase
 
     private void DrawAllyEvent()
     {
-        // Usamos la función genérica para el evento aliado
         DrawEventWithFlashback(() =>
         {
             allyEventPopup.SetActive(true);
@@ -200,7 +199,6 @@ public class DrawPhase : Phase
 
     private void DrawGeneralEvent()
     {
-        // Usamos la función genérica para el evento general
         DrawEventWithFlashback(() =>
         {
             int randomIndex = UnityEngine.Random.Range(0, eventsPopupArray.Length);

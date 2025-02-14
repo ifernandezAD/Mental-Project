@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StatsEvent : MonoBehaviour
+public class StatsEvent : GenericEvent
 {
     [Header("References")]
     private GameObject characterCard;

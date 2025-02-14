@@ -1,13 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SymbolEvent : MonoBehaviour
+public class SymbolEvent : GenericEvent
 {
     [SerializeField] GameObject[] symbolsPrefabs; 
     [SerializeField] Transform symbolContainer;
 
     private void OnEnable()
     {
+         if (IsFlashback)
+        {
+            Debug.Log("Este evento proviene de un flashback.");
+        }
+
         SelectRandomSymbols();
     }
 

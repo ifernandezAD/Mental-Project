@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConsumableEvent : MonoBehaviour
+public class ConsumableEvent : GenericEvent
 {
     [SerializeField] ConsumableObject[] consumablesPool;
     [SerializeField] GameObject[] consumablePrefabs;
@@ -16,6 +16,11 @@ public class ConsumableEvent : MonoBehaviour
 
     private void OnEnable()
     {
+         if (IsFlashback)
+        {
+            Debug.Log("Este evento proviene de un flashback.");
+        }
+
         ActivateDummies(true);
         SelectRandomConsumableObjects();
     }

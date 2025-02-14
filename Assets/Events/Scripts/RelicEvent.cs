@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RelicEvent : MonoBehaviour
+public class RelicEvent : GenericEvent
 {
     [SerializeField] RelicObject[] relicsPool;
     [SerializeField] GameObject[] relicsPrefabs;
@@ -16,6 +16,11 @@ public class RelicEvent : MonoBehaviour
 
     private void OnEnable()
     {
+         if (IsFlashback)
+        {
+            Debug.Log("Este evento proviene de un flashback.");
+        }
+
         ActivateDummies(true);
         SelectRandomConsumableObjects();
     }

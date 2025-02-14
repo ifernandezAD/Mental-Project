@@ -190,20 +190,22 @@ public class DrawPhase : Phase
 
     private void DrawAllyEvent()
     {
-        DrawEventWithFlashback(() =>
+        DrawEventWithFlashback((bool isFlashback) =>
         {
             allyEventPopup.SetActive(true);
+            allyEventPopup.GetComponent<GenericEvent>()?.Initialize(isFlashback);
             onEventTriggered?.Invoke();
         });
     }
 
     private void DrawGeneralEvent()
     {
-        DrawEventWithFlashback(() =>
+        DrawEventWithFlashback((bool isFlashback) =>
         {
             int randomIndex = UnityEngine.Random.Range(0, eventsPopupArray.Length);
             GameObject selectedEvent = eventsPopupArray[randomIndex];
             selectedEvent.SetActive(true);
+            selectedEvent.GetComponent<GenericEvent>()?.Initialize(isFlashback);
             onEventTriggered?.Invoke();
         });
     }
@@ -224,23 +226,21 @@ public class DrawPhase : Phase
     private void ShowFlashback()
     {
         flashbackEventPopup.SetActive(true);
-        DOVirtual.DelayedCall(1f, () =>{flashbackEventPopup.SetActive(false); });    
+        DOVirtual.DelayedCall(1f, () => { flashbackEventPopup.SetActive(false); });
     }
 
-    private void DrawEventWithFlashback(Action eventAction)
+    private void DrawEventWithFlashback(Action<bool> eventAction)
     {
-        if (ShouldTriggerFlashback())
-        {
+        bool isFlashback = ShouldTriggerFlashback();
 
+        if (isFlashback)
+        {
             ShowFlashback();
-            DOVirtual.DelayedCall(1f, () =>
-            {
-                eventAction?.Invoke();
-            });
+            DOVirtual.DelayedCall(1f, () => eventAction?.Invoke(true));
         }
         else
         {
-            eventAction?.Invoke();
+            eventAction?.Invoke(false);
         }
     }
     private bool ShouldTriggerFlashback()

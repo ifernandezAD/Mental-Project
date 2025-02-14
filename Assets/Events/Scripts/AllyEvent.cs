@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllyEvent : MonoBehaviour
+public class AllyEvent : GenericEvent
 {
     [SerializeField] Card[] alliesPool;
     [SerializeField] GameObject[] allyArray;
@@ -22,6 +22,11 @@ public class AllyEvent : MonoBehaviour
 
     private void OnEnable()
     {
+        if (IsFlashback)
+        {
+            Debug.Log("Este evento proviene de un flashback.");
+        }
+
         SelectRandomAllyCard();
         allyTemplate.SetActive(true);
     }

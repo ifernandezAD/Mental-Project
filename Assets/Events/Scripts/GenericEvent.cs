@@ -7,5 +7,6 @@ public class GenericEvent : MonoBehaviour
     public void Initialize(bool isFlashback)
     {
         IsFlashback = isFlashback;
+        Debug.Log($"Evento inicializado. Es flashback: {IsFlashback}");
     }
 }

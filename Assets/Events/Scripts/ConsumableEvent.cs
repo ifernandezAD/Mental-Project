@@ -16,11 +16,6 @@ public class ConsumableEvent : GenericEvent
 
     private void OnEnable()
     {
-         if (IsFlashback)
-        {
-            Debug.Log("Este evento proviene de un flashback.");
-        }
-
         ActivateDummies(true);
         SelectRandomConsumableObjects();
     }

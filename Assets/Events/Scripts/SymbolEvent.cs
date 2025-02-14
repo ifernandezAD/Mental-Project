@@ -8,11 +8,6 @@ public class SymbolEvent : GenericEvent
 
     private void OnEnable()
     {
-         if (IsFlashback)
-        {
-            Debug.Log("Este evento proviene de un flashback.");
-        }
-
         SelectRandomSymbols();
     }
 

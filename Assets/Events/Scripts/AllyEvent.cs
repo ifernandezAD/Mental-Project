@@ -22,11 +22,6 @@ public class AllyEvent : GenericEvent
 
     private void OnEnable()
     {
-        if (IsFlashback)
-        {
-            Debug.Log("Este evento proviene de un flashback.");
-        }
-
         SelectRandomAllyCard();
         allyTemplate.SetActive(true);
     }

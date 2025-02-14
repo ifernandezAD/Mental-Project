@@ -35,7 +35,7 @@ public class DrawPhase : Phase
 
     [Header("Flashbacks")]
     [SerializeField] GameObject flashbackEventPopup;
-    [SerializeField] private float flashbackProbability = 0.9f;
+    [SerializeField] private float flashbackProbability = 0.5f;
 
     protected override void InternalOnEnable()
     {

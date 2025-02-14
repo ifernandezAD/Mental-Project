@@ -54,6 +54,20 @@ public class AllyEvent : GenericEvent
             GameObject selectedAlly = remainingAllies[allyIndex];
             Instantiate(selectedAlly, allyContainer);
 
+            if(IsFlashback)
+            {
+                if(IsGoodFlashback)
+                {
+                    selectedAlly.GetComponent<Skill>().MaxOutStamina();
+                    Debug.Log("Good ally event triggered");
+                }
+                else
+                {
+                    selectedAlly.GetComponent<Health>().HalveHealth();
+                    Debug.Log("Bad ally event triggered");
+                }
+            }
+
             remainingAllies.RemoveAt(allyIndex);
             remainingAllyCards.RemoveAt(allyIndex);
         }

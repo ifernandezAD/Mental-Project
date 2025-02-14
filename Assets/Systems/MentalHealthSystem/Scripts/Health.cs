@@ -76,6 +76,12 @@ public class Health : MonoBehaviour
         HandleCardDeath();
     }
 
+    public void HalveHealth()
+    {
+        currentLives = Mathf.CeilToInt(currentLives / 2f);
+        UpdateLivesText();
+    }
+
     private void ApplyDamage(int damage)
     {
         currentLives -= damage;
@@ -253,8 +259,8 @@ public class Health : MonoBehaviour
     {
         if (damageEffect == null || cardDisplay.card.cardType == Card.CardType.Enemy) return;
 
-        damageEffect.SetActive(true); 
-        Invoke(nameof(DeactivateDamageEffect), effectDuration); 
+        damageEffect.SetActive(true);
+        Invoke(nameof(DeactivateDamageEffect), effectDuration);
     }
 
     private void DeactivateDamageEffect()

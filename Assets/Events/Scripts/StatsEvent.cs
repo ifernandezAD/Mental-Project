@@ -8,9 +8,9 @@ public class StatsEvent : GenericEvent
     private Skill skill;
 
     [Header("Variables")]
-    [SerializeField] int healthAmount = 2;
-    [SerializeField] int resilienceAmount = 2;
-    [SerializeField] int staminaAmount = 3;
+    [SerializeField] int defaultHealthAmount = 2;
+    [SerializeField] int defaultResilienceAmount = 2;
+    [SerializeField] int defaultStaminaAmount = 3;
 
     void Start()
     {
@@ -21,16 +21,35 @@ public class StatsEvent : GenericEvent
 
     public void AddHealthEvent()
     {
-        health.AddHealth(healthAmount);
+        health.AddHealth(GetAmountForStat(defaultHealthAmount));
     }
 
     public void AddResilienceEvent()
     {
-        health.AddResilience(resilienceAmount);
+        health.AddResilience(GetAmountForStat(defaultResilienceAmount));
     }
 
     public void AddStaminaEvent()
     {
-        skill.IncreaseStamina(staminaAmount);
+        skill.IncreaseStamina(GetAmountForStat(defaultStaminaAmount));
+    }
+
+    private int GetAmountForStat(int defaultAmount)
+    {
+        if (IsFlashback)
+        {
+            if (IsGoodFlashback)
+            {
+                return defaultAmount + 1; 
+            }
+            else
+            {
+                return Mathf.Max(1, defaultAmount - 1); 
+            }
+        }
+        else
+        {
+            return defaultAmount; 
+        }
     }
 }

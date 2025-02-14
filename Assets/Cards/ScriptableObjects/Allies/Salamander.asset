@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 1
   cardName: Salamander
   art: {fileID: -6473013637101471423, guid: 874fb1837d1be9b4eba48966d95ca9d2, type: 3}
-  maxHealth: 3
+  maxHealth: 4
   staminaCost: 3
   skillName: Agile Regeneration
   skillDescription: Heal 1 point to all team

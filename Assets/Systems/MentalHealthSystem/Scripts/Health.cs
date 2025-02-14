@@ -79,7 +79,7 @@ public class Health : MonoBehaviour
     public void HalveHealth()
     {
         currentLives = Mathf.CeilToInt(currentLives / 2f);
-        UpdateLivesText();
+        UpdateLivesText();      
     }
 
     private void ApplyDamage(int damage)

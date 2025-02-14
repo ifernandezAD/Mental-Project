@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AllyEvent : GenericEvent
 {
@@ -52,20 +53,21 @@ public class AllyEvent : GenericEvent
         if (allyIndex >= 0 && allyIndex < remainingAllies.Count)
         {
             GameObject selectedAlly = remainingAllies[allyIndex];
-            Instantiate(selectedAlly, allyContainer);
+            GameObject cloneAlly = Instantiate(selectedAlly, allyContainer);
 
-            if(IsFlashback)
+            if (IsFlashback)
             {
-                if(IsGoodFlashback)
+                DOVirtual.DelayedCall(0.1f, () =>
+            {
+                if (IsGoodFlashback)
                 {
-                    selectedAlly.GetComponent<Skill>().MaxOutStamina();
-                    Debug.Log("Good ally event triggered");
+                    cloneAlly.GetComponent<Skill>().MaxOutStamina();
                 }
                 else
                 {
-                    selectedAlly.GetComponent<Health>().HalveHealth();
-                    Debug.Log("Bad ally event triggered");
+                    cloneAlly.GetComponent<Health>().HalveHealth();
                 }
+            });
             }
 
             remainingAllies.RemoveAt(allyIndex);

@@ -94,6 +94,7 @@ public abstract class Skill : MonoBehaviour
     public void MaxOutStamina()
     {
         currentStamina = maxStamina;
+        UpdateStaminaDisplay();
     }
 
     public void ResetStamina()

@@ -14,7 +14,6 @@ public class CardDisplay : MonoBehaviour
     [Header("Enemy References")]
     [SerializeField] public TextMeshProUGUI attackText;
 
-
     void Start()
     {
         cardArt.sprite = card.art;

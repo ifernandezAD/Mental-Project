@@ -10,7 +10,7 @@ public class StatsEvent : GenericEvent
     [Header("Variables")]
     [SerializeField] int defaultHealthAmount = 2;
     [SerializeField] int defaultResilienceAmount = 2;
-    [SerializeField] int defaultStaminaAmount = 3;
+    [SerializeField] int defaultStaminaAmount = 2;
 
     void Start()
     {

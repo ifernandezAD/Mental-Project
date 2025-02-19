@@ -7,6 +7,8 @@ public class RelicEvent : GenericEvent
     [SerializeField] RelicObject[] relicsPool;
     [SerializeField] GameObject[] relicsPrefabs;
     [SerializeField] GameObject[] relicsDummies;
+    [SerializeField] RelicObject relicBad;
+    [SerializeField] GameObject relicBadPrefab;
     private Transform relicContainer;
 
     private void Awake()

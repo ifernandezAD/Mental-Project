@@ -7,6 +7,7 @@ public class ConsumableEvent : GenericEvent
     [SerializeField] ConsumableObject[] consumablesPool;
     [SerializeField] GameObject[] consumablePrefabs;
     [SerializeField] GameObject[] consumableDummies;
+    [SerializeField] GameObject consumableBad;
     private Transform objectContainer;
 
     private void Awake()
@@ -16,9 +17,9 @@ public class ConsumableEvent : GenericEvent
 
     public override void Initialize(bool isFlashback)
     {
-        base.Initialize(isFlashback); // Llama a la inicialización base
+        base.Initialize(isFlashback); 
 
-        SelectRandomConsumableObjects(); // Se ejecuta solo después de que IsFlashback tenga el valor correcto
+        SelectRandomConsumableObjects(); 
     }
 
 

@@ -465,15 +465,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58dbfe0b3f9708a4c8afc004a653e870, type: 2}
   - {fileID: 11400000, guid: 6f62e74d3981c404b8143c666633659d, type: 2}
   consumablePrefabs:
-  - {fileID: 5206830937338341937, guid: 1fed7e1f6e1232a4a8d01c81b3372f31, type: 3}
-  - {fileID: 6323156793433842587, guid: 56b087de77032ba48a4e9ecff96fbca2, type: 3}
-  - {fileID: 6738889156594523736, guid: a0befb2489f0daf47bb7d9b842f2b63e, type: 3}
-  - {fileID: 6641797608843985973, guid: 079cc9fb59d345c4eace493400af7c6e, type: 3}
+  - {fileID: 1847981313259838865, guid: 677f5daa95ba7e04cb3c74ac96e2ca10, type: 3}
+  - {fileID: 5734387259328644197, guid: 540903ec3c85db34aa16d929cfea25f9, type: 3}
+  - {fileID: 1393566815070734621, guid: 364570083fc38994b86d77807b4668d8, type: 3}
+  - {fileID: 6141902364773761241, guid: df98d2b96a2ebe14db4f6749fb9d0a1c, type: 3}
   - {fileID: 1277767875965610937, guid: 36802b7adac81634192c9cae54d0a823, type: 3}
   consumableDummies:
   - {fileID: 2812609211942929472}
   - {fileID: 4863475280115929650}
   - {fileID: 4121787682055045987}
+  consumableBad: {fileID: 5819894734000617018, guid: 4e63bfdf9f6301a4e8705acb9b500cc2, type: 3}
 --- !u!1 &9070451209285874331
 GameObject:
   m_ObjectHideFlags: 0

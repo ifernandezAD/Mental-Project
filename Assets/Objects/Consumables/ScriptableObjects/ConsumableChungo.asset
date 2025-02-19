@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcf6afd11024644b9a67f9a2ebab2d2, type: 3}
+  m_Name: ConsumableChungo
+  m_EditorClassIdentifier: 
+  index: 5
+  consumableName: Consumable Chungo
+  consumableDescription: Es Chungo
+  consumableArt: {fileID: -4098628875230246518, guid: a98d906d63d69dc4cb842cb42b21505f, type: 3}

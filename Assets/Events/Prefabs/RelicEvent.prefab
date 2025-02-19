@@ -317,6 +317,8 @@ MonoBehaviour:
   - {fileID: 7320532041862156828}
   - {fileID: 40575167956392610}
   - {fileID: 2377849662966759038}
+  relicBad: {fileID: 11400000, guid: d2cc84ddc2e83424181c32b4e885aef6, type: 2}
+  relicBadPrefab: {fileID: 1722062215492479624, guid: 41951ffc0ee34174dadbb822a09fff0d, type: 3}
 --- !u!1 &3598154273118130001
 GameObject:
   m_ObjectHideFlags: 0

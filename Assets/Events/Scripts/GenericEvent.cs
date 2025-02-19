@@ -11,7 +11,7 @@ public class GenericEvent : MonoBehaviour
 
         if (IsFlashback)
         {
-            IsGoodFlashback = Random.value < 0.9f; //Cambiar luego a 0.5, testing ahora
+            IsGoodFlashback = Random.value < 0.1f; //Cambiar luego a 0.5, testing ahora
             Debug.Log($"Evento de flashback inicializado. Es flashback: {IsFlashback}, Es bueno: {IsGoodFlashback}");
         }
         else

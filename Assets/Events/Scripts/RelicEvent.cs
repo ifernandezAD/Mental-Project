@@ -16,10 +16,10 @@ public class RelicEvent : GenericEvent
         relicContainer = GameLogic.instance.relicContainer;
     }
 
-    private void OnEnable()
+    public override void Initialize(bool isFlashback)
     {
-        ActivateDummies(true);
-        SelectRandomConsumableObjects();
+        base.Initialize(isFlashback);
+        SelectRandomRelicObjects();
     }
 
     private void OnDisable()
@@ -27,19 +27,29 @@ public class RelicEvent : GenericEvent
         ActivateDummies(false);
     }
 
-    private void ActivateDummies(bool isActive)
+    private void ActivateDummies(bool isActive, int activeCount = 0)
     {
-        foreach (var dummy in relicsDummies)
+        for (int i = 0; i < relicsDummies.Length; i++)
         {
-            dummy.SetActive(isActive);
+            relicsDummies[i].SetActive(isActive && i < activeCount);
         }
     }
 
-    private void SelectRandomConsumableObjects()
+    private void SelectRandomRelicObjects()
     {
-        if (relicsPool.Length < relicsDummies.Length)
+        if (IsFlashback && !IsGoodFlashback) // Flashback malo
         {
-            Debug.LogWarning("No hay suficientes consumibles en el pool.");
+            SetBadDummyRelic(relicsDummies[0], relicBad);
+            ActivateDummies(true, 1); // Solo activa un dummy
+            return;
+        }
+
+        // Flashback bueno o evento normal
+        int relicsToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
+
+        if (relicsPool.Length < relicsToSelect)
+        {
+            Debug.LogWarning("No hay suficientes reliquias en el pool.");
             return;
         }
 
@@ -49,19 +59,20 @@ public class RelicEvent : GenericEvent
             availableIndices.Add(i);
         }
 
-        for (int i = 0; i < relicsDummies.Length; i++)
+        for (int i = 0; i < relicsToSelect; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableIndices.Count);
-            int selectedConsumableIndex = availableIndices[randomIndex];
+            int selectedRelicIndex = availableIndices[randomIndex];
 
-            SetDummyConsumable(relicsDummies[i], relicsPool[selectedConsumableIndex]);
+            SetDummyRelic(relicsDummies[i], relicsPool[selectedRelicIndex]);
 
             availableIndices.RemoveAt(randomIndex);
         }
+
+        ActivateDummies(true, relicsToSelect);
     }
 
-
-    private void SetDummyConsumable(GameObject dummy, RelicObject relic)
+    private void SetDummyRelic(GameObject dummy, RelicObject relic)
     {
         RelicDisplay relicDisplay = dummy.GetComponent<RelicDisplay>();
 
@@ -70,26 +81,45 @@ public class RelicEvent : GenericEvent
 
         Button dummyButton = dummy.GetComponent<Button>();
         dummyButton.onClick.RemoveAllListeners();
-        dummyButton.onClick.AddListener(() => OnConsumableClick(relic));
+        dummyButton.onClick.AddListener(() => OnRelicClick(relic));
     }
 
-    public void OnConsumableClick(RelicObject relic)
+    private void SetBadDummyRelic(GameObject dummy, RelicObject badRelic)
     {
+        RelicDisplay relicDisplay = dummy.GetComponent<RelicDisplay>();
 
-        int consumableIndex = relic.index;
+        relicDisplay.relicObject = badRelic;
+        relicDisplay.relicArt.sprite = badRelic.relicArt;
 
+        Button dummyButton = dummy.GetComponent<Button>();
+        dummyButton.onClick.RemoveAllListeners();
+        dummyButton.onClick.AddListener(() => OnRelicClick(badRelic));
+    }
 
-        if (consumableIndex >= 0 && consumableIndex < relicsPrefabs.Length)
+    public void OnRelicClick(RelicObject relic)
+    {
+        GameObject selectedPrefab;
+
+        if (relic == relicBad)
         {
-            GameObject selectedPrefab = relicsPrefabs[consumableIndex];
-            Instantiate(selectedPrefab, relicContainer);
-
-            Debug.Log("Consumable instantiated: " + selectedPrefab.name);
+            selectedPrefab = relicBadPrefab;
         }
         else
         {
-            Debug.LogWarning("Índice de consumible fuera de rango o inválido.");
-        }
-    }
+            int relicIndex = relic.index;
 
+            if (relicIndex >= 0 && relicIndex < relicsPrefabs.Length)
+            {
+                selectedPrefab = relicsPrefabs[relicIndex];
+            }
+            else
+            {
+                Debug.LogWarning("Índice de reliquia fuera de rango o inválido.");
+                return;
+            }
+        }
+
+        Instantiate(selectedPrefab, relicContainer);
+        Debug.Log("Relic instantiated: " + selectedPrefab.name);
+    }
 }

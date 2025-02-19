@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 8392750334599509961, guid: b115d67a85e833e4b8bf1fdeade1e122, type: 3}
   - {fileID: 4063562809346598252, guid: 7962ec7bd15277b4dac82d49bb695b8a, type: 3}
   - {fileID: 8544247434253788545, guid: 3cb2cceafed4e8445b442f397cd3fc5d, type: 3}
+  badSymbolPrefab: {fileID: 1962681330041394164, guid: 4b547818a7786aa498729794724c383f, type: 3}
   symbolContainer: {fileID: 6591488182350442097}
 --- !u!1 &2869265903442156564
 GameObject:

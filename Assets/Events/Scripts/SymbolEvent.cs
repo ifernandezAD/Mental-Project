@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class SymbolEvent : GenericEvent
 {
-    [SerializeField] GameObject[] symbolsPrefabs; 
+    [SerializeField] GameObject[] symbolsPrefabs;
+    [SerializeField] GameObject badSymbolPrefab;
     [SerializeField] Transform symbolContainer;
 
     private void OnEnable()

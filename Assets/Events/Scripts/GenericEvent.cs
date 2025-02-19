@@ -5,13 +5,13 @@ public class GenericEvent : MonoBehaviour
     public bool IsFlashback { get; private set; }
     public bool IsGoodFlashback { get; private set; } 
 
-    public void Initialize(bool isFlashback)
+    public virtual void Initialize(bool isFlashback)
     {
         IsFlashback = isFlashback;
 
         if (IsFlashback)
         {
-            IsGoodFlashback = Random.value < 0.5f; 
+            IsGoodFlashback = Random.value < 0.1f; //Cambiar luego a 0.5, testing ahora
             Debug.Log($"Evento de flashback inicializado. Es flashback: {IsFlashback}, Es bueno: {IsGoodFlashback}");
         }
         else

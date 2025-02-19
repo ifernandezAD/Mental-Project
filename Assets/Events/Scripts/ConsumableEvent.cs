@@ -14,28 +14,32 @@ public class ConsumableEvent : GenericEvent
         objectContainer = GameLogic.instance.objectContainer;
     }
 
-    private void OnEnable()
+    public override void Initialize(bool isFlashback)
     {
-        ActivateDummies(true);
-        SelectRandomConsumableObjects();
+        base.Initialize(isFlashback); // Llama a la inicialización base
+
+        SelectRandomConsumableObjects(); // Se ejecuta solo después de que IsFlashback tenga el valor correcto
     }
+
 
     private void OnDisable()
     {
         ActivateDummies(false);
     }
 
-    private void ActivateDummies(bool isActive)
+    private void ActivateDummies(bool isActive, int activeCount = 0)
     {
-        foreach (var dummy in consumableDummies)
+        for (int i = 0; i < consumableDummies.Length; i++)
         {
-            dummy.SetActive(isActive);
+            consumableDummies[i].SetActive(isActive && i < activeCount);
         }
     }
 
     private void SelectRandomConsumableObjects()
     {
-        if (consumablesPool.Length < consumableDummies.Length)
+        int consumablesToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
+
+        if (consumablesPool.Length < consumablesToSelect)
         {
             Debug.LogWarning("No hay suficientes consumibles en el pool.");
             return;
@@ -47,7 +51,7 @@ public class ConsumableEvent : GenericEvent
             availableIndices.Add(i);
         }
 
-        for (int i = 0; i < consumableDummies.Length; i++)
+        for (int i = 0; i < consumablesToSelect; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableIndices.Count);
             int selectedConsumableIndex = availableIndices[randomIndex];
@@ -56,8 +60,9 @@ public class ConsumableEvent : GenericEvent
 
             availableIndices.RemoveAt(randomIndex);
         }
-    }
 
+        ActivateDummies(true, consumablesToSelect);
+    }
 
     private void SetDummyConsumable(GameObject dummy, ConsumableObject consumable)
     {
@@ -67,16 +72,14 @@ public class ConsumableEvent : GenericEvent
         consumableDisplay.consumableArt.sprite = consumable.consumableArt;
 
         Button dummyButton = dummy.GetComponent<Button>();
-        dummyButton.onClick.RemoveAllListeners(); 
-        dummyButton.onClick.AddListener(() => OnConsumableClick(consumable)); 
+        dummyButton.onClick.RemoveAllListeners();
+        dummyButton.onClick.AddListener(() => OnConsumableClick(consumable));
     }
 
     public void OnConsumableClick(ConsumableObject consumable)
     {
-        
         int consumableIndex = consumable.index;
 
-        
         if (consumableIndex >= 0 && consumableIndex < consumablePrefabs.Length)
         {
             GameObject selectedPrefab = consumablePrefabs[consumableIndex];
@@ -89,5 +92,4 @@ public class ConsumableEvent : GenericEvent
             Debug.LogWarning("Índice de consumible fuera de rango o inválido.");
         }
     }
-
 }

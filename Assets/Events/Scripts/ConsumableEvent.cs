@@ -37,14 +37,13 @@ public class ConsumableEvent : GenericEvent
 
     private void SelectRandomConsumableObjects()
     {
-        if (IsFlashback && !IsGoodFlashback) // Flashback malo
+        if (IsFlashback && !IsGoodFlashback) 
         {
             SetBadDummyConsumable(consumableDummies[0], consumableBad);
-            ActivateDummies(true, 1); // Solo activa un dummy
+            ActivateDummies(true, 1); 
             return;
         }
 
-        // Flashback bueno o evento normal
         int consumablesToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
 
         if (consumablesPool.Length < consumablesToSelect)

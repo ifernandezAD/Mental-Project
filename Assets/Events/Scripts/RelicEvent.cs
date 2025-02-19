@@ -37,14 +37,13 @@ public class RelicEvent : GenericEvent
 
     private void SelectRandomRelicObjects()
     {
-        if (IsFlashback && !IsGoodFlashback) // Flashback malo
+        if (IsFlashback && !IsGoodFlashback) 
         {
             SetBadDummyRelic(relicsDummies[0], relicBad);
-            ActivateDummies(true, 1); // Solo activa un dummy
+            ActivateDummies(true, 1); 
             return;
         }
 
-        // Flashback bueno o evento normal
         int relicsToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
 
         if (relicsPool.Length < relicsToSelect)

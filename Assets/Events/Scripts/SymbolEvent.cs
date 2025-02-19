@@ -7,8 +7,9 @@ public class SymbolEvent : GenericEvent
     [SerializeField] GameObject badSymbolPrefab;
     [SerializeField] Transform symbolContainer;
 
-    private void OnEnable()
+    public override void Initialize(bool isFlashback)
     {
+        base.Initialize(isFlashback);
         SelectRandomSymbols();
     }
 
@@ -19,7 +20,15 @@ public class SymbolEvent : GenericEvent
 
     private void SelectRandomSymbols()
     {
-        if (symbolsPrefabs.Length < 3)
+        if (IsFlashback && !IsGoodFlashback) 
+        {
+            InstantiateSymbol(badSymbolPrefab);
+            return;
+        }
+
+        int symbolsToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
+
+        if (symbolsPrefabs.Length < symbolsToSelect)
         {
             Debug.LogWarning("No hay suficientes símbolos en el pool.");
             return;
@@ -31,7 +40,7 @@ public class SymbolEvent : GenericEvent
             availableIndices.Add(i);
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < symbolsToSelect; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableIndices.Count);
             int selectedSymbolIndex = availableIndices[randomIndex];
@@ -44,7 +53,7 @@ public class SymbolEvent : GenericEvent
 
     private void InstantiateSymbol(GameObject symbolPrefab)
     {
-        GameObject symbolInstance = Instantiate(symbolPrefab, symbolContainer);
+        Instantiate(symbolPrefab, symbolContainer);
     }
 
     private void ClearSymbols()

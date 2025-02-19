@@ -474,7 +474,8 @@ MonoBehaviour:
   - {fileID: 2812609211942929472}
   - {fileID: 4863475280115929650}
   - {fileID: 4121787682055045987}
-  consumableBad: {fileID: 5819894734000617018, guid: 4e63bfdf9f6301a4e8705acb9b500cc2, type: 3}
+  consumableBad: {fileID: 11400000, guid: 4070d99fe2f59974a8d392ab7f295dee, type: 2}
+  consumableBadPrefab: {fileID: 5819894734000617018, guid: 4e63bfdf9f6301a4e8705acb9b500cc2, type: 3}
 --- !u!1 &9070451209285874331
 GameObject:
   m_ObjectHideFlags: 0

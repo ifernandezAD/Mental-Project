@@ -7,7 +7,8 @@ public class ConsumableEvent : GenericEvent
     [SerializeField] ConsumableObject[] consumablesPool;
     [SerializeField] GameObject[] consumablePrefabs;
     [SerializeField] GameObject[] consumableDummies;
-    [SerializeField] GameObject consumableBad;
+    [SerializeField] ConsumableObject consumableBad;
+    [SerializeField] GameObject consumableBadPrefab;
     private Transform objectContainer;
 
     private void Awake()
@@ -17,11 +18,9 @@ public class ConsumableEvent : GenericEvent
 
     public override void Initialize(bool isFlashback)
     {
-        base.Initialize(isFlashback); 
-
-        SelectRandomConsumableObjects(); 
+        base.Initialize(isFlashback);
+        SelectRandomConsumableObjects();
     }
-
 
     private void OnDisable()
     {
@@ -38,6 +37,14 @@ public class ConsumableEvent : GenericEvent
 
     private void SelectRandomConsumableObjects()
     {
+        if (IsFlashback && !IsGoodFlashback) // Flashback malo
+        {
+            SetBadDummyConsumable(consumableDummies[0], consumableBad);
+            ActivateDummies(true, 1); // Solo activa un dummy
+            return;
+        }
+
+        // Flashback bueno o evento normal
         int consumablesToSelect = (IsFlashback && IsGoodFlashback) ? 3 : 1;
 
         if (consumablesPool.Length < consumablesToSelect)
@@ -77,20 +84,42 @@ public class ConsumableEvent : GenericEvent
         dummyButton.onClick.AddListener(() => OnConsumableClick(consumable));
     }
 
+    private void SetBadDummyConsumable(GameObject dummy, ConsumableObject badConsumable)
+    {
+        ConsumableDisplay consumableDisplay = dummy.GetComponent<ConsumableDisplay>();
+
+        consumableDisplay.consumableObject = badConsumable;
+        consumableDisplay.consumableArt.sprite = badConsumable.consumableArt;
+
+        Button dummyButton = dummy.GetComponent<Button>();
+        dummyButton.onClick.RemoveAllListeners();
+        dummyButton.onClick.AddListener(() => OnConsumableClick(badConsumable));
+    }
+
     public void OnConsumableClick(ConsumableObject consumable)
     {
-        int consumableIndex = consumable.index;
+        GameObject selectedPrefab;
 
-        if (consumableIndex >= 0 && consumableIndex < consumablePrefabs.Length)
+        if (consumable == consumableBad)
         {
-            GameObject selectedPrefab = consumablePrefabs[consumableIndex];
-            Instantiate(selectedPrefab, objectContainer);
-
-            Debug.Log("Consumable instantiated: " + selectedPrefab.name);
+            selectedPrefab = consumableBadPrefab;
         }
         else
         {
-            Debug.LogWarning("Índice de consumible fuera de rango o inválido.");
+            int consumableIndex = consumable.index;
+
+            if (consumableIndex >= 0 && consumableIndex < consumablePrefabs.Length)
+            {
+                selectedPrefab = consumablePrefabs[consumableIndex];
+            }
+            else
+            {
+                Debug.LogWarning("Índice de consumible fuera de rango o inválido.");
+                return;
+            }
         }
+
+        Instantiate(selectedPrefab, objectContainer);
+        Debug.Log("Consumable instantiated: " + selectedPrefab.name);
     }
 }

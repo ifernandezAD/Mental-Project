@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotIndex: 0
   lockedImage: {fileID: 6939792239849961290}
+  damageLockedImage: {fileID: 6468105241637396716}
 --- !u!1 &6468105241637396716
 GameObject:
   m_ObjectHideFlags: 0

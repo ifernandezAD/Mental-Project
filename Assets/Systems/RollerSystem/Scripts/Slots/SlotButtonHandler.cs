@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class SlotButtonHandler : MonoBehaviour
 {
     [SerializeField] int slotIndex;
     [SerializeField] GameObject lockedImage;
+    [SerializeField] GameObject damageLockedImage;
     private Button button;
-
 
     void Start()
     {
@@ -19,7 +18,13 @@ public class SlotButtonHandler : MonoBehaviour
     {
         if (!Roller.instance.IsImageActiveInSlot(slotIndex))
         {
-            return; 
+            return;
+        }
+
+        if (Slots.instance.IsDamageLocked(slotIndex))
+        {
+            Debug.Log("No puedes interactuar con un slot bloqueado por Damage Lock.");
+            return;
         }
 
         if (Slots.instance.IsSlotLocked(slotIndex))
@@ -31,6 +36,14 @@ public class SlotButtonHandler : MonoBehaviour
         {
             Slots.instance.LockSlot(slotIndex);
             lockedImage.SetActive(true);
+        }
+    }
+
+    public void ApplyDamageLock(bool state)
+    {
+        if (damageLockedImage != null)
+        {
+            damageLockedImage.SetActive(state);
         }
     }
 }

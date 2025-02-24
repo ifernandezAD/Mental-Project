@@ -18,9 +18,6 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public Transform relicContainer;
     [SerializeField] public DrawPhase drawPhase;
 
-    [Header("BossesEffects")]
-    private bool isDamagedLocked = false;
-
     void Awake()
     {
         instance = this;
@@ -32,21 +29,5 @@ public class GameLogic : MonoBehaviour
         GameObject selectedCharacter = Instantiate(availableCharacters[selectedCharacterIndex], characterContainer);
         mainCharacterCard = selectedCharacter;
     }
-
-    #region BossEffects
-    public void ActivateDamageLocks() 
-    {
-        isDamagedLocked = true;
-    }
-    public void DeactivateDamageLocks()
-    {
-        isDamagedLocked = false;
-    }
-    public bool CheckDamageLockStatus() 
-    {
-        return isDamagedLocked;
-    }
-
-    #endregion
 
 }

@@ -16,6 +16,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] public Transform enemyContainer;
     [SerializeField] public Transform objectContainer;
     [SerializeField] public Transform relicContainer;
+    [SerializeField] public DrawPhase drawPhase;
 
 
     void Awake()

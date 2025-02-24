@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class BirdMentalHealthEffects : MentalHealthEffects
 {
+    private DrawPhase drawPhase;
+
+    private void Awake()
+    {
+        drawPhase = GameLogic.instance.drawPhase;
+    }
+
     public override void TriggerFirstActMentalHealthEffects()
     {
-        //Establecer 25% de Flashback
+        drawPhase.ChangeProbability(0.25f);
     }
 
     public override void TriggerSecondActMentalHealthEffects()
     {
-        //Establecer 50% de Flashback
+        drawPhase.ChangeProbability(0.50f);
     }
 
     public override void TriggerThirdActMentalHealthEffects()
     {
-        //Establecer 75% de Flashback
+        drawPhase.ChangeProbability(0.75f);
     }
 }

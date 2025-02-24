@@ -163,14 +163,14 @@ MonoBehaviour:
   act3Boss2: []
   testingBossPrefab: {fileID: 913416788796525990, guid: fae7014c4d2fd9f488a43d049330a8b8, type: 3}
   eventsPopupArray:
+  - {fileID: 1648688732312520914}
   - {fileID: 8441580080197012405}
   - {fileID: 3041392704543151470}
   - {fileID: 3204723265021189398}
-  - {fileID: 1648688732312520914}
   eventContainer: {fileID: 2384212578028859944}
   allyEventPopup: {fileID: 3037873239820317463}
   flashbackEventPopup: {fileID: 4068958806791299795}
-  flashbackProbability: 0.5
+  flashbackProbability: 0.25
 --- !u!114 &9066439388552797577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   enemyContainer: {fileID: 1255593601085561638}
   objectContainer: {fileID: 6707409831831196493}
   relicContainer: {fileID: 7403937888669853039}
+  drawPhase: {fileID: 8240592582235315514}
 --- !u!114 &6237406775622350115
 MonoBehaviour:
   m_ObjectHideFlags: 0

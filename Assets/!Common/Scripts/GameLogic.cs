@@ -42,6 +42,11 @@ public class GameLogic : MonoBehaviour
     {
         isDamagedLocked = false;
     }
+    public bool CheckDamageLockStatus() 
+    {
+        return isDamagedLocked;
+    }
+
     #endregion
 
 }

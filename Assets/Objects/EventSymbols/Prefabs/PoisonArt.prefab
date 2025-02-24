@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -5093456296672973781, guid: 82a80efe0a155604ca1acd4a7ec82ef1, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 9017628986933755684, guid: f48b305d89626bb4d94bb65576b9b065, type: 3}
+      objectReference: {fileID: 3924023272180707825, guid: a437ca1b2a4031044a574deef0684f80, type: 3}
     - target: {fileID: -5093456296672973781, guid: 82a80efe0a155604ca1acd4a7ec82ef1, type: 3}
       propertyPath: imageType
       value: 3
@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: -8580692116087063368, guid: 1f9f7097732f80c4381d71f559d78301, type: 3}
     - target: {fileID: 2946070640763208915, guid: 82a80efe0a155604ca1acd4a7ec82ef1, type: 3}
       propertyPath: m_Name
-      value: PoisonArt Variant
+      value: PoisonArt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

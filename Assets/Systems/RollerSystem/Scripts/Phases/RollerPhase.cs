@@ -14,7 +14,7 @@ public class RollerPhase : Phase
     {
         rollButton.interactable=true;
         
-        Slots.instance.UnlockAllSlots();
+        Slots.instance.UnlockAllNormalSlots();
         Energy.instance.ResetEnergy();
         Roller.instance.DisableAllSlotImages();
     }

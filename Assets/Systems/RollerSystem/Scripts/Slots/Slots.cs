@@ -206,22 +206,18 @@ public class Slots : MonoBehaviour
         return false;
     }
 
-    public void UnlockAllSlots()
+    public void UnlockAllNormalSlots()
     {
         for (int i = 0; i < lockedSlots.Length; i++)
         {
             lockedSlots[i] = false;
-            damageLockedSlots[i] = false;
 
             Transform slot = slots.transform.GetChild(i);
-            Transform visuals = slot.GetChild(0);
+            Transform visuals = slot.GetChild(0); 
 
-            if (visuals != null)
+            if (visuals != null && visuals.childCount > 0)
             {
-                foreach (Transform image in visuals)
-                {
-                    image.gameObject.SetActive(false);
-                }
+                visuals.GetChild(0).gameObject.SetActive(false);
             }
         }
     }

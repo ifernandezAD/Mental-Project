@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: GoatTail
   art: {fileID: 8407233646922414516, guid: 8640ce3d78d495741b181b64708bee5c, type: 3}
-  maxHealth: 1
+  maxHealth: 5
   staminaCost: 0
-  skillName: Body Attack
-  skillDescription: Do Sumething
+  skillName: Dark Lash
+  skillDescription: Tail attack ignores resilience.
   attack: 1
   isBoss: 1

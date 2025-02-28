@@ -15,9 +15,9 @@ MonoBehaviour:
   cardType: 2
   cardName: GoatBody
   art: {fileID: 5534808408738905154, guid: 8dc65869384787b408eeed97d5640602, type: 3}
-  maxHealth: 1
+  maxHealth: 4
   staminaCost: 0
-  skillName: Body Attack
-  skillDescription: Do Sumething
-  attack: 1
+  skillName: Horrendous Howl
+  skillDescription: Reduces roller energy to 2 rolls next phase
+  attack: 2
   isBoss: 1

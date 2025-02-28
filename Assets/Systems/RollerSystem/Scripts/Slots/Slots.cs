@@ -124,6 +124,14 @@ public class Slots : MonoBehaviour
         }
     }
 
+    public void UnlockDamageLock(int slotIndex)
+    {
+        if (slotIndex >= 0 && slotIndex < damageLockedSlots.Length)
+        {
+            damageLockedSlots[slotIndex] = false;
+        }
+    }
+
     public void ApplyDamageLockToRandomSlots()
     {
         List<int> availableSlots = new List<int>();

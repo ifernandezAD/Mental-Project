@@ -90,14 +90,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: m_Name
-      value: GoatHorns Variant
+      value: GoatHorns
       objectReference: {fileID: 0}
     - target: {fileID: 9146376925995587020, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: c994f0c1baea0b44cad7eaa021819270, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7257991301758015689, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 5832524770531151578}
   m_SourcePrefab: {fileID: 100100000, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+--- !u!114 &5896874450404213716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5044682022860926463, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 1718025967102275115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8160494481476009246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 1718025967102275115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5832524770531151578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160494481476009246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248962bc4d5f6c04b96dc0268ca9766f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackText: {fileID: 5896874450404213716}
+  attackMoveDistance: 0.5
+  attackDuration: 0.2
+  returnDuration: 0.1

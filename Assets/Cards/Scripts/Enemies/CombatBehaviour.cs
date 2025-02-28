@@ -56,18 +56,14 @@ public class CombatBehaviour : MonoBehaviour
     {
         Vector3 originalPosition = transform.position;
 
-        // Crear secuencia de animación
         Sequence attackSequence = DOTween.Sequence();
 
-        // Mover hacia adelante
         attackSequence.Append(transform.DOMove(originalPosition + Vector3.up * attackMoveDistance, attackDuration)
             .SetEase(Ease.OutQuad));
 
-        // Retroceder a la posición original
         attackSequence.Append(transform.DOMove(originalPosition, returnDuration)
             .SetEase(Ease.InQuad));
 
-        // Callback al completar la animación
         attackSequence.OnComplete(() => onComplete?.Invoke());
     }
 }

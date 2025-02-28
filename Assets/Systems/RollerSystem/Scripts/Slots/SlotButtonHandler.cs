@@ -8,6 +8,8 @@ public class SlotButtonHandler : MonoBehaviour
     [SerializeField] GameObject damageLockedImage;
     private Button button;
 
+    [SerializeField] int lockedDamageDamage = 1;
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -23,7 +25,10 @@ public class SlotButtonHandler : MonoBehaviour
 
         if (Slots.instance.IsDamageLocked(slotIndex))
         {
-            Debug.Log("No puedes interactuar con un slot bloqueado por Damage Lock.");
+            GameLogic.instance.mainCharacterCard.GetComponent<Health>().RemoveHealth(lockedDamageDamage);
+
+            Slots.instance.UnlockDamageLock(slotIndex);
+            ApplyDamageLock(false);
             return;
         }
 

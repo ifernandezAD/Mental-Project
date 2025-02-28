@@ -90,14 +90,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: m_Name
-      value: GoatBody Variant
+      value: GoatBody
       objectReference: {fileID: 0}
     - target: {fileID: 9146376925995587020, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 0c9ef6a90854c5442a5929838aa8d0b4, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7257991301758015689, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 7357497465617613756}
   m_SourcePrefab: {fileID: 100100000, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+--- !u!1 &979068888095191372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7415249341816673077, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 7745654842472948345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7357497465617613756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979068888095191372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03759023930662f45a0d7dbeecdc3a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackText: {fileID: 3277590939552370566}
+  attackMoveDistance: 0.5
+  attackDuration: 0.2
+  returnDuration: 0.1
+--- !u!114 &3277590939552370566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5044682022860926463, guid: 0b0fe60cb68cea44b88c06b2c66b405f, type: 3}
+  m_PrefabInstance: {fileID: 7745654842472948345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

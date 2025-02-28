@@ -18,6 +18,9 @@ public class Energy : MonoBehaviour
     [SerializeField] bool testRemoveEnergy;
     [SerializeField] bool testResetEnergy;
 
+    [Header("Act I Boss Skill")]
+    private bool energyRemoved = false;
+
     void OnValidate()
     {
         if (testAddEnergy)
@@ -61,9 +64,17 @@ public class Energy : MonoBehaviour
     }
     public void ResetEnergy()
     {
-        currentEnergy = maxEnergy;
-        energyText.text = "Energy: " + maxEnergy;
-
+        if (energyRemoved)
+        {
+            currentEnergy = maxEnergy - 1;
+            energyText.text = "Energy: " + currentEnergy;
+            energyRemoved = false;
+        }
+        else 
+        {
+            currentEnergy = maxEnergy;
+            energyText.text = "Energy: " + maxEnergy;
+        }
         onResetEnergy?.Invoke();
     }
 
@@ -77,4 +88,18 @@ public class Energy : MonoBehaviour
         return currentEnergy;
     }
 
+    public void ChangeEnergyRemovedStatus(bool status) 
+    {
+        energyRemoved = status;
+    }
+
+    public void ShowMaxEnergy() 
+    {
+        energyText.text = "Energy: " + maxEnergy;
+    }
+
+    public void ShowDecreasedEnergy()
+    {
+        energyText.text = "Energy: " + (maxEnergy - 1);
+    }
 }

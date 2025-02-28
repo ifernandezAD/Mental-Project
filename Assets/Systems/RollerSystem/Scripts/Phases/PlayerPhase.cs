@@ -55,6 +55,7 @@ public class PlayerPhase : Phase
 
         okButton.interactable = false;
         BubblesManager.instance.DestroyAllBubbles();
+        Slots.instance.UnlockAllDamageLocks();
         onPlayerPhaseEnded?.Invoke();
     }
 }

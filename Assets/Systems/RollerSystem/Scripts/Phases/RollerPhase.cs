@@ -23,6 +23,7 @@ public class RollerPhase : Phase
     {
         base.InternalOnDisable();
         OKButton.onOKButtonPressed -= StartNextPhaseWithDelay;
+        Energy.instance.ShowMaxEnergy();
     }
 
 

@@ -222,6 +222,24 @@ public class Slots : MonoBehaviour
         }
     }
 
+    public void UnlockAllDamageLocks()
+    {
+        for (int i = 0; i < damageLockedSlots.Length; i++)
+        {
+            damageLockedSlots[i] = false;
+
+            Transform slot = slots.transform.GetChild(i);
+            Transform visuals = slot.GetChild(0); 
+
+            if (visuals != null && visuals.childCount > 1)
+            {
+                visuals.GetChild(1).gameObject.SetActive(false);
+            }
+        }
+
+        Debug.Log("Todos los Damage Locks han sido desbloqueados.");
+    }
+
     void ResetSlot(int slotIndex)
     {
         if (slotIndex >= 0 && slotIndex < slots.transform.childCount)

@@ -52,7 +52,7 @@ public class CombatBehaviour : MonoBehaviour
         attackText.text = enemyDamage.ToString();
     }
 
-    private void AnimateAttack(Action onComplete)
+    protected void AnimateAttack(Action onComplete)
     {
         Vector3 originalPosition = transform.position;
 

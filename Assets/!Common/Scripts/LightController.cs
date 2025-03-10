@@ -12,15 +12,38 @@ public class LightController : MonoBehaviour
     [SerializeField] private float flashDuration = 0.5f;
     [SerializeField] private float flashIntensity = 15f;
 
-    [SerializeField] private int currentLightLevel;
+    private int currentLightLevel;
     private const int MAX_LIGHT_LEVEL = 3;
     private const int MIN_LIGHT_LEVEL = 0;
 
     private float currentIntensity;
 
+    [Header("Initial Intensity")]
+    [SerializeField] private int initialLightLevel = 1; 
+    [SerializeField] private float lightDecreasingDuration = 0.5f;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void OnEnable()
+    {
+        SetFirstBossLightIntensity();
+    }
+
+
+    public void SetFirstBossLightIntensity()
+    {
+        currentIntensity = globalLight.intensity;
+        //float targetIntensity = lightIntensityLevels[MIN_LIGHT_LEVEL + 1];
+        float targetIntensity = 0.1f;
+        DOTween.Kill(globalLight);
+        DOTween.To(() => currentIntensity, x =>
+        {
+            currentIntensity = x;
+            globalLight.intensity = currentIntensity;
+        }, targetIntensity, lightDecreasingDuration);
     }
 
     public void IncreaseLight()
@@ -51,12 +74,9 @@ public class LightController : MonoBehaviour
 
     private void UpdateLightIntensity()
     {
-        // Invertimos el índice para que el nivel más alto (MAX) corresponda a la intensidad más baja
         float targetIntensity = lightIntensityLevels[MAX_LIGHT_LEVEL - currentLightLevel];
 
-        DOTween.Kill(globalLight); // Detiene cualquier Tween anterior para evitar acumulaciones
-
-        // Usamos DOTween para animar el cambio de intensidad
+        DOTween.Kill(globalLight);  
         DOTween.To(() => currentIntensity, x =>
         {
             currentIntensity = x;

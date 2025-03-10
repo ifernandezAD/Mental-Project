@@ -1,5 +1,5 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
@@ -7,18 +7,20 @@ public class LightController : MonoBehaviour
 
     [Header("Light Settings")]
     [SerializeField] private UnityEngine.Rendering.Universal.Light2D globalLight;
-    [SerializeField] private float[] lightIntensityLevels = { 1.0f, 0.75f, 0.5f, 0.2f }; 
-    [SerializeField] private float flashDuration = 0.5f; 
+    [SerializeField] private float[] lightIntensityLevels;
 
-    private int currentLightLevel = 1; 
+    [SerializeField] private float flashDuration = 0.5f;
+    [SerializeField] private float flashIntensity = 15f;
+
+    [SerializeField] private int currentLightLevel;
     private const int MAX_LIGHT_LEVEL = 3;
     private const int MIN_LIGHT_LEVEL = 0;
 
     private float currentIntensity;
+
     private void Awake()
     {
         instance = this;
-        UpdateLightIntensity();
     }
 
     public void IncreaseLight()
@@ -49,24 +51,30 @@ public class LightController : MonoBehaviour
 
     private void UpdateLightIntensity()
     {
-        float targetIntensity = lightIntensityLevels[currentLightLevel];
+        // Invertimos el índice para que el nivel más alto (MAX) corresponda a la intensidad más baja
+        float targetIntensity = lightIntensityLevels[MAX_LIGHT_LEVEL - currentLightLevel];
+
+        DOTween.Kill(globalLight); // Detiene cualquier Tween anterior para evitar acumulaciones
+
+        // Usamos DOTween para animar el cambio de intensidad
         DOTween.To(() => currentIntensity, x =>
         {
             currentIntensity = x;
             globalLight.intensity = currentIntensity;
+            Debug.Log($"Luz actualizada a: {currentIntensity} (Nivel: {currentLightLevel})");
         }, targetIntensity, 0.5f);
     }
 
     private void BlindingFlash()
     {
+        DOTween.Kill(globalLight);
         DOTween.To(() => currentIntensity, x =>
         {
             currentIntensity = x;
             globalLight.intensity = currentIntensity;
-        }, 1.5f, flashDuration).OnComplete(() =>
+        }, flashIntensity, flashDuration).OnComplete(() =>
         {
-            UpdateLightIntensity(); // Vuelve al nivel máximo después del flash
-            // Inflige 1 de daño al jugador aquí
+            UpdateLightIntensity(); 
         });
     }
 
@@ -74,7 +82,6 @@ public class LightController : MonoBehaviour
     {
         Debug.Log("Oscuridad total: El jefe se potencia");
     }
-
 
     #region Testing
     [Header("Test Controls")]
@@ -95,6 +102,5 @@ public class LightController : MonoBehaviour
             DecreaseLight();
         }
     }
-
     #endregion
 }
